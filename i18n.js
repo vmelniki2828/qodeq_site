@@ -20,6 +20,28 @@
   setTimeout(fix, 2000);
 })();
 
+// Mailto links: assembled from data-mail-user/data-mail-host at runtime instead of being
+// written as a plain "user@host" string in the HTML. Cloudflare's Email Address
+// Obfuscation (Scrape Shield) rewrites any literal email/mailto it finds in the raw
+// response into a "[email protected]" placeholder that only decodes back via Cloudflare's
+// own injected script — which real users' ad-blockers routinely block. Building the
+// address here means there's no literal email substring in the HTML for it to catch.
+(function () {
+  var fill = function () {
+    document.querySelectorAll('a[data-mail-user][data-mail-host]').forEach(function (a) {
+      var email = a.getAttribute('data-mail-user') + '@' + a.getAttribute('data-mail-host');
+      var subject = a.getAttribute('data-mail-subject');
+      a.setAttribute('href', 'mailto:' + email + (subject ? '?subject=' + encodeURIComponent(subject) : ''));
+      if (a.hasAttribute('data-mail-fill')) a.textContent = email;
+    });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fill);
+  else fill();
+  window.addEventListener('load', fill);
+  setTimeout(fill, 600);
+  setTimeout(fill, 2000);
+})();
+
 // Live chat: сообщения идут через наш же бэкенд (server/.../api/livechat/*), который
 // проксирует внутренний API инбокса Chatwoot — так весь диалог рендерится нашей
 // собственной вёрсткой (те же bubble()-пузыри, что и в AI-демо), без чужого iframe.
