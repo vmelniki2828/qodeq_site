@@ -1,0 +1,19 @@
+{
+  "name": "qodeq-lead-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Приём заявок с формы обратной связи QODEQ и отправка их на почту через SMTP",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemailer": "^6.9.16"
+  }
+}
