@@ -41,12 +41,6 @@
   @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; } }
 
-  /* Calculator results column — sticky only while it's actually a side column;
-     once the grid stacks to one column on narrow screens, sticky just gets in the way. */
-  @media (max-width: 900px) {
-    [data-calc-results] { position: static !important; max-height: none !important; overflow-y: visible !important; }
-  }
-
 
   /* Contact / feedback block — adaptive */
   [data-cta-grid] { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
@@ -1095,7 +1089,7 @@
     <p data-i18n="calc.kicker" data-reveal="" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">— INTERACTIVE MODEL</p>
     <h2 data-i18n="calc.title" data-reveal="" style="margin: 0 0 56px; max-width: 860px; font: 500 clamp(30px, 4.2vw, 60px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Your economics. Move the sliders.</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 34px;">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.chats" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">CHATS PER MONTH</span><span style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ chatsLabel }}</span></div>
@@ -1128,7 +1122,7 @@
         </div>
       </div>
 
-      <div data-calc-results="" style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 26px; position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 108px); overflow-y: auto;">
+      <div style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 26px;">
         <div>
           <p data-i18n="calc.without" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">WITHOUT AI · PEOPLE ONLY</p>
           <p style="margin: 0 0 8px; font: 500 clamp(30px, 3.4vw, 44px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #E8E6E1;">{{ costWithout }}</p>
@@ -1145,6 +1139,9 @@
           <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="calc.reduction" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61;">COST REDUCTION</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">{{ savePct }}</p></div>
           <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="calc.roi" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61;">SETUP PAYBACK</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">{{ payback }}</p></div>
         </div>
+      </div>
+
+      <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 26px;">
         <div>
           <p data-i18n="calc.break" style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">BREAKDOWN BY PRODUCT</p>
           <div style="display: flex; flex-direction: column;">
