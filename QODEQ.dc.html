@@ -38,6 +38,13 @@
 <script src="./i18n.js?v=26"></script>
 <style>
   html { scroll-behavior: smooth; }
+
+  /* Global "pressable" affordance — most buttons/links here only ever change on
+     click (JS-driven), so hovering one gave zero feedback. This adds a light,
+     universal hover/press feel without touching every element's own inline style. */
+  button, a[data-card], a[data-tab] { cursor: pointer; }
+  button:hover, a[data-card]:hover, a[data-tab]:hover { filter: brightness(1.18); }
+  button:active, a[data-card]:active, a[data-tab]:active { transform: scale(.97); filter: brightness(.92); }
   @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; } }
 

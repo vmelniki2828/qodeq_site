@@ -36,6 +36,10 @@
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #0A0A09; }
+
+  button, a[data-card], a[data-tab] { cursor: pointer; }
+  button:hover, a[data-card]:hover, a[data-tab]:hover { filter: brightness(1.18); }
+  button:active, a[data-card]:active, a[data-tab]:active { transform: scale(.97); filter: brightness(.92); }
   * { box-sizing: border-box; }
   html { scrollbar-color: rgba(79,209,165,.55) rgba(255,255,255,.04); scrollbar-width: thin; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
