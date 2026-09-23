@@ -41,6 +41,12 @@
   @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; } }
 
+  /* Calculator results column — sticky only while it's actually a side column;
+     once the grid stacks to one column on narrow screens, sticky just gets in the way. */
+  @media (max-width: 900px) {
+    [data-calc-results] { position: static !important; max-height: none !important; overflow-y: visible !important; }
+  }
+
 
   /* Contact / feedback block — adaptive */
   [data-cta-grid] { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
@@ -1122,7 +1128,7 @@
         </div>
       </div>
 
-      <div style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 26px;">
+      <div data-calc-results="" style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 26px; position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 108px); overflow-y: auto;">
         <div>
           <p data-i18n="calc.without" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">WITHOUT AI · PEOPLE ONLY</p>
           <p style="margin: 0 0 8px; font: 500 clamp(30px, 3.4vw, 44px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #E8E6E1;">{{ costWithout }}</p>
