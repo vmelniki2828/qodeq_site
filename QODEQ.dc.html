@@ -1527,25 +1527,48 @@ class Component extends DCLogic {
       btn.addEventListener('mouseenter', () => { if (btn.getAttribute('data-ptab') !== this.scCur) btn.style.background = '#0E0E0C'; });
       btn.addEventListener('mouseleave', () => { if (btn.getAttribute('data-ptab') !== this.scCur) btn.style.background = '#0A0A09'; });
     });
-    box.addEventListener('pointerdown', () => { this.scManual = true; if (this.scBar) this.scBar.style.width = '0%'; });
+    box.addEventListener('pointerdown', () => { this.scManual = true; if (this.scBar) { this.scBar.style.transition = 'none'; this.scBar.style.width = '0%'; } });
     this.scOrder.forEach(s => this.wirePanel(s));
     this.selectProduct('chat');
     const io = new IntersectionObserver(en => { this.scVisible = en[0].isIntersecting; }, { threshold: 0.2 });
     io.observe(box);
-    let t = 0;
+    // Полоска заполнения анимируется CSS-transition (композитор, 60fps), а не
+    // покадровым изменением width из JS каждые 100мс — раньше это давало
+    // заметный "рваный" ступенчатый ход на слабых устройствах.
+    const resetBar = () => {
+      if (!this.scBar) return;
+      this.scBar.style.transition = 'none';
+      this.scBar.style.width = '0%';
+    };
+    const fillBar = () => {
+      if (!this.scBar) return;
+      this.scBar.style.transition = 'none';
+      this.scBar.style.width = '0%';
+      void this.scBar.offsetWidth; // форсируем reflow, чтобы 0% успел примениться до transition
+      this.scBar.style.transition = 'width 11s linear';
+      this.scBar.style.width = '100%';
+    };
+    let running = false;
+    let startedAt = 0;
     this._auto = setInterval(() => {
       if (this.dead) return;
-      if (!this.scVisible || this.scManual) { t = 0; if (this.scBar) this.scBar.style.width = '0%'; return; }
-      t += 100;
-      if (this.scBar) this.scBar.style.width = Math.min(100, t / 110) + '%';
-      if (t >= 11000) { t = 0; const i = this.scOrder.indexOf(this.scCur); this.selectProduct(this.scOrder[(i + 1) % 5]); }
-    }, 100);
+      if (!this.scVisible || this.scManual) {
+        if (running) { running = false; resetBar(); }
+        return;
+      }
+      if (!running) { running = true; startedAt = Date.now(); fillBar(); return; }
+      if (Date.now() - startedAt >= 11000) {
+        running = false;
+        const i = this.scOrder.indexOf(this.scCur);
+        this.selectProduct(this.scOrder[(i + 1) % 5]);
+      }
+    }, 200);
   }
 
   selectProduct(slug) {
     this.scCur = slug;
     const c = this.SC[slug];
-    if (this.scBar) { this.scBar.style.width = '0%'; this.scBar.style.background = c; }
+    if (this.scBar) { this.scBar.style.transition = 'none'; this.scBar.style.width = '0%'; this.scBar.style.background = c; }
     document.querySelectorAll('[data-ptab]').forEach(btn => {
       const on = btn.getAttribute('data-ptab') === slug;
       btn.style.background = on ? '#0E0E0C' : '#0A0A09';
