@@ -330,6 +330,24 @@ app.get('/api/livechat/messages', async (req, res) => {
 // health-check
 app.get('/api/health', (req, res) => res.json({ ok: true }));
 
+// Чистые URL — зеркалит правила nginx с прода (location = /chat { try_files
+// /Product-Chat.dc.html ... }), только для локальной разработки: на проде
+// это уже делает nginx, сюда не попадает.
+const CLEAN_URLS = {
+  '/': 'QODEQ.dc.html',
+  '/chat': 'Product-Chat.dc.html',
+  '/qa-chat': 'Product-QA-Chat.dc.html',
+  '/payment': 'Product-Payment.dc.html',
+  '/qa-call': 'Product-QA-Call.dc.html',
+  '/voice': 'Product-Voice.dc.html',
+};
+for (const [route, file] of Object.entries(CLEAN_URLS)) {
+  app.get(route, (req, res) => {
+    res.set('Cache-Control', 'no-cache');
+    res.sendFile(file, { root: STATIC_DIR });
+  });
+}
+
 // ---------- статика сайта ----------
 app.use(express.static(STATIC_DIR, {
   dotfiles: 'ignore',

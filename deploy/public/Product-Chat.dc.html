@@ -35,11 +35,12 @@
 <script src="./i18n.js?v=26"></script>
 <style>
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: #0A0A09; }
+  body { margin: 0; background: #0A0A09; --btn-acc: #E8B23A; }
 
-  button, a[data-card], a[data-tab] { cursor: pointer; }
-  button:hover, a[data-card]:hover, a[data-tab]:hover { filter: brightness(1.18); }
-  button:active, a[data-card]:active, a[data-tab]:active { transform: scale(.97); filter: brightness(.92); }
+  button, a[data-tab], [data-btn] { cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease, filter .15s ease; }
+  button:hover, a[data-tab]:hover, [data-btn]:hover { background-color: var(--btn-acc, #E8B23A) !important; border-color: var(--btn-acc, #E8B23A) !important; color: #0A0A09 !important; }
+  button:hover *, a[data-tab]:hover *, [data-btn]:hover * { color: inherit !important; }
+  button:active, a[data-tab]:active, [data-btn]:active { background-color: var(--btn-acc, #E8B23A) !important; border-color: var(--btn-acc, #E8B23A) !important; color: #0A0A09 !important; filter: brightness(.82); }
   * { box-sizing: border-box; }
   html { scrollbar-color: rgba(232,178,58,.55) rgba(255,255,255,.04); scrollbar-width: thin; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -132,12 +133,12 @@
   <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
     <a href="/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" style="height: 40px; width: auto; display: block;" /></a>
     <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em;">
-      <a href="/chat" data-tab="chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579;"><span data-i18n="nav.chat">01 CHAT</span></a>
-      <a href="/qa-chat" data-tab="qa-chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579;"><span data-i18n="nav.qachat">02 QA CHAT</span></a>
-      <a href="/payment" data-tab="payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579;"><span data-i18n="nav.payment">03 PAYMENT</span></a>
-      <a href="/qa-call" data-tab="qa-call" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579;"><span data-i18n="nav.qacall">04 QA CALL</span></a>
-      <a href="/voice" data-tab="voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579;"><span data-i18n="nav.voice">05 VOICE</span></a>
-      <a href="/#calculator" style="padding: 8px 12px; border: 1px solid rgba(232,178,58,.5); color: #E8B23A;"><span data-i18n="nav.calc">CALCULATOR →</span></a>
+      <a href="/chat" data-tab="chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;"><span data-i18n="nav.chat">01 CHAT</span></a>
+      <a href="/qa-chat" data-tab="qa-chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;"><span data-i18n="nav.qachat">02 QA CHAT</span></a>
+      <a href="/payment" data-tab="payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579; --btn-acc: #5FA5F9;"><span data-i18n="nav.payment">03 PAYMENT</span></a>
+      <a href="/qa-call" data-tab="qa-call" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;"><span data-i18n="nav.qacall">04 QA CALL</span></a>
+      <a href="/voice" data-tab="voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;"><span data-i18n="nav.voice">05 VOICE</span></a>
+      <a href="/#calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(232,178,58,.5); color: #E8B23A;"><span data-i18n="nav.calc">CALCULATOR →</span></a>
     </nav>
     <div data-langbox="" style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
       <button data-lang="en" style="padding: 7px 11px; background: rgba(232,178,58,.14); border: 1px solid #E8B23A; color: #E8B23A; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">EN</button>
@@ -298,7 +299,7 @@
         <div><p data-i18n="calc.lbl.annual" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ANNUAL SAVING</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
         <div style="height: 10px; background: rgba(255,255,255,.05);"><div data-cbar="" style="height: 10px; width: 0%; background: #E8B23A; transition: width .35s cubic-bezier(.2,.7,.2,1);"></div></div>
         <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">—</p>
-        <a href="/#calculator" data-i18n="calc.cta" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">MODEL ALL FIVE AGENTS TOGETHER →</a>
+        <a href="/#calculator" data-i18n="calc.cta" data-btn="" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">MODEL ALL FIVE AGENTS TOGETHER →</a>
       </div>
     </div>
   </section>
@@ -311,9 +312,9 @@
         <p data-i18n="next.sub" style="margin: 0; max-width: 520px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A;">Send the volumes you modelled above and we return a fixed quote, an integration plan and a setup timeline within two working days.</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="next.cta1" style="padding: 17px 24px; background: #E8B23A; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">REQUEST A QUOTE</a>
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">MANAGER@SOFTQOD.COM</a>
-        <a href="https://t.me/qodeq" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">@QODEQ</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="next.cta1" data-btn="" style="padding: 17px 24px; background: #E8B23A; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">REQUEST A QUOTE</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">MANAGER@SOFTQOD.COM</a>
+        <a href="https://t.me/qodeq" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">@QODEQ</a>
       </div>
     </div>
   </section>

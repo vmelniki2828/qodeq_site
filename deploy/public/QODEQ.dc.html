@@ -39,12 +39,21 @@
 <style>
   html { scroll-behavior: smooth; }
 
-  /* Global "pressable" affordance — most buttons/links here only ever change on
-     click (JS-driven), so hovering one gave zero feedback. This adds a light,
-     universal hover/press feel without touching every element's own inline style. */
-  button, a[data-card], a[data-tab] { cursor: pointer; }
-  button:hover, a[data-card]:hover, a[data-tab]:hover { filter: brightness(1.18); }
-  button:active, a[data-card]:active, a[data-tab]:active { transform: scale(.97); filter: brightness(.92); }
+  /* Global "pressable" affordance — solid fill on hover (calm, no shadows/shifts),
+     darker fill on press. Color follows --btn-acc when a scope sets it (each product's
+     own accent), falling back to --acc, then gold. Overrides each element's own inline
+     colors on :hover only; the underlying inline style (incl. any JS-driven selected
+     state) is untouched. The `* { color: inherit }` rule fixes children that set their
+     own inline color (e.g. a gold label inside a button) so text stays readable on the
+     solid-fill background instead of going invisible. */
+  button, a[data-tab], [data-plan-chip], [data-cq], [data-btn] { cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease, filter .15s ease; }
+  button:hover, a[data-tab]:hover, [data-plan-chip]:hover, [data-cq]:hover, [data-btn]:hover { background-color: var(--btn-acc, var(--acc, #E8B23A)) !important; border-color: var(--btn-acc, var(--acc, #E8B23A)) !important; color: #0A0A09 !important; }
+  button:hover *, a[data-tab]:hover *, [data-plan-chip]:hover *, [data-cq]:hover *, [data-btn]:hover * { color: inherit !important; }
+  button:active, a[data-tab]:active, [data-plan-chip]:active, [data-cq]:active, [data-btn]:active { background-color: var(--btn-acc, var(--acc, #E8B23A)) !important; border-color: var(--btn-acc, var(--acc, #E8B23A)) !important; color: #0A0A09 !important; filter: brightness(.82); }
+
+  a[data-card] { cursor: pointer; transition: transform .2s ease, background-color .2s ease; }
+  a[data-card]:hover { transform: translateY(-4px); background-color: #0E0E0C; }
+  a[data-card]:active { transform: translateY(-1px); }
   @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; } }
 
@@ -371,7 +380,7 @@
     <p data-i18n="prod.sub" data-reveal="" data-delay="80" style="margin: 0 0 56px; max-width: 640px; font: 400 16px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Every agent works standalone or as part of the platform — sharing one knowledge base, one CRM context and one analytics layer.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-      <a href="/chat" data-reveal="" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #E8B23A; transition: background .35s, transform .35s;">
+      <a href="/chat" data-reveal="" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #E8B23A; transition: background .35s, transform .35s; --btn-acc: #E8B23A;">
         <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;"><span>01 / CHAT</span></div>
         <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name1">AI Chat Operator</h3>
         <p data-i18n="prod.d1" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">AI chatbot for automating customer support.</p>
@@ -380,7 +389,7 @@
           <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 1px solid rgba(232,178,58,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #E8B23A; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
         </div>
       </a>
-      <a href="/qa-chat" data-reveal="" data-delay="70" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #4FD1A5; transition: background .35s, transform .35s;">
+      <a href="/qa-chat" data-reveal="" data-delay="70" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #4FD1A5; transition: background .35s, transform .35s; --btn-acc: #4FD1A5;">
         <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;"><span>02 / QA CHAT</span></div>
         <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name2">AI QA System</h3>
         <p data-i18n="prod.d2" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Automatic quality control of chats — 100% instead of sampling.</p>
@@ -389,7 +398,7 @@
           <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 1px solid rgba(79,209,165,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #4FD1A5; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
         </div>
       </a>
-      <a href="/payment" data-reveal="" data-delay="140" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #5FA5F9; transition: background .35s, transform .35s;">
+      <a href="/payment" data-reveal="" data-delay="140" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #5FA5F9; transition: background .35s, transform .35s; --btn-acc: #5FA5F9;">
         <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;"><span>03 / PAYMENT</span></div>
         <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name3">AI Payment Assistant</h3>
         <p data-i18n="prod.d3" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Automating the handling of payment requests.</p>
@@ -398,7 +407,7 @@
           <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 1px solid rgba(95,165,249,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #5FA5F9; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
         </div>
       </a>
-      <a href="/qa-call" data-reveal="" data-delay="210" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #C084F5; transition: background .35s, transform .35s;">
+      <a href="/qa-call" data-reveal="" data-delay="210" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #C084F5; transition: background .35s, transform .35s; --btn-acc: #C084F5;">
         <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;"><span>04 / QA CALL</span></div>
         <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name4">AI Voice QA</h3>
         <p data-i18n="prod.d4" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Automatic quality control of calls.</p>
@@ -407,7 +416,7 @@
           <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border: 1px solid rgba(192,132,245,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #C084F5; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
         </div>
       </a>
-      <a href="/voice" data-reveal="" data-delay="280" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #F4794C; transition: background .35s, transform .35s;">
+      <a href="/voice" data-reveal="" data-delay="280" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #F4794C; transition: background .35s, transform .35s; --btn-acc: #F4794C;">
         <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;"><span>05 / VOICE</span></div>
         <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name5">AI Voice Bot</h3>
         <p data-i18n="prod.d5" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">AI voice bot for outbound and inbound calls.</p>
@@ -420,29 +429,29 @@
 
     <div data-showcase="" style="margin-top: 96px; border: 1px solid rgba(255,255,255,.09);">
       <div style="display: flex; flex-wrap: wrap; gap: 1px; background: rgba(255,255,255,.09);">
-      <button data-ptab="chat" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s;">
+      <button data-ptab="chat" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s; --btn-acc: #E8B23A;">
         <span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">01</span>
         <span data-ptab-name="" data-i18n="prod.name1" style="font: 500 15px/1.2 'Space Grotesk', sans-serif; color: #8A8579; transition: color .35s;">AI Chat Operator</span>
       </button>
-      <button data-ptab="qa-chat" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s;">
+      <button data-ptab="qa-chat" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s; --btn-acc: #4FD1A5;">
         <span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">02</span>
         <span data-ptab-name="" data-i18n="prod.name2" style="font: 500 15px/1.2 'Space Grotesk', sans-serif; color: #8A8579; transition: color .35s;">AI QA System</span>
       </button>
-      <button data-ptab="payment" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s;">
+      <button data-ptab="payment" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s; --btn-acc: #5FA5F9;">
         <span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">03</span>
         <span data-ptab-name="" data-i18n="prod.name3" style="font: 500 15px/1.2 'Space Grotesk', sans-serif; color: #8A8579; transition: color .35s;">AI Payment Assistant</span>
       </button>
-      <button data-ptab="qa-call" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s;">
+      <button data-ptab="qa-call" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s; --btn-acc: #C084F5;">
         <span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">04</span>
         <span data-ptab-name="" data-i18n="prod.name4" style="font: 500 15px/1.2 'Space Grotesk', sans-serif; color: #8A8579; transition: color .35s;">AI Voice QA</span>
       </button>
-      <button data-ptab="voice" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s;">
+      <button data-ptab="voice" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s; --btn-acc: #F4794C;">
         <span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">05</span>
         <span data-ptab-name="" data-i18n="prod.name5" style="font: 500 15px/1.2 'Space Grotesk', sans-serif; color: #8A8579; transition: color .35s;">AI Voice Bot</span>
       </button>
       </div>
       <div style="height: 2px; background: rgba(255,255,255,.05);"><div data-pauto="" style="height: 100%; width: 0%; background: #E8B23A;"></div></div>
-    <div data-ppanel="chat" style="display: none;">
+    <div data-ppanel="chat" style="display: none; --btn-acc: #E8B23A;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
         <div style="padding: 46px 42px; background: #0A0A09; display: flex; flex-direction: column; justify-content: space-between; gap: 36px;">
           <div>
@@ -537,7 +546,7 @@
         </div></div>
       </div>
     </div>
-    <div data-ppanel="qa-chat" style="display: none;">
+    <div data-ppanel="qa-chat" style="display: none; --btn-acc: #4FD1A5;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
         <div style="padding: 46px 42px; background: #0A0A09; display: flex; flex-direction: column; justify-content: space-between; gap: 36px;">
           <div>
@@ -618,7 +627,7 @@
         </div></div>
       </div>
     </div>
-    <div data-ppanel="payment" style="display: none;">
+    <div data-ppanel="payment" style="display: none; --btn-acc: #5FA5F9;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
         <div style="padding: 46px 42px; background: #0A0A09; display: flex; flex-direction: column; justify-content: space-between; gap: 36px;">
           <div>
@@ -700,7 +709,7 @@
         </div></div>
       </div>
     </div>
-    <div data-ppanel="qa-call" style="display: none;">
+    <div data-ppanel="qa-call" style="display: none; --btn-acc: #C084F5;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
         <div style="padding: 46px 42px; background: #0A0A09; display: flex; flex-direction: column; justify-content: space-between; gap: 36px;">
           <div>
@@ -781,7 +790,7 @@
         </div></div>
       </div>
     </div>
-    <div data-ppanel="voice" style="display: none;">
+    <div data-ppanel="voice" style="display: none; --btn-acc: #F4794C;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
         <div style="padding: 46px 42px; background: #0A0A09; display: flex; flex-direction: column; justify-content: space-between; gap: 36px;">
           <div>
@@ -1259,8 +1268,8 @@
         <a href="#top" style="display: flex; align-items: center;"><img src="/assets/brand/logo-main.png?v=2" alt="QODEQ" style="height: 24px; width: auto; display: block;" /></a>
         <p data-i18n="foot.tagline" style="margin: 0; max-width: 340px; font: 400 14px/1.65 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Five AI agents on one platform for iGaming support: chat, QA, payments, voice. One knowledge base, one console, one bill.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" style="padding: 11px 15px; border: 1px solid var(--acc, #E8B23A); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: var(--acc, #E8B23A);">EMAIL US</a>
-          <a href="https://t.me/qodeq" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;">TELEGRAM</a>
+          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 11px 15px; border: 1px solid var(--acc, #E8B23A); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: var(--acc, #E8B23A);">EMAIL US</a>
+          <a href="https://t.me/qodeq" data-btn="" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;">TELEGRAM</a>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
