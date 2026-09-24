@@ -1359,9 +1359,13 @@ class Component extends DCLogic {
   LEAD_ENDPOINT = '/api/lead';
 
   // ---------- model ----------
-  chatRateFor(c) { return c < 30000 ? 0.30 : c < 50000 ? 0.25 : c < 100000 ? 0.20 : 0.18; }
-  qaRateFor(c) { return c < 30000 ? 0.30 : c < 100000 ? 0.25 : c < 200000 ? 0.20 : 0.18; }
-  payRateFor(t) { return t < 10000 ? 0.30 : t < 50000 ? 0.25 : t < 100000 ? 0.20 : 0.18; }
+  // <= at every boundary to match the tier() helper used by each product's own econ-tab
+  // calculator (and the displayed pricing tables) — this used to be strict "<", which put
+  // an exact boundary value (e.g. 30,000 chats) in a different, mismatched tier here than
+  // in the per-product calculator, so the two showed different rates for the same input.
+  chatRateFor(c) { return c <= 30000 ? 0.30 : c <= 50000 ? 0.25 : c <= 100000 ? 0.20 : 0.18; }
+  qaRateFor(c) { return c <= 30000 ? 0.30 : c <= 100000 ? 0.25 : c <= 200000 ? 0.20 : 0.18; }
+  payRateFor(t) { return t <= 10000 ? 0.30 : t <= 50000 ? 0.25 : t <= 100000 ? 0.20 : 0.18; }
   voiceRateFor(m) { return m <= 20000 ? 0.15 : m <= 50000 ? 0.12 : m <= 100000 ? 0.09 : 0.06; }
   planFor(c) { return c < 30000 ? 'EASY' : c < 50000 ? 'NORMAL' : c < 100000 ? 'COMPANY' : 'CORPORATION'; }
 
