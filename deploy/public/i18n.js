@@ -118,26 +118,31 @@
 // of stale placeholder text.
 (function () {
   var run = function () {
-    var el = document.querySelector('[data-lisbon-countdown]');
-    if (!el) return;
+    var els = document.querySelectorAll('[data-lisbon-countdown]');
+    if (!els.length) return;
     var start = new Date('2026-09-29T00:00:00');
     var end = new Date('2026-10-02T00:00:00');
     var now = new Date();
-    var enText, ruText;
+    var enText, ruText, hide = false;
     if (now < start) {
       var days = Math.ceil((start - now) / 86400000);
       if (days <= 1) { enText = 'TOMORROW'; ruText = 'ЗАВТРА'; }
       else { enText = days + ' DAYS TO GO'; ruText = days + ' ДН. ДО НАЧАЛА'; }
     } else if (now < end) {
-      enText = "WE'RE LIVE — COME SAY HI"; ruText = 'МЫ ЗДЕСЬ — ЗАХОДИТЕ';
+      enText = 'LIVE NOW'; ruText = 'ИДЁТ СЕЙЧАС';
     } else {
-      var wrap = el.parentElement;
-      if (wrap) wrap.style.display = 'none';
-      return;
+      hide = true;
     }
-    el.setAttribute('data-text-en', enText);
-    el.setAttribute('data-text-ru', ruText);
-    el.textContent = enText;
+    els.forEach(function (el) {
+      if (hide) {
+        var wrap = el.parentElement;
+        if (wrap) wrap.style.display = 'none';
+        return;
+      }
+      el.setAttribute('data-text-en', enText);
+      el.setAttribute('data-text-ru', ruText);
+      el.textContent = enText;
+    });
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();

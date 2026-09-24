@@ -43,7 +43,7 @@
 <x-dc>
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="./i18n.js?v=31"></script>
+<script src="./i18n.js?v=32"></script>
 <style>
   html { scroll-behavior: smooth; }
 
@@ -113,6 +113,9 @@
   [data-partner-logo]:hover { transform: scale(1.08); }
   @keyframes qblink { 0%, 45% { opacity: 1; } 50%, 100% { opacity: .15; } }
   @keyframes qpulse { 0% { transform: scale(1); opacity: .55; } 70% { transform: scale(2.6); opacity: 0; } 100% { opacity: 0; } }
+  @keyframes qshine { 0%, 100% { transform: translateX(-120%); } 55%, 100% { transform: translateX(120%); } }
+  [data-lisbon-badge] { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  [data-lisbon-badge]:hover { transform: translateY(-2px); border-color: rgba(232,178,58,.65); box-shadow: 0 14px 34px -14px rgba(232,178,58,.35); }
   @keyframes qcaret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
   @keyframes qtypedot { 0%, 60%, 100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-3px); opacity: 1; } }
   @media (pointer: fine) { body { cursor: none; } }
@@ -241,6 +244,24 @@
       <canvas data-core="" style="position: absolute; inset: 0; width: 100%; height: 100%;"></canvas>
     </div>
     <div data-parallax="0.06" style="position: relative;">
+      <!-- SBC Summit Lisbon hero badge — remove once the event (29 Sep – 1 Oct 2026) has passed. -->
+      <a href="/#contact" data-lisbon-badge="" data-reveal="" style="position: relative; display: inline-flex; align-items: center; gap: 14px; margin-bottom: 30px; padding: 11px 20px 11px 14px; background: linear-gradient(90deg, rgba(232,178,58,.16), rgba(232,178,58,.03)); border: 1px solid rgba(232,178,58,.42); text-decoration: none; overflow: clip; max-width: 100%;">
+        <div style="position: absolute; inset: 0; width: 40%; background: linear-gradient(115deg, transparent, rgba(255,255,255,.16), transparent); animation: qshine 5s ease-in-out infinite; pointer-events: none;"></div>
+        <img src="/assets/brand/flag-pt.png" srcset="/assets/brand/flag-pt.png 1x, /assets/brand/flag-pt@2x.png 2x" width="20" height="16" alt="" style="position: relative; flex: 0 0 auto; display: block; border-radius: 1px;" />
+        <span data-text-en="SBC SUMMIT LISBON" data-text-ru="SBC SUMMIT LISBON" style="position: relative; font: 600 11px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #F5F2EC; white-space: nowrap;">SBC SUMMIT LISBON</span>
+        <span style="position: relative; width: 1px; height: 15px; background: rgba(255,255,255,.18); flex: 0 0 auto;"></span>
+        <span data-text-en="29 SEP – 1 OCT" data-text-ru="29 СЕНТ – 1 ОКТ" style="position: relative; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #9A958A; white-space: nowrap;">29 SEP – 1 OCT</span>
+        <span style="position: relative; width: 1px; height: 15px; background: rgba(255,255,255,.18); flex: 0 0 auto;"></span>
+        <span style="position: relative; display: flex; align-items: center; gap: 8px;">
+          <span style="position: relative; width: 7px; height: 7px; flex: 0 0 auto;">
+            <span style="position: absolute; inset: 0; border-radius: 50%; background: #4FD1A5;"></span>
+            <span style="position: absolute; inset: 0; border-radius: 50%; background: #4FD1A5; animation: qpulse 1.8s ease-out infinite;"></span>
+          </span>
+          <span data-lisbon-countdown="" data-text-en="5 DAYS TO GO" data-text-ru="5 ДН. ДО НАЧАЛА" style="font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #C9C5BC; white-space: nowrap;">5 DAYS TO GO</span>
+        </span>
+        <span style="position: relative; width: 1px; height: 15px; background: rgba(255,255,255,.18); flex: 0 0 auto;"></span>
+        <span data-text-en="MEET US →" data-text-ru="ВСТРЕТИМСЯ →" style="position: relative; font: 600 11px/1 'JetBrains Mono', monospace; letter-spacing: .12em; color: var(--acc, #E8B23A); white-space: nowrap;">MEET US →</span>
+      </a>
       <p data-i18n="hero.kicker" style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .3em; color: var(--acc, #E8B23A);">AI PLATFORM · IGAMING · CHAT / QA / PAYMENT / VOICE</p>
       <h1 style="margin: 0; font: 500 clamp(46px, 8.2vw, 138px)/0.94 'Space Grotesk', sans-serif; letter-spacing: -.035em; color: #F5F2EC;">
         <span data-i18n="hero.title">AI Platform for</span><br />
