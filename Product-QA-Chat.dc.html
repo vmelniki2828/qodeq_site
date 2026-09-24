@@ -43,25 +43,25 @@
 <script src="./i18n.js?v=32"></script>
 <style>
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: #0A0A09; --btn-acc: #4FD1A5; }
+  body { margin: 0; background: #0A0A09; --btn-acc: #E8B23A; }
 
   button, a[data-tab], [data-btn] { cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease, filter .15s ease; }
-  button:hover, a[data-tab]:hover, [data-btn]:hover { background-color: var(--btn-acc, #4FD1A5) !important; border-color: var(--btn-acc, #4FD1A5) !important; color: #0A0A09 !important; }
+  button:hover, a[data-tab]:hover, [data-btn]:hover { background-color: var(--btn-acc, #E8B23A) !important; border-color: var(--btn-acc, #E8B23A) !important; color: #0A0A09 !important; }
   button:hover *, a[data-tab]:hover *, [data-btn]:hover * { color: inherit !important; }
-  button:active, a[data-tab]:active, [data-btn]:active { background-color: var(--btn-acc, #4FD1A5) !important; border-color: var(--btn-acc, #4FD1A5) !important; color: #0A0A09 !important; filter: brightness(.82); }
+  button:active, a[data-tab]:active, [data-btn]:active { background-color: var(--btn-acc, #E8B23A) !important; border-color: var(--btn-acc, #E8B23A) !important; color: #0A0A09 !important; filter: brightness(.82); }
   * { box-sizing: border-box; }
-  html { scrollbar-color: rgba(79,209,165,.55) rgba(255,255,255,.04); scrollbar-width: thin; }
+  html { scrollbar-color: rgba(232,178,58,.55) rgba(255,255,255,.04); scrollbar-width: thin; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: rgba(255,255,255,.03); border-left: 1px solid rgba(255,255,255,.07); }
-  ::-webkit-scrollbar-thumb { background: rgba(79,209,165,.42); border: 3px solid #0A0A09; }
-  ::-webkit-scrollbar-thumb:hover { background: #4FD1A5; }
+  ::-webkit-scrollbar-thumb { background: rgba(232,178,58,.42); border: 3px solid #0A0A09; }
+  ::-webkit-scrollbar-thumb:hover { background: #E8B23A; }
   ::-webkit-scrollbar-corner { background: #0A0A09; }
-  [data-clog], [data-plog], [data-ppipe], [data-qtrans] { scrollbar-width: thin; scrollbar-color: rgba(79,209,165,.4) transparent; }
+  [data-clog], [data-plog], [data-ppipe], [data-qtrans] { scrollbar-width: thin; scrollbar-color: rgba(232,178,58,.4) transparent; }
   [data-clog]::-webkit-scrollbar, [data-plog]::-webkit-scrollbar, [data-ppipe]::-webkit-scrollbar, [data-qtrans]::-webkit-scrollbar { width: 6px; }
   [data-clog]::-webkit-scrollbar-track, [data-plog]::-webkit-scrollbar-track, [data-ppipe]::-webkit-scrollbar-track, [data-qtrans]::-webkit-scrollbar-track { background: transparent; border: 0; }
-  [data-clog]::-webkit-scrollbar-thumb, [data-plog]::-webkit-scrollbar-thumb, [data-ppipe]::-webkit-scrollbar-thumb, [data-qtrans]::-webkit-scrollbar-thumb { background: rgba(79,209,165,.4); border: 0; }
-  ::selection { background: #4FD1A5; color: #0A0A09; }
-  a { color: #4FD1A5; text-decoration: none; }
+  [data-clog]::-webkit-scrollbar-thumb, [data-plog]::-webkit-scrollbar-thumb, [data-ppipe]::-webkit-scrollbar-thumb, [data-qtrans]::-webkit-scrollbar-thumb { background: rgba(232,178,58,.4); border: 0; }
+  ::selection { background: #E8B23A; color: #0A0A09; }
+  a { color: #E8B23A; text-decoration: none; }
   a:hover { color: #9BEBCE; }
   /* email/telegram in the feedback box are styled to look like a stat (white, no underline) —
      add an obvious hover cue since the custom cursor's grow-effect alone is too subtle */
@@ -121,28 +121,28 @@
 <div style="position: relative; background: #0A0A09; color: #E8E6E1; font-family: 'Space Grotesk', system-ui, sans-serif; min-height: 100vh; overflow-x: clip;">
   <canvas data-grid="" style="position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
   <div data-glow="" style="position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;">
-    <div data-blob="1" style="position: absolute; left: 58%; top: -14%; width: 62vw; height: 62vw; border-radius: 50%; background: radial-gradient(circle, rgba(79,209,165,.11), rgba(79,209,165,0) 62%); filter: blur(28px); will-change: transform;"></div>
+    <div data-blob="1" style="position: absolute; left: 58%; top: -14%; width: 62vw; height: 62vw; border-radius: 50%; background: radial-gradient(circle, rgba(232,178,58,.11), rgba(232,178,58,0) 62%); filter: blur(28px); will-change: transform;"></div>
     <div data-blob="2" style="position: absolute; left: -22%; top: 34%; width: 54vw; height: 54vw; border-radius: 50%; background: radial-gradient(circle, rgba(72,132,214,.075), rgba(72,132,214,0) 62%); filter: blur(30px); will-change: transform;"></div>
   </div>
   <div style="position: fixed; inset: 0; z-index: 60; pointer-events: none; box-shadow: inset 0 0 260px 60px rgba(6,6,5,.85);"></div>
   <div style="position: fixed; inset: -50%; z-index: 61; pointer-events: none; opacity: .5; mix-blend-mode: overlay; background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSIyIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxNjAiIGZpbHRlcj0idXJsKCNuKSIgb3BhY2l0eT0iMC4zNSIvPjwvc3ZnPg==);"></div>
   <div data-rail="" style="position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 80; display: flex; flex-direction: column; gap: 13px; align-items: flex-end;"></div>
-  <div data-cursor-ring="" style="position: fixed; top: 0; left: 0; width: 30px; height: 30px; margin: -15px 0 0 -15px; border: 1px solid #4FD1A5; border-radius: 50%; z-index: 9998; pointer-events: none; opacity: 0; transition: width .18s, height .18s, margin .18s, opacity .2s;"></div>
-  <div data-cursor-dot="" style="position: fixed; top: 0; left: 0; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; background: #4FD1A5; border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0;"></div>
-  <div style="position: fixed; top: var(--promo-h, 44px); left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: #4FD1A5;"></div></div>
+  <div data-cursor-ring="" style="position: fixed; top: 0; left: 0; width: 30px; height: 30px; margin: -15px 0 0 -15px; border: 1px solid #E8B23A; border-radius: 50%; z-index: 9998; pointer-events: none; opacity: 0; transition: width .18s, height .18s, margin .18s, opacity .2s;"></div>
+  <div data-cursor-dot="" style="position: fixed; top: 0; left: 0; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; background: #E8B23A; border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0;"></div>
+  <div style="position: fixed; top: var(--promo-h, 44px); left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: #E8B23A;"></div></div>
 
   <header style="position: fixed; top: var(--promo-h, 44px); left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
     <a href="/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" style="height: 40px; width: auto; display: block;" /></a>
     <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em;">
-      <a href="/chat" data-tab="chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;">01 CHAT</a>
-      <a href="/qa-chat" data-tab="qa-chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;">02 QA CHAT</a>
+      <a href="/chat" data-tab="chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;">01 CHAT</a>
+      <a href="/qa-chat" data-tab="qa-chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;">02 QA CHAT</a>
       <a href="/payment" data-tab="payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579; --btn-acc: #5FA5F9;">03 PAYMENT</a>
       <a href="/qa-call" data-tab="qa-call" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;">04 QA CALL</a>
       <a href="/voice" data-tab="voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;">05 VOICE</a>
-      <a href="/#calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(79,209,165,.5); color: #4FD1A5;">CALCULATOR →</a>
+      <a href="/#calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(232,178,58,.5); color: #E8B23A;">CALCULATOR →</a>
     </nav>
     <div data-langsw="" style="display: flex; gap: 6px; align-items: center;">
-      <button data-lang="en" style="padding: 7px 11px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; color: #4FD1A5; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">EN</button>
+      <button data-lang="en" style="padding: 7px 11px; background: rgba(232,178,58,.14); border: 1px solid #E8B23A; color: #E8B23A; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">EN</button>
       <button data-lang="ru" style="padding: 7px 11px; background: transparent; border: 1px solid rgba(255,255,255,.16); color: #8A8579; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">RU</button>
     </div>
   </header>
@@ -151,7 +151,7 @@
   <div data-prod="qa-chat">
     <section style="position: relative; z-index: 1; padding: calc(150px + var(--promo-h, 44px)) 48px 90px; max-width: 1500px; margin: 0 auto;">
       <div data-parallax="-0.07" style="position: absolute; right: 4vw; top: 14vh; font: 700 clamp(150px, 26vw, 400px)/0.8 'Space Grotesk', sans-serif; color: rgba(255,255,255,.022); letter-spacing: -.05em; pointer-events: none; user-select: none;">02</div>
-      <p data-i18n="qa.hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .28em; color: #4FD1A5;">— PRODUCT 02 · AI QA SYSTEM</p>
+      <p data-i18n="qa.hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .28em; color: #E8B23A;">— PRODUCT 02 · AI QA SYSTEM</p>
       <h1 data-i18n="qa.hero.title" style="margin: 0 0 26px; max-width: 1000px; font: 500 clamp(38px, 6.4vw, 104px)/0.98 'Space Grotesk', sans-serif; letter-spacing: -.034em; color: #F5F2EC;">1,000 chats checked instead of 2.</h1>
       <p data-i18n="qa.hero.sub" style="margin: 0; max-width: 620px; font: 400 17px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">AI analysis of every chat in real time — 15 criteria, 97.6% accuracy, daily per-operator reports that lift performance by 25–40%.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; margin-top: 66px; background: rgba(255,255,255,.09); border-top: 1px solid rgba(255,255,255,.09);">
@@ -163,7 +163,7 @@
     </section>
 
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="qa.demo.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— SCORING DEMO · ONE REAL CHAT</p>
+      <p data-i18n="qa.demo.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— SCORING DEMO · ONE REAL CHAT</p>
       <h2 data-i18n="qa.demo.title" style="margin: 0 0 18px; max-width: 900px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Click a criterion. See where it was won or lost.</h2>
       <p data-i18n="qa.demo.sub" style="margin: 0 0 44px; max-width: 620px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">The same 15-criteria rubric your QA team uses, applied to every chat in five seconds instead of three minutes.</p>
 
@@ -173,8 +173,8 @@
           <div data-qlines="" style="display: flex; flex-direction: column; gap: 8px; font: 400 12px/1.55 'JetBrains Mono', monospace;"></div>
         </div>
         <div style="background: #0A0A09; padding: 22px 24px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: flex; justify-content: space-between; align-items: baseline;"><span data-i18n="qa.demo.score" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">SCORE</span><span data-qscore="" style="font: 500 44px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #4FD1A5;">0</span></div>
-          <div style="height: 8px; background: rgba(255,255,255,.05);"><div data-qbar="" style="height: 8px; width: 0%; background: #4FD1A5; transition: width 1s cubic-bezier(.2,.7,.2,1);"></div></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;"><span data-i18n="qa.demo.score" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">SCORE</span><span data-qscore="" style="font: 500 44px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #E8B23A;">0</span></div>
+          <div style="height: 8px; background: rgba(255,255,255,.05);"><div data-qbar="" style="height: 8px; width: 0%; background: #E8B23A; transition: width 1s cubic-bezier(.2,.7,.2,1);"></div></div>
           <div data-qcrit="" style="display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.08);"></div>
           <p data-qnote="" data-i18n="qa.demo.notedef" style="margin: 0; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; min-height: 44px;">Pick a criterion to see the evidence in the transcript.</p>
         </div>
@@ -182,11 +182,11 @@
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="qa.func.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— DETAILED FUNCTIONALITY</p>
+      <p data-i18n="qa.func.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— DETAILED FUNCTIONALITY</p>
       <h2 data-i18n="qa.func.title" style="margin: 0 0 48px; max-width: 900px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Everything a QA department does — without the QA department.</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; align-items: start;">
         <div data-reveal="" style="border: 1px solid rgba(255,255,255,.12); background: #0C0C0A;">
-          <div style="display: flex; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,.1); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;"><span data-i18n="qa.func.ticket">QODEQ · QA · TICKET_9281</span><span data-i18n="qa.func.ticketscore" style="color: #4FD1A5;">SCORE 77/100</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,.1); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;"><span data-i18n="qa.func.ticket">QODEQ · QA · TICKET_9281</span><span data-i18n="qa.func.ticketscore" style="color: #E8B23A;">SCORE 77/100</span></div>
           <div data-qalog="" style="height: 264px; overflow: hidden; padding: 16px; display: flex; flex-direction: column; gap: 11px; font: 400 12px/1.5 'JetBrains Mono', monospace;"></div>
           <div data-i18n="qa.func.ticketfoot" style="padding: 12px 16px; border-top: 1px solid rgba(255,255,255,.1); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #57544C;">CHECKED IN 5 SEC VS 3–5 MIN MANUALLY</div>
         </div>
@@ -196,43 +196,43 @@
           <div data-reveal="" data-delay="120" style="padding: 18px 0; border-top: 1px solid rgba(255,255,255,.09);"><h3 data-i18n="qa.func.f3.t" style="margin: 0 0 6px; font: 500 17px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Operator statistics</h3><p data-i18n="qa.func.f3.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Monthly reports: average score, chats handled, top 3 strengths and development areas.</p></div>
           <div data-reveal="" data-delay="180" style="padding: 18px 0; border-top: 1px solid rgba(255,255,255,.09);"><h3 data-i18n="qa.func.f4.t" style="margin: 0 0 6px; font: 500 17px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Manual re-check module</h3><p data-i18n="qa.func.f4.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">QA managers review anonymously, adjust AI scores and leave coaching comments that train the algorithm.</p></div>
           <div data-reveal="" data-delay="240" style="padding: 18px 0; border-top: 1px solid rgba(255,255,255,.09); border-bottom: 1px solid rgba(255,255,255,.09);"><h3 data-i18n="qa.func.f5.t" style="margin: 0 0 6px; font: 500 17px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Criteria customisation</h3><p data-i18n="qa.func.f5.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Weighting coefficients for each of the 15 criteria, adapted to your project and brand.</p></div>
-          <div style="margin-top: 26px; padding: 20px 22px; border-left: 2px solid #4FD1A5; background: #0C0C0A;"><p data-i18n="qa.func.sec.t" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">DATA SECURITY</p><p data-i18n="qa.func.sec.d" style="margin: 0; font: 400 15px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1;">All chats processed confidentially, with local storage and GDPR compliance.</p></div>
+          <div style="margin-top: 26px; padding: 20px 22px; border-left: 2px solid #E8B23A; background: #0C0C0A;"><p data-i18n="qa.func.sec.t" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">DATA SECURITY</p><p data-i18n="qa.func.sec.d" style="margin: 0; font: 400 15px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1;">All chats processed confidentially, with local storage and GDPR compliance.</p></div>
         </div>
       </div>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="qa.price.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— PRICING · PER CHECKED CHAT</p>
+      <p data-i18n="qa.price.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— PRICING · PER CHECKED CHAT</p>
       <h2 data-i18n="qa.price.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">100% of chats checked. Not per QA seat.</h2>
       <div data-reveal="" style="border: 1px solid rgba(255,255,255,.09); overflow-x: auto;"><div style="min-width: 620px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: #0C0C0A; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #8A8579;"><span data-i18n="qa.price.h1" style="padding: 17px 18px;">PLAN</span><span data-i18n="qa.price.h2" style="padding: 17px 18px;">CHATS PER MONTH</span><span data-i18n="qa.price.h3" style="padding: 17px 18px; text-align: right;">PRICE PER 1 CHECKED CHAT</span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">EASY</span><span style="padding: 19px 18px; color: #8A8579;">5K — 30K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.30</span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">NORMAL</span><span style="padding: 19px 18px; color: #8A8579;">30K — 100K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.25</span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">COMPANY</span><span style="padding: 19px 18px; color: #8A8579;">100K — 200K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.20</span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">CORPORATION</span><span style="padding: 19px 18px; color: #8A8579;">200K+</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.18</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">EASY</span><span style="padding: 19px 18px; color: #8A8579;">5K — 30K</span><span style="padding: 19px 18px; text-align: right; color: #E8B23A; font-weight: 500; font-size: 20px;">$0.30</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">NORMAL</span><span style="padding: 19px 18px; color: #8A8579;">30K — 100K</span><span style="padding: 19px 18px; text-align: right; color: #E8B23A; font-weight: 500; font-size: 20px;">$0.25</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">COMPANY</span><span style="padding: 19px 18px; color: #8A8579;">100K — 200K</span><span style="padding: 19px 18px; text-align: right; color: #E8B23A; font-weight: 500; font-size: 20px;">$0.20</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">CORPORATION</span><span style="padding: 19px 18px; color: #8A8579;">200K+</span><span style="padding: 19px 18px; text-align: right; color: #E8B23A; font-weight: 500; font-size: 20px;">$0.18</span></div>
       </div></div>
       <p data-i18n="qa.save.kicker" style="margin: 46px 0 20px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">— SAVINGS BY VOLUME · AGAINST MANUAL CHECKING AT $0.90 PER CHAT</p>
       <div style="display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.09); border-top: 1px solid rgba(255,255,255,.09); border-bottom: 1px solid rgba(255,255,255,.09);">
-        <div data-reveal="" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">5,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="9" style="display: block; height: 8px; width: 0%; background: rgba(79,209,165,.42); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$3,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">67%</span></div>
-        <div data-reveal="" data-delay="60" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">25,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="20" style="display: block; height: 8px; width: 0%; background: rgba(79,209,165,.5); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$15,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">67%</span></div>
-        <div data-reveal="" data-delay="120" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">50,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="30" style="display: block; height: 8px; width: 0%; background: rgba(79,209,165,.58); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$32,500</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">72%</span></div>
-        <div data-reveal="" data-delay="180" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">100,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="44" style="display: block; height: 8px; width: 0%; background: rgba(79,209,165,.68); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$70,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">78%</span></div>
-        <div data-reveal="" data-delay="240" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">200,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="63" style="display: block; height: 8px; width: 0%; background: rgba(79,209,165,.8); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$144,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">80%</span></div>
-        <div data-reveal="" data-delay="300" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0C0C0A;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #4FD1A5;">500,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="100" style="display: block; height: 8px; width: 0%; background: #4FD1A5; transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 500 15px/1 'JetBrains Mono', monospace; text-align: right; color: #F5F2EC;">$360,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #4FD1A5;">80%</span></div>
+        <div data-reveal="" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">5,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="9" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.42); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$3,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">67%</span></div>
+        <div data-reveal="" data-delay="60" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">25,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="20" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.5); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$15,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">67%</span></div>
+        <div data-reveal="" data-delay="120" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">50,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="30" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.58); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$32,500</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">72%</span></div>
+        <div data-reveal="" data-delay="180" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">100,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="44" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.68); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$70,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">78%</span></div>
+        <div data-reveal="" data-delay="240" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #8A8579;">200,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="63" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.8); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$144,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #6E6A61;">80%</span></div>
+        <div data-reveal="" data-delay="300" style="display: grid; grid-template-columns: minmax(110px, 1fr) 3fr minmax(110px, 1fr) 60px; align-items: center; gap: 18px; padding: 15px 18px; background: #0C0C0A;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; color: #E8B23A;">500,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="100" style="display: block; height: 8px; width: 0%; background: #E8B23A; transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 500 15px/1 'JetBrains Mono', monospace; text-align: right; color: #F5F2EC;">$360,000</span><span style="font: 400 11px/1 'JetBrains Mono', monospace; text-align: right; color: #E8B23A;">80%</span></div>
       </div>
       <p data-i18n="qa.save.foot" style="margin: 22px 0 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; max-width: 700px;">The greater the volume of checks, the greater the saving: from 67% at 5,000 chats to 80% from 200,000 a month — with coverage at 100% instead of 10–15%.</p>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="qa.tl.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— IMPLEMENTATION TIMELINE</p>
+      <p data-i18n="qa.tl.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— IMPLEMENTATION TIMELINE</p>
       <h2 data-i18n="qa.tl.title" style="margin: 0 0 56px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Full operation from week 4.</h2>
       <div data-tl="" style="position: relative;">
-        <div style="position: absolute; left: 0; right: 0; top: 5px; height: 1px; background: rgba(255,255,255,.1);"><div data-tlbar="" style="height: 1px; width: 0%; background: #4FD1A5;"></div></div>
+        <div style="position: absolute; left: 0; right: 0; top: 5px; height: 1px; background: rgba(255,255,255,.1);"><div data-tlbar="" style="height: 1px; width: 0%; background: #E8B23A;"></div></div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;">
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w1" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">WEEK 1</p><h3 data-i18n="qa.tl.w1.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Integration with the chat system</h3><p data-i18n="qa.tl.w1.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Read-only access to dialogue history.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w2" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">WEEK 2</p><h3 data-i18n="qa.tl.w2.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Setting assessment criteria</h3><p data-i18n="qa.tl.w2.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">15 criteria weighted to your standards.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w3" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">WEEK 3</p><h3 data-i18n="qa.tl.w3.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Calibration to your standards</h3><p data-i18n="qa.tl.w3.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Scores aligned with your QA managers.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w4" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">WEEK 4+</p><h3 data-i18n="qa.tl.w4.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Full operation and analytics</h3><p data-i18n="qa.tl.w4.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Daily per-operator reports and coaching plans.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w1" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">WEEK 1</p><h3 data-i18n="qa.tl.w1.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Integration with the chat system</h3><p data-i18n="qa.tl.w1.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Read-only access to dialogue history.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w2" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">WEEK 2</p><h3 data-i18n="qa.tl.w2.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Setting assessment criteria</h3><p data-i18n="qa.tl.w2.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">15 criteria weighted to your standards.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w3" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">WEEK 3</p><h3 data-i18n="qa.tl.w3.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Calibration to your standards</h3><p data-i18n="qa.tl.w3.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Scores aligned with your QA managers.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="qa.tl.w4" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">WEEK 4+</p><h3 data-i18n="qa.tl.w4.t" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Full operation and analytics</h3><p data-i18n="qa.tl.w4.d" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Daily per-operator reports and coaching plans.</p></div>
         </div>
       </div>
     </section>
@@ -241,13 +241,13 @@
   <!-- 03 PAYMENT -->
   
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="qa.calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— YOUR NUMBERS · QA</p>
+    <p data-i18n="qa.calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— YOUR NUMBERS · QA</p>
     <h2 data-i18n="qa.calc.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Model your QA coverage.</h2>
     <div data-calc="" data-min="5000" data-max="1000000" data-step="5000" data-def="120000" data-cur="$" data-human="0.65" data-share="1" data-setup="1000" data-tiers="30000:0.3,50000:0.25,100000:0.2,9000000000:0.18" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 30px;">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="qa.calc.chats" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">CHATS CHECKED PER MONTH</span><span data-cv="" style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</span></div>
-          <input data-cin="" type="range" min="5000" max="1000000" step="5000" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(255,255,255,.12); accent-color: #4FD1A5;" />
+          <input data-cin="" type="range" min="5000" max="1000000" step="5000" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(255,255,255,.12); accent-color: #E8B23A;" />
         </div>
         <div style="display: flex; flex-direction: column;">
           <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="qa.calc.plan">PLAN · UNIT PRICE</span><span data-ctier="" style="color: #E8E6E1;">—</span></div>
@@ -258,9 +258,9 @@
         <p data-i18n="qa.calc.note" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #57544C;">MODEL: 100% OF CHATS CHECKED · MANUAL QA BASELINE $0.65 PER CHECKED CHAT</p>
       </div>
       <div style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; justify-content: center; gap: 26px;">
-        <div><p data-i18n="qa.calc.msave" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">MONTHLY SAVING</p><p data-csave="" style="margin: 0; font: 500 clamp(40px, 5.4vw, 68px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #4FD1A5;">—</p></div>
+        <div><p data-i18n="qa.calc.msave" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">MONTHLY SAVING</p><p data-csave="" style="margin: 0; font: 500 clamp(40px, 5.4vw, 68px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #E8B23A;">—</p></div>
         <div><p data-i18n="qa.calc.ysave" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ANNUAL SAVING</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
-        <div style="height: 10px; background: rgba(255,255,255,.05);"><div data-cbar="" style="height: 10px; width: 0%; background: #4FD1A5; transition: width .35s cubic-bezier(.2,.7,.2,1);"></div></div>
+        <div style="height: 10px; background: rgba(255,255,255,.05);"><div data-cbar="" style="height: 10px; width: 0%; background: #E8B23A; transition: width .35s cubic-bezier(.2,.7,.2,1);"></div></div>
         <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">—</p>
         <a href="/#calculator" data-i18n="qa.calc.link" data-btn="" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">MODEL ALL FIVE AGENTS TOGETHER →</a>
       </div>
@@ -270,12 +270,12 @@
   <section style="position: relative; z-index: 1; padding: 100px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
     <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 30px;">
       <div>
-        <p data-i18n="qa.cta.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— NEXT STEP</p>
+        <p data-i18n="qa.cta.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— NEXT STEP</p>
         <h2 data-i18n="qa.cta.title" style="margin: 0 0 14px; font: 500 clamp(28px, 4vw, 58px)/1.03 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">Talk to us with your numbers.</h2>
         <p data-i18n="qa.cta.sub" style="margin: 0; max-width: 520px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A;">Send the volumes you modelled above and we return a fixed quote, an integration plan and a setup timeline within two working days.</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="qa.cta.btn" data-btn="" style="padding: 17px 24px; background: #4FD1A5; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">REQUEST A QUOTE</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="qa.cta.btn" data-btn="" style="padding: 17px 24px; background: #E8B23A; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">REQUEST A QUOTE</a>
         <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;"></a>
         <a href="https://t.me/qodeq" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">@QODEQ</a>
       </div>
@@ -286,7 +286,7 @@
     <p data-i18n="qa.x.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #8A8579;">— THE REST OF THE PLATFORM</p>
     <h2 data-i18n="qa.x.title" style="margin: 0 0 40px; max-width: 820px; font: 500 clamp(26px, 3.2vw, 44px)/1.06 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Every agent shares one knowledge base, one CRM context, one analytics layer.</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-        <a href="/chat" data-xcard="" data-acc="#E8B23A" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #E8B23A; transition: background .3s, transform .3s;">
+        <a href="/chat" data-xcard="" data-acc="#4FD1A5" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #4FD1A5; transition: background .3s, transform .3s;">
           <span data-i18n="qa.x.c1.k" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">01 / CHAT OPERATOR</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Chat Operator<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
@@ -305,8 +305,8 @@
     </div>
   </section>
 
-  <section data-feedback="" data-slug="qa-chat" data-acc="#4FD1A5" data-product="AI QA System" style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); overflow: clip;">
-    <p data-i18n="qa.fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— REQUEST A CALCULATION</p>
+  <section data-feedback="" data-slug="qa-chat" data-acc="#E8B23A" data-product="AI QA System" style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); overflow: clip;">
+    <p data-i18n="qa.fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— REQUEST A CALCULATION</p>
     <h2 data-i18n="qa.fb.title" style="margin: 0 0 20px; max-width: 860px; font: 500 clamp(28px, 4vw, 56px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">See the numbers for AI QA System on your volumes.</h2>
     <p data-i18n="qa.fb.sub" style="margin: 0 0 48px; max-width: 560px; font: 400 16px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Leave a contact — we send a personalised calculation and a rollout plan within one business day.</p>
     <div data-fb-grid="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
@@ -318,10 +318,10 @@
           <label style="display: block;"><span data-i18n="qa.fb.contact" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">EMAIL OR TELEGRAM</span><input name="contact" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
           <p data-i18n="qa.fb.interest" style="margin: 4px 0 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">INTERESTED IN: AI QA SYSTEM</p>
           <p data-fb-status="" style="margin: 0; min-height: 15px; font: 400 11px/1.5 'JetBrains Mono', monospace; letter-spacing: .06em; color: #8A8579;"></p>
-          <button type="submit" data-fb-send="" data-i18n="qa.fb.send" style="margin-top: 6px; padding: 17px 22px; background: #4FD1A5; border: none; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em; text-align: center; cursor: pointer;">SEND REQUEST</button>
+          <button type="submit" data-fb-send="" data-i18n="qa.fb.send" style="margin-top: 6px; padding: 17px 22px; background: #E8B23A; border: none; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em; text-align: center; cursor: pointer;">SEND REQUEST</button>
         </form>
         <div data-fb-ok="" style="display: none; padding: 26px 0;">
-          <p data-i18n="qa.fb.okt" style="margin: 0 0 14px; font: 500 28px/1.1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #4FD1A5;">Request logged.</p>
+          <p data-i18n="qa.fb.okt" style="margin: 0 0 14px; font: 500 28px/1.1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #E8B23A;">Request logged.</p>
           <p data-i18n="qa.fb.oks" style="margin: 0; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A;">We will get in touch within one business day.</p>
         </div>
       </div>
@@ -469,9 +469,9 @@ class Component extends DCLogic {
     });
     this.q('[data-lang]').forEach(el => {
       const on = el.getAttribute('data-lang') === lang;
-      el.style.background = on ? 'rgba(79,209,165,.14)' : 'transparent';
-      el.style.borderColor = on ? '#4FD1A5' : 'rgba(255,255,255,.16)';
-      el.style.color = on ? '#4FD1A5' : '#8A8579';
+      el.style.background = on ? 'rgba(232,178,58,.14)' : 'transparent';
+      el.style.borderColor = on ? '#E8B23A' : 'rgba(255,255,255,.16)';
+      el.style.color = on ? '#E8B23A' : '#8A8579';
     });
     if (this._renderDemo) this._renderDemo(lang);
     if (this._renderQALog) this._renderQALog(lang);
@@ -536,9 +536,9 @@ class Component extends DCLogic {
     this.q('[data-tab]').forEach(el => {
       const on = el.getAttribute('data-tab') === slug;
       if (on) activeTabEl = el;
-      el.style.background = on ? '#4FD1A5' : 'transparent';
-      const tabHex = { chat: '#E8B23A', 'qa-chat': '#4FD1A5', payment: '#5FA5F9', 'qa-call': '#C084F5', voice: '#F4794C' }[el.getAttribute('data-tab')];
-      el.style.borderTopColor = el.style.borderRightColor = el.style.borderBottomColor = on ? '#4FD1A5' : 'rgba(255,255,255,.14)';
+      el.style.background = on ? '#E8B23A' : 'transparent';
+      const tabHex = { chat: '#E8B23A', 'qa-chat': '#E8B23A', payment: '#5FA5F9', 'qa-call': '#C084F5', voice: '#F4794C' }[el.getAttribute('data-tab')];
+      el.style.borderTopColor = el.style.borderRightColor = el.style.borderBottomColor = on ? '#E8B23A' : 'rgba(255,255,255,.14)';
       el.style.borderLeftColor = tabHex;
       el.style.color = on ? '#0A0A09' : '#8A8579';
     });
@@ -589,7 +589,7 @@ class Component extends DCLogic {
     requestAnimationFrame(step);
   }
 
-ACC() { return '#4FD1A5'; }
+ACC() { return '#E8B23A'; }
 
   initRail() {
     const rail = document.querySelector('[data-rail]');
@@ -751,7 +751,7 @@ initDemo() {
     const pick = (idx) => {
       rows.forEach((r, i) => {
         const on = C[idx].hit.includes(i);
-        r.style.background = on ? 'rgba(79,209,165,.10)' : 'rgba(255,255,255,.02)';
+        r.style.background = on ? 'rgba(232,178,58,.10)' : 'rgba(255,255,255,.02)';
         r.style.borderLeftColor = on ? ACC : (T[i][0] === 'player' ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.06)');
         r.style.color = on ? '#E8E6E1' : (T[i][0] === 'player' ? '#B8B4AA' : '#8A8579');
       });
@@ -835,7 +835,7 @@ initDemo() {
       const hot = e.target.closest && e.target.closest('a, button');
       ring.style.width = hot ? '54px' : '30px'; ring.style.height = hot ? '54px' : '30px';
       ring.style.margin = hot ? '-27px 0 0 -27px' : '-15px 0 0 -15px';
-      ring.style.background = hot ? 'rgba(79,209,165,.10)' : 'transparent';
+      ring.style.background = hot ? 'rgba(232,178,58,.10)' : 'transparent';
     });
     const loop = () => { if (this.dead) return; rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16; ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)'; requestAnimationFrame(loop); };
     requestAnimationFrame(loop);
@@ -857,8 +857,8 @@ initDemo() {
         tlbar.style.width = (p * 100) + '%';
         dots.forEach((d, i) => {
           const on = p > (i / dots.length) * 0.95;
-          d.style.background = on ? '#4FD1A5' : '#0A0A09';
-          d.style.borderColor = on ? '#4FD1A5' : 'rgba(255,255,255,.25)';
+          d.style.background = on ? '#E8B23A' : '#0A0A09';
+          d.style.borderColor = on ? '#E8B23A' : 'rgba(255,255,255,.25)';
         });
       });
       requestAnimationFrame(tick);
@@ -887,7 +887,7 @@ initDemo() {
         ['time', 'проверено за 5 сек против 3–5 мин вручную']
       ]
     };
-    const colors = { criteria: '#6E9EC9', flag: '#7BC96F', breach: '#E8683A', coach: '#4FD1A5', score: '#C79BE8', time: '#8A8579' };
+    const colors = { criteria: '#6E9EC9', flag: '#7BC96F', breach: '#E8683A', coach: '#E8B23A', score: '#C79BE8', time: '#8A8579' };
     let script = SCRIPT[this.lang === 'ru' ? 'ru' : 'en'];
     let i = 0;
     const push = () => {
