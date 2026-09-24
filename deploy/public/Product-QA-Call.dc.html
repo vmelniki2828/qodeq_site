@@ -28,19 +28,11 @@
 <meta name="twitter:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
 </head>
 <body>
-<!-- SBC Summit Lisbon announcement bar — remove this block + the --promo-h offsets in
-     header/progress-bar/hero once the event (29 Sep – 1 Oct 2026) has passed. -->
-<div id="qodeq-promo-bar" data-promo-bar="" style="position: fixed; top: 0; left: 0; right: 0; z-index: 96; display: flex; align-items: center; justify-content: center; gap: 16px; height: 44px; padding: 0 48px; background: #151512; border-bottom: 1px solid rgba(232,178,58,.28);">
-  <span style="flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 8px; overflow: hidden;"><img src="/assets/brand/flag-pt.png" srcset="/assets/brand/flag-pt.png 1x, /assets/brand/flag-pt@2x.png 2x" width="18" height="14" alt="" style="flex: 0 0 auto; display: block; border-radius: 1px;" /><span data-text-en="We're at SBC Summit Lisbon &middot; Sep 29 &ndash; Oct 1, 2026 &middot; FIL &amp; MEO Arena" data-text-ru="Мы на SBC Summit Lisbon &middot; 29 сент &ndash; 1 окт 2026 &middot; FIL &amp; MEO Arena" style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .03em; color: #E8E6E1;">We're at SBC Summit Lisbon · Sep 29 – Oct 1, 2026 · FIL &amp; MEO Arena</span></span>
-  <a href="/#contact" data-text-en="BOOK A MEETING →" data-text-ru="ВСТРЕТИМСЯ НА СТЕНДЕ →" style="flex: 0 0 auto; padding: 6px 13px; border: 1px solid #E8B23A; color: #E8B23A; font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .1em; white-space: nowrap; text-decoration: none;">BOOK A MEETING →</a>
-  <button data-promo-close="" aria-label="Close" type="button" style="flex: 0 0 auto; background: transparent; border: 0; color: #6E6A61; font: 400 20px/1 Arial, sans-serif; cursor: pointer; padding: 2px 0 2px 6px;">×</button>
-</div>
-<script>(function(){try{if(localStorage.getItem('qodeq_promo_lisbon')==='1'){var b=document.getElementById('qodeq-promo-bar');if(b)b.style.display='none';document.documentElement.style.setProperty('--promo-h','0px');}}catch(e){}})();</script>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="./i18n.js?v=32"></script>
+<script src="./i18n.js?v=33"></script>
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #0A0A09; --btn-acc: #C084F5; }
@@ -135,9 +127,9 @@
   <div data-rail="" style="position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 80; display: flex; flex-direction: column; gap: 13px; align-items: flex-end;"></div>
   <div data-cursor-ring="" style="position: fixed; top: 0; left: 0; width: 30px; height: 30px; margin: -15px 0 0 -15px; border: 1px solid #C084F5; border-radius: 50%; z-index: 9998; pointer-events: none; opacity: 0; transition: width .18s, height .18s, margin .18s, opacity .2s;"></div>
   <div data-cursor-dot="" style="position: fixed; top: 0; left: 0; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; background: #C084F5; border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0;"></div>
-  <div style="position: fixed; top: var(--promo-h, 44px); left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: #C084F5;"></div></div>
+  <div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: #C084F5;"></div></div>
 
-  <header style="position: fixed; top: var(--promo-h, 44px); left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
     <a href="/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" style="height: 40px; width: auto; display: block;" /></a>
     <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em;">
       <a href="/chat" data-tab="chat" data-i18n="nav.chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;">01 CHAT</a>
@@ -155,7 +147,7 @@
 
   <!-- 01 CHAT -->
   <div data-prod="qa-call">
-    <section style="position: relative; z-index: 1; padding: calc(150px + var(--promo-h, 44px)) 48px 90px; max-width: 1500px; margin: 0 auto;">
+    <section style="position: relative; z-index: 1; padding: 150px 48px 90px; max-width: 1500px; margin: 0 auto;">
       <div data-parallax="-0.07" style="position: absolute; right: 4vw; top: 14vh; font: 700 clamp(150px, 26vw, 400px)/0.8 'Space Grotesk', sans-serif; color: rgba(255,255,255,.022); letter-spacing: -.05em; pointer-events: none; user-select: none;">04</div>
       <p data-i18n="hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .28em; color: #C084F5;">— PRODUCT 04 · AI VOICE QA</p>
       <h1 data-i18n="hero.h1" style="margin: 0 0 26px; max-width: 1000px; font: 500 clamp(38px, 6.4vw, 104px)/0.98 'Space Grotesk', sans-serif; letter-spacing: -.034em; color: #F5F2EC;">2.6% coverage becomes 100%.</h1>

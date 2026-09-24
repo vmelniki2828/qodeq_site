@@ -77,26 +77,12 @@
   setTimeout(fill, 2000);
 })();
 
-// SBC Summit Lisbon announcement bar + homepage section: close button for the bar
-// (remembered via localStorage so it stays dismissed on later visits/pages), and a
-// document-wide EN/RU text swap for every [data-text-en] element (the bar and the
-// "See the full QODEQ lineup" section). Wired here rather than through each page's app
-// class so it works the same everywhere, independent of each page's own (sometimes
-// incomplete) i18n plumbing.
+// Document-wide EN/RU text swap for every [data-text-en] element (used by the
+// "See the full QODEQ lineup" homepage section). Wired here rather than through each
+// page's app class so it works the same everywhere, independent of each page's own
+// (sometimes incomplete) i18n plumbing.
 (function () {
   var wire = function () {
-    var bar = document.getElementById('qodeq-promo-bar');
-    if (bar && !bar.dataset.promoWired) {
-      bar.dataset.promoWired = '1';
-      var closeBtn = bar.querySelector('[data-promo-close]');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function () {
-          bar.style.display = 'none';
-          document.documentElement.style.setProperty('--promo-h', '0px');
-          try { localStorage.setItem('qodeq_promo_lisbon', '1'); } catch (e) {}
-        });
-      }
-    }
     document.querySelectorAll('[data-lang]').forEach(function (btn) {
       if (btn.dataset.textSwapWired) return;
       btn.dataset.textSwapWired = '1';
