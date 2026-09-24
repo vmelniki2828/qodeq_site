@@ -77,6 +77,36 @@
   setTimeout(fill, 2000);
 })();
 
+// SBC Summit Lisbon announcement bar: close button (remembered via localStorage so it
+// stays dismissed on later visits/pages) and its own EN/RU text swap. Wired here rather
+// than through each page's app class so it works the same everywhere, independent of
+// each page's own (sometimes incomplete) i18n plumbing.
+(function () {
+  var wire = function () {
+    var bar = document.getElementById('qodeq-promo-bar');
+    if (!bar || bar.dataset.promoWired) return;
+    bar.dataset.promoWired = '1';
+    var closeBtn = bar.querySelector('[data-promo-close]');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        bar.style.display = 'none';
+        document.documentElement.style.setProperty('--promo-h', '0px');
+        try { localStorage.setItem('qodeq_promo_lisbon', '1'); } catch (e) {}
+      });
+    }
+    document.querySelectorAll('[data-lang]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var lang = btn.getAttribute('data-lang');
+        bar.querySelectorAll('[data-text-en]').forEach(function (el) {
+          el.textContent = lang === 'ru' ? el.getAttribute('data-text-ru') : el.getAttribute('data-text-en');
+        });
+      });
+    });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
+  else wire();
+})();
+
 // Live chat: сообщения идут через наш же бэкенд (server/.../api/livechat/*), который
 // проксирует внутренний API инбокса Chatwoot — так весь диалог рендерится нашей
 // собственной вёрсткой (те же bubble()-пузыри, что и в AI-демо), без чужого iframe.
