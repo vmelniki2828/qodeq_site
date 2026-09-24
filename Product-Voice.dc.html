@@ -78,7 +78,7 @@
     [data-fb-send] { letter-spacing: .08em !important; }
   }
   @keyframes qblink { 0%, 45% { opacity: 1; } 50%, 100% { opacity: .15; } }
-  @media (pointer: fine) { body { cursor: none; } }
+  @media (pointer: fine) { body, input, textarea, select, button, a, [data-card] { cursor: none !important; } }
 
   /* Header — condenses on tablets, wraps into a centered strip on phones; never overlaps the hero below */
   @media (max-width: 900px) {
