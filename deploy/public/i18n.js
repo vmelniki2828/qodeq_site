@@ -112,6 +112,37 @@
   else wire();
 })();
 
+// SBC Summit Lisbon countdown badge: "N DAYS TO GO" -> "WE'RE LIVE" during the event ->
+// hides itself once it's over. Updates the element's data-text-en/ru too, so a later
+// language toggle (handled by the block above) shows the correct dynamic value instead
+// of stale placeholder text.
+(function () {
+  var run = function () {
+    var el = document.querySelector('[data-lisbon-countdown]');
+    if (!el) return;
+    var start = new Date('2026-09-29T00:00:00');
+    var end = new Date('2026-10-02T00:00:00');
+    var now = new Date();
+    var enText, ruText;
+    if (now < start) {
+      var days = Math.ceil((start - now) / 86400000);
+      if (days <= 1) { enText = 'TOMORROW'; ruText = 'ЗАВТРА'; }
+      else { enText = days + ' DAYS TO GO'; ruText = days + ' ДН. ДО НАЧАЛА'; }
+    } else if (now < end) {
+      enText = "WE'RE LIVE — COME SAY HI"; ruText = 'МЫ ЗДЕСЬ — ЗАХОДИТЕ';
+    } else {
+      var wrap = el.parentElement;
+      if (wrap) wrap.style.display = 'none';
+      return;
+    }
+    el.setAttribute('data-text-en', enText);
+    el.setAttribute('data-text-ru', ruText);
+    el.textContent = enText;
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+
 // Live chat: сообщения идут через наш же бэкенд (server/.../api/livechat/*), который
 // проксирует внутренний API инбокса Chatwoot — так весь диалог рендерится нашей
 // собственной вёрсткой (те же bubble()-пузыри, что и в AI-демо), без чужого iframe.
