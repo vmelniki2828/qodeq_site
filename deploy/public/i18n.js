@@ -26,43 +26,13 @@
 // response into a "[email protected]" placeholder that only decodes back via Cloudflare's
 // own injected script — which real users' ad-blockers routinely block. Building the
 // address here means there's no literal email substring in the HTML for it to catch.
-//
-// A mailto: link only ever "does something" if the visitor's OS has a default mail
-// app registered — on a lot of real machines (and every dev machine without Outlook/
-// Mail configured) clicking it is a silent no-op. So on click we also copy the address
-// to the clipboard and show a toast, which always gives visible feedback regardless of
-// whether a mail client is set up, without blocking the native mailto: from firing too.
 (function () {
-  var toastEl = null, toastTimer = null;
-  var ru = (navigator.language || '').toLowerCase().indexOf('ru') === 0;
-  function showToast(email) {
-    if (!toastEl) {
-      toastEl = document.createElement('div');
-      toastEl.style.cssText = 'position:fixed;left:50%;bottom:26px;z-index:99999;padding:12px 20px;background:#151512;border:1px solid rgba(255,255,255,.16);color:#F5F2EC;font:400 12px/1 "JetBrains Mono",monospace;letter-spacing:.04em;opacity:0;transform:translate(-50%,10px);transition:opacity .25s ease,transform .25s ease;pointer-events:none;';
-      document.body.appendChild(toastEl);
-    }
-    toastEl.textContent = (ru ? 'Адрес скопирован: ' : 'Address copied: ') + email;
-    toastEl.style.opacity = '1';
-    toastEl.style.transform = 'translate(-50%,0)';
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () {
-      toastEl.style.opacity = '0';
-      toastEl.style.transform = 'translate(-50%,10px)';
-    }, 2400);
-  }
   var fill = function () {
     document.querySelectorAll('a[data-mail-user][data-mail-host]').forEach(function (a) {
       var email = a.getAttribute('data-mail-user') + '@' + a.getAttribute('data-mail-host');
       var subject = a.getAttribute('data-mail-subject');
       a.setAttribute('href', 'mailto:' + email + (subject ? '?subject=' + encodeURIComponent(subject) : ''));
       if (a.hasAttribute('data-mail-fill')) a.textContent = email;
-      if (!a.dataset.mailWired) {
-        a.dataset.mailWired = '1';
-        a.addEventListener('click', function () {
-          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(email).catch(function () {});
-          showToast(email);
-        });
-      }
     });
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fill);
