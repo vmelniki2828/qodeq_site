@@ -1359,12 +1359,14 @@ class Component extends DCLogic {
   LEAD_ENDPOINT = '/api/lead';
 
   // ---------- model ----------
-  // <= at every boundary to match the tier() helper used by each product's own econ-tab
-  // calculator (and the displayed pricing tables) — this used to be strict "<", which put
-  // an exact boundary value (e.g. 30,000 chats) in a different, mismatched tier here than
-  // in the per-product calculator, so the two showed different rates for the same input.
-  chatRateFor(c) { return c <= 30000 ? 0.30 : c <= 50000 ? 0.25 : c <= 100000 ? 0.20 : 0.18; }
-  qaRateFor(c) { return c <= 30000 ? 0.30 : c <= 100000 ? 0.25 : c <= 200000 ? 0.20 : 0.18; }
+  // Strict "<" at every boundary: the tables read "5K—30K" for EASY, "30K—50K" for NORMAL,
+  // so the boundary value itself (30,000) belongs to the NEXT tier, not the current one.
+  // Matches the tier(..., true) calls in buildRows() for the same three products.
+  chatRateFor(c) { return c < 30000 ? 0.30 : c < 50000 ? 0.25 : c < 100000 ? 0.20 : 0.18; }
+  qaRateFor(c) { return c < 30000 ? 0.30 : c < 100000 ? 0.25 : c < 200000 ? 0.20 : 0.18; }
+  // Payment is the one product where the official pricing deck's own worked examples put
+  // the boundary value in the CURRENT (cheaper) tier — e.g. 50,000 tickets prices as NORMAL
+  // $0.25, not COMPANY — unlike chat/qa-chat where the boundary rolls into the next tier.
   payRateFor(t) { return t <= 10000 ? 0.30 : t <= 50000 ? 0.25 : t <= 100000 ? 0.20 : 0.18; }
   voiceRateFor(m) { return m <= 20000 ? 0.15 : m <= 50000 ? 0.12 : m <= 100000 ? 0.09 : 0.06; }
   planFor(c) { return c < 30000 ? 'EASY' : c < 50000 ? 'NORMAL' : c < 100000 ? 'COMPANY' : 'CORPORATION'; }
@@ -1695,19 +1697,23 @@ class Component extends DCLogic {
     const box = panel.querySelector('[data-crows]');
     if (!box) return;
     const n = (x) => Math.round(x).toLocaleString('en-US');
-    const tier = (v, t) => t.find(([lim]) => v <= lim) || t[t.length - 1];
+    // exclusive=true: the boundary value itself belongs to the NEXT tier (chat/qa-chat/
+    // payment's "5K—30K" / "30K—50K" tables mean 30,000 is already NORMAL, not EASY).
+    // Default (inclusive) keeps voice's "Up to 20,000" wording, where the boundary value
+    // still belongs to the cheaper tier.
+    const tier = (v, t, exclusive) => t.find(([lim]) => exclusive ? v < lim : v <= lim) || t[t.length - 1];
     const ru = this.state.lang === 'ru';
     const L = (en, r) => ru ? r : en;
     let rows = [], head = '', unit = '';
     if (slug === 'chat') {
-      const [, plan, rate] = tier(v, [[30000, 'EASY', .30], [50000, 'NORMAL', .25], [100000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]]);
+      const [, plan, rate] = tier(v, [[30000, 'EASY', .30], [50000, 'NORMAL', .25], [100000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]], true);
       const ai = v * .65 * rate, op = v * .35 * .5, base = v * .5;
       rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / chat', ' / чат')], [L('CLOSED BY AI · 65%', 'ЗАКРЫТО AI · 65%'), n(v * .65)], [L('AI COST', 'СТОИМОСТЬ AI'), '$' + n(ai)], [L('OPERATOR COST · 35%', 'СТОИМОСТЬ ОПЕРАТОРОВ · 35%'), '$' + n(op)], [L('TOTAL WITH QODEQ', 'ИТОГО С QODEQ'), '$' + n(ai + op)], [L('OPERATORS ONLY · $0.50', 'ТОЛЬКО ОПЕРАТОРЫ · $0,50'), '$' + n(base)], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(base - ai - op)], [L('ANNUAL SAVING', 'ЭКОНОМИЯ В ГОД'), '$' + n((base - ai - op) * 12)]];
       head = n(v) + L(' chats / month', ' чатов в месяц');
       unit = L('Billed per closed chat. Setup fee $1,000 one-off.', 'Тарификация за закрытый чат. Разовая плата за внедрение $1 000.');
     }
     if (slug === 'qa-chat') {
-      const [, plan, rate] = tier(v, [[30000, 'EASY', .30], [100000, 'NORMAL', .25], [200000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]]);
+      const [, plan, rate] = tier(v, [[30000, 'EASY', .30], [100000, 'NORMAL', .25], [200000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]], true);
       const cost = v * rate, man = v * .9;
       rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / check', ' / проверку')], [L('COVERAGE', 'ОХВАТ'), '100%'], [L('QODEQ QA COST', 'СТОИМОСТЬ QODEQ QA'), '$' + n(cost)], [L('MANUAL AT $0.90', 'ВРУЧНУЮ ПО $0,90'), '$' + n(man)], [L('SAVING', 'ЭКОНОМИЯ'), Math.round((1 - cost / man) * 100) + '%'], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(man - cost)], [L('ANNUAL SAVING', 'ЭКОНОМИЯ В ГОД'), '$' + n((man - cost) * 12)]];
       head = n(v) + L(' chats checked / month', ' проверенных чатов в месяц');

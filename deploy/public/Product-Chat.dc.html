@@ -739,7 +739,7 @@ ACC() { return '#4FD1A5'; }
     const render = () => {
       const lang = this.state.lang || 'en';
       const v = +input.value;
-      const tier = tiers.find(t => v <= t[0]) || tiers[tiers.length - 1];
+      const tier = tiers.find(t => v < t[0]) || tiers[tiers.length - 1];
       const price = tier[1];
       const scale = box.getAttribute('data-cur') === '€' && share === 1 && setup === 0 ? 30 : 1; // calls per day → per month
       const vol = v * scale;

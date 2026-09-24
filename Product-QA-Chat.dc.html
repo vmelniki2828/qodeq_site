@@ -235,7 +235,7 @@
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
     <p data-i18n="qa.calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #E8B23A;">— YOUR NUMBERS · QA</p>
     <h2 data-i18n="qa.calc.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Model your QA coverage.</h2>
-    <div data-calc="" data-min="5000" data-max="1000000" data-step="5000" data-def="120000" data-cur="$" data-human="0.65" data-share="1" data-setup="1000" data-tiers="30000:0.3,50000:0.25,100000:0.2,9000000000:0.18" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
+    <div data-calc="" data-min="5000" data-max="1000000" data-step="5000" data-def="120000" data-cur="$" data-human="0.90" data-share="1" data-setup="1000" data-tiers="30000:0.3,100000:0.25,200000:0.2,9000000000:0.18" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 30px;">
         <div>
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="qa.calc.chats" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">CHATS CHECKED PER MONTH</span><span data-cv="" style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</span></div>
@@ -657,7 +657,7 @@ ACC() { return '#E8B23A'; }
     const render = () => {
       const s = CALC_STR[this.lang === 'ru' ? 'ru' : 'en'];
       const v = +input.value;
-      const tier = tiers.find(t => v <= t[0]) || tiers[tiers.length - 1];
+      const tier = tiers.find(t => v < t[0]) || tiers[tiers.length - 1];
       const price = tier[1];
       const scale = box.getAttribute('data-cur') === '€' && share === 1 && setup === 0 ? 30 : 1; // calls per day → per month
       const vol = v * scale;
