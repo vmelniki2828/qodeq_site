@@ -340,6 +340,12 @@ const CLEAN_URLS = {
   '/payment': 'Product-Payment.dc.html',
   '/qa-call': 'Product-QA-Call.dc.html',
   '/voice': 'Product-Voice.dc.html',
+  '/ru/': 'QODEQ.ru.dc.html',
+  '/ru/chat': 'Product-Chat.ru.dc.html',
+  '/ru/qa-chat': 'Product-QA-Chat.ru.dc.html',
+  '/ru/payment': 'Product-Payment.ru.dc.html',
+  '/ru/qa-call': 'Product-QA-Call.ru.dc.html',
+  '/ru/voice': 'Product-Voice.ru.dc.html',
 };
 for (const [route, file] of Object.entries(CLEAN_URLS)) {
   app.get(route, (req, res) => {
