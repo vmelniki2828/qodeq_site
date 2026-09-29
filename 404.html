@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>404 — Page not found | QODEQ</title>
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: #0A0A09;
+    color: #F5F2EC;
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70vw;
+    height: 70vw;
+    max-width: 900px;
+    max-height: 900px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(232,178,58,.08), rgba(232,178,58,0) 62%);
+    pointer-events: none;
+  }
+  a { text-decoration: none; }
+  .logo { position: relative; margin-bottom: 56px; }
+  .logo img { height: 30px; width: auto; display: block; }
+  .code {
+    position: relative;
+    margin: 0;
+    font: 700 clamp(90px, 18vw, 220px)/0.9 'Space Grotesk', sans-serif;
+    letter-spacing: -0.03em;
+    background: linear-gradient(180deg, #F5F2EC, #6E6A61);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .kicker {
+    position: relative;
+    margin: 8px 0 20px;
+    font: 400 11px/1 'JetBrains Mono', monospace;
+    letter-spacing: .3em;
+    color: #E8B23A;
+    text-transform: uppercase;
+  }
+  .sub {
+    position: relative;
+    margin: 0 0 44px;
+    max-width: 480px;
+    font: 400 16px/1.6 'Space Grotesk', sans-serif;
+    color: #9A958A;
+  }
+  .cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 17px 26px;
+    background: #E8B23A;
+    color: #0A0A09;
+    font: 500 11px/1 'JetBrains Mono', monospace;
+    letter-spacing: .18em;
+    margin-bottom: 56px;
+    transition: filter .2s ease;
+  }
+  .cta:hover { filter: brightness(1.08); }
+  .links {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 640px;
+  }
+  .links a {
+    padding: 10px 16px;
+    border: 1px solid rgba(255,255,255,.14);
+    font: 400 11px/1 'JetBrains Mono', monospace;
+    letter-spacing: .12em;
+    color: #8A8579;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .links a:hover { border-color: #E8B23A; color: #E8B23A; }
+  @media (max-width: 520px) {
+    .links { gap: 8px; }
+    .links a { padding: 9px 13px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+  <a class="logo" href="/"><img src="/assets/brand/logo-main.png?v=2" alt="QODEQ" /></a>
+  <p class="code">404</p>
+  <p class="kicker">— Page not found</p>
+  <p class="sub">This page doesn't exist or has moved. Check the address, or head back to explore the platform.</p>
+  <a class="cta" href="/">BACK TO HOMEPAGE →</a>
+  <nav class="links">
+    <a href="/chat">AI CHAT OPERATOR</a>
+    <a href="/qa-chat">AI QA SYSTEM</a>
+    <a href="/payment">AI PAYMENT ASSISTANT</a>
+    <a href="/qa-call">AI VOICE QA</a>
+    <a href="/voice">AI VOICE BOT</a>
+  </nav>
+</body>
+</html>
