@@ -265,7 +265,7 @@
   </section>
 
   <!-- SiGMA World Rome (2–5 Nov 2026). Hides itself after the event (initEventCountdown); remove the markup afterwards. -->
-  <section id="sigma" data-screen-label="01b SiGMA" data-event-section="" data-event-end="2026-11-06T00:00:00" style="position: relative; z-index: 1; padding: 90px 48px; max-width: 1500px; margin: 0 auto;">
+  <section id="sigma" data-screen-label="01b SiGMA" data-event-section="" data-event-end="2026-11-06T00:00:00+01:00" style="position: relative; z-index: 1; padding: 90px 48px; max-width: 1500px; margin: 0 auto;">
     <div style="position: relative; padding: 56px 50px; border: 1px solid rgba(232,178,58,.3); background: linear-gradient(135deg, rgba(232,178,58,.08), rgba(232,178,58,0) 58%), #0C0C0A; overflow: clip; box-shadow: 0 30px 70px -30px rgba(232,178,58,.18);">
       <div data-parallax="0.04" style="position: absolute; right: -1%; bottom: -18%; font: 700 clamp(90px, 15vw, 230px)/0.8 'Space Grotesk', sans-serif; color: rgba(232,178,58,.045); letter-spacing: -.04em; pointer-events: none; user-select: none; white-space: nowrap;">ROMA</div>
       <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 60px; align-items: center;">
@@ -284,7 +284,7 @@
                 <span style="position: absolute; inset: 0; border-radius: 50%; background: #4FD1A5;"></span>
                 <span style="position: absolute; inset: 0; border-radius: 50%; background: #4FD1A5; animation: qpulse 1.8s ease-out infinite;"></span>
               </span>
-              <span data-event-countdown="" data-event-start="2026-11-02T00:00:00" data-event-end="2026-11-06T00:00:00" data-text-en="NOV 2–5, 2026" data-text-ru="2–5 НОЯБРЯ 2026" style="font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .12em; color: #C9C5BC;">NOV 2–5, 2026</span>
+              <span data-event-countdown="" data-event-start="2026-11-02T00:00:00+01:00" data-event-end="2026-11-06T00:00:00+01:00" data-text-en="NOV 2–5, 2026" data-text-ru="2–5 НОЯБРЯ 2026" style="font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .12em; color: #C9C5BC;">NOV 2–5, 2026</span>
             </div>
           </div>
         </div>
@@ -2813,21 +2813,28 @@ class Component extends DCLogic {
   }
 
   // ---------- language ----------
-  // Event badge: "N DAYS TO GO" before, "LIVE NOW" during; the whole [data-event-section] hides after it ends.
+  // Event badge: live "18D 07H 42M TO GO" before the event (Rome time in the data attributes), "LIVE NOW"
+  // during it; the whole [data-event-section] hides itself once it ends. Re-checked every 30 s.
   initEventCountdown() {
-    const now = new Date();
-    this.q('[data-event-section]').forEach(sec => { if (now >= new Date(sec.getAttribute('data-event-end'))) sec.style.display = 'none'; });
-    this.q('[data-event-countdown]').forEach(el => {
-      const start = new Date(el.getAttribute('data-event-start')), end = new Date(el.getAttribute('data-event-end'));
-      let en, ru;
-      if (now < start) {
-        const d = Math.ceil((start - now) / 86400000);
-        if (d <= 1) { en = 'TOMORROW'; ru = 'ЗАВТРА'; } else { en = d + ' DAYS TO GO'; ru = d + ' ДН. ДО НАЧАЛА'; }
-      } else if (now < end) { en = 'LIVE NOW'; ru = 'ИДЁТ СЕЙЧАС'; }
-      else return;
-      el.setAttribute('data-text-en', en); el.setAttribute('data-text-ru', ru);
-      el.textContent = (this.state.lang === 'ru' || document.documentElement.lang === 'ru') ? ru : en;
-    });
+    const pad = n => String(n).padStart(2, '0');
+    const tick = () => {
+      const now = Date.now();
+      this.q('[data-event-section]').forEach(sec => { if (now >= Date.parse(sec.getAttribute('data-event-end'))) sec.style.display = 'none'; });
+      this.q('[data-event-countdown]').forEach(el => {
+        const st = Date.parse(el.getAttribute('data-event-start')), en_ = Date.parse(el.getAttribute('data-event-end'));
+        let en, ru;
+        if (now < st) {
+          const m = Math.max(1, Math.ceil((st - now) / 60000)), d = Math.floor(m / 1440), h = Math.floor((m % 1440) / 60), mi = m % 60;
+          en = (d ? d + 'D ' : '') + pad(h) + 'H ' + pad(mi) + 'M TO GO';
+          ru = (d ? d + ' Д ' : '') + pad(h) + ' Ч ' + pad(mi) + ' МИН ДО НАЧАЛА';
+        } else if (now < en_) { en = 'LIVE NOW · ROME'; ru = 'ИДЁТ СЕЙЧАС · РИМ'; }
+        else return;
+        el.setAttribute('data-text-en', en); el.setAttribute('data-text-ru', ru);
+        el.textContent = (this.state.lang === 'ru' || document.documentElement.lang === 'ru') ? ru : en;
+      });
+    };
+    tick();
+    if (!this._eventTimer) this._eventTimer = setInterval(tick, 30000);
   }
   applyLang(lang) {
     const dict = (window.QODEQ_I18N && window.QODEQ_I18N.ru) || {};
