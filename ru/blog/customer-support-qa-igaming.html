@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NY9Q210KNW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NY9Q210KNW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className += ' js';</script>
+<title>Контроль качества саппорта iGaming: 100% чатов с AI | QODEQ</title>
+<meta name="description" content="Как поддержке казино и букмекеров перейти от ручной выборки 10–15% чатов к AI-оценке каждого диалога: критерии чек-листа, точность, обучение и экономика." />
+<link rel="canonical" href="https://qodeq.net/ru/blog/customer-support-qa-igaming" />
+<link rel="alternate" hreflang="en" href="https://qodeq.net/blog/customer-support-qa-igaming" />
+<link rel="alternate" hreflang="ru" href="https://qodeq.net/ru/blog/customer-support-qa-igaming" />
+<link rel="alternate" hreflang="x-default" href="https://qodeq.net/blog/customer-support-qa-igaming" />
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content="QODEQ" />
+<meta property="og:url" content="https://qodeq.net/ru/blog/customer-support-qa-igaming" />
+<meta property="og:title" content="Контроль качества саппорта iGaming: 100% чатов с AI | QODEQ" />
+<meta property="og:description" content="Как поддержке казино и букмекеров перейти от ручной выборки 10–15% чатов к AI-оценке каждого диалога: критерии чек-листа, точность, обучение и экономика." />
+<meta property="og:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://qodeq.net/#org",
+      "name": "QODEQ",
+      "url": "https://qodeq.net/",
+      "logo": "https://qodeq.net/assets/brand/logo-main.png",
+      "sameAs": [
+        "https://t.me/qodeq"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://qodeq.net/ru/blog/customer-support-qa-igaming#article",
+      "mainEntityOfPage": "https://qodeq.net/ru/blog/customer-support-qa-igaming",
+      "headline": "Контроль качества саппорта в iGaming: AI проверяет 100% чатов вместо выборки 10–15%",
+      "description": "Как поддержке казино и букмекеров перейти от ручной выборки 10–15% чатов к AI-оценке каждого диалога: критерии чек-листа, точность, обучение и экономика.",
+      "inLanguage": "ru",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "wordCount": 1917,
+      "author": {
+        "@id": "https://qodeq.net/#org"
+      },
+      "publisher": {
+        "@id": "https://qodeq.net/#org"
+      },
+      "image": "https://qodeq.net/assets/brand/og-image.png?v=2",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "AI QA System",
+        "applicationCategory": "BusinessApplication",
+        "url": "https://qodeq.net/ru/qa-chat"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "QODEQ",
+          "item": "https://qodeq.net/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://qodeq.net/ru/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "QA саппорта с AI",
+          "item": "https://qodeq.net/ru/blog/customer-support-qa-igaming"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Что такое AI QA для чатов поддержки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI QA — это автоматический контроль качества, который оценивает каждый чат поддержки по взвешенному чек-листу вместо ручной выборки. AI QA System от QODEQ проверяет 100% чатов по 15 критериям примерно за 5 секунд на чат и привязывает нарушения к конкретной строке диалога."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Насколько точна AI-оценка чатов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Точность оценки QODEQ — 97,6%. Каждое замечание привязано к строке чата, поэтому QA-менеджер может проверить любую оценку, а его правки в модуле ручной перепроверки продолжают обучать модель."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI QA заменит нашу QA-команду?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Он заменяет ручную выборку, а не экспертизу QA. QA-менеджеры переходят на калибровку, перепроверки и обучение — работу, которая реально улучшает операторов."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли использовать свои критерии и скрипты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. У каждого из 15 критериев есть весовой коэффициент под ваш проект, бренд и скрипты, а перед запуском чек-лист калибруется по вашим QA-менеджерам в параллельном режиме."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит AI QA по сравнению с ручной проверкой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Оплата за проверенный чат: от $0,30 до $0,18 в зависимости от объёма плюс разовый setup $1 000. Ручная проверка того же объёма стоит около $0,90 за чат, поэтому экономия — 67–80% в зависимости от объёма."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько времени занимает запуск AI QA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полноценная работа начинается с 4-й недели: интеграция на первой неделе, настройка критериев на второй, калибровка на третьей и ежедневные отчёты по операторам с четвёртой."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Данные наших чатов в безопасности?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чаты обрабатываются конфиденциально, с локальным хранением и соблюдением GDPR. Система использует доступ только на чтение к истории чатов и ничего не меняет в вашем хелпдеске."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Может ли AI QA проверять звонки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, через AI Voice QA: звонки транскрибируются Whisper, и к каждому входящему и исходящему звонку применяется та же модель из 15 критериев. Продукт на финальной стадии разработки и тестирования, условия зависят от объёма звонков."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что AI QA находит такого, что пропускает ручная выборка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Редкие, но дорогие ошибки, распределённые по всему объёму: неверные ответы по бонусам и выплатам, пропущенные эскалации, игнорирование долгого ожидания и «не тот» тон на отдельных сменах. При 100% покрытии они видны по каждому оператору и смене, а не попадаются случайно."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #0A0A09; --bg2: #0C0C0A; --bg3: #11110F; --text: #F5F2EC; --text2: #E8E6E1; --muted: #8A8579; --dim: #6E6A61; --faint: #57544C;
+    --line: rgba(255,255,255,.09); --line2: rgba(255,255,255,.14); --body: #B5AFA2;
+    --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: 'Space Grotesk', system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+  body::before { content: ''; position: fixed; left: 50%; top: -20vh; width: 90vw; height: 70vh; transform: translateX(-50%); background: radial-gradient(ellipse, color-mix(in srgb, var(--page-acc) 8%, transparent), transparent 65%); pointer-events: none; z-index: 0; }
+  a { color: inherit; text-decoration: none; }
+  p { margin: 0; }
+  .btn, .nav a, .lang a { cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+  .btn:hover, .nav a:hover, .lang a:hover { background-color: var(--btn-acc, var(--page-acc)) !important; border-color: var(--btn-acc, var(--page-acc)) !important; color: #0A0A09 !important; }
+  .hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; padding: 16px 32px; background: rgba(10,10,9,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
+  .hdr img { height: 40px; width: auto; display: block; }
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 var(--mono); letter-spacing: .16em; }
+  .nav a { padding: 8px 12px; border: 1px solid var(--line2); color: var(--muted); }
+  .lang { display: flex; gap: 6px; }
+  .lang a { padding: 7px 11px; border: 1px solid rgba(255,255,255,.16); color: var(--muted); font: 400 10px/1 var(--mono); letter-spacing: .16em; }
+  .lang a[aria-current] { background: color-mix(in srgb, var(--page-acc) 14%, transparent); border-color: var(--page-acc); color: var(--page-acc); }
+  main { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+  section { padding: clamp(56px, 8vw, 100px) 0 0; }
+  .kicker { margin: 0 0 18px; font: 400 11px/1.4 var(--mono); letter-spacing: .24em; color: var(--page-acc); }
+  h1 { margin: 0 0 24px; max-width: 1000px; font: 500 clamp(32px, 4.8vw, 64px)/1.04 var(--sans); letter-spacing: -.03em; }
+  h2 { margin: 0 0 22px; font: 500 clamp(24px, 2.6vw, 34px)/1.15 var(--sans); letter-spacing: -.022em; }
+  h3 { margin: 0 0 10px; font: 500 19px/1.3 var(--sans); letter-spacing: -.01em; }
+  .lead { max-width: 820px; font: 400 clamp(17px, 1.5vw, 20px)/1.55 var(--sans); color: var(--body); }
+  .hero { padding-top: calc(73px + clamp(44px, 7vw, 96px)); }
+  .crumbs { margin-bottom: 26px; font: 400 11px/1.4 var(--mono); letter-spacing: .14em; color: var(--dim); }
+  .crumbs a:hover { color: var(--text); }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; font: 400 11px/1.4 var(--mono); letter-spacing: .16em; color: var(--muted); }
+  .meta b { font-weight: 400; color: var(--page-acc); }
+  .btn { display: inline-flex; align-items: center; padding: 16px 22px; border: 1px solid var(--line2); color: var(--text2); font: 500 11px/1 var(--mono); letter-spacing: .18em; background: transparent; }
+  .btn.primary { background: var(--page-acc); border-color: var(--page-acc); color: #0A0A09; }
+
+  /* ---------- статья ---------- */
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); padding-top: clamp(44px, 6vw, 72px); }
+  .toc { position: sticky; top: 100px; align-self: start; max-height: calc(100vh - 120px); overflow: auto; }
+  .toc p { margin-bottom: 14px; font: 400 10px/1 var(--mono); letter-spacing: .22em; color: var(--faint); }
+  .toc a { display: block; padding: 7px 0 7px 14px; border-left: 1px solid var(--line2); font: 400 13px/1.4 var(--sans); color: var(--muted); }
+  .toc a:hover, .toc a.on { color: var(--text); border-left-color: var(--page-acc); }
+  article { max-width: 780px; }
+  article > h2 { margin-top: 64px; scroll-margin-top: 100px; }
+  article > h2:first-child { margin-top: 0; }
+  article > h3 { margin-top: 34px; }
+  article > p { margin: 0 0 20px; font: 400 17px/1.75 var(--sans); color: var(--body); }
+  article strong { color: var(--text); font-weight: 500; }
+  article a:not(.card):not(.btn) { color: var(--text); border-bottom: 1px solid color-mix(in srgb, var(--page-acc) 60%, transparent); }
+  article a:not(.card):not(.btn):hover { color: var(--page-acc); }
+  article ul, article ol { margin: 0 0 24px; padding: 0; list-style: none; counter-reset: li; }
+  article li { position: relative; padding: 0 0 12px 30px; font: 400 17px/1.65 var(--sans); color: var(--body); }
+  article ul li::before { content: ''; position: absolute; left: 4px; top: .7em; width: 7px; height: 7px; background: var(--page-acc); }
+  article ol li { counter-increment: li; }
+  article ol li::before { content: counter(li, decimal-leading-zero); position: absolute; left: 0; top: .2em; font: 500 11px/1.6 var(--mono); color: var(--page-acc); }
+  .box { margin: 0 0 40px; padding: 26px 28px; background: var(--bg2); border: 1px solid var(--line2); border-left: 2px solid var(--page-acc); }
+  .box p.kicker { margin-bottom: 14px; }
+  .box ul { margin: 0; } .box li:last-child { padding-bottom: 0; }
+  .note { margin: 6px 0 32px; padding: 20px 24px; background: color-mix(in srgb, var(--page-acc) 7%, var(--bg)); border: 1px solid color-mix(in srgb, var(--page-acc) 30%, transparent); font: 400 16px/1.65 var(--sans); color: var(--text2); }
+  .tbl { margin: 8px 0 32px; overflow-x: auto; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; }
+  th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font: 400 14px/1.5 var(--sans); color: var(--body); }
+  th { background: var(--bg3); font: 500 11px/1.4 var(--mono); letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+  td:first-child { color: var(--text2); }
+  tr:last-child td { border-bottom: 0; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; margin: 8px 0 36px; background: var(--line); border: 1px solid var(--line); }
+  .stat { padding: 22px 20px; background: var(--bg); }
+  .stat b { display: block; margin-bottom: 8px; font: 500 clamp(26px, 2.8vw, 36px)/1 var(--sans); letter-spacing: -.03em; color: var(--page-acc); }
+  .stat span { font: 400 11px/1.5 var(--mono); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; margin: 8px 0 36px; background: var(--line); border: 1px solid var(--line); }
+  .card { display: flex; flex-direction: column; gap: 12px; padding: 24px 22px; background: var(--bg2); border-top: 2px solid var(--card-acc); transition: background-color .2s ease, transform .2s ease; }
+  .card:hover { background: #0E0E0C; transform: translateY(-3px); }
+  .card h3 { margin: 0; font-size: 18px; }
+  .card p { flex: 1; font: 400 14px/1.6 var(--sans); color: #9A958A; }
+  .card .more { font: 500 10px/1 var(--mono); letter-spacing: .16em; color: var(--card-acc); }
+  .card small { font: 400 10px/1 var(--mono); letter-spacing: .16em; color: var(--card-acc); }
+  .posts { grid-template-columns: repeat(3, 1fr); gap: 16px; background: none; border: 0; }
+  .posts .card { border: 1px solid var(--line); border-top: 2px solid var(--card-acc); }
+  .posts .card h3 { font-size: 20px; line-height: 1.3; }
+
+  /* ---------- индекс блога: обложка + нумерованный список ---------- */
+  .feat { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line2); overflow: hidden; }
+  .feat > div { padding: clamp(26px, 4vw, 48px); background: var(--bg2); }
+  .feat > div:last-child { background: var(--bg); display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+  .feat::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--page-acc); transform: scaleY(.25); transform-origin: top; transition: transform .5s cubic-bezier(.2,.7,.2,1); z-index: 1; }
+  .feat:hover::before { transform: scaleY(1); }
+  .feat h2 { margin: 0 0 18px; font-size: clamp(26px, 3.2vw, 44px); transition: color .2s ease; }
+  .feat:hover h2 { color: var(--page-acc); }
+  .feat p { max-width: 560px; font: 400 16px/1.65 var(--sans); color: var(--body); }
+  .feat .go { display: inline-block; margin-top: 30px; font: 500 11px/1 var(--mono); letter-spacing: .18em; color: var(--page-acc); transition: transform .25s ease; }
+  .feat:hover .go { transform: translateX(6px); }
+  .fstats { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; }
+  .fstats b { display: block; margin-bottom: 6px; font: 500 clamp(28px, 3vw, 40px)/1 var(--sans); letter-spacing: -.03em; color: var(--page-acc); }
+  .fstats span { font: 400 10px/1.5 var(--mono); letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
+  .fprod { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fprod i { padding: 7px 10px; border: 1px solid var(--line2); border-left: 2px solid var(--c); font: 400 10px/1 var(--mono); font-style: normal; letter-spacing: .12em; color: var(--muted); }
+  .rows-hd { display: flex; justify-content: space-between; align-items: baseline; margin: clamp(56px, 8vw, 96px) 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--line2); font: 400 11px/1.4 var(--mono); letter-spacing: .2em; color: var(--muted); }
+  .rows-hd b { font-weight: 400; color: var(--text); }
+  .row { position: relative; display: grid; grid-template-columns: 90px minmax(0, 1fr) 150px 40px; gap: 24px; align-items: center; padding: 34px 0; border-bottom: 1px solid var(--line); isolation: isolate; }
+  .row::before { content: ''; position: absolute; inset: 0 -24px; z-index: -1; background: linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, transparent), transparent 70%); opacity: 0; transition: opacity .3s ease; }
+  .row:hover::before { opacity: 1; }
+  .row .n { font: 500 clamp(36px, 4vw, 56px)/1 var(--sans); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px var(--faint); transition: color .3s ease, -webkit-text-stroke-color .3s ease; }
+  .row:hover .n { color: var(--c); -webkit-text-stroke-color: var(--c); }
+  .row small { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; font: 400 10px/1 var(--mono); letter-spacing: .18em; color: var(--c); }
+  .row small::before { content: ''; width: 7px; height: 7px; background: var(--c); }
+  .row h3 { margin: 0 0 10px; font: 500 clamp(20px, 2.1vw, 28px)/1.2 var(--sans); letter-spacing: -.02em; transition: color .2s ease; }
+  .row p { max-width: 720px; font: 400 15px/1.6 var(--sans); color: #9A958A; }
+  .row .rt { font: 400 11px/1.6 var(--mono); letter-spacing: .14em; color: var(--muted); text-align: right; }
+  .row .ar { font: 400 24px/1 var(--mono); color: var(--faint); transition: transform .25s ease, color .25s ease; }
+  .row:hover .ar { color: var(--c); transform: translateX(8px); }
+  @media (max-width: 860px) { .feat { grid-template-columns: 1fr; } .row { grid-template-columns: 56px minmax(0, 1fr); gap: 6px 16px; padding: 26px 0; } .row .rt { grid-column: 2; text-align: left; } .row .ar { display: none; } .row .n { font-size: 34px; align-self: start; } }
+  .prod { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin: 48px 0 0; padding: 24px 26px; border: 1px solid var(--line2); background: var(--bg2); }
+  .prod span { font: 400 10px/1 var(--mono); letter-spacing: .2em; color: var(--muted); }
+  .prod b { display: block; margin-top: 8px; font: 500 20px/1.2 var(--sans); }
+  .faq { border-top: 1px solid var(--line); }
+  .faq h3 { margin: 34px 0 6px; font: 400 11px/1.4 var(--mono); letter-spacing: .2em; color: var(--page-acc); text-transform: uppercase; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { display: flex; justify-content: space-between; gap: 24px; padding: 22px 0; cursor: pointer; list-style: none; font: 500 clamp(16px, 1.5vw, 20px)/1.4 var(--sans); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; flex: 0 0 auto; font: 400 22px/1 var(--mono); color: var(--page-acc); transition: transform .2s ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { max-width: 860px; padding: 0 0 24px; font: 400 16px/1.7 var(--sans); color: #9A958A; }
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .contact > div, .contact form { padding: clamp(26px, 4vw, 48px); }
+  .contact > div { background: var(--bg2); }
+  .contact h2 { margin-bottom: 18px; font-size: clamp(26px, 3vw, 40px); }
+  .contact form { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 10px; background: var(--bg); }
+  .contact input { width: 100%; padding: 15px 16px; background: var(--bg3); border: 1px solid var(--line2); color: var(--text); font: 400 15px/1.2 var(--sans); border-radius: 0; }
+  .contact input:focus { outline: none; border-color: var(--page-acc); }
+  .contact .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .contact .btn { justify-content: center; margin-top: 6px; }
+  .contact .msg { min-height: 1.4em; font: 400 12px/1.5 var(--mono); color: var(--muted); }
+  .contact .msg.ok { color: #4FD1A5; } .contact .msg.err { color: #F4794C; }
+  .contact .small { margin-top: 18px; font: 400 12px/1.6 var(--mono); color: var(--dim); }
+  footer { position: relative; z-index: 1; max-width: 1280px; margin: clamp(70px, 10vw, 120px) auto 0; padding: 40px clamp(16px, 4vw, 48px) 48px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; font: 400 13px/1.9 var(--sans); color: #9A958A; }
+  footer .col span { display: block; margin-bottom: 8px; font: 400 10px/1 var(--mono); letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
+  footer .col a { display: block; }
+  footer .col a:hover, footer .back:hover { color: var(--text); }
+  footer .back { font: 400 11px/1.6 var(--mono); letter-spacing: .14em; color: var(--faint); }
+  .js [data-r] { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .js [data-r].in { opacity: 1; transform: none; }
+  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .toc { display: none; } .contact { grid-template-columns: 1fr; } .posts { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .posts { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .nav { display: none; } .hdr { padding: 12px 16px; } .hdr .lang { margin-left: auto; } .hero { padding-top: calc(65px + 40px); } }
+  @media (max-width: 560px) { article > p, article li { font-size: 16px; } .box { padding: 20px; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .js [data-r] { opacity: 1; transform: none; } }
+</style>
+</head>
+<body style="--page-acc: #E8B23A;">
+
+<header class="hdr">
+  <a href="/ru/" aria-label="QODEQ"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" /></a>
+  <nav class="nav">
+    <a href="/ru/chat" style="border-left: 2px solid #4FD1A5; --btn-acc: #4FD1A5;">01 ЧАТ</a>
+    <a href="/ru/qa-chat" style="border-left: 2px solid #E8B23A; --btn-acc: #E8B23A;">02 QA-ЧАТ</a>
+    <a href="/ru/payment" style="border-left: 2px solid #5FA5F9; --btn-acc: #5FA5F9;">03 ПЛАТЕЖИ</a>
+    <a href="/ru/qa-call" style="border-left: 2px solid #C084F5; --btn-acc: #C084F5;">04 QA-ЗВОНКИ</a>
+    <a href="/ru/voice" style="border-left: 2px solid #F4794C; --btn-acc: #F4794C;">05 ГОЛОС</a>
+    <a href="/ru/blog" style="border-left: 2px solid #F5F2EC; --btn-acc: #F5F2EC;">БЛОГ</a>
+  </nav>
+  <div class="lang">
+    <a href="/blog/customer-support-qa-igaming" hreflang="en">EN</a>
+    <a href="/ru/blog/customer-support-qa-igaming" hreflang="ru" aria-current="page">RU</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <nav class="crumbs" aria-label="breadcrumbs"><a href="/ru/">QODEQ</a> / <a href="/ru/blog">Блог</a> / QA саппорта с AI</nav>
+    <p class="kicker">— ГАЙД · КОНТРОЛЬ КАЧЕСТВА ПОДДЕРЖКИ</p>
+    <h1>Контроль качества саппорта в iGaming: AI проверяет 100% чатов вместо выборки 10–15%</h1>
+    <p class="lead">Большинство команд поддержки казино и беттинга до сих пор проверяют качество вручную: QA-специалист читает небольшую выборку чатов и заполняет таблицу. Разбираем, что такая выборка упускает, как работает AI-оценка каждого диалога и сколько она стоит по сравнению с ручной проверкой.</p>
+    <div class="meta"><span>ОБНОВЛЕНО <b>19 ОКТ 2026</b></span><span>9 МИН ЧТЕНИЯ</span><span>КОМАНДА QODEQ</span></div>
+  </section>
+
+  <div class="layout">
+    <aside class="toc" aria-label="СОДЕРЖАНИЕ">
+      <p>СОДЕРЖАНИЕ</p>
+      <a href="#why-manual-qa-fails">Почему ручной QA не масштабируется в саппорте казино</a>
+      <a href="#qa-scorecard">Что должен оценивать чек-лист качества для iGaming</a>
+      <a href="#how-ai-qa-works">Как работает AI-оценка чатов поддержки</a>
+      <a href="#coaching">От оценок к обучению: отчёты по каждому оператору</a>
+      <a href="#economics">Стоимость: AI QA против ручной проверки</a>
+      <a href="#rollout">Внедрение: полноценная работа с 4-й недели</a>
+      <a href="#security">Безопасность данных и приватность игроков</a>
+      <a href="#qa-plus-ai-agent">QA вместе с AI-агентом в чате</a>
+      <a href="#checklist">Чек-лист: готова ли ваша команда к AI QA</a>
+      <a href="#faq">Частые вопросы</a>
+    </aside>
+    <article>
+<div class="box">
+  <p class="kicker">ГЛАВНОЕ</p>
+  <ul>
+    <li>Ручной QA обычно покрывает <strong>10–15% чатов</strong>, тратит 3–5 минут на чат и обходится примерно в <strong>$0,90</strong> за проверку — остальной трафик никто не смотрит.</li>
+    <li>AI QA оценивает <strong>100% чатов</strong> по <strong>15 взвешенным критериям</strong> примерно за <strong>5 секунд</strong> на чат с <strong>точностью 97,6%</strong>.</li>
+    <li>Каждое нарушение привязано к конкретной строке чата — оценку можно проверить и использовать для обучения.</li>
+    <li>Ежедневные и ежемесячные отчёты по каждому оператору помогают поднять показатели на <strong>25–40%</strong>.</li>
+    <li>Оплата за проверенный чат — от <strong>$0,30 до $0,18</strong>, это на <strong>67–80%</strong> дешевле ручной проверки того же объёма.</li>
+  </ul>
+</div>
+<h2 id="why-manual-qa-fails">Почему ручной QA не масштабируется в саппорте казино</h2>
+<p>Ручной QA не масштабируется, потому что объём поддержки в iGaming растёт быстрее, чем QA-команда успевает читать. Типичная схема — один-два QA-специалиста раз в неделю выбирают случайные чаты, читают их по чек-листу и записывают оценки в таблицу или форму хелпдеска.</p>
+<p>В лучшем случае так покрывается <strong>10–15% чатов</strong>. Одна проверка занимает <strong>3–5 минут</strong>, а полная стоимость вручную проверенного чата — около <strong>$0,90</strong>. На загруженных проектах покрытие ещё ниже: QA-лид видит условные <strong>2 чата из 1 000</strong>.</p>
+<p>Дело не в старании, а в статистике. Проблемы, из-за которых уходят игроки, редки в расчёте на один чат, но часты в сумме:</p>
+<ul>
+  <li>грубый или отписочный ответ игроку, который несколько часов ждёт вывод;</li>
+  <li>неверный ответ про вейджер или условия бонуса, который потом превращается в жалобу;</li>
+  <li>пропущенная эскалация — платёжный спор, признак фрода или чувствительный случай с аккаунтом, обработанный как рутина;</li>
+  <li>оператор, который не смотрит в базу знаний и импровизирует про лимиты или верификацию.</li>
+</ul>
+<p>Если такие ошибки встречаются в нескольких процентах диалогов, выборка 10–15% поймает часть из них — но никогда не настолько стабильно, чтобы обучать каждого оператора. А обратная связь обычно приходит через дни или недели после чата, когда она уже мало что меняет.</p>
+<div class="stats">
+  <div class="stat"><b>10–15%</b><span>обычное покрытие ручного QA</span></div>
+  <div class="stat"><b>3–5 мин</b><span>ручная проверка одного чата</span></div>
+  <div class="stat"><b>$0,90</b><span>стоимость одного проверенного чата</span></div>
+  <div class="stat"><b>100%</b><span>покрытие с AI QA</span></div>
+</div>
+<h2 id="qa-scorecard">Что должен оценивать чек-лист качества для iGaming</h2>
+<p>Хороший чек-лист качества для iGaming оценивает и то, как оператор общался, и то, правилен ли ответ по вашим правилам. Универсальные чек-листы клиентского сервиса смотрят на вежливость; поддержке казино и букмекеров ещё нужна точность по платежам, бонусам, KYC и комплаенс-темам.</p>
+<p><a href="/ru/qa-chat">AI QA System</a> от QODEQ использует <strong>15 взвешенных критериев</strong>, настроенных под ваши стандарты и скрипты. Точный список зависит от проекта, но типичный чек-лист для саппорта казино включает примерно такие критерии:</p>
+<div class="tbl"><table>
+  <thead><tr><th>Критерий</th><th>Что проверяется</th><th>Почему это важно в iGaming</th></tr></thead>
+  <tbody>
+    <tr><td>Приветствие и идентификация</td><td>Корректное начало, игрок идентифицирован до обсуждения данных аккаунта</td><td>Защита данных аккаунта и тон диалога</td></tr>
+    <tr><td>Проверка контекста</td><td>Оператор посмотрел статус аккаунта, платежа или бонуса до ответа</td><td>Нет шаблонных ответов на конкретные проблемы</td></tr>
+    <tr><td>Точность по базе знаний</td><td>Ответ соответствует актуальным правилам по бонусам, лимитам, KYC и выплатам</td><td>Ошибки по бонусам и выплатам становятся жалобами</td></tr>
+    <tr><td>Признание ожидания</td><td>Оператор признаёт долгое ожидание, например вывод, который висит несколько часов</td><td>Раздражённые игроки уходят или жалуются публично</td></tr>
+    <tr><td>Эмпатия</td><td>Ответ учитывает ситуацию игрока, а не только скрипт</td><td>Удержание в напряжённых темах платежей и аккаунтов</td></tr>
+    <tr><td>Тон общения</td><td>Язык и стиль соответствуют бренду на этом рынке</td><td>Единый стандарт между сменами и языками</td></tr>
+    <tr><td>Комплаенс и тон</td><td>Чувствительные темы по правилам, корректная эскалация</td><td>Регуляторные и репутационные риски</td></tr>
+    <tr><td>Решение вопроса</td><td>Вопрос игрока действительно решён или правильно передан</td><td>Главный результат диалога</td></tr>
+    <tr><td>Следующий шаг</td><td>Игрок знает, что будет дальше и когда</td><td>Меньше повторных обращений</td></tr>
+    <tr><td>Завершение</td><td>Корректное закрытие, без открытых вопросов</td><td>Чистый конец диалога</td></tr>
+  </tbody>
+</table></div>
+<p>У каждого критерия свой <strong>весовой коэффициент</strong>. Проект с большим платёжным трафиком может дать больший вес точности по базе знаний и проверке контекста; VIP-поддержка — эмпатии и тону. Итоговая оценка чата — взвешенная сумма, поэтому она отражает то, что важно именно вашему бизнесу, а не абстрактный чек-лист.</p>
+<h2 id="how-ai-qa-works">Как работает AI-оценка чатов поддержки</h2>
+<p>AI QA читает каждый чат после закрытия, оценивает его по взвешенным критериям и привязывает каждое замечание к строке, где оно возникло. Проверка занимает около <strong>5 секунд</strong> на чат вместо 3–5 минут, поэтому покрытие перестаёт зависеть от бюджета.</p>
+<ol>
+  <li><strong>Чаты поступают в реальном времени.</strong> Система получает доступ только на чтение к истории чатов и забирает каждый закрытый диалог.</li>
+  <li><strong>Каждый чат оценивается по 15 критериям.</strong> Модель проверяет приветствие, контекст, точность, тон, решение и остальные пункты вашего чек-листа.</li>
+  <li><strong>Нарушения получают таймкоды.</strong> Каждое замечание указывает на конкретную строку диалога и сопровождается рекомендацией.</li>
+  <li><strong>QA-менеджеры фильтруют и углубляются.</strong> Поиск по оператору, смене, наличию эскалаций и другим параметрам показывает закономерности, а не отдельные ошибки.</li>
+  <li><strong>Люди перепроверяют и поправляют.</strong> В модуле ручной перепроверки QA-менеджеры анонимно смотрят чаты, корректируют оценки AI и оставляют комментарии для обучения — и эти правки продолжают обучать алгоритм.</li>
+</ol>
+<p>Точность оценки — <strong>97,6%</strong>. Поскольку каждая оценка привязана к конкретным строкам, руководитель может открыть любой результат и увидеть, за что сняты баллы: это проверяемая оценка, а не чёрный ящик. На рабочих проектах система уже проверила <strong>1,5 млн чатов</strong>.</p>
+<p class="note">Задача не в том, чтобы заменить экспертизу QA, а в том, чтобы применить её ко всем диалогам. AI читает, ваша QA-команда решает, что считается «хорошо», калибрует модель и тратит время на обучение операторов.</p>
+<p>Полное покрытие меняет и вопросы, на которые может ответить QA. По выборке можно сказать, что оператор «в целом нормально работает»; когда оценён каждый чат, видно, как качество меняется по сменам, языкам рынков, темам обращений и вокруг конкретных событий — турнирных выходных или сбоя у платёжного провайдера. То, что выглядело как ошибки отдельных людей, часто оказывается пробелом в базе знаний или скриптом, который уже не соответствует вашим правилам.</p>
+<h2 id="coaching">От оценок к обучению: отчёты по каждому оператору</h2>
+<p>Оценки полезны, только если меняют работу операторов, поэтому AI QA превращает их в ежедневные и ежемесячные отчёты по каждому оператору. В отчёте — средняя оценка, количество обработанных чатов, три сильные стороны и три зоны роста.</p>
+<p>Это меняет ритм обучения. Вместо ежемесячного разбора по паре чатов тимлид в тот же день видит, что оператор пропускает проверку контекста в вопросах о выводе, открывает нужные строки и исправляет привычку до того, как она коснётся сотен игроков. Команды, которые так работают, поднимают показатели на <strong>25–40%</strong>.</p>
+<ul>
+  <li><strong>День:</strong> кто вчера опустился ниже цели и по каким критериям.</li>
+  <li><strong>Смена:</strong> проседает ли качество ночью или в пиковые дни — турниры, большие матчи, акции.</li>
+  <li><strong>Эскалации:</strong> чаты, где эскалация была или должна была быть.</li>
+  <li><strong>Месяц:</strong> динамика по операторам и командам для оценки эффективности.</li>
+</ul>
+<h2 id="economics">Стоимость: AI QA против ручной проверки</h2>
+<p>AI QA дешевле ручной проверки в расчёте на чат, хотя покрывает все диалоги. QODEQ берёт оплату <strong>за проверенный чат</strong> — без лицензий на места и минимального размера команды, плюс разовый setup <strong>$1 000</strong>.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Чатов в месяц</th><th>Тариф</th><th>Цена за проверенный чат</th></tr></thead>
+  <tbody>
+    <tr><td>5 000 – 30 000</td><td>EASY</td><td>$0,30</td></tr>
+    <tr><td>30 000 – 100 000</td><td>NORMAL</td><td>$0,25</td></tr>
+    <tr><td>100 000 – 200 000</td><td>COMPANY</td><td>$0,20</td></tr>
+    <tr><td>200 000+</td><td>CORPORATION</td><td>$0,18</td></tr>
+  </tbody>
+</table></div>
+<p>По сравнению с ручной проверкой того же количества чатов по <strong>$0,90</strong> за чат экономия в месяц выглядит так:</p>
+<div class="tbl"><table>
+  <thead><tr><th>Чатов в месяц</th><th>Ручной QA</th><th>AI QA</th><th>Экономия в месяц</th></tr></thead>
+  <tbody>
+    <tr><td>5 000</td><td>$4 500</td><td>$1 500</td><td>$3 000 (67%)</td></tr>
+    <tr><td>50 000</td><td>$45 000</td><td>$12 500</td><td>$32 500 (72%)</td></tr>
+    <tr><td>100 000</td><td>$90 000</td><td>$20 000</td><td>$70 000 (78%)</td></tr>
+    <tr><td>200 000</td><td>$180 000</td><td>$36 000</td><td>$144 000 (80%)</td></tr>
+  </tbody>
+</table></div>
+<p>Колонку «ручной QA» большинство команд на деле не оплачивает — они никогда не проверяют 100% чатов вручную и мирятся с выборкой 10–15%. Поэтому честное сравнение такое: дешевле полной ручной проверки вы получаете полное покрытие вместо выборки. Свои объёмы можно посчитать в <a href="/ru/calculator">калькуляторе</a>.</p>
+<h2 id="rollout">Внедрение: полноценная работа с 4-й недели</h2>
+<p>AI QA выходит на полноценную работу примерно за четыре недели, и большая часть времени уходит на калибровку чек-листа под ваши стандарты:</p>
+<div class="tbl"><table>
+  <thead><tr><th>Неделя</th><th>Этап</th><th>Что происходит</th></tr></thead>
+  <tbody>
+    <tr><td>Неделя 1</td><td>Интеграция</td><td>Доступ только на чтение к истории чатов</td></tr>
+    <tr><td>Неделя 2</td><td>Критерии оценки</td><td>15 критериев, взвешенных под ваши стандарты и скрипты</td></tr>
+    <tr><td>Неделя 3</td><td>Калибровка</td><td>Оценки AI сверяются с вашими QA-менеджерами в параллельном режиме</td></tr>
+    <tr><td>Неделя 4+</td><td>Полная работа</td><td>Ежедневные отчёты по операторам и планы обучения</td></tr>
+  </tbody>
+</table></div>
+<p>Ключевой этап — параллельный режим на третьей неделе: ваши QA-менеджеры оценивают те же чаты, что и модель, расхождения разбираются, а веса корректируются, пока AI не начнёт оценивать так, как оценила бы ваша команда.</p>
+<h2 id="security">Безопасность данных и приватность игроков</h2>
+<p>В чатах поддержки есть персональные и платёжные данные, поэтому система обрабатывает их конфиденциально, с <strong>локальным хранением и соблюдением GDPR</strong>. Доступ к истории чатов — только на чтение: QA-система ничего не меняет в вашем хелпдеске.</p>
+<p>Если вы проверяете и звонки, принцип тот же: в <a href="/ru/qa-call">AI Voice QA</a> записи шифруются и обрабатываются локально. Контролю качества звонков посвящён отдельный гайд: <a href="/ru/blog/call-center-qa-ai-gambling">AI-контроль качества звонков для казино и букмекеров</a>.</p>
+<h2 id="qa-plus-ai-agent">QA вместе с AI-агентом в чате</h2>
+<p>AI QA работает и сам по себе — с живыми операторами, но естественно сочетается с AI-агентом. Когда <a href="/ru/chat">AI Chat Operator</a> закрывает около <strong>65%</strong> чатов без человека, у операторов остаются сложные диалоги — споры, нестандартные KYC-кейсы, VIP-игроки, — и именно там качество важнее всего.</p>
+<p>Оба продукта на одной платформе — это одна база знаний, одна консоль и один счёт. QA следит за качеством диалогов операторов, а AI-агент забирает основную рутину. Как продукты складываются в систему, — в <a href="/ru/solutions/ai-customer-support-igaming">обзоре платформы</a> и в гайде про <a href="/ru/blog/ai-chat-support-for-online-casinos">AI-поддержку в чате для онлайн-казино</a>.</p>
+<h2 id="checklist">Чек-лист: готова ли ваша команда к AI QA</h2>
+<p>Переходить от выборки к полному AI QA пора, если про вас верно большинство пунктов:</p>
+<ul>
+  <li>у вас хотя бы несколько тысяч чатов в месяц, а QA-команда читает лишь малую часть;</li>
+  <li>у вас уже есть чек-лист качества или скрипты, пусть неформальные, — они станут стартовой версией критериев;</li>
+  <li>жалобы на неверные ответы по бонусам, выплатам или KYC доходят до вас раньше, чем их находит QA;</li>
+  <li>обучение операторов идёт раз в месяц по паре чатов на человека;</li>
+  <li>вам нужны данные о качестве по сменам, рынкам и языкам, а не только среднее по команде.</li>
+</ul>
+<div class="prod" style="--page-acc: #E8B23A;"><div><span>ПРОДУКТ</span><b>AI QA System</b></div><a class="btn primary" href="/ru/qa-chat">ПОДРОБНЕЕ →</a></div>
+    </article>
+  </div>
+
+  <section id="faq">
+    <p class="kicker">— FAQ</p>
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details open><summary>Что такое AI QA для чатов поддержки?</summary><p>AI QA — это автоматический контроль качества, который оценивает каждый чат поддержки по взвешенному чек-листу вместо ручной выборки. AI QA System от QODEQ проверяет 100% чатов по 15 критериям примерно за 5 секунд на чат и привязывает нарушения к конкретной строке диалога.</p></details>
+      <details><summary>Насколько точна AI-оценка чатов?</summary><p>Точность оценки QODEQ — 97,6%. Каждое замечание привязано к строке чата, поэтому QA-менеджер может проверить любую оценку, а его правки в модуле ручной перепроверки продолжают обучать модель.</p></details>
+      <details><summary>AI QA заменит нашу QA-команду?</summary><p>Он заменяет ручную выборку, а не экспертизу QA. QA-менеджеры переходят на калибровку, перепроверки и обучение — работу, которая реально улучшает операторов.</p></details>
+      <details><summary>Можно ли использовать свои критерии и скрипты?</summary><p>Да. У каждого из 15 критериев есть весовой коэффициент под ваш проект, бренд и скрипты, а перед запуском чек-лист калибруется по вашим QA-менеджерам в параллельном режиме.</p></details>
+      <details><summary>Сколько стоит AI QA по сравнению с ручной проверкой?</summary><p>Оплата за проверенный чат: от $0,30 до $0,18 в зависимости от объёма плюс разовый setup $1 000. Ручная проверка того же объёма стоит около $0,90 за чат, поэтому экономия — 67–80% в зависимости от объёма.</p></details>
+      <details><summary>Сколько времени занимает запуск AI QA?</summary><p>Полноценная работа начинается с 4-й недели: интеграция на первой неделе, настройка критериев на второй, калибровка на третьей и ежедневные отчёты по операторам с четвёртой.</p></details>
+      <details><summary>Данные наших чатов в безопасности?</summary><p>Чаты обрабатываются конфиденциально, с локальным хранением и соблюдением GDPR. Система использует доступ только на чтение к истории чатов и ничего не меняет в вашем хелпдеске.</p></details>
+      <details><summary>Может ли AI QA проверять звонки?</summary><p>Да, через AI Voice QA: звонки транскрибируются Whisper, и к каждому входящему и исходящему звонку применяется та же модель из 15 критериев. Продукт на финальной стадии разработки и тестирования, условия зависят от объёма звонков.</p></details>
+      <details><summary>Что AI QA находит такого, что пропускает ручная выборка?</summary><p>Редкие, но дорогие ошибки, распределённые по всему объёму: неверные ответы по бонусам и выплатам, пропущенные эскалации, игнорирование долгого ожидания и «не тот» тон на отдельных сменах. При 100% покрытии они видны по каждому оператору и смене, а не попадаются случайно.</p></details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="kicker" data-r>— ЗАПРОСИТЬ РАСЧЁТ</p>
+    <div class="contact" data-r>
+      <div>
+        <h2>Посчитаем стоимость 100% контроля качества для ваших объёмов.</h2>
+        <p class="lead">Оставьте контакт — пришлём персональный расчёт и план внедрения в течение рабочего дня.</p>
+        <p class="small">Ответим в течение рабочего дня. Telegram: @qodeq</p>
+      </div>
+      <form data-lead novalidate>
+        <input type="text" name="name" placeholder="Имя" autocomplete="name" />
+        <input type="text" name="company" placeholder="Компания" autocomplete="organization" />
+        <input type="text" name="contact" placeholder="Email или Telegram" autocomplete="email" />
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn primary" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+        <p class="msg" data-msg role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">— ДРУГИЕ ГАЙДЫ</p>
+    <div class="cards posts">
+      <a class="card" href="/ru/solutions/ai-customer-support-igaming" style="--card-acc: #E8B23A;"><small>ОБЗОР ПЛАТФОРМЫ</small><h3>AI-поддержка для iGaming: чат, платежи, контроль качества и голос на одной платформе</h3><p>QODEQ — AI-платформа поддержки для казино, букмекеров и лотерей: AI-чат, платёжный саппорт, контроль качества и голосовые боты. Цены, внедрение, FAQ.</p><span class="more">Читать →</span></a>
+      <a class="card" href="/ru/blog/call-center-qa-ai-gambling" style="--card-acc: #C084F5;"><small>AI VOICE QA</small><h3>AI-контроль качества звонков для колл-центров казино и беттинга</h3><p>Как ИИ проверяет 100% звонков колл-центра казино и букмекера вместо ~2,6%: транскрибация Whisper, 15 критериев, таймкоды нарушений и контроль комплаенса.</p><span class="more">Читать →</span></a>
+      <a class="card" href="/ru/blog/ai-voice-bot-igaming" style="--card-acc: #F4794C;"><small>AI VOICE BOT</small><h3>Голосовой AI-бот в iGaming: реактивация, KYC и выплаты без колл-центра</h3><p>Как казино и букмекеры используют голосового AI-бота: дожим депозита, напоминания о KYC, реактивация и подтверждение выплат — 24/7, на нескольких языках.</p><span class="more">Читать →</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="col">
+    <span>Продукты</span>
+    <a href="/ru/chat">AI Chat Operator</a>
+    <a href="/ru/qa-chat">AI QA System</a>
+    <a href="/ru/payment">AI Payment Assistant</a>
+    <a href="/ru/qa-call">AI Voice QA</a>
+    <a href="/ru/voice">AI Voice Bot</a>
+  </div>
+  <div class="col">
+    <span>Гайды</span>
+    <a href="/ru/solutions/ai-customer-support-igaming">AI-поддержка для iGaming</a>
+    <a href="/ru/blog/ai-chat-support-for-online-casinos">AI-поддержка в чате</a>
+    <a href="/ru/blog/automate-casino-withdrawal-deposit-support">Автоматизация платежей</a>
+    <a href="/ru/blog/customer-support-qa-igaming">QA саппорта с AI</a>
+    <a href="/ru/blog/call-center-qa-ai-gambling">QA колл-центра</a>
+    <a href="/ru/blog/ai-voice-bot-igaming">Голосовые боты</a>
+  </div>
+  <div class="col">
+    <span>Telegram</span>
+    <a href="https://t.me/qodeq">@qodeq</a>
+  </div>
+  <a class="back" href="/ru/">← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING</a>
+</footer>
+
+<script>
+(function () {
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 }) : null;
+  [].forEach.call(document.querySelectorAll('[data-r]'), function (el) { io ? io.observe(el) : el.classList.add('in'); });
+  // подсветка текущего раздела в оглавлении
+  var links = [].slice.call(document.querySelectorAll('.toc a'));
+  if (links.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (!e.isIntersecting) return; links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); });
+    }, { rootMargin: '-90px 0px -70% 0px' });
+    links.forEach(function (a) { var h = document.getElementById(a.getAttribute('href').slice(1)); if (h) spy.observe(h); });
+  }
+})();
+(function () {
+  var f = document.querySelector('[data-lead]'); if (!f) return;
+  var msg = f.querySelector('[data-msg]'), busy = false;
+  var T = {"sending":"Отправляем…","sent":"Спасибо! Ответим в течение рабочего дня.","need":"Укажите имя и контакт.","fail":"Не удалось отправить. Напишите нам в Telegram @qodeq."};
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var name = f.name.value.trim(), company = f.company.value.trim(), contact = f.contact.value.trim();
+    if (f.hp.value) { msg.className = 'msg ok'; msg.textContent = T.sent; return; }
+    if (!name || !contact) { msg.className = 'msg err'; msg.textContent = T.need; return; }
+    busy = true; msg.className = 'msg'; msg.textContent = T.sending;
+    fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, company: company, contact: contact, hp: f.hp.value, lang: 'ru', page: location.href, product: "Blog · AI QA System" })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      msg.className = 'msg ok'; msg.textContent = T.sent; f.reset();
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'blog_customer_support_qa_igaming' });
+    }).catch(function () { msg.className = 'msg err'; msg.textContent = T.fail; })
+      .then(function () { busy = false; });
+  });
+})();
+</script>
+</body>
+</html>

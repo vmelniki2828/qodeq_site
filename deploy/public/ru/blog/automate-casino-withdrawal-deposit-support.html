@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NY9Q210KNW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NY9Q210KNW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className += ' js';</script>
+<title>Автоматизация саппорта по депозитам и выводам | QODEQ</title>
+<meta name="description" content="Как автоматизировать вопросы «где мой вывод?» и «депозит не зачислился» в казино по живым данным PSP: 70%+ тикетов без человека, взятие в работу за 0:35." />
+<link rel="canonical" href="https://qodeq.net/ru/blog/automate-casino-withdrawal-deposit-support" />
+<link rel="alternate" hreflang="en" href="https://qodeq.net/blog/automate-casino-withdrawal-deposit-support" />
+<link rel="alternate" hreflang="ru" href="https://qodeq.net/ru/blog/automate-casino-withdrawal-deposit-support" />
+<link rel="alternate" hreflang="x-default" href="https://qodeq.net/blog/automate-casino-withdrawal-deposit-support" />
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content="QODEQ" />
+<meta property="og:url" content="https://qodeq.net/ru/blog/automate-casino-withdrawal-deposit-support" />
+<meta property="og:title" content="Автоматизация саппорта по депозитам и выводам | QODEQ" />
+<meta property="og:description" content="Как автоматизировать вопросы «где мой вывод?» и «депозит не зачислился» в казино по живым данным PSP: 70%+ тикетов без человека, взятие в работу за 0:35." />
+<meta property="og:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://qodeq.net/#org",
+      "name": "QODEQ",
+      "url": "https://qodeq.net/",
+      "logo": "https://qodeq.net/assets/brand/logo-main.png",
+      "sameAs": [
+        "https://t.me/qodeq"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://qodeq.net/ru/blog/automate-casino-withdrawal-deposit-support#article",
+      "mainEntityOfPage": "https://qodeq.net/ru/blog/automate-casino-withdrawal-deposit-support",
+      "headline": "Как автоматизировать поддержку по депозитам и выводам в iGaming",
+      "description": "Как автоматизировать вопросы «где мой вывод?» и «депозит не зачислился» в казино по живым данным PSP: 70%+ тикетов без человека, взятие в работу за 0:35.",
+      "inLanguage": "ru",
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-19",
+      "wordCount": 1772,
+      "author": {
+        "@id": "https://qodeq.net/#org"
+      },
+      "publisher": {
+        "@id": "https://qodeq.net/#org"
+      },
+      "image": "https://qodeq.net/assets/brand/og-image.png?v=2",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "AI Payment Assistant",
+        "applicationCategory": "BusinessApplication",
+        "url": "https://qodeq.net/ru/payment"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "QODEQ",
+          "item": "https://qodeq.net/ru/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Блог",
+          "item": "https://qodeq.net/ru/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Автоматизация платежей",
+          "item": "https://qodeq.net/ru/blog/automate-casino-withdrawal-deposit-support"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Может ли AI сам ответить на вопрос «где мой вывод?»",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Ассистент берёт живой статус транзакции прямо у PSP и примерно за 10 секунд сообщает, где выплата и когда она поступит. Если выплата действительно зависла, он открывает и заполняет тикет для платёжной команды."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какую долю платёжных тикетов можно автоматизировать?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI Payment Assistant участвует в 90% платёжных тикетов и 70%+ закрывает вообще без человека. Остальные, например чарджбэки и двойные списания, уходят людям уже разобранными."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как он работает с p2p-депозитами, где не совпадает имя плательщика?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Каждый тикет сверяется с данными PSP в момент поступления, включая p2p-переводы, где имя плательщика редко совпадает с аккаунтом игрока. Перевод находится даже без чёткого референса, до человека доходят только реальные исключения."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Умеет ли он выявлять поддельные чеки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Загруженные PDF-чеки проходят AI-проверку подлинности, которая выявляет подделки до одобрения выплаты. Если проверка не пройдена, случай эскалируется вместе с её результатом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Поддерживаются ли крипто-депозиты?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Крипто-кейсы, например депозит USDT на неверный адрес кошелька, обрабатываются по заданному вами сценарию, а всё, что выходит за правила, эскалируется."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие случаи всегда уходят человеку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Угрозы чарджбэка, двойные списания, подозрение на фрод и всё, что выходит за заданные вами правила эскалации и пороги фрода. Ассистент готовит такие тикеты, чтобы команда не начинала с нуля."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько занимает интеграция?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Полноценная работа — через 2–3 дня, если заранее дать доступы к API PSP и хелпдеска и документацию. За это время подключаются хелпдеск и PSP, калибруются правила эскалации и пороги фрода, запускаются живые дашборды."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько стоит Payment Assistant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Оплата за тикет, взятый в работу: $0,30 при 1 000–10 000 тикетов в месяц, $0,25 до 50 000, $0,20 до 100 000 и $0,18 свыше. Setup разовый — $200 за каждого подключённого платёжного провайдера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Работает ли он без AI Chat Operator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, он может работать самостоятельно с вашим хелпдеском. В связке с AI Chat Operator чат-бот открывает тикет, а ассистент подхватывает его в том же диалоге, и игроку не нужно ничего повторять."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #0A0A09; --bg2: #0C0C0A; --bg3: #11110F; --text: #F5F2EC; --text2: #E8E6E1; --muted: #8A8579; --dim: #6E6A61; --faint: #57544C;
+    --line: rgba(255,255,255,.09); --line2: rgba(255,255,255,.14); --body: #B5AFA2;
+    --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: 'Space Grotesk', system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+  body::before { content: ''; position: fixed; left: 50%; top: -20vh; width: 90vw; height: 70vh; transform: translateX(-50%); background: radial-gradient(ellipse, color-mix(in srgb, var(--page-acc) 8%, transparent), transparent 65%); pointer-events: none; z-index: 0; }
+  a { color: inherit; text-decoration: none; }
+  p { margin: 0; }
+  .btn, .nav a, .lang a { cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+  .btn:hover, .nav a:hover, .lang a:hover { background-color: var(--btn-acc, var(--page-acc)) !important; border-color: var(--btn-acc, var(--page-acc)) !important; color: #0A0A09 !important; }
+  .hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; padding: 16px 32px; background: rgba(10,10,9,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
+  .hdr img { height: 40px; width: auto; display: block; }
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 var(--mono); letter-spacing: .16em; }
+  .nav a { padding: 8px 12px; border: 1px solid var(--line2); color: var(--muted); }
+  .lang { display: flex; gap: 6px; }
+  .lang a { padding: 7px 11px; border: 1px solid rgba(255,255,255,.16); color: var(--muted); font: 400 10px/1 var(--mono); letter-spacing: .16em; }
+  .lang a[aria-current] { background: color-mix(in srgb, var(--page-acc) 14%, transparent); border-color: var(--page-acc); color: var(--page-acc); }
+  main { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+  section { padding: clamp(56px, 8vw, 100px) 0 0; }
+  .kicker { margin: 0 0 18px; font: 400 11px/1.4 var(--mono); letter-spacing: .24em; color: var(--page-acc); }
+  h1 { margin: 0 0 24px; max-width: 1000px; font: 500 clamp(32px, 4.8vw, 64px)/1.04 var(--sans); letter-spacing: -.03em; }
+  h2 { margin: 0 0 22px; font: 500 clamp(24px, 2.6vw, 34px)/1.15 var(--sans); letter-spacing: -.022em; }
+  h3 { margin: 0 0 10px; font: 500 19px/1.3 var(--sans); letter-spacing: -.01em; }
+  .lead { max-width: 820px; font: 400 clamp(17px, 1.5vw, 20px)/1.55 var(--sans); color: var(--body); }
+  .hero { padding-top: calc(73px + clamp(44px, 7vw, 96px)); }
+  .crumbs { margin-bottom: 26px; font: 400 11px/1.4 var(--mono); letter-spacing: .14em; color: var(--dim); }
+  .crumbs a:hover { color: var(--text); }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; font: 400 11px/1.4 var(--mono); letter-spacing: .16em; color: var(--muted); }
+  .meta b { font-weight: 400; color: var(--page-acc); }
+  .btn { display: inline-flex; align-items: center; padding: 16px 22px; border: 1px solid var(--line2); color: var(--text2); font: 500 11px/1 var(--mono); letter-spacing: .18em; background: transparent; }
+  .btn.primary { background: var(--page-acc); border-color: var(--page-acc); color: #0A0A09; }
+
+  /* ---------- статья ---------- */
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); padding-top: clamp(44px, 6vw, 72px); }
+  .toc { position: sticky; top: 100px; align-self: start; max-height: calc(100vh - 120px); overflow: auto; }
+  .toc p { margin-bottom: 14px; font: 400 10px/1 var(--mono); letter-spacing: .22em; color: var(--faint); }
+  .toc a { display: block; padding: 7px 0 7px 14px; border-left: 1px solid var(--line2); font: 400 13px/1.4 var(--sans); color: var(--muted); }
+  .toc a:hover, .toc a.on { color: var(--text); border-left-color: var(--page-acc); }
+  article { max-width: 780px; }
+  article > h2 { margin-top: 64px; scroll-margin-top: 100px; }
+  article > h2:first-child { margin-top: 0; }
+  article > h3 { margin-top: 34px; }
+  article > p { margin: 0 0 20px; font: 400 17px/1.75 var(--sans); color: var(--body); }
+  article strong { color: var(--text); font-weight: 500; }
+  article a:not(.card):not(.btn) { color: var(--text); border-bottom: 1px solid color-mix(in srgb, var(--page-acc) 60%, transparent); }
+  article a:not(.card):not(.btn):hover { color: var(--page-acc); }
+  article ul, article ol { margin: 0 0 24px; padding: 0; list-style: none; counter-reset: li; }
+  article li { position: relative; padding: 0 0 12px 30px; font: 400 17px/1.65 var(--sans); color: var(--body); }
+  article ul li::before { content: ''; position: absolute; left: 4px; top: .7em; width: 7px; height: 7px; background: var(--page-acc); }
+  article ol li { counter-increment: li; }
+  article ol li::before { content: counter(li, decimal-leading-zero); position: absolute; left: 0; top: .2em; font: 500 11px/1.6 var(--mono); color: var(--page-acc); }
+  .box { margin: 0 0 40px; padding: 26px 28px; background: var(--bg2); border: 1px solid var(--line2); border-left: 2px solid var(--page-acc); }
+  .box p.kicker { margin-bottom: 14px; }
+  .box ul { margin: 0; } .box li:last-child { padding-bottom: 0; }
+  .note { margin: 6px 0 32px; padding: 20px 24px; background: color-mix(in srgb, var(--page-acc) 7%, var(--bg)); border: 1px solid color-mix(in srgb, var(--page-acc) 30%, transparent); font: 400 16px/1.65 var(--sans); color: var(--text2); }
+  .tbl { margin: 8px 0 32px; overflow-x: auto; border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; }
+  th, td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font: 400 14px/1.5 var(--sans); color: var(--body); }
+  th { background: var(--bg3); font: 500 11px/1.4 var(--mono); letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+  td:first-child { color: var(--text2); }
+  tr:last-child td { border-bottom: 0; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; margin: 8px 0 36px; background: var(--line); border: 1px solid var(--line); }
+  .stat { padding: 22px 20px; background: var(--bg); }
+  .stat b { display: block; margin-bottom: 8px; font: 500 clamp(26px, 2.8vw, 36px)/1 var(--sans); letter-spacing: -.03em; color: var(--page-acc); }
+  .stat span { font: 400 11px/1.5 var(--mono); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; margin: 8px 0 36px; background: var(--line); border: 1px solid var(--line); }
+  .card { display: flex; flex-direction: column; gap: 12px; padding: 24px 22px; background: var(--bg2); border-top: 2px solid var(--card-acc); transition: background-color .2s ease, transform .2s ease; }
+  .card:hover { background: #0E0E0C; transform: translateY(-3px); }
+  .card h3 { margin: 0; font-size: 18px; }
+  .card p { flex: 1; font: 400 14px/1.6 var(--sans); color: #9A958A; }
+  .card .more { font: 500 10px/1 var(--mono); letter-spacing: .16em; color: var(--card-acc); }
+  .card small { font: 400 10px/1 var(--mono); letter-spacing: .16em; color: var(--card-acc); }
+  .posts { grid-template-columns: repeat(3, 1fr); gap: 16px; background: none; border: 0; }
+  .posts .card { border: 1px solid var(--line); border-top: 2px solid var(--card-acc); }
+  .posts .card h3 { font-size: 20px; line-height: 1.3; }
+
+  /* ---------- индекс блога: обложка + нумерованный список ---------- */
+  .feat { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line2); overflow: hidden; }
+  .feat > div { padding: clamp(26px, 4vw, 48px); background: var(--bg2); }
+  .feat > div:last-child { background: var(--bg); display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+  .feat::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--page-acc); transform: scaleY(.25); transform-origin: top; transition: transform .5s cubic-bezier(.2,.7,.2,1); z-index: 1; }
+  .feat:hover::before { transform: scaleY(1); }
+  .feat h2 { margin: 0 0 18px; font-size: clamp(26px, 3.2vw, 44px); transition: color .2s ease; }
+  .feat:hover h2 { color: var(--page-acc); }
+  .feat p { max-width: 560px; font: 400 16px/1.65 var(--sans); color: var(--body); }
+  .feat .go { display: inline-block; margin-top: 30px; font: 500 11px/1 var(--mono); letter-spacing: .18em; color: var(--page-acc); transition: transform .25s ease; }
+  .feat:hover .go { transform: translateX(6px); }
+  .fstats { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; }
+  .fstats b { display: block; margin-bottom: 6px; font: 500 clamp(28px, 3vw, 40px)/1 var(--sans); letter-spacing: -.03em; color: var(--page-acc); }
+  .fstats span { font: 400 10px/1.5 var(--mono); letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
+  .fprod { display: flex; flex-wrap: wrap; gap: 6px; }
+  .fprod i { padding: 7px 10px; border: 1px solid var(--line2); border-left: 2px solid var(--c); font: 400 10px/1 var(--mono); font-style: normal; letter-spacing: .12em; color: var(--muted); }
+  .rows-hd { display: flex; justify-content: space-between; align-items: baseline; margin: clamp(56px, 8vw, 96px) 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--line2); font: 400 11px/1.4 var(--mono); letter-spacing: .2em; color: var(--muted); }
+  .rows-hd b { font-weight: 400; color: var(--text); }
+  .row { position: relative; display: grid; grid-template-columns: 90px minmax(0, 1fr) 150px 40px; gap: 24px; align-items: center; padding: 34px 0; border-bottom: 1px solid var(--line); isolation: isolate; }
+  .row::before { content: ''; position: absolute; inset: 0 -24px; z-index: -1; background: linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, transparent), transparent 70%); opacity: 0; transition: opacity .3s ease; }
+  .row:hover::before { opacity: 1; }
+  .row .n { font: 500 clamp(36px, 4vw, 56px)/1 var(--sans); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px var(--faint); transition: color .3s ease, -webkit-text-stroke-color .3s ease; }
+  .row:hover .n { color: var(--c); -webkit-text-stroke-color: var(--c); }
+  .row small { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; font: 400 10px/1 var(--mono); letter-spacing: .18em; color: var(--c); }
+  .row small::before { content: ''; width: 7px; height: 7px; background: var(--c); }
+  .row h3 { margin: 0 0 10px; font: 500 clamp(20px, 2.1vw, 28px)/1.2 var(--sans); letter-spacing: -.02em; transition: color .2s ease; }
+  .row p { max-width: 720px; font: 400 15px/1.6 var(--sans); color: #9A958A; }
+  .row .rt { font: 400 11px/1.6 var(--mono); letter-spacing: .14em; color: var(--muted); text-align: right; }
+  .row .ar { font: 400 24px/1 var(--mono); color: var(--faint); transition: transform .25s ease, color .25s ease; }
+  .row:hover .ar { color: var(--c); transform: translateX(8px); }
+  @media (max-width: 860px) { .feat { grid-template-columns: 1fr; } .row { grid-template-columns: 56px minmax(0, 1fr); gap: 6px 16px; padding: 26px 0; } .row .rt { grid-column: 2; text-align: left; } .row .ar { display: none; } .row .n { font-size: 34px; align-self: start; } }
+  .prod { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin: 48px 0 0; padding: 24px 26px; border: 1px solid var(--line2); background: var(--bg2); }
+  .prod span { font: 400 10px/1 var(--mono); letter-spacing: .2em; color: var(--muted); }
+  .prod b { display: block; margin-top: 8px; font: 500 20px/1.2 var(--sans); }
+  .faq { border-top: 1px solid var(--line); }
+  .faq h3 { margin: 34px 0 6px; font: 400 11px/1.4 var(--mono); letter-spacing: .2em; color: var(--page-acc); text-transform: uppercase; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary { display: flex; justify-content: space-between; gap: 24px; padding: 22px 0; cursor: pointer; list-style: none; font: 500 clamp(16px, 1.5vw, 20px)/1.4 var(--sans); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; flex: 0 0 auto; font: 400 22px/1 var(--mono); color: var(--page-acc); transition: transform .2s ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { max-width: 860px; padding: 0 0 24px; font: 400 16px/1.7 var(--sans); color: #9A958A; }
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .contact > div, .contact form { padding: clamp(26px, 4vw, 48px); }
+  .contact > div { background: var(--bg2); }
+  .contact h2 { margin-bottom: 18px; font-size: clamp(26px, 3vw, 40px); }
+  .contact form { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 10px; background: var(--bg); }
+  .contact input { width: 100%; padding: 15px 16px; background: var(--bg3); border: 1px solid var(--line2); color: var(--text); font: 400 15px/1.2 var(--sans); border-radius: 0; }
+  .contact input:focus { outline: none; border-color: var(--page-acc); }
+  .contact .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .contact .btn { justify-content: center; margin-top: 6px; }
+  .contact .msg { min-height: 1.4em; font: 400 12px/1.5 var(--mono); color: var(--muted); }
+  .contact .msg.ok { color: #4FD1A5; } .contact .msg.err { color: #F4794C; }
+  .contact .small { margin-top: 18px; font: 400 12px/1.6 var(--mono); color: var(--dim); }
+  footer { position: relative; z-index: 1; max-width: 1280px; margin: clamp(70px, 10vw, 120px) auto 0; padding: 40px clamp(16px, 4vw, 48px) 48px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; font: 400 13px/1.9 var(--sans); color: #9A958A; }
+  footer .col span { display: block; margin-bottom: 8px; font: 400 10px/1 var(--mono); letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
+  footer .col a { display: block; }
+  footer .col a:hover, footer .back:hover { color: var(--text); }
+  footer .back { font: 400 11px/1.6 var(--mono); letter-spacing: .14em; color: var(--faint); }
+  .js [data-r] { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .js [data-r].in { opacity: 1; transform: none; }
+  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .toc { display: none; } .contact { grid-template-columns: 1fr; } .posts { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .posts { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .nav { display: none; } .hdr { padding: 12px 16px; } .hdr .lang { margin-left: auto; } .hero { padding-top: calc(65px + 40px); } }
+  @media (max-width: 560px) { article > p, article li { font-size: 16px; } .box { padding: 20px; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .js [data-r] { opacity: 1; transform: none; } }
+</style>
+</head>
+<body style="--page-acc: #5FA5F9;">
+
+<header class="hdr">
+  <a href="/ru/" aria-label="QODEQ"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" /></a>
+  <nav class="nav">
+    <a href="/ru/chat" style="border-left: 2px solid #4FD1A5; --btn-acc: #4FD1A5;">01 ЧАТ</a>
+    <a href="/ru/qa-chat" style="border-left: 2px solid #E8B23A; --btn-acc: #E8B23A;">02 QA-ЧАТ</a>
+    <a href="/ru/payment" style="border-left: 2px solid #5FA5F9; --btn-acc: #5FA5F9;">03 ПЛАТЕЖИ</a>
+    <a href="/ru/qa-call" style="border-left: 2px solid #C084F5; --btn-acc: #C084F5;">04 QA-ЗВОНКИ</a>
+    <a href="/ru/voice" style="border-left: 2px solid #F4794C; --btn-acc: #F4794C;">05 ГОЛОС</a>
+    <a href="/ru/blog" style="border-left: 2px solid #F5F2EC; --btn-acc: #F5F2EC;">БЛОГ</a>
+  </nav>
+  <div class="lang">
+    <a href="/blog/automate-casino-withdrawal-deposit-support" hreflang="en">EN</a>
+    <a href="/ru/blog/automate-casino-withdrawal-deposit-support" hreflang="ru" aria-current="page">RU</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <nav class="crumbs" aria-label="breadcrumbs"><a href="/ru/">QODEQ</a> / <a href="/ru/blog">Блог</a> / Автоматизация платежей</nav>
+    <p class="kicker">— ГАЙД · ПЛАТЁЖНЫЙ САППОРТ</p>
+    <h1>Как автоматизировать поддержку по депозитам и выводам в iGaming</h1>
+    <p class="lead">«Где мой вывод?» и «депозит не зачислился» — вопросы, которые игроков волнуют больше всего, а оператор отвечает на них медленнее всего. Разбираем, какие платёжные тикеты закрываются автоматически по живым данным PSP, какие должны остаться у людей и сколько это стоит.</p>
+    <div class="meta"><span>ОБНОВЛЕНО <b>19 ОКТ 2026</b></span><span>8 МИН ЧТЕНИЯ</span><span>КОМАНДА QODEQ</span></div>
+  </section>
+
+  <div class="layout">
+    <aside class="toc" aria-label="СОДЕРЖАНИЕ">
+      <p>СОДЕРЖАНИЕ</p>
+      <a href="#why-payment-tickets">Почему платёжным тикетам нужна отдельная автоматизация</a>
+      <a href="#scenarios">Шесть платёжных сценариев, которые забивают очередь</a>
+      <a href="#how-it-works">Как ассистент работает с данными PSP и хелпдеском</a>
+      <a href="#receipt-checks">Проверка PDF-чеков на подделку</a>
+      <a href="#human-cases">Что остаётся за людьми</a>
+      <a href="#rollout">Внедрение: полноценная работа за 2–3 дня</a>
+      <a href="#pricing">Сколько это стоит: тарифы и пример расчёта</a>
+      <a href="#checklist">Чек-лист: готов ли ваш платёжный саппорт к автоматизации</a>
+      <a href="#faq">Частые вопросы</a>
+    </aside>
+    <article>
+<div class="box">
+  <p class="kicker">ГЛАВНОЕ</p>
+  <ul>
+    <li>Большинство платёжных тикетов — это вопросы о статусе. Ответ уже лежит в PSP, поэтому AI-ассистент находит его и отвечает примерно за 10 секунд.</li>
+    <li><a href="/ru/payment">AI Payment Assistant</a> участвует в 90% платёжных тикетов и <strong>70%+ закрывает вообще без человека</strong>.</li>
+    <li>Взятие тикета в работу сокращается <strong>с 8:00 до 0:35</strong>. Депозиты сверяются с данными PSP, включая p2p, а PDF-чеки проверяются на подделку.</li>
+    <li>Угрозы чарджбэка, двойные списания и всё, что связано с риском, по-прежнему уходят людям, но уже с заполненным тикетом.</li>
+    <li>Оплата за тикет, взятый в работу, — от $0,30 до $0,18. Setup — $200 за каждый PSP, полноценная работа через 2–3 дня.</li>
+  </ul>
+</div>
+<h2 id="why-payment-tickets">Почему платёжным тикетам нужна отдельная автоматизация</h2>
+<p>Платёжные тикеты стоит автоматизировать отдельно, потому что это самая срочная и самая зависимая от данных часть саппорта казино: игрок ждёт деньги, а ответ лежит в платёжной системе, а не в статье базы знаний.</p>
+<p>Обычный FAQ-бот не скажет игроку, где его €820. Он ответит «выводы обычно занимают до 24 часов», а встревоженный игрок хочет услышать как раз не это. Диалог уходит оператору. Тот открывает бэкофис, затем кабинет PSP, сверяет референсы, пишет ответ и часто создаёт тикет для платёжной команды. Ручная обработка занимает 3–5 минут работы оператора и стоит около <strong>$0,50</strong> за тикет.</p>
+<p>Эмоционально эти тикеты тоже весят больше, чем вопрос о правилах игры: о бренде судят по тому, как проходят платежи. Медленный или расплывчатый ответ превращает обычную проверку статуса в жалобу, чарджбэк или потерянного депозитора.</p>
+<p>Хорошая новость: большинство таких тикетов укладывается в несколько типовых сценариев. Как только ассистент видит те же данные, что и оператор, эти сценарии закрываются от начала до конца.</p>
+<div class="stats">
+  <div class="stat"><b>70%+</b><span>платёжных тикетов закрываются автоматически</span></div>
+  <div class="stat"><b>90%</b><span>тикетов с участием ассистента</span></div>
+  <div class="stat"><b>0:35</b><span>до взятия в работу вместо 8:00</span></div>
+  <div class="stat"><b>1 млн</b><span>обработанных платёжных тикетов</span></div>
+</div>
+<h2 id="scenarios">Шесть платёжных сценариев, которые забивают очередь</h2>
+<p>Основную массу платёжного саппорта дают шесть сценариев: незачисленный депозит, зависший вывод, двойное списание, загрузка чека, угроза чарджбэка и крипто-депозит на неверный адрес. Четыре из них обычно закрываются автоматически, два остаются за людьми.</p>
+<p>В таблице — демонстрационные тикеты из продукта: что проверяет ассистент и чем заканчивается каждый случай.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Сценарий</th><th>Что проверяет AI</th><th>Типичный итог</th></tr></thead>
+  <tbody>
+    <tr><td>Депозит не зачислен · $20 · p2p-перевод</td><td>Сверка перевода с данными PSP, даже если имя плательщика не совпадает с аккаунтом</td><td>Закрыт автоматически</td></tr>
+    <tr><td>Вывод висит 6 ч · €820 · Visa</td><td>Живой статус транзакции у PSP и стандартное окно зачисления на карту</td><td>Закрыт автоматически: укладывается в 24-часовое окно для карт</td></tr>
+    <tr><td>Загрузка чека · €1 500 · банковский перевод</td><td>Проверка подлинности PDF до одобрения выплаты</td><td>Закрыт автоматически после успешной проверки</td></tr>
+    <tr><td>Неверный адрес кошелька · USDT</td><td>Данные транзакции и кошелька по крипто-депозиту</td><td>Закрыт автоматически по вашему сценарию</td></tr>
+    <tr><td>Двойное списание · €75 ×2 · Apple Pay</td><td>Обе транзакции и их статус у провайдера</td><td>Передан человеку с готовым тикетом</td></tr>
+    <tr><td>Угроза чарджбэка · €340 · Mastercard</td><td>История платежей и претензия игрока</td><td>Эскалирован в риск-отдел</td></tr>
+  </tbody>
+</table></div>
+<h3>Депозиты, которые «не пришли», включая p2p</h3>
+<p>Незачисленный депозит вручную разбирать тяжелее всего: оператору нужно найти соответствующий перевод. В p2p имя плательщика редко совпадает с именем в аккаунте игрока. Ассистент сверяет каждый тикет с данными PSP в момент поступления и находит перевод даже без чёткого референса. До человека доходят только реальные исключения.</p>
+<h3>Зависшие выводы</h3>
+<p>Большинство вопросов «где мой вывод?» — вовсе не проблема: выплата одобрена и просто проходит через провайдера. Ассистент смотрит живой статус, объясняет, где деньги и когда они придут, и закрывает тикет. Если выплата действительно застряла, он сам создаёт и заполняет тикет для платёжной команды.</p>
+<h3>Крипто-депозиты</h3>
+<p>У крипты свой типовой сценарий: депозит на неверный адрес или в другой сети. Ассистент ведёт такие случаи по вашему сценарию, и игрок получает понятный следующий шаг вместо ожидания в очереди.</p>
+<h2 id="how-it-works">Как ассистент работает с данными PSP и хелпдеском</h2>
+<p>Ассистент подключается напрямую к вашим PSP и внутренним API, поэтому каждый ответ строится на живой транзакции, а не на шаблоне.</p>
+<ol>
+  <li><strong>Тикет поступает.</strong> Обычно из чата: <a href="/ru/chat">AI Chat Operator</a> распознаёт платёжный вопрос и открывает тикет.</li>
+  <li><strong>Подтягиваются данные PSP.</strong> Информация берётся прямо из платёжной системы: статус, сумма, метод, время.</li>
+  <li><strong>Случай сверяется и классифицируется.</strong> Депозит сопоставляется с переводом, вывод — с окном зачисления. Чеки проверяются на подлинность.</li>
+  <li><strong>Игрок получает ответ.</strong> На типовой вопрос о статусе — примерно за 10 секунд, на языке игрока.</li>
+  <li><strong>Тикет закрывается или эскалируется.</strong> Типовые случаи закрываются. Исключения создаются в хелпдеске со всеми данными и уходят нужной команде.</li>
+</ol>
+<p>Связка с Chat Operator важнее, чем кажется. Чат-бот открывает тикет, ассистент подхватывает его в том же диалоге, и <strong>игроку не нужно ничего повторять</strong>: ни форм «заполните заявку», ни второго канала. Платёжная команда получает тикет, где уже есть транзакция, результат проверки статуса и причина эскалации.</p>
+<p class="note">Время до взятия платёжного тикета в работу сокращается с 8:00 до 0:35. Даже тикеты, которые доходят до человека, приходят уже разобранными.</p>
+<h2 id="receipt-checks">Проверка PDF-чеков на подделку</h2>
+<p>Проверка чеков защищает оператора от выплаты по фальшивому документу: ассистент анализирует загруженные PDF-чеки и выявляет подделки до одобрения выплаты.</p>
+<p>Игроки загружают банковские чеки, чтобы подтвердить депозит, особенно при банковских переводах и p2p. Проверять их глазами долго, а качественную подделку легко пропустить, когда очередь длинная. Ассистент прогоняет каждый загруженный чек через AI-проверку подлинности. Если проверка пройдена и перевод совпадает с данными PSP, тикет закрывается. Если что-то не так, случай уходит человеку с указанием причины.</p>
+<h2 id="human-cases">Что остаётся за людьми</h2>
+<p>Всё, где на кону деньги, есть спор или нужно принять решение, остаётся у вашей команды. Задача ассистента — чтобы такие случаи приходили полностью разобранными, а не решать их.</p>
+<ul>
+  <li><strong>Угрозы чарджбэка.</strong> Эскалируются в риск-отдел вместе с историей платежей и претензией игрока.</li>
+  <li><strong>Двойные списания.</strong> Обе транзакции находятся и передаются дальше, решение о возврате принимают люди.</li>
+  <li><strong>Подозрение на фрод и непройденная проверка чека.</strong> Уходят профильной команде с результатом проверки.</li>
+  <li><strong>Случаи вне ваших правил.</strong> Правила эскалации и пороги фрода вы задаёте при калибровке, ассистент им следует.</li>
+</ul>
+<p>Благодаря такому разделению ассистент участвует в 90% платёжных тикетов, а 70%+ закрывает сам. Остальным это тоже помогает: никому не приходится начинать разбор с нуля.</p>
+<h2 id="rollout">Внедрение: полноценная работа за 2–3 дня</h2>
+<p>Если заранее дать доступы к API PSP и хелпдеска и документацию, Payment Assistant выходит на полноценную работу за 2–3 дня.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Когда</th><th>Этап</th><th>Что происходит</th></tr></thead>
+  <tbody>
+    <tr><td>День 1</td><td>Интеграция тикетной и платёжных систем</td><td>Подключение хелпдеска, API PSP, маппинг статусов транзакций</td></tr>
+    <tr><td>День 2</td><td>Калибровка под ваши стандарты</td><td>Правила эскалации и пороги фрода настраиваются на ваших данных</td></tr>
+    <tr><td>День 2–3</td><td>Полноценная работа и аналитика</td><td>Живые дашборды по возвратам и решению тикетов</td></tr>
+  </tbody>
+</table></div>
+<p>Сроки зависят в основном от доступов, а не от настройки. Платёжная команда обычно и так знает сроки зачисления, случаи для эскалации и признаки фрода; задача — превратить эти знания в правила, которые ассистент применяет к каждому тикету. После запуска дашборды показывают, сколько тикетов закрыто автоматически, какие эскалированы и почему, так что пороги можно подстраивать на реальном трафике, а не наугад.</p>
+<p>Payment Assistant работает и самостоятельно, и вместе с <a href="/ru/chat">AI Chat Operator</a> — отсюда и передача тикета прямо в чате. Как продукты делят одну базу знаний и одну консоль, описано в <a href="/ru/solutions/ai-customer-support-igaming">обзоре платформы</a>.</p>
+<h2 id="pricing">Сколько это стоит: тарифы и пример расчёта</h2>
+<p>Payment Assistant оплачивается за тикет, взятый в работу: от $0,30 до $0,18 в зависимости от объёма в месяц, плюс разовый setup $200 за каждого подключённого платёжного провайдера.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Тариф</th><th>Тикетов в месяц</th><th>Цена за тикет</th></tr></thead>
+  <tbody>
+    <tr><td>EASY</td><td>1 000 – 10 000</td><td>$0,30</td></tr>
+    <tr><td>NORMAL</td><td>10 000 – 50 000</td><td>$0,25</td></tr>
+    <tr><td>COMPANY</td><td>50 000 – 100 000</td><td>$0,20</td></tr>
+    <tr><td>CORPORATION</td><td>100 000+</td><td>$0,18</td></tr>
+  </tbody>
+</table></div>
+<p>Весь месячный объём тарифицируется по ставке того диапазона, в который попадает, без ступенчатого расчёта. Ручная обработка стоит около $0,50 за тикет, так что любой тариф дешевле оператора с первого месяца.</p>
+<h3>Пример: 100 000 платёжных тикетов в месяц</h3>
+<div class="tbl"><table>
+  <thead><tr><th>Статья</th><th>Расчёт</th><th>В месяц</th></tr></thead>
+  <tbody>
+    <tr><td>Только операторы</td><td>100 000 × $0,50</td><td>$50 000</td></tr>
+    <tr><td>Закрывает ассистент (70%)</td><td>70 000 × $0,20</td><td>$14 000</td></tr>
+    <tr><td>Обрабатывают операторы (30%)</td><td>30 000 × $0,50</td><td>$15 000</td></tr>
+    <tr><td>Итого с Payment Assistant</td><td></td><td>$29 000</td></tr>
+  </tbody>
+</table></div>
+<p>Это <strong>$21 000 экономии в месяц, или $252 000 в год</strong> на тарифе COMPANY. Посчитать свои объёмы и количество PSP можно в <a href="/ru/calculator">калькуляторе</a>.</p>
+<h2 id="checklist">Чек-лист: готов ли ваш платёжный саппорт к автоматизации</h2>
+<p>Вы готовы, если можете дать ассистенту доступ на чтение к данным транзакций и чётко описать, когда должен вмешаться человек.</p>
+<ul>
+  <li>Составьте список PSP. Setup — $200 за провайдера, поэтому начните с тех, по которым больше всего тикетов.</li>
+  <li>Подготовьте доступы к API и документацию по PSP и хелпдеску — именно они дают запуск за 2–3 дня.</li>
+  <li>Зафиксируйте сроки зачисления по методам (карты, e-wallet, банковский перевод, крипта), чтобы ассистент отличал «нормально» от «зависло».</li>
+  <li>Опишите правила эскалации и пороги фрода: чарджбэки, двойные списания, крупные суммы, непройденная проверка чека.</li>
+  <li>Решите, куда падают тикеты: какие очереди хелпдеска, какие команды, какие поля обязательны.</li>
+  <li>Подключите чат. Если игроки спрашивают о платежах в лайв-чате, объедините ассистента с <a href="/ru/chat">AI Chat Operator</a>, чтобы передача оставалась в одном диалоге.</li>
+  <li>Продумайте контроль качества. Платёжные ответы нужно проверять так же, как любые другие диалоги; подробнее в гайде по <a href="/ru/blog/customer-support-qa-igaming">контролю качества саппорта в iGaming</a>.</li>
+</ul>
+<div class="prod" style="--page-acc: #5FA5F9;"><div><span>ПРОДУКТ</span><b>AI Payment Assistant</b></div><a class="btn primary" href="/ru/payment">ПОДРОБНЕЕ →</a></div>
+    </article>
+  </div>
+
+  <section id="faq">
+    <p class="kicker">— FAQ</p>
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details open><summary>Может ли AI сам ответить на вопрос «где мой вывод?»</summary><p>Да. Ассистент берёт живой статус транзакции прямо у PSP и примерно за 10 секунд сообщает, где выплата и когда она поступит. Если выплата действительно зависла, он открывает и заполняет тикет для платёжной команды.</p></details>
+      <details><summary>Какую долю платёжных тикетов можно автоматизировать?</summary><p>AI Payment Assistant участвует в 90% платёжных тикетов и 70%+ закрывает вообще без человека. Остальные, например чарджбэки и двойные списания, уходят людям уже разобранными.</p></details>
+      <details><summary>Как он работает с p2p-депозитами, где не совпадает имя плательщика?</summary><p>Каждый тикет сверяется с данными PSP в момент поступления, включая p2p-переводы, где имя плательщика редко совпадает с аккаунтом игрока. Перевод находится даже без чёткого референса, до человека доходят только реальные исключения.</p></details>
+      <details><summary>Умеет ли он выявлять поддельные чеки?</summary><p>Да. Загруженные PDF-чеки проходят AI-проверку подлинности, которая выявляет подделки до одобрения выплаты. Если проверка не пройдена, случай эскалируется вместе с её результатом.</p></details>
+      <details><summary>Поддерживаются ли крипто-депозиты?</summary><p>Да. Крипто-кейсы, например депозит USDT на неверный адрес кошелька, обрабатываются по заданному вами сценарию, а всё, что выходит за правила, эскалируется.</p></details>
+      <details><summary>Какие случаи всегда уходят человеку?</summary><p>Угрозы чарджбэка, двойные списания, подозрение на фрод и всё, что выходит за заданные вами правила эскалации и пороги фрода. Ассистент готовит такие тикеты, чтобы команда не начинала с нуля.</p></details>
+      <details><summary>Сколько занимает интеграция?</summary><p>Полноценная работа — через 2–3 дня, если заранее дать доступы к API PSP и хелпдеска и документацию. За это время подключаются хелпдеск и PSP, калибруются правила эскалации и пороги фрода, запускаются живые дашборды.</p></details>
+      <details><summary>Сколько стоит Payment Assistant?</summary><p>Оплата за тикет, взятый в работу: $0,30 при 1 000–10 000 тикетов в месяц, $0,25 до 50 000, $0,20 до 100 000 и $0,18 свыше. Setup разовый — $200 за каждого подключённого платёжного провайдера.</p></details>
+      <details><summary>Работает ли он без AI Chat Operator?</summary><p>Да, он может работать самостоятельно с вашим хелпдеском. В связке с AI Chat Operator чат-бот открывает тикет, а ассистент подхватывает его в том же диалоге, и игроку не нужно ничего повторять.</p></details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="kicker" data-r>— ЗАПРОСИТЬ РАСЧЁТ</p>
+    <div class="contact" data-r>
+      <div>
+        <h2>Посчитаем, сколько сэкономит автоматизация платежей на ваших объёмах.</h2>
+        <p class="lead">Напишите, сколько у вас платёжных тикетов в месяц и какие PSP. Пришлём персональный расчёт и план внедрения в течение рабочего дня.</p>
+        <p class="small">Ответим в течение рабочего дня. Telegram: @qodeq</p>
+      </div>
+      <form data-lead novalidate>
+        <input type="text" name="name" placeholder="Имя" autocomplete="name" />
+        <input type="text" name="company" placeholder="Компания" autocomplete="organization" />
+        <input type="text" name="contact" placeholder="Email или Telegram" autocomplete="email" />
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn primary" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+        <p class="msg" data-msg role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">— ДРУГИЕ ГАЙДЫ</p>
+    <div class="cards posts">
+      <a class="card" href="/ru/solutions/ai-customer-support-igaming" style="--card-acc: #E8B23A;"><small>ОБЗОР ПЛАТФОРМЫ</small><h3>AI-поддержка для iGaming: чат, платежи, контроль качества и голос на одной платформе</h3><p>QODEQ — AI-платформа поддержки для казино, букмекеров и лотерей: AI-чат, платёжный саппорт, контроль качества и голосовые боты. Цены, внедрение, FAQ.</p><span class="more">Читать →</span></a>
+      <a class="card" href="/ru/blog/customer-support-qa-igaming" style="--card-acc: #E8B23A;"><small>AI QA SYSTEM</small><h3>Контроль качества саппорта в iGaming: AI проверяет 100% чатов вместо выборки 10–15%</h3><p>Как поддержке казино и букмекеров перейти от ручной выборки 10–15% чатов к AI-оценке каждого диалога: критерии чек-листа, точность, обучение и экономика.</p><span class="more">Читать →</span></a>
+      <a class="card" href="/ru/blog/call-center-qa-ai-gambling" style="--card-acc: #C084F5;"><small>AI VOICE QA</small><h3>AI-контроль качества звонков для колл-центров казино и беттинга</h3><p>Как ИИ проверяет 100% звонков колл-центра казино и букмекера вместо ~2,6%: транскрибация Whisper, 15 критериев, таймкоды нарушений и контроль комплаенса.</p><span class="more">Читать →</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="col">
+    <span>Продукты</span>
+    <a href="/ru/chat">AI Chat Operator</a>
+    <a href="/ru/qa-chat">AI QA System</a>
+    <a href="/ru/payment">AI Payment Assistant</a>
+    <a href="/ru/qa-call">AI Voice QA</a>
+    <a href="/ru/voice">AI Voice Bot</a>
+  </div>
+  <div class="col">
+    <span>Гайды</span>
+    <a href="/ru/solutions/ai-customer-support-igaming">AI-поддержка для iGaming</a>
+    <a href="/ru/blog/ai-chat-support-for-online-casinos">AI-поддержка в чате</a>
+    <a href="/ru/blog/automate-casino-withdrawal-deposit-support">Автоматизация платежей</a>
+    <a href="/ru/blog/customer-support-qa-igaming">QA саппорта с AI</a>
+    <a href="/ru/blog/call-center-qa-ai-gambling">QA колл-центра</a>
+    <a href="/ru/blog/ai-voice-bot-igaming">Голосовые боты</a>
+  </div>
+  <div class="col">
+    <span>Telegram</span>
+    <a href="https://t.me/qodeq">@qodeq</a>
+  </div>
+  <a class="back" href="/ru/">← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING</a>
+</footer>
+
+<script>
+(function () {
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 }) : null;
+  [].forEach.call(document.querySelectorAll('[data-r]'), function (el) { io ? io.observe(el) : el.classList.add('in'); });
+  // подсветка текущего раздела в оглавлении
+  var links = [].slice.call(document.querySelectorAll('.toc a'));
+  if (links.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (!e.isIntersecting) return; links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); });
+    }, { rootMargin: '-90px 0px -70% 0px' });
+    links.forEach(function (a) { var h = document.getElementById(a.getAttribute('href').slice(1)); if (h) spy.observe(h); });
+  }
+})();
+(function () {
+  var f = document.querySelector('[data-lead]'); if (!f) return;
+  var msg = f.querySelector('[data-msg]'), busy = false;
+  var T = {"sending":"Отправляем…","sent":"Спасибо! Ответим в течение рабочего дня.","need":"Укажите имя и контакт.","fail":"Не удалось отправить. Напишите нам в Telegram @qodeq."};
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var name = f.name.value.trim(), company = f.company.value.trim(), contact = f.contact.value.trim();
+    if (f.hp.value) { msg.className = 'msg ok'; msg.textContent = T.sent; return; }
+    if (!name || !contact) { msg.className = 'msg err'; msg.textContent = T.need; return; }
+    busy = true; msg.className = 'msg'; msg.textContent = T.sending;
+    fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, company: company, contact: contact, hp: f.hp.value, lang: 'ru', page: location.href, product: "Blog · AI Payment Assistant" })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      msg.className = 'msg ok'; msg.textContent = T.sent; f.reset();
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'blog_automate_casino_withdrawal_deposit_support' });
+    }).catch(function () { msg.className = 'msg err'; msg.textContent = T.fail; })
+      .then(function () { busy = false; });
+  });
+})();
+</script>
+</body>
+</html>
