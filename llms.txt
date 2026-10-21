@@ -12,6 +12,12 @@ QODEQ sells to B2B iGaming operators, not to players. Pricing is usage-based (pe
 - [AI Voice QA](https://qodeq.net/qa-call): transcribes and scores every inbound and outbound call (15 criteria) — 100% coverage instead of ~2.6% manual sampling. Individual pricing.
 - [AI Voice Bot](https://qodeq.net/voice): 24/7 multilingual outbound and inbound calls (deposit follow-ups, KYC reminders, win-back, payout calls), always on script. $0.15 → $0.06 per minute, $1,000 setup.
 
+## Solutions
+
+- [AI customer support for online casinos](https://qodeq.net/solutions/online-casino-customer-support): withdrawals, bonuses and KYC resolved in chat, 24/7, any language.
+- [AI customer support for sportsbooks](https://qodeq.net/solutions/sportsbook-customer-support): bet settlement, voided bets, free bets and live-event peaks without a queue.
+- [Support QA for iGaming](https://qodeq.net/solutions/customer-support-quality-assurance): every chat and call scored by AI instead of a 10–15% manual sample.
+
 ## Tools
 
 - [Support cost calculator](https://qodeq.net/calculator): enter chat, payment-ticket and call volumes plus your operator cost; get monthly savings, payback and a PDF business case.
