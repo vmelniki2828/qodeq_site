@@ -116,6 +116,8 @@ PAGES.forEach(page => {
   setMeta('meta[property="og:title"]', 'content', page.title);
   setMeta('meta[property="og:description"]', 'content', page.description);
   setMeta('meta[property="og:url"]', 'content', page.ruUrl);
+  setMeta('meta[property="og:locale"]', 'content', 'ru_RU');
+  setMeta('meta[property="og:locale:alternate"]', 'content', 'en_US');
   setMeta('link[rel="canonical"]', 'href', page.ruUrl);
 
   // Point internal links at the /ru/ twins so the RU section links to itself
@@ -131,8 +133,15 @@ PAGES.forEach(page => {
   doc.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
     try {
       const obj = JSON.parse(s.textContent);
-      obj.description = page.description;
-      obj.url = page.ruUrl;
+      const type = obj['@type'];
+      if (type === 'Organization') return; // one entity for both languages
+      if (type === 'WebSite') { obj.url = page.ruUrl; obj.inLanguage = 'ru'; }
+      else if (type === 'ItemList') {
+        (obj.itemListElement || []).forEach(li => {
+          const ru = u => { const p = u.replace('https://qodeq.net', ''); return RU_ROUTES[p] ? 'https://qodeq.net' + RU_ROUTES[p] : u; };
+          li.url = ru(li.url); if (li.item && li.item.url) li.item.url = ru(li.item.url);
+        });
+      } else { obj.description = page.description; obj.url = page.ruUrl; }
       s.textContent = JSON.stringify(obj, null, 2);
     } catch (e) {}
   });

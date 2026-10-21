@@ -1,0 +1,37 @@
+# QODEQ
+
+> QODEQ is an AI customer support platform for iGaming operators — online casinos, sportsbooks and lotteries. Five AI agents (chat, chat QA, payments, call QA, voice) share one knowledge base, one CRM context and one console. Typical result: 65%+ of player chats resolved without a human, support costs cut roughly in half, rollout in weeks.
+
+QODEQ sells to B2B iGaming operators, not to players. Pricing is usage-based (per closed chat, checked chat, ticket or call minute) with a one-off setup fee; the whole monthly volume is billed at the rate of the tier it falls into. The site is available in English and Russian.
+
+## Products
+
+- [AI Chat Operator](https://qodeq.net/chat): own LLM fine-tuned on 5M iGaming support chats; resolves KYC, bonus, limit and payout questions end to end, escalates to a human with full context. 65% resolved without a human, ~7-second replies. $0.30 → $0.18 per closed chat by volume (5K–30K, 30K–50K, 50K–100K, 100K+ chats/month), $1,000 setup.
+- [AI QA System](https://qodeq.net/qa-chat): automatic quality control of 100% of support chats instead of a manual sample — 15 weighted criteria, 97.6% accuracy, daily per-operator reports. $0.30 → $0.18 per checked chat, $1,000 setup.
+- [AI Payment Assistant](https://qodeq.net/payment): answers "where is my deposit / withdrawal?" with live PSP data, auto-creates tickets, checks PDF receipts for forgery. 70%+ of payment tickets resolved automatically. $0.30 → $0.18 per ticket, $200 setup per payment provider.
+- [AI Voice QA](https://qodeq.net/qa-call): transcribes and scores every inbound and outbound call (15 criteria) — 100% coverage instead of ~2.6% manual sampling. Individual pricing.
+- [AI Voice Bot](https://qodeq.net/voice): 24/7 multilingual outbound and inbound calls (deposit follow-ups, KYC reminders, win-back, payout calls), always on script. $0.15 → $0.06 per minute, $1,000 setup.
+
+## Tools
+
+- [Support cost calculator](https://qodeq.net/calculator): enter chat, payment-ticket and call volumes plus your operator cost; get monthly savings, payback and a PDF business case.
+- [Platform overview and FAQ](https://qodeq.net/solutions/ai-customer-support-igaming): how the platform works, prices, rollout and 21 common questions.
+
+## Guides
+
+- [AI chat support for online casinos: how it works](https://qodeq.net/blog/ai-chat-support-for-online-casinos)
+- [Automating casino deposit and withdrawal support](https://qodeq.net/blog/automate-casino-withdrawal-deposit-support)
+- [iGaming support QA: scoring 100% of chats with AI](https://qodeq.net/blog/customer-support-qa-igaming)
+- [AI call QA for casino and betting call centers](https://qodeq.net/blog/call-center-qa-ai-gambling)
+- [AI voice bots for iGaming: retention and KYC calls](https://qodeq.net/blog/ai-voice-bot-igaming)
+- [All guides](https://qodeq.net/blog)
+
+## Contact
+
+- Request a calculation: https://qodeq.net/#contact (reply within one business day)
+- Email: support@qodeq.net
+- Telegram: https://t.me/qodeq
+
+## Optional
+
+- [Русская версия сайта](https://qodeq.net/ru/): the same products and guides in Russian (/ru/chat, /ru/qa-chat, /ru/payment, /ru/qa-call, /ru/voice, /ru/calculator, /ru/blog).
