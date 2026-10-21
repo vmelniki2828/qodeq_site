@@ -116,6 +116,12 @@ function buildRows(body) {
       ['Окупаемость внедрения', c.payback || '—'],
       ['Setup fee (оценка)', money(c.setupFees)],
     );
+    // поля, которые шлёт только /calculator (свои затраты клиента)
+    if (c.operatorCost != null) rows.push(['Стоимость оператора / мес', money(c.operatorCost)]);
+    if (c.chatsPerOperator != null) rows.push(['Чатов на оператора / мес', num(c.chatsPerOperator)]);
+    if (c.psp != null) rows.push(['Платёжных провайдеров', num(c.psp)]);
+    if (c.paymentBotShare != null) rows.push(['Доля тикетов ботом', c.paymentBotShare + '%']);
+    if (c.shareUrl) rows.push(['Открыть расчёт', String(c.shareUrl).slice(0, 600)]);
   }
   return rows;
 }
@@ -340,12 +346,14 @@ const CLEAN_URLS = {
   '/payment': 'Product-Payment.dc.html',
   '/qa-call': 'Product-QA-Call.dc.html',
   '/voice': 'Product-Voice.dc.html',
+  '/calculator': 'Calculator.html',
   '/ru/': 'QODEQ.ru.dc.html',
   '/ru/chat': 'Product-Chat.ru.dc.html',
   '/ru/qa-chat': 'Product-QA-Chat.ru.dc.html',
   '/ru/payment': 'Product-Payment.ru.dc.html',
   '/ru/qa-call': 'Product-QA-Call.ru.dc.html',
   '/ru/voice': 'Product-Voice.ru.dc.html',
+  '/ru/calculator': 'Calculator.ru.html',
 };
 for (const [route, file] of Object.entries(CLEAN_URLS)) {
   app.get(route, (req, res) => {
@@ -353,6 +361,18 @@ for (const [route, file] of Object.entries(CLEAN_URLS)) {
     res.sendFile(file, { root: STATIC_DIR });
   });
 }
+// Посадочные /solutions/<slug> и /ru/solutions/<slug> → <slug>.html (как в nginx на проде)
+app.get(/^\/(ru\/)?solutions\/([a-z0-9-]+)$/, (req, res, next) => {
+  const file = (req.params[0] ? 'ru/' : '') + 'solutions/' + req.params[1] + '.html';
+  res.set('Cache-Control', 'no-cache');
+  res.sendFile(file, { root: STATIC_DIR }, err => err && next());
+});
+// Блог: /blog, /blog/<slug> и /ru/... → blog/index.html, blog/<slug>.html (как в nginx на проде)
+app.get(/^\/(ru\/)?blog(?:\/([a-z0-9-]+))?$/, (req, res, next) => {
+  const file = (req.params[0] ? 'ru/' : '') + 'blog/' + (req.params[1] || 'index') + '.html';
+  res.set('Cache-Control', 'no-cache');
+  res.sendFile(file, { root: STATIC_DIR }, err => err && next());
+});
 
 // ---------- статика сайта ----------
 app.use(express.static(STATIC_DIR, {

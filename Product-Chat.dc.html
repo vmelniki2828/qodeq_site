@@ -57,8 +57,10 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="./i18n.js?v=35"></script>
+<script src="./i18n.js?v=36"></script>
 <style>
+  @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; padding-left: 20px !important; padding-right: 20px !important; } }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #0A0A09; --btn-acc: #4FD1A5; }
 
@@ -164,7 +166,7 @@
       <a href="/qa-call" data-tab="qa-call" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;"><span data-i18n="nav.qacall">04 QA CALL</span></a>
       <a href="/voice" data-tab="voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;"><span data-i18n="nav.voice">05 VOICE</span></a>
       <a href="/blog" data-btn="" data-i18n="nav.blog" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); color: #8A8579; --btn-acc: #F5F2EC;">BLOG</a>
-      <a href="/#calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(79,209,165,.5); color: #4FD1A5;"><span data-i18n="nav.calc">CALCULATOR →</span></a>
+      <a href="/calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(79,209,165,.5); color: #4FD1A5;"><span data-i18n="nav.calc">CALCULATOR →</span></a>
     </nav>
     <div data-langbox="" style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
       <button data-lang="en" style="padding: 7px 11px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; color: #4FD1A5; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">EN</button>
@@ -251,7 +253,7 @@
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
       <p data-i18n="price.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— PRICING · PER CLOSED CHAT</p>
       <h2 data-i18n="price.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">You pay per chat the agent closes.</h2>
-      <div data-reveal="" style="border: 1px solid rgba(255,255,255,.09); overflow-x: auto;"><div style="min-width: 620px;">
+      <div data-reveal="" style="background: #0A0A09; border: 1px solid rgba(255,255,255,.09); overflow-x: auto;"><div style="min-width: 620px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: #0C0C0A; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #8A8579;"><span data-i18n="price.h.plan" style="padding: 17px 18px;">PLAN</span><span data-i18n="price.h.chats" style="padding: 17px 18px;">CHATS PER MONTH</span><span data-i18n="price.h.price" style="padding: 17px 18px; text-align: right;">PRICE PER 1 CLOSED CHAT</span></div>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">EASY</span><span style="padding: 19px 18px; color: #8A8579;">5K — 30K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.30</span></div>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">NORMAL</span><span style="padding: 19px 18px; color: #8A8579;">30K — 50K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.25</span></div>
@@ -275,7 +277,7 @@
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
       <p data-i18n="worked.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— WORKED EXAMPLE · CORPORATION · 250,000 CHATS / MONTH</p>
       <h2 data-i18n="worked.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">$624,000 saved per year.</h2>
-      <div data-reveal="" style="border: 1px solid rgba(255,255,255,.09);">
+      <div data-reveal="" style="background: #0A0A09; border: 1px solid rgba(255,255,255,.09);">
         <div style="display: flex; justify-content: space-between; padding: 16px 20px; font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="worked.row1">Cost with operators only · 250,000 × $0.50</span><span style="color: #E8E6E1;">$125,000</span></div>
         <div style="display: flex; justify-content: space-between; padding: 16px 20px; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="worked.row2">Handled by AI (65%) · 162,500 × $0.18</span><span style="color: #E8E6E1;">$29,250</span></div>
         <div style="display: flex; justify-content: space-between; padding: 16px 20px; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="worked.row3">Handled by operators (35%) · 87,500 × $0.50</span><span style="color: #E8E6E1;">$43,750</span></div>
@@ -325,7 +327,7 @@
         <div><p data-i18n="calc.lbl.annual" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ANNUAL SAVING</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
         <div style="height: 10px; background: rgba(255,255,255,.05);"><div data-cbar="" style="height: 10px; width: 0%; background: #4FD1A5; transition: width .35s cubic-bezier(.2,.7,.2,1);"></div></div>
         <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">—</p>
-        <a href="/#calculator" data-i18n="calc.cta" data-btn="" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">MODEL ALL FIVE AGENTS TOGETHER →</a>
+        <a href="/calculator" data-i18n="calc.cta" data-btn="" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">MODEL ALL FIVE AGENTS TOGETHER →</a>
       </div>
     </div>
   </section>
@@ -368,7 +370,7 @@
     </div>
   </section>
 
-  <section data-feedback="" data-slug="chat" data-acc="#4FD1A5" data-product="AI Chat Operator" style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); overflow: clip;">
+  <section id="contact" data-feedback="" data-slug="chat" data-acc="#4FD1A5" data-product="AI Chat Operator" style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); overflow: clip;">
     <p data-i18n="fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— REQUEST A CALCULATION</p>
     <h2 data-i18n="fb.title" style="margin: 0 0 20px; max-width: 860px; font: 500 clamp(28px, 4vw, 56px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">See the numbers for AI Chat Operator on your volumes.</h2>
     <p data-i18n="fb.sub" style="margin: 0 0 48px; max-width: 560px; font: 400 16px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Leave a contact — we send a personalised calculation and a rollout plan within one business day.</p>
@@ -396,9 +398,46 @@
     </div>
   </section>
 
-  <footer style="position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 22px 48px; border-top: 1px solid rgba(255,255,255,.09); font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">
-    <a href="/" data-i18n="footer.back" style="color: #57544C;">← QODEQ · AI PLATFORM FOR IGAMING</a>
-    <span data-i18n="footer.tag">COMMERCIAL PROPOSAL · 2026 · CONFIDENTIAL</span>
+  <footer style="position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.09); background: #0A0A09;">
+    <div data-fgrid="" style="max-width: 1500px; margin: 0 auto; padding: 76px 48px 34px; display: grid; grid-template-columns: minmax(220px, 1.3fr) repeat(3, minmax(130px, 1fr)); gap: 44px 36px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <a href="/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-main.png?v=2" alt="QODEQ" style="height: 24px; width: auto; display: block;" /></a>
+        <p data-i18n="foot.tagline" style="margin: 0; max-width: 340px; font: 400 14px/1.65 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Five AI agents on one platform for iGaming support: chat, QA, payments, voice. One knowledge base, one console, one bill.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 11px 15px; border: 1px solid #4FD1A5; font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">EMAIL US</a>
+          <a href="https://t.me/qodeq" data-btn="" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;">TELEGRAM</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p data-i18n="foot.agents" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">AGENTS</p>
+        <a href="/chat" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Chat Operator</a>
+        <a href="/qa-chat" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI QA System</a>
+        <a href="/payment" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Payment Assistant</a>
+        <a href="/qa-call" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Voice QA</a>
+        <a href="/voice" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Voice Bot</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p data-i18n="foot.platform" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">PLATFORM</p>
+        <a href="/#console" data-i18n="foot.console" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Operator console</a>
+        <a href="/#economics" data-i18n="foot.econ" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Economics</a>
+        <a href="/calculator" data-i18n="foot.roicalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">ROI calculator</a>
+        <a href="/#pricing" data-i18n="foot.pricing" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Pricing</a>
+        <a href="/#timeline" data-i18n="foot.rollout" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Rollout plan</a>
+        <a href="/solutions/ai-customer-support-igaming" data-i18n="foot.overview" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Platform overview</a>
+        <a href="/blog" data-i18n="foot.blog" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Blog</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <p data-i18n="foot.contact" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">CONTACT</p>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;"></a>
+        <a href="https://t.me/qodeq" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">@qodeq</a>
+        <a href="#contact" data-i18n="foot.reqcalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Request a calculation</a>
+        <p data-i18n="foot.response" style="margin: 8px 0 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">RESPONSE WITHIN 1 BUSINESS DAY</p>
+      </div>
+    </div>
+    <div style="max-width: 1500px; margin: 0 auto; padding: 20px 48px 26px; border-top: 1px solid rgba(255,255,255,.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">
+      <span data-i18n="foot.bottom1">QODEQ · AI PLATFORM FOR IGAMING</span>
+      <span data-i18n="foot.bottom2">COMMERCIAL PROPOSAL · 2026 · CONFIDENTIAL</span>
+    </div>
   </footer>
 </div>
 
@@ -407,6 +446,22 @@
 // Local RU dictionary for this page only (kept separate from i18n.js on purpose,
 // so parallel edits to that shared file never conflict with this product page).
 const RU_DICT = {
+  'foot.tagline': 'Пять AI-агентов на одной платформе для поддержки iGaming: чат, QA, платежи, голос. Одна база знаний, одна консоль, один счёт.',
+  'foot.emailus': 'НАПИСАТЬ НАМ',
+  'foot.agents': 'АГЕНТЫ',
+  'foot.platform': 'ПЛАТФОРМА',
+  'foot.console': 'Консоль оператора',
+  'foot.econ': 'Экономика',
+  'foot.roicalc': 'ROI-калькулятор',
+  'foot.pricing': 'Цены',
+  'foot.rollout': 'План внедрения',
+  'foot.overview': 'Обзор платформы',
+  'foot.blog': 'Блог',
+  'foot.contact': 'КОНТАКТЫ',
+  'foot.reqcalc': 'Запросить расчёт',
+  'foot.response': 'ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ',
+  'foot.bottom1': 'QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING',
+  'foot.bottom2': 'КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО',
   'nav.blog': 'БЛОГ',
   'nav.chat': '01 ЧАТ',
   'nav.qachat': '02 QA-ЧАТ',

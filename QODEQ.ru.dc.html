@@ -36,6 +36,7 @@
     "https://t.me/qodeq"
   ]
 }</script>
+<script src="/pricing.js?v=1"></script>
 <script src="/support.js"></script>
 <template id="__bundler_thumbnail" data-bg-color="#0A0A09">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A09"></rect><circle cx="200" cy="200" r="86" fill="none" stroke="#E8B23A" stroke-width="3"></circle><circle cx="200" cy="200" r="120" fill="none" stroke="#E8B23A" stroke-opacity=".28" stroke-width="2"></circle><circle cx="200" cy="200" r="10" fill="#E8B23A"></circle><text x="200" y="330" text-anchor="middle" font-family="monospace" font-size="30" letter-spacing="9" fill="#F2EFE9">QODEQ</text></svg>
@@ -45,7 +46,7 @@
 <x-dc>
 <helmet>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<script src="/i18n.js?v=35"></script>
+<script src="/i18n.js?v=36"></script>
 <style>
   html { scroll-behavior: smooth; }
 
@@ -195,6 +196,11 @@
     [style*="repeat(auto-fit, minmax(3"] { grid-template-columns: 1fr !important; }
   }
 </style>
+<style>
+  a[data-pcta] { transition: filter .2s ease, transform .2s ease; }
+  a[data-pcta]:hover { filter: brightness(1.12); transform: translateY(-2px); }
+  a[data-pcta]:hover [data-pcta-arrow] { transform: translateX(6px); }
+</style>
 </helmet>
 
 <div style="position: relative; background: #0A0A09; color: #E8E6E1; font-family: 'Space Grotesk', system-ui, sans-serif; overflow-x: clip;">
@@ -229,13 +235,10 @@
     <a href="#top" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.1">01 ВВЕДЕНИЕ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
     <a href="#products" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.2">02 АГЕНТЫ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
     <a href="#console" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.3">03 КОНСОЛЬ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#process" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.4">04 ПРОЦЕСС</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#live" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.5">05 ДЕМО</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#economics" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.6">06 ЭКОНОМИКА</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#calculator" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.7">07 КАЛЬКУЛЯТОР</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#pricing" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.8">08 ЦЕНЫ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#timeline" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.9">09 ВНЕДРЕНИЕ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
-    <a href="#contact" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-i18n="rail.10">10 КОНТАКТЫ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
+    <a href="#economics" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-text-en="04 ECONOMICS" data-text-ru="04 ЭКОНОМИКА">04 ЭКОНОМИКА</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
+    <a href="#pricing" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-text-en="05 PRICING" data-text-ru="05 ЦЕНЫ">05 ЦЕНЫ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
+    <a href="#timeline" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-text-en="06 ROLLOUT" data-text-ru="06 ВНЕДРЕНИЕ">06 ВНЕДРЕНИЕ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
+    <a href="#contact" data-rail-item="" style="display: flex; align-items: center; gap: 10px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;"><span data-text-en="07 CONTACT" data-text-ru="07 КОНТАКТЫ">07 КОНТАКТЫ</span><span style="width: 22px; height: 1px; background: currentColor;"></span></a>
   </div>
   <div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: var(--acc, #E8B23A);"></div></div>
 
@@ -440,55 +443,7 @@
     <h2 data-i18n="prod.title" data-reveal="" style="margin: 0 0 22px; max-width: 900px; font: 500 clamp(32px, 4.6vw, 66px)/1.04 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Пять агентов. Одна платформа.</h2>
     <p data-i18n="prod.sub" data-reveal="" data-delay="80" style="margin: 0 0 56px; max-width: 640px; font: 400 16px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Каждый агент работает отдельно или как часть платформы — с общей базой знаний, единым контекстом CRM и одним слоем аналитики.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(272px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-      <a href="/ru/chat" data-reveal="" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #4FD1A5; transition: background .35s, transform .35s; --btn-acc: #4FD1A5;">
-        <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;"><span>01 / CHAT</span></div>
-        <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name1">AI Chat Operator</h3>
-        <p data-i18n="prod.d1" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">AI-чат-бот для автоматизации поддержки игроков.</p>
-        <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09);">
-          <p style="margin: 0 0 16px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;"><span data-count="65" data-suffix="%" style="color: #F5F2EC; font-size: 15px;">65%</span> RESOLVED END-TO-END</p>
-          <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: rgba(79,209,165,.14); border: 1px solid rgba(79,209,165,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #4FD1A5; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
-        </div>
-      </a>
-      <a href="/ru/qa-chat" data-reveal="" data-delay="70" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #E8B23A; transition: background .35s, transform .35s; --btn-acc: #E8B23A;">
-        <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;"><span>02 / QA CHAT</span></div>
-        <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name2">AI QA System</h3>
-        <p data-i18n="prod.d2" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Автоматический контроль качества чатов — 100% вместо выборки.</p>
-        <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09);">
-          <p style="margin: 0 0 16px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;"><span data-count="100" data-suffix="%" style="color: #F5F2EC; font-size: 15px;">100%</span> CHAT COVERAGE</p>
-          <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: rgba(232,178,58,.14); border: 1px solid rgba(232,178,58,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #E8B23A; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
-        </div>
-      </a>
-      <a href="/ru/payment" data-reveal="" data-delay="140" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #5FA5F9; transition: background .35s, transform .35s; --btn-acc: #5FA5F9;">
-        <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;"><span>03 / PAYMENT</span></div>
-        <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name3">AI Payment Assistant</h3>
-        <p data-i18n="prod.d3" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Автоматизация обработки платёжных запросов.</p>
-        <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09);">
-          <p style="margin: 0 0 16px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;"><span data-count="70" data-suffix="%+" style="color: #F5F2EC; font-size: 15px;">70%+</span> AUTO-RESOLVED</p>
-          <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: rgba(95,165,249,.14); border: 1px solid rgba(95,165,249,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #5FA5F9; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
-        </div>
-      </a>
-      <a href="/ru/qa-call" data-reveal="" data-delay="210" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #C084F5; transition: background .35s, transform .35s; --btn-acc: #C084F5;">
-        <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;"><span>04 / QA CALL</span></div>
-        <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name4">AI Voice QA</h3>
-        <p data-i18n="prod.d4" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Автоматический контроль качества звонков.</p>
-        <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09);">
-          <p style="margin: 0 0 16px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;"><span style="color: #F5F2EC; font-size: 15px;">2.6% → 100%</span> COVERAGE</p>
-          <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: rgba(192,132,245,.14); border: 1px solid rgba(192,132,245,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #C084F5; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
-        </div>
-      </a>
-      <a href="/ru/voice" data-reveal="" data-delay="280" data-card="" style="display: flex; flex-direction: column; padding: 28px 26px 26px; background: #0A0A09; border-top: 2px solid #F4794C; transition: background .35s, transform .35s; --btn-acc: #F4794C;">
-        <div style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;"><span>05 / VOICE</span></div>
-        <h3 style="margin: 46px 0 12px; font: 500 26px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;" data-i18n="prod.name5">AI Voice Bot</h3>
-        <p data-i18n="prod.d5" style="margin: 0 0 26px; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">AI-голосовой бот для исходящих и входящих звонков.</p>
-        <div style="margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.09);">
-          <p style="margin: 0 0 16px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;"><span data-count="10" data-suffix="×" style="color: #F5F2EC; font-size: 15px;">10×</span> CALLS PER DAY</p>
-          <span data-arrow="" style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; background: rgba(244,121,76,.14); border: 1px solid rgba(244,121,76,.4); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #F4794C; transition: transform .3s, background .3s;">VIEW PRODUCT →</span>
-        </div>
-      </a>
-    </div>
-
-    <div data-showcase="" style="margin-top: 96px; border: 1px solid rgba(255,255,255,.09);">
+    <div data-showcase="" style="margin-top: 0; background: #0A0A09; border: 1px solid rgba(255,255,255,.09);">
       <div style="display: flex; flex-wrap: wrap; gap: 1px; background: rgba(255,255,255,.09);">
       <button data-ptab="chat" style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 11px; padding: 20px 22px; background: #0A0A09; border: 0; border-top: 2px solid transparent; text-align: left; font-family: 'Space Grotesk', sans-serif; cursor: pointer; transition: background .35s, border-color .35s; --btn-acc: #4FD1A5;">
         <span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">01</span>
@@ -525,7 +480,7 @@
               <div style="display: flex; gap: 12px; align-items: baseline;"><span style="width: 5px; height: 5px; flex: none; background: #4FD1A5;"></span><span data-i18n="show.chat.b3" style="font: 400 14px/1.5 'Space Grotesk', sans-serif; color: #B7B3AA;">Эскалация человеку с полным контекстом</span></div>
             </div>
           </div>
-          <a href="/ru/chat" data-card="" style="align-self: flex-start; padding: 15px 22px; border: 1px solid rgba(79,209,165,.45); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5; font-weight: 500; transition: background .3s;"><span data-i18n="show.breakdown">ПОДРОБНЕЕ</span> <span data-arrow="" style="display: inline-block; transition: transform .3s;">→</span></a>
+          <a href="/ru/chat" data-pcta="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; background: var(--btn-acc); color: #0A0A09; text-decoration: none;"><span style="display: flex; flex-direction: column; gap: 9px;"><span data-text-en="Try AI Chat Operator in full" data-text-ru="Попробовать AI Chat Operator целиком" style="font: 500 clamp(18px, 1.6vw, 22px)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.01em;">Попробовать AI Chat Operator целиком</span><span data-text-en="FEATURES · PRICING · CALCULATOR" data-text-ru="ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР" style="font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; opacity: .7;">ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР</span></span><span data-pcta-arrow="" style="font: 400 28px/1 'Space Grotesk', sans-serif; transition: transform .25s;">→</span></a>
         </div>
         <div style="background: #0C0C0A; display: flex; flex-direction: column;">
           <div data-demo="chat" style="flex: 1; padding: 30px 32px; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 13px;">
@@ -562,50 +517,6 @@
           <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 32px 20px;"><span data-i18n="show.from" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #4FD1A5;">ОТ</span><span style="font: 500 24px/1 'Space Grotesk', sans-serif; color: #4FD1A5;">$0.18 <span data-i18n="show.chat.perunit" style="font-size: 12px; color: #8A8579;">/ закрытый чат</span></span></div>
         </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,.09); background: #0A0A09;">
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0 42px; border-bottom: 1px solid rgba(255,255,255,.09);">
-        <button data-stab="cap" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid #4FD1A5; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F5F2EC; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.cap">ВОЗМОЖНОСТИ</button>
-        <button data-stab="price" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.price">ЦЕНЫ</button>
-        <button data-stab="econ" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.econ">ВАШИ ЦИФРЫ</button>
-        <button data-stab="time" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.time">СРОКИ</button>
-      </div>
-      <div data-spane="cap" style="display: block; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 34px;">
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">01</p><h4 data-i18n="show.chat.cap1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Быстрый доступ к базе знаний</h4><p data-i18n="show.chat.cap1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Правила, бонусы и сценарии обновляются без участия разработчиков.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">02</p><h4 data-i18n="show.chat.cap2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Сложные сценарии</h4><p data-i18n="show.chat.cap2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">KYC, бонусы, лимиты, блокировки — решаются, а не передаются дальше.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">03</p><h4 data-i18n="show.chat.cap3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Бесшовная интеграция по API</h4><p data-i18n="show.chat.cap3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Подключается напрямую к iGaming-платформе и хелпдеску.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">04</p><h4 data-i18n="show.chat.cap4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Любой язык, ваш тон голоса</h4><p data-i18n="show.chat.cap4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Адаптируется под голос бренда в каждом регионе.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">05</p><h4 data-i18n="show.chat.cap5.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Масштабируется без потери качества</h4><p data-i18n="show.chat.cap5.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Тысячи одновременных обращений — без очереди.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">06</p><h4 data-i18n="show.chat.cap6.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">В планах · омниканальность</h4><p data-i18n="show.chat.cap6.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Единая история по чату, голосу и соцсетям; прогноз оттока с автоматическими предложениями удержания.</p></div>
-        </div></div>
-      <div data-spane="price" style="display: none; padding: 34px 42px 40px;"><div style="border: 1px solid rgba(255,255,255,.09);">
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61; background: rgba(255,255,255,.03);"><span data-i18n="th.plan" style="padding: 13px 16px;">ТАРИФ</span><span data-i18n="show.chat.th2" style="padding: 13px 16px;">ЧАТОВ В МЕСЯЦ</span><span data-i18n="show.chat.th3" style="padding: 13px 16px;">ЦЕНА / ЗАКРЫТЫЙ ЧАТ</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">EASY</span><span style="padding: 13px 16px;">5K — 30K</span><span style="padding: 13px 16px; color: #4FD1A5;">$0.30</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">NORMAL</span><span style="padding: 13px 16px;">30K — 50K</span><span style="padding: 13px 16px; color: #4FD1A5;">$0.25</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">COMPANY</span><span style="padding: 13px 16px;">50K — 100K</span><span style="padding: 13px 16px; color: #4FD1A5;">$0.20</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">CORPORATION</span><span style="padding: 13px 16px;">100K+</span><span style="padding: 13px 16px; color: #4FD1A5;">$0.18</span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 24px;">
-          <div><p data-i18n="show.chat.setup.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">ПЛАТА ЗА ВНЕДРЕНИЕ</p><p data-i18n="show.chat.setup.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">$1,000 разово для всех тарифов — интеграция, загрузка базы знаний, настройка тона голоса.</p></div>
-          <div><p data-i18n="show.chat.bill.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">ЛОГИКА ОПЛАТЫ</p><p data-i18n="show.chat.bill.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">За закрытый чат — не за сообщение и не за пользователя. Эскалированные чаты не оплачиваются дважды.</p></div>
-          <div><p data-i18n="show.chat.bench.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">ОРИЕНТИР</p><p data-i18n="show.chat.bench.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Живой оператор в среднем обходится в $0.50 за чат — любой тариф дешевле уже с первого месяца.</p></div>
-        </div></div>
-      <div data-spane="econ" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.1fr); gap: 34px;">
-          <div>
-            <p data-i18n="show.chat.econlabel" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">ЧАТОВ В МЕСЯЦ</p>
-            <p style="margin: 0 0 18px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;"><span data-cval="">0</span></p>
-            <input data-cslider="" type="range" min="5000" max="300000" step="5000" value="100000" style="width: 100%; accent-color: #4FD1A5; background: transparent;">
-            <div style="display: flex; justify-content: space-between; margin-top: 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .10em; color: #57544C;"><span>5,000</span><span>300,000</span></div>
-            <p data-cnote="" style="margin: 22px 0 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579;"></p>
-          </div>
-          <div data-crows="" style="display: flex; flex-direction: column;"></div>
-        </div></div>
-      <div data-spane="time" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
-          <div style="padding-top: 20px; border-top: 2px solid #4FD1A5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">DAY 1–5</p><h4 data-i18n="show.chat.time1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с платформой</h4><p data-i18n="show.chat.time1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Подключение по API к вашей iGaming-платформе и хелпдеску.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #4FD1A5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">DAY 5–10</p><h4 data-i18n="show.chat.time2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Загрузка базы знаний</h4><p data-i18n="show.chat.time2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Правила, бонусы, KYC-сценарии, тон голоса.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #4FD1A5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">DAY 10–15</p><h4 data-i18n="show.chat.time3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Тестирование сценариев</h4><p data-i18n="show.chat.time3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Теневой режим, калибровка по сравнению с операторами.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #4FD1A5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">DAY 15+</p><h4 data-i18n="show.chat.time4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Запуск в продакшен</h4><p data-i18n="show.chat.time4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Постепенный вывод трафика под живым контролем.</p></div>
-        </div></div>
-      </div>
     </div>
     <div data-ppanel="qa-chat" style="display: none; --btn-acc: #E8B23A;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
@@ -620,7 +531,7 @@
               <div style="display: flex; gap: 12px; align-items: baseline;"><span style="width: 5px; height: 5px; flex: none; background: #E8B23A;"></span><span data-i18n="show.qachat.b3" style="font: 400 14px/1.5 'Space Grotesk', sans-serif; color: #B7B3AA;">Модуль ручной перепроверки обучает модель</span></div>
             </div>
           </div>
-          <a href="/ru/qa-chat" data-card="" style="align-self: flex-start; padding: 15px 22px; border: 1px solid rgba(232,178,58,.45); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A; font-weight: 500; transition: background .3s;"><span data-i18n="show.breakdown">ПОДРОБНЕЕ</span> <span data-arrow="" style="display: inline-block; transition: transform .3s;">→</span></a>
+          <a href="/ru/qa-chat" data-pcta="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; background: var(--btn-acc); color: #0A0A09; text-decoration: none;"><span style="display: flex; flex-direction: column; gap: 9px;"><span data-text-en="Try AI QA System in full" data-text-ru="Попробовать AI QA System целиком" style="font: 500 clamp(18px, 1.6vw, 22px)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.01em;">Попробовать AI QA System целиком</span><span data-text-en="FEATURES · PRICING · CALCULATOR" data-text-ru="ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР" style="font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; opacity: .7;">ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР</span></span><span data-pcta-arrow="" style="font: 400 28px/1 'Space Grotesk', sans-serif; transition: transform .25s;">→</span></a>
         </div>
         <div style="background: #0C0C0A; display: flex; flex-direction: column;">
           <div data-demo="qa-chat" style="flex: 1; padding: 30px 32px; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 14px;">
@@ -643,50 +554,6 @@
           <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 32px 20px;"><span data-i18n="show.from" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #E8B23A;">ОТ</span><span style="font: 500 24px/1 'Space Grotesk', sans-serif; color: #E8B23A;">$0.18 <span data-i18n="show.qachat.perunit" style="font-size: 12px; color: #8A8579;">/ проверенный чат</span></span></div>
         </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,.09); background: #0A0A09;">
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0 42px; border-bottom: 1px solid rgba(255,255,255,.09);">
-        <button data-stab="cap" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid #E8B23A; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F5F2EC; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.cap">ВОЗМОЖНОСТИ</button>
-        <button data-stab="price" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.price">ЦЕНЫ</button>
-        <button data-stab="econ" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.econ">ВАШИ ЦИФРЫ</button>
-        <button data-stab="time" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.time">СРОКИ</button>
-      </div>
-      <div data-spane="cap" style="display: block; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 34px;">
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">01</p><h4 data-i18n="show.qachat.cap1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Система фильтрации</h4><p data-i18n="show.qachat.cap1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Поиск по 15 параметрам: оператор, смена, наличие эскалаций.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">02</p><h4 data-i18n="show.qachat.cap2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Детальный анализ чатов</h4><p data-i18n="show.qachat.cap2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Конкретные нарушения с таймингом и рекомендациями по улучшению.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">03</p><h4 data-i18n="show.qachat.cap3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Статистика по операторам</h4><p data-i18n="show.qachat.cap3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Ежемесячные отчёты: средний балл, обработано чатов, топ-3 сильных и слабых сторон.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">04</p><h4 data-i18n="show.qachat.cap4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Модуль ручной перепроверки</h4><p data-i18n="show.qachat.cap4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">QA-менеджеры анонимно пересматривают оценки ИИ и оставляют комментарии, которые обучают алгоритм.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">05</p><h4 data-i18n="show.qachat.cap5.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Настройка критериев</h4><p data-i18n="show.qachat.cap5.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Веса для каждого из 15 критериев адаптируются под ваш проект и бренд.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">06</p><h4 data-i18n="show.qachat.cap6.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Безопасность данных</h4><p data-i18n="show.qachat.cap6.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Все чаты обрабатываются конфиденциально, локальное хранение, соответствие GDPR.</p></div>
-        </div></div>
-      <div data-spane="price" style="display: none; padding: 34px 42px 40px;"><div style="border: 1px solid rgba(255,255,255,.09);">
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61; background: rgba(255,255,255,.03);"><span data-i18n="th.plan" style="padding: 13px 16px;">ТАРИФ</span><span data-i18n="show.qachat.th2" style="padding: 13px 16px;">ЧАТОВ В МЕСЯЦ</span><span data-i18n="show.qachat.th3" style="padding: 13px 16px;">ЦЕНА / ПРОВЕРЕННЫЙ ЧАТ</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">EASY</span><span style="padding: 13px 16px;">5K — 30K</span><span style="padding: 13px 16px; color: #E8B23A;">$0.30</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">NORMAL</span><span style="padding: 13px 16px;">30K — 100K</span><span style="padding: 13px 16px; color: #E8B23A;">$0.25</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">COMPANY</span><span style="padding: 13px 16px;">100K — 200K</span><span style="padding: 13px 16px; color: #E8B23A;">$0.20</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">CORPORATION</span><span style="padding: 13px 16px;">200K+</span><span style="padding: 13px 16px; color: #E8B23A;">$0.18</span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 24px;">
-          <div><p data-i18n="show.qachat.bench.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8B23A;">РУЧНОЙ ОРИЕНТИР</p><p data-i18n="show.qachat.bench.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Ручная проверка стоит ~$0.90 за чат — и покрывает лишь 10–15% трафика.</p></div>
-          <div><p data-i18n="show.qachat.curve.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8B23A;">КРИВАЯ ЭКОНОМИИ</p><p data-i18n="show.qachat.curve.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">От 67% при 5 000 чатов до 80% от 200 000 в месяц, при охвате 100%.</p></div>
-          <div><p data-i18n="show.qachat.bill.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8B23A;">ЛОГИКА ОПЛАТЫ</p><p data-i18n="show.qachat.bill.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">За проверенный чат. Без лицензий за QA-место, без минимального размера команды.</p></div>
-        </div></div>
-      <div data-spane="econ" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.1fr); gap: 34px;">
-          <div>
-            <p data-i18n="show.qachat.econlabel" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8B23A;">ЧАТОВ ПРОВЕРЕНО В МЕСЯЦ</p>
-            <p style="margin: 0 0 18px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;"><span data-cval="">0</span></p>
-            <input data-cslider="" type="range" min="5000" max="500000" step="5000" value="100000" style="width: 100%; accent-color: #E8B23A; background: transparent;">
-            <div style="display: flex; justify-content: space-between; margin-top: 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .10em; color: #57544C;"><span>5,000</span><span>500,000</span></div>
-            <p data-cnote="" style="margin: 22px 0 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579;"></p>
-          </div>
-          <div data-crows="" style="display: flex; flex-direction: column;"></div>
-        </div></div>
-      <div data-spane="time" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
-          <div style="padding-top: 20px; border-top: 2px solid #E8B23A;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">WEEK 1</p><h4 data-i18n="show.qachat.time1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с чат-системой</h4><p data-i18n="show.qachat.time1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Доступ на чтение к истории диалогов.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #E8B23A;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">WEEK 2</p><h4 data-i18n="show.qachat.time2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Настройка критериев оценки</h4><p data-i18n="show.qachat.time2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">15 критериев с весами под ваши стандарты.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #E8B23A;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">WEEK 3</p><h4 data-i18n="show.qachat.time3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Калибровка под ваши стандарты</h4><p data-i18n="show.qachat.time3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Оценки сверяются с вашими QA-менеджерами.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #E8B23A;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">WEEK 4+</p><h4 data-i18n="show.qachat.time4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Полноценная работа и аналитика</h4><p data-i18n="show.qachat.time4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Ежедневные отчёты по операторам и планы коучинга.</p></div>
-        </div></div>
-      </div>
     </div>
     <div data-ppanel="payment" style="display: none; --btn-acc: #5FA5F9;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
@@ -701,7 +568,7 @@
               <div style="display: flex; gap: 12px; align-items: baseline;"><span style="width: 5px; height: 5px; flex: none; background: #5FA5F9;"></span><span data-i18n="show.payment.b3" style="font: 400 14px/1.5 'Space Grotesk', sans-serif; color: #B7B3AA;">Проверка чека на подделку перед выплатой</span></div>
             </div>
           </div>
-          <a href="/ru/payment" data-card="" style="align-self: flex-start; padding: 15px 22px; border: 1px solid rgba(95,165,249,.45); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9; font-weight: 500; transition: background .3s;"><span data-i18n="show.breakdown">ПОДРОБНЕЕ</span> <span data-arrow="" style="display: inline-block; transition: transform .3s;">→</span></a>
+          <a href="/ru/payment" data-pcta="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; background: var(--btn-acc); color: #0A0A09; text-decoration: none;"><span style="display: flex; flex-direction: column; gap: 9px;"><span data-text-en="Try AI Payment Assistant in full" data-text-ru="Попробовать AI Payment Assistant целиком" style="font: 500 clamp(18px, 1.6vw, 22px)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.01em;">Попробовать AI Payment Assistant целиком</span><span data-text-en="FEATURES · PRICING · CALCULATOR" data-text-ru="ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР" style="font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; opacity: .7;">ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР</span></span><span data-pcta-arrow="" style="font: 400 28px/1 'Space Grotesk', sans-serif; transition: transform .25s;">→</span></a>
         </div>
         <div style="background: #0C0C0A; display: flex; flex-direction: column;">
           <div data-demo="payment" style="flex: 1; padding: 30px 32px; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 13px;">
@@ -725,50 +592,6 @@
           <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 32px 20px;"><span data-i18n="show.from" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #5FA5F9;">ОТ</span><span style="font: 500 24px/1 'Space Grotesk', sans-serif; color: #5FA5F9;">$0.18 <span data-i18n="show.payment.perunit" style="font-size: 12px; color: #8A8579;">/ тикет</span></span></div>
         </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,.09); background: #0A0A09;">
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0 42px; border-bottom: 1px solid rgba(255,255,255,.09);">
-        <button data-stab="cap" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid #5FA5F9; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F5F2EC; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.cap">ВОЗМОЖНОСТИ</button>
-        <button data-stab="price" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.price">ЦЕНЫ</button>
-        <button data-stab="econ" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.econ">ВАШИ ЦИФРЫ</button>
-        <button data-stab="time" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.time">СРОКИ</button>
-      </div>
-      <div data-spane="cap" style="display: block; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 34px;">
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">01</p><h4 data-i18n="show.payment.cap1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Прямые данные PSP</h4><p data-i18n="show.payment.cap1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Информация о транзакциях берётся напрямую из платёжной системы.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">02</p><h4 data-i18n="show.payment.cap2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Внутренние API и PSP</h4><p data-i18n="show.payment.cap2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Интеграция с платформой и провайдерами для бесперебойной работы.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">03</p><h4 data-i18n="show.payment.cap3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Автоматизация тикетов</h4><p data-i18n="show.payment.cap3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Создание и передача данных в платёжную систему без оператора.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">04</p><h4 data-i18n="show.payment.cap4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Проверка подлинности PDF</h4><p data-i18n="show.payment.cap4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">AI-анализ выявляет поддельные чеки и документы до одобрения выплаты.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">05</p><h4 data-i18n="show.payment.cap5.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Участвует в обработке</h4><p data-i18n="show.payment.cap5.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Затрагивает 90% платёжных тикетов, решает 70%+ полностью без участия человека.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">06</p><h4 data-i18n="show.payment.cap6.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Встроен в чат</h4><p data-i18n="show.payment.cap6.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Открывается прямо внутри диалога с Chat Operator — игроку не нужно повторяться.</p></div>
-        </div></div>
-      <div data-spane="price" style="display: none; padding: 34px 42px 40px;"><div style="border: 1px solid rgba(255,255,255,.09);">
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61; background: rgba(255,255,255,.03);"><span data-i18n="th.plan" style="padding: 13px 16px;">ТАРИФ</span><span data-i18n="show.payment.th2" style="padding: 13px 16px;">ТИКЕТОВ / МЕСЯЦ</span><span data-i18n="show.payment.th3" style="padding: 13px 16px;">ЦЕНА / ТИКЕТ</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">EASY</span><span style="padding: 13px 16px;">1K — 10K</span><span style="padding: 13px 16px; color: #5FA5F9;">$0.30</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">NORMAL</span><span style="padding: 13px 16px;">10K — 50K</span><span style="padding: 13px 16px; color: #5FA5F9;">$0.25</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">COMPANY</span><span style="padding: 13px 16px;">50K — 100K</span><span style="padding: 13px 16px; color: #5FA5F9;">$0.20</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">CORPORATION</span><span style="padding: 13px 16px;">100K+</span><span style="padding: 13px 16px; color: #5FA5F9;">$0.18</span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 24px;">
-          <div><p data-i18n="show.payment.setup.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #5FA5F9;">ПЛАТА ЗА ВНЕДРЕНИЕ</p><p data-i18n="show.payment.setup.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">$200 разово за каждого подключённого платёжного провайдера.</p></div>
-          <div><p data-i18n="show.payment.bench.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #5FA5F9;">РУЧНОЙ ОРИЕНТИР</p><p data-i18n="show.payment.bench.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Ручная обработка стоит ~$0.50 за тикет при 3–5 минутах времени оператора.</p></div>
-          <div><p data-i18n="show.payment.example.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #5FA5F9;">ПРИМЕР РАСЧЁТА</p><p data-i18n="show.payment.example.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">100 000 тикетов · COMPANY · автоматизация 70% → экономия $21 000 в месяц, $252 000 в год.</p></div>
-        </div></div>
-      <div data-spane="econ" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.1fr); gap: 34px;">
-          <div>
-            <p data-i18n="show.payment.econlabel" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #5FA5F9;">ТИКЕТОВ В МЕСЯЦ</p>
-            <p style="margin: 0 0 18px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;"><span data-cval="">0</span></p>
-            <input data-cslider="" type="range" min="1000" max="300000" step="1000" value="100000" style="width: 100%; accent-color: #5FA5F9; background: transparent;">
-            <div style="display: flex; justify-content: space-between; margin-top: 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .10em; color: #57544C;"><span>1,000</span><span>300,000</span></div>
-            <p data-cnote="" style="margin: 22px 0 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579;"></p>
-          </div>
-          <div data-crows="" style="display: flex; flex-direction: column;"></div>
-        </div></div>
-      <div data-spane="time" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
-          <div style="padding-top: 20px; border-top: 2px solid #5FA5F9;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">WEEK 1</p><h4 data-i18n="show.payment.time1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с тикет-системой</h4><p data-i18n="show.payment.time1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Подключение хелпдеска и правил маршрутизации тикетов.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #5FA5F9;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">WEEK 2</p><h4 data-i18n="show.payment.time2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Подключение платёжных систем</h4><p data-i18n="show.payment.time2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">API PSP, сопоставление статусов транзакций.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #5FA5F9;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">WEEK 3</p><h4 data-i18n="show.payment.time3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Калибровка под ваши стандарты</h4><p data-i18n="show.payment.time3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Правила эскалации и пороги для фрод-проверок.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #5FA5F9;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">WEEK 4+</p><h4 data-i18n="show.payment.time4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Полноценная работа и аналитика</h4><p data-i18n="show.payment.time4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Живые дашборды по возврату и решению вопросов.</p></div>
-        </div></div>
-      </div>
     </div>
     <div data-ppanel="qa-call" style="display: none; --btn-acc: #C084F5;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
@@ -783,7 +606,7 @@
               <div style="display: flex; gap: 12px; align-items: baseline;"><span style="width: 5px; height: 5px; flex: none; background: #C084F5;"></span><span data-i18n="show.qacall.b3" style="font: 400 14px/1.5 'Space Grotesk', sans-serif; color: #B7B3AA;">Освобождает 1–2 специалистов для стратегической работы</span></div>
             </div>
           </div>
-          <a href="/ru/qa-call" data-card="" style="align-self: flex-start; padding: 15px 22px; border: 1px solid rgba(192,132,245,.45); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5; font-weight: 500; transition: background .3s;"><span data-i18n="show.breakdown">ПОДРОБНЕЕ</span> <span data-arrow="" style="display: inline-block; transition: transform .3s;">→</span></a>
+          <a href="/ru/qa-call" data-pcta="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; background: var(--btn-acc); color: #0A0A09; text-decoration: none;"><span style="display: flex; flex-direction: column; gap: 9px;"><span data-text-en="Try AI Voice QA in full" data-text-ru="Попробовать AI Voice QA целиком" style="font: 500 clamp(18px, 1.6vw, 22px)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.01em;">Попробовать AI Voice QA целиком</span><span data-text-en="FEATURES · PRICING · CALCULATOR" data-text-ru="ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР" style="font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; opacity: .7;">ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР</span></span><span data-pcta-arrow="" style="font: 400 28px/1 'Space Grotesk', sans-serif; transition: transform .25s;">→</span></a>
         </div>
         <div style="background: #0C0C0A; display: flex; flex-direction: column;">
           <div data-demo="qa-call" style="flex: 1; padding: 34px 32px; border-bottom: 1px solid rgba(255,255,255,.08);">
@@ -806,50 +629,6 @@
           <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 32px 20px;"><span data-i18n="show.qacall.stat4" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #C084F5;">УСЛОВИЯ</span><span data-i18n="show.qacall.individual" style="font: 500 24px/1 'Space Grotesk', sans-serif; color: #C084F5;">индивидуальные</span></div>
         </div>
       </div>
-      <div style="border-top: 1px solid rgba(255,255,255,.09); background: #0A0A09;">
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0 42px; border-bottom: 1px solid rgba(255,255,255,.09);">
-        <button data-stab="cap" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid #C084F5; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F5F2EC; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.cap">ВОЗМОЖНОСТИ</button>
-        <button data-stab="price" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.price">ЦЕНЫ</button>
-        <button data-stab="econ" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.econ">ВАШИ ЦИФРЫ</button>
-        <button data-stab="time" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.time">СРОКИ</button>
-      </div>
-      <div data-spane="cap" style="display: block; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 34px;">
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">01</p><h4 data-i18n="show.qacall.cap1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Транскрибация Whisper</h4><p data-i18n="show.qacall.cap1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Каждый входящий и исходящий звонок превращается в текст с поиском.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">02</p><h4 data-i18n="show.qacall.cap2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Оценка по 15 критериям</h4><p data-i18n="show.qacall.cap2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Та же взвешенная модель, что и в QA чатов, откалиброванная под ваши скрипты звонков.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">03</p><h4 data-i18n="show.qacall.cap3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Тайминг нарушений</h4><p data-i18n="show.qacall.cap3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Каждая пометка содержит точную секунду события — готово для коучинга.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">04</p><h4 data-i18n="show.qacall.cap4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Специалисты освобождены</h4><p data-i18n="show.qacall.cap4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">1–2 контролёра качества переведены с выборки на стратегическую работу.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">05</p><h4 data-i18n="show.qacall.cap5.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Статус продукта</h4><p data-i18n="show.qacall.cap5.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Финальная стадия разработки, идёт комплексное тестирование; эффект подтверждён в тестовой среде.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">06</p><h4 data-i18n="show.qacall.cap6.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Безопасность</h4><p data-i18n="show.qacall.cap6.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Локальная обработка, записи шифруются, соответствие GDPR.</p></div>
-        </div></div>
-      <div data-spane="price" style="display: none; padding: 34px 42px 40px;"><div style="border: 1px solid rgba(255,255,255,.09);">
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61; background: rgba(255,255,255,.03);"><span data-i18n="show.qacall.th1" style="padding: 13px 16px;">РЕЖИМ</span><span data-i18n="show.qacall.th2" style="padding: 13px 16px;">ОХВАТ</span><span data-i18n="show.qacall.th3" style="padding: 13px 16px;">СТОИМОСТЬ</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span data-i18n="show.qacall.row1" style="padding: 13px 16px;">ВРУЧНУЮ · 1–2 СПЕЦИАЛИСТА</span><span data-i18n="show.qacall.row1v" style="padding: 13px 16px;">~128 из 5 000 звонков · 2,6%</span><span data-i18n="show.qacall.row1c" style="padding: 13px 16px; color: #C084F5;">7,5 мин / звонок</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span data-i18n="show.qacall.row2" style="padding: 13px 16px;">ВРУЧНУЮ · ПОЛНЫЙ ОХВАТ</span><span data-i18n="show.qacall.row2v" style="padding: 13px 16px;">5 000 звонков · 100%</span><span data-i18n="show.qacall.row2c" style="padding: 13px 16px; color: #C084F5;">78 человек · $15 620 / день</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">AI VOICE QA</span><span data-i18n="show.qacall.row3v" style="padding: 13px 16px;">5 000 звонков · 100%</span><span data-i18n="show.qacall.row3c" style="padding: 13px 16px; color: #C084F5;">10 сек / звонок · 13,9 ч времени ИИ</span></div>
-          <div style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span data-i18n="show.qacall.row4" style="padding: 13px 16px;">КОММЕРЧЕСКИЕ УСЛОВИЯ</span><span data-i18n="show.qacall.row4v" style="padding: 13px 16px;">договорные</span><span data-i18n="show.qacall.row4c" style="padding: 13px 16px; color: #C084F5;">зависят от объёма звонков</span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 24px;">
-          <div><p data-i18n="show.qacall.why.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">ПОЧЕМУ ДОГОВОРНЫЕ</p><p data-i18n="show.qacall.why.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Цена зависит от объёма обрабатываемых звонков и ваших конкретных требований.</p></div>
-          <div><p data-i18n="show.qacall.equiv.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">ЭКВИВАЛЕНТ</p><p data-i18n="show.qacall.equiv.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Проверка ИИ 5 000 звонков в день равна 1,7 специалиста вместо 78.</p></div>
-          <div><p data-i18n="show.qacall.sec.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">БЕЗОПАСНОСТЬ</p><p data-i18n="show.qacall.sec.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Локальная обработка, записи шифруются, соответствие GDPR.</p></div>
-        </div></div>
-      <div data-spane="econ" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.1fr); gap: 34px;">
-          <div>
-            <p data-i18n="show.qacall.econlabel" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">ЗВОНКОВ В ДЕНЬ</p>
-            <p style="margin: 0 0 18px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;"><span data-cval="">0</span></p>
-            <input data-cslider="" type="range" min="500" max="10000" step="100" value="5000" style="width: 100%; accent-color: #C084F5; background: transparent;">
-            <div style="display: flex; justify-content: space-between; margin-top: 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .10em; color: #57544C;"><span>500</span><span>10,000</span></div>
-            <p data-cnote="" style="margin: 22px 0 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579;"></p>
-          </div>
-          <div data-crows="" style="display: flex; flex-direction: column;"></div>
-        </div></div>
-      <div data-spane="time" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
-          <div style="padding-top: 20px; border-top: 2px solid #C084F5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">WEEK 1</p><h4 data-i18n="show.qacall.time1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с телефонией</h4><p data-i18n="show.qacall.time1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Доступ к записи звонков и правила хранения.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #C084F5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">WEEK 2</p><h4 data-i18n="show.qacall.time2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Калибровка критериев</h4><p data-i18n="show.qacall.time2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">15 критериев с весами под ваши скрипты.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #C084F5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">WEEK 3</p><h4 data-i18n="show.qacall.time3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Пилотное тестирование</h4><p data-i18n="show.qacall.time3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Параллельный запуск против ваших контролёров.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #C084F5;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">WEEK 4+</p><h4 data-i18n="show.qacall.time4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Полноценная работа</h4><p data-i18n="show.qacall.time4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">100% звонков оцениваются автоматически.</p></div>
-        </div></div>
-      </div>
     </div>
     <div data-ppanel="voice" style="display: none; --btn-acc: #F4794C;">
       <div style="display: grid; grid-template-columns: minmax(300px, 1fr) minmax(360px, 1.02fr); gap: 1px; background: rgba(255,255,255,.09);">
@@ -864,7 +643,7 @@
               <div style="display: flex; gap: 12px; align-items: baseline;"><span style="width: 5px; height: 5px; flex: none; background: #F4794C;"></span><span data-i18n="show.voice.b3" style="font: 400 14px/1.5 'Space Grotesk', sans-serif; color: #B7B3AA;">Без больничных, простоев и текучки</span></div>
             </div>
           </div>
-          <a href="/ru/voice" data-card="" style="align-self: flex-start; padding: 15px 22px; border: 1px solid rgba(244,121,76,.45); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C; font-weight: 500; transition: background .3s;"><span data-i18n="show.breakdown">ПОДРОБНЕЕ</span> <span data-arrow="" style="display: inline-block; transition: transform .3s;">→</span></a>
+          <a href="/ru/voice" data-pcta="" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; background: var(--btn-acc); color: #0A0A09; text-decoration: none;"><span style="display: flex; flex-direction: column; gap: 9px;"><span data-text-en="Try AI Voice Bot in full" data-text-ru="Попробовать AI Voice Bot целиком" style="font: 500 clamp(18px, 1.6vw, 22px)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.01em;">Попробовать AI Voice Bot целиком</span><span data-text-en="FEATURES · PRICING · CALCULATOR" data-text-ru="ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР" style="font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; opacity: .7;">ВОЗМОЖНОСТИ · ЦЕНЫ · КАЛЬКУЛЯТОР</span></span><span data-pcta-arrow="" style="font: 400 28px/1 'Space Grotesk', sans-serif; transition: transform .25s;">→</span></a>
         </div>
         <div style="background: #0C0C0A; display: flex; flex-direction: column;">
           <div data-demo="voice" style="flex: 1; padding: 34px 32px; border-bottom: 1px solid rgba(255,255,255,.08);">
@@ -883,50 +662,6 @@
           <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 13px 32px; border-bottom: 1px solid rgba(255,255,255,.07);"><span data-i18n="show.voice.stat3" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61;">ЭКОНОМИЯ В ГОД</span><span style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">~$105,750</span></div>
           <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 16px 32px 20px;"><span data-i18n="show.from" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #F4794C;">ОТ</span><span style="font: 500 24px/1 'Space Grotesk', sans-serif; color: #F4794C;">$0.06 <span data-i18n="show.voice.perunit" style="font-size: 12px; color: #8A8579;">/ минуту</span></span></div>
         </div>
-      </div>
-      <div style="border-top: 1px solid rgba(255,255,255,.09); background: #0A0A09;">
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0 42px; border-bottom: 1px solid rgba(255,255,255,.09);">
-        <button data-stab="cap" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid #F4794C; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F5F2EC; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.cap">ВОЗМОЖНОСТИ</button>
-        <button data-stab="price" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.price">ЦЕНЫ</button>
-        <button data-stab="econ" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.econ">ВАШИ ЦИФРЫ</button>
-        <button data-stab="time" style="padding: 18px 0; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; cursor: pointer; transition: color .3s, border-color .3s;" data-i18n="tab.time">СРОКИ</button>
-      </div>
-      <div data-spane="cap" style="display: block; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 26px 34px;">
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">01</p><h4 data-i18n="show.voice.cap1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Исходящие звонки в масштабе</h4><p data-i18n="show.voice.cap1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">2 500 диалогов в день против 250 у команды из 2,5 операторов.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">02</p><h4 data-i18n="show.voice.cap2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Многоязычные кампании</h4><p data-i18n="show.voice.cap2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Несколько языков работают одновременно без дополнительного найма.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">03</p><h4 data-i18n="show.voice.cap3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Всегда по скрипту</h4><p data-i18n="show.voice.cap3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Сценарии, обработка возражений и формулировки комплаенса не размываются.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">04</p><h4 data-i18n="show.voice.cap4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Запуск из CRM</h4><p data-i18n="show.voice.cap4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Звонки запускаются триггерами CRM, результаты автоматически возвращаются обратно.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">05</p><h4 data-i18n="show.voice.cap5.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Без скрытых расходов на персонал</h4><p data-i18n="show.voice.cap5.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Без зарплаты, налогов, офиса, обучения, текучки и простоев.</p></div>
-          <div><p style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">06</p><h4 data-i18n="show.voice.cap6.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Вмешательство оператора</h4><p data-i18n="show.voice.cap6.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Мониторинг в реальном времени с возможностью перехвата человеком в любой момент.</p></div>
-        </div></div>
-      <div data-spane="price" style="display: none; padding: 34px 42px 40px;"><div style="border: 1px solid rgba(255,255,255,.09);">
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61; background: rgba(255,255,255,.03);"><span data-i18n="show.voice.th1" style="padding: 13px 16px;">МИНУТ / МЕСЯЦ</span><span data-i18n="show.voice.th2" style="padding: 13px 16px;">ЦЕНА / МИН</span><span style="padding: 13px 16px;">10,000 MIN</span><span style="padding: 13px 16px;">20,000 MIN</span></div>
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span data-i18n="show.voice.range1" style="padding: 13px 16px;">До 20 000</span><span style="padding: 13px 16px;">$0.15</span><span style="padding: 13px 16px;">$1,500</span><span style="padding: 13px 16px; color: #F4794C;">$3,000</span></div>
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">20,000 — 50,000</span><span style="padding: 13px 16px;">$0.12</span><span style="padding: 13px 16px;">$1,200</span><span style="padding: 13px 16px; color: #F4794C;">$2,400</span></div>
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 13px 16px;">50,000 — 100,000</span><span style="padding: 13px 16px;">$0.09</span><span style="padding: 13px 16px;">$900</span><span style="padding: 13px 16px; color: #F4794C;">$1,800</span></div>
-          <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #E8E6E1;"><span data-i18n="show.voice.range4" style="padding: 13px 16px;">От 100 000</span><span style="padding: 13px 16px;">$0.06</span><span style="padding: 13px 16px;">$600</span><span style="padding: 13px 16px; color: #F4794C;">$1,200</span></div>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 24px;">
-          <div><p data-i18n="show.voice.setup.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #F4794C;">ПЛАТА ЗА ВНЕДРЕНИЕ</p><p data-i18n="show.voice.setup.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">$1 000 разово.</p></div>
-          <div><p data-i18n="show.voice.bench.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #F4794C;">РУЧНОЙ ОРИЕНТИР</p><p data-i18n="show.voice.bench.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">~$0.40 за минуту разговора без учёта HR, офиса и простоев.</p></div>
-          <div><p data-i18n="show.voice.labour.l" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #F4794C;">АНАЛИЗ ТРУДОЗАТРАТ</p><p data-i18n="show.voice.labour.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">2,5 оператора стоят $5 375 в месяц; бот покрывает те же 23 500 минут за $2 820.</p></div>
-        </div></div>
-      <div data-spane="econ" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.1fr); gap: 34px;">
-          <div>
-            <p data-i18n="show.voice.econlabel" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #F4794C;">МИНУТ В МЕСЯЦ</p>
-            <p style="margin: 0 0 18px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;"><span data-cval="">0</span></p>
-            <input data-cslider="" type="range" min="1000" max="200000" step="1000" value="23500" style="width: 100%; accent-color: #F4794C; background: transparent;">
-            <div style="display: flex; justify-content: space-between; margin-top: 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .10em; color: #57544C;"><span>1,000</span><span>200,000</span></div>
-            <p data-cnote="" style="margin: 22px 0 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579;"></p>
-          </div>
-          <div data-crows="" style="display: flex; flex-direction: column;"></div>
-        </div></div>
-      <div data-spane="time" style="display: none; padding: 34px 42px 40px;"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
-          <div style="padding-top: 20px; border-top: 2px solid #F4794C;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">WEEKS 1–2</p><h4 data-i18n="show.voice.time1.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Настройка сценариев звонков</h4><p data-i18n="show.voice.time1.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Сценарии, возражения, формулировки комплаенса.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #F4794C;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">WEEK 3</p><h4 data-i18n="show.voice.time2.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с CRM и телефонией</h4><p data-i18n="show.voice.time2.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Триггеры, номера, сопоставление результатов звонков.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #F4794C;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">WEEK 4</p><h4 data-i18n="show.voice.time3.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Тестовые звонки</h4><p data-i18n="show.voice.time3.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Голос, задержка, калибровка скриптов.</p></div>
-          <div style="padding-top: 20px; border-top: 2px solid #F4794C;"><p style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">WEEK 5+</p><h4 data-i18n="show.voice.time4.t" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Массовый обзвон</h4><p data-i18n="show.voice.time4.d" style="margin: 0; font: 400 13px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Мониторинг в реальном времени, доступно вмешательство оператора.</p></div>
-        </div></div>
       </div>
     </div>
     </div>
@@ -1069,54 +804,6 @@
     <p data-i18n="ui.note" style="margin: 20px 0 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #4A473F;">КОНЦЕПЦИЯ ИНТЕРФЕЙСА · ДАННЫЕ ПОКАЗАНЫ ИЛЛЮСТРАТИВНО</p>
   </section>
 
-  <section id="process" data-screen-label="04 Process" data-hpin="" style="position: relative; z-index: 1; height: 240vh;">
-    <div style="position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid rgba(255,255,255,.09);">
-      <div style="padding: 0 48px; max-width: 1500px; margin: 0 auto 44px; width: 100%;">
-        <p data-i18n="proc.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">— ПРОЦЕСС · ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ</p>
-        <h2 data-i18n="proc.title" style="margin: 0; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Как работает AI Chat Operator.</h2>
-      </div>
-      <div data-htrack="" style="display: flex; gap: 1px; padding-left: max(48px, calc((100vw - 1500px) / 2 + 48px)); background: rgba(255,255,255,.09); will-change: transform;">
-        <div style="flex: 0 0 clamp(300px, 34vw, 460px); padding: 34px 30px 38px; background: #0A0A09;"><p style="margin: 0 0 60px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">01</p><h3 data-i18n="proc.p1" style="margin: 0 0 14px; font: 500 27px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">Игрок задаёт вопрос</h3><p data-i18n="proc.t1" style="margin: 0; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Диалог приходит из любого канала — сайт, приложение, мессенджер. Очередь не формируется.</p></div>
-        <div style="flex: 0 0 clamp(300px, 34vw, 460px); padding: 34px 30px 38px; background: #0A0A09;"><p style="margin: 0 0 60px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">02</p><h3 data-i18n="proc.p2" style="margin: 0 0 14px; font: 500 27px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI анализирует запрос</h3><p data-i18n="proc.t2" style="margin: 0; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Контекст CRM, уровень KYC и история ставок подтягиваются до первого ответа.</p></div>
-        <div style="flex: 0 0 clamp(300px, 34vw, 460px); padding: 34px 30px 38px; background: #0A0A09;"><p style="margin: 0 0 60px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">03</p><h3 data-i18n="proc.p3" style="margin: 0 0 14px; font: 500 27px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">Поиск в базе знаний</h3><p data-i18n="proc.t3" style="margin: 0; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Правила, бонусы, лимиты, KYC-сценарии — доступны без участия разработчиков.</p></div>
-        <div style="flex: 0 0 clamp(300px, 34vw, 460px); padding: 34px 30px 38px; background: #0A0A09;"><p style="margin: 0 0 60px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">04</p><h3 data-i18n="proc.p4" style="margin: 0 0 14px; font: 500 27px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">Генерация персонального ответа</h3><p data-i18n="proc.t4" style="margin: 0; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Сложные сценарии: верификация, вейджер, блокировки. В тоне голоса вашего бренда.</p></div>
-        <div style="flex: 0 0 clamp(300px, 34vw, 460px); padding: 34px 30px 38px; background: #0A0A09;"><p style="margin: 0 0 60px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">05</p><h3 data-i18n="proc.p5" style="margin: 0 0 14px; font: 500 27px/1.15 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">Мгновенная доставка ответа</h3><p data-i18n="proc.t5" style="margin: 0; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">7 секунд на типовой запрос. Тикет создан и обогащён, диалог помечен тегами.</p></div>
-        <div style="flex: 0 0 clamp(280px, 30vw, 400px); padding: 34px 30px 38px; background: #0C0C0A; border-left: 2px solid var(--acc, #E8B23A);"><p data-i18n="proc.risk.label" style="margin: 0 0 60px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">СНИЖЕНИЕ РИСКОВ</p><p data-i18n="proc.risk.desc" style="margin: 0; font: 400 19px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1; text-wrap: pretty;">Постепенное внедрение с возможностью отката, резервные операторы остаются на линии на период адаптации.</p></div>
-      </div>
-      <div style="max-width: 1500px; margin: 40px auto 0; padding: 0 48px; width: 100%;"><div style="height: 1px; background: rgba(255,255,255,.1);"><div data-hbar="" style="height: 1px; width: 0%; background: var(--acc, #E8B23A);"></div></div></div>
-    </div>
-  </section>
-
-  <section id="live" data-screen-label="05 Live" style="position: relative; z-index: 1; padding: 130px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="chat.kicker" data-reveal="" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">— ЖИВОЙ ДИАЛОГ</p>
-    <h2 data-i18n="chat.title" data-reveal="" style="margin: 0 0 56px; max-width: 860px; font: 500 clamp(30px, 4.2vw, 60px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Полное решение вопроса вместо перенаправления игрока.</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; align-items: start;">
-      <div data-reveal="" style="border: 1px solid rgba(255,255,255,.12); background: #0C0C0A;">
-        <div style="display: flex; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,.1); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;"><span>QODEQ · CHAT · LIVE</span><span style="color: #7BC96F;"><span style="animation: qblink 1.4s infinite;">●</span> ONLINE</span></div>
-        <div data-scen-tabs="" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1);">
-          <button data-scen="0" style="padding: 12px 8px; background: rgba(232,178,58,.1); border: 0; border-top: 1px solid var(--acc, #E8B23A); color: var(--acc, #E8B23A); font: 400 9.5px/1.2 'JetBrains Mono', monospace; letter-spacing: .14em; cursor: pointer; transition: background .2s, color .2s;"><span data-i18n="scen.t0">ЗАДЕРЖКА ВЫПЛАТЫ</span></button>
-          <button data-scen="1" style="padding: 12px 8px; background: #0C0C0A; border: 0; border-top: 1px solid transparent; color: #8A8579; font: 400 9.5px/1.2 'JetBrains Mono', monospace; letter-spacing: .14em; cursor: pointer; transition: background .2s, color .2s;"><span data-i18n="scen.t1">ВЕЙДЖЕР БОНУСА</span></button>
-          <button data-scen="2" style="padding: 12px 8px; background: #0C0C0A; border: 0; border-top: 1px solid transparent; color: #8A8579; font: 400 9.5px/1.2 'JetBrains Mono', monospace; letter-spacing: .14em; cursor: pointer; transition: background .2s, color .2s;"><span data-i18n="scen.t2">ПОДОЗРЕНИЕ НА ФРОД</span></button>
-        </div>
-        <div data-log="" style="height: 330px; overflow: hidden; padding: 16px; display: flex; flex-direction: column; gap: 11px; font: 400 12px/1.5 'JetBrains Mono', monospace;"></div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.1); border-top: 1px solid rgba(255,255,255,.1);">
-          <div style="padding: 13px 14px; background: #0A0A09;"><p data-i18n="scen.m1" style="margin: 0 0 7px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">ОТВЕТ</p><p data-m1="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">7 s</p></div>
-          <div style="padding: 13px 14px; background: #0A0A09;"><p data-i18n="scen.m2" style="margin: 0 0 7px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">СЭКОНОМЛЕНО ВРЕМЕНИ ОПЕРАТОРА</p><p data-m2="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">6 min</p></div>
-          <div style="padding: 13px 14px; background: #0A0A09;"><p data-i18n="scen.m3" style="margin: 0 0 7px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">ИСХОД</p><p data-m3="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: var(--acc, #E8B23A);">Auto-closed</p></div>
-        </div>
-        <div style="display: flex; justify-content: space-between; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,.1); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #57544C;"><span data-i18n="scen.foot">СЦЕНАРНЫЙ ПОВТОР РЕАЛЬНОГО ПУТИ РЕШЕНИЯ</span><span data-log-timer="" style="color: var(--acc, #E8B23A);">7 SEC</span></div>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-        <div data-reveal="" style="padding: 22px 20px; background: #0A0A09;"><p style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">01</p><h4 data-i18n="chat.c1" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Понимание контекста диалога</h4><p data-i18n="chat.cd1" style="margin: 0; font: 400 13px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">CRM, KYC и история ставок подтягиваются до первого ответа.</p></div>
-        <div data-reveal="" data-delay="60" style="padding: 22px 20px; background: #0A0A09;"><p style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">02</p><h4 data-i18n="chat.c2" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Ответы любой сложности</h4><p data-i18n="chat.cd2" style="margin: 0; font: 400 13px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Бонусы, вейджер, лимиты, верификация, выплаты.</p></div>
-        <div data-reveal="" data-delay="120" style="padding: 22px 20px; background: #0A0A09;"><p style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">03</p><h4 data-i18n="chat.c3" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Комплексная поддержка</h4><p data-i18n="chat.cd3" style="margin: 0; font: 400 13px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Полное решение вопроса вместо перенаправления игрока.</p></div>
-        <div data-reveal="" data-delay="180" style="padding: 22px 20px; background: #0A0A09;"><p style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">04</p><h4 data-i18n="chat.c4" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Ускоренная обработка запросов</h4><p data-i18n="chat.cd4" style="margin: 0; font: 400 13px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Время в очереди сокращается с минут до секунд.</p></div>
-        <div data-reveal="" data-delay="240" style="padding: 22px 20px; background: #0A0A09;"><p style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">05</p><h4 data-i18n="chat.c5" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Автоматическое создание тикетов</h4><p data-i18n="chat.cd5" style="margin: 0; font: 400 13px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Тикет хелпдеска открывается и обогащается без оператора.</p></div>
-        <div data-reveal="" data-delay="300" style="padding: 22px 20px; background: #0A0A09;"><p style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">06</p><h4 data-i18n="chat.c6" style="margin: 0 0 8px; font: 500 16px/1.25 'Space Grotesk', sans-serif; color: #F5F2EC;">Автоматическая разметка тегами</h4><p data-i18n="chat.cd6" style="margin: 0; font: 400 13px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Каждый диалог классифицируется для аналитики и удержания.</p></div>
-      </div>
-    </div>
-  </section>
-
   <section id="economics" data-screen-label="06 Economics" style="position: relative; z-index: 1; padding: 130px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
     <p data-i18n="econ.kicker" data-reveal="" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">— ЭКОНОМИЧЕСКАЯ ЭФФЕКТИВНОСТЬ</p>
     <h2 data-i18n="econ.title" data-reveal="" style="margin: 0 0 56px; max-width: 900px; font: 500 clamp(30px, 4.2vw, 60px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Стоимость оператора против стоимости агента.</h2>
@@ -1143,116 +830,33 @@
       </div>
     </div>
 
-    <h3 data-i18n="econ.bars" data-reveal="" style="margin: 0 0 10px; font: 500 clamp(24px, 2.8vw, 38px)/1.1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">Чем больше объём чатов, тем больше экономия</h3>
-    <p data-i18n="econ.barsub" data-reveal="" style="margin: 0 0 40px; font: 400 13px/1.5 'JetBrains Mono', monospace; color: #6E6A61;">Модель: 65% чатов закрывает агент, 35% — операторы по $0.50 за чат.</p>
-    <div style="display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.09); border-top: 1px solid rgba(255,255,255,.09); border-bottom: 1px solid rgba(255,255,255,.09);">
-      <div data-reveal="" style="position: relative; display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579;">5,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="5.6" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.4); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$650</span></div>
-      <div data-reveal="" data-delay="60" style="display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579;">30,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="15.3" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.45); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$4,875</span></div>
-      <div data-reveal="" data-delay="120" style="display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579;">50,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="21.6" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.5); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$9,750</span></div>
-      <div data-reveal="" data-delay="180" style="display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579;">100,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="31.6" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.6); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$20,800</span></div>
-      <div data-reveal="" data-delay="240" style="display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579;">250,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="50" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.72); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$52,000</span></div>
-      <div data-reveal="" data-delay="300" style="display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0A0A09;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579;">500,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="70.7" style="display: block; height: 8px; width: 0%; background: rgba(232,178,58,.86); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 400 13px/1 'JetBrains Mono', monospace; text-align: right; color: #E8E6E1;">$104,000</span></div>
-      <div data-reveal="" data-delay="360" style="display: grid; grid-template-columns: minmax(120px, 1fr) 3fr minmax(120px, 1fr); align-items: center; gap: 20px; padding: 15px 18px; background: #0C0C0A;"><span style="font: 400 12px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: var(--acc, #E8B23A);">1,000,000</span><span style="height: 8px; background: rgba(255,255,255,.05);"><span data-bar="" data-w="100" style="display: block; height: 8px; width: 0%; background: var(--acc, #E8B23A); transition: width 1.1s cubic-bezier(.2,.7,.2,1);"></span></span><span style="font: 500 15px/1 'JetBrains Mono', monospace; text-align: right; color: #F5F2EC;">$208,000</span></div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; margin-top: 1px; background: rgba(255,255,255,.09);">
-      <div data-reveal="" style="padding: 26px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: var(--acc, #E8B23A);">26 → 42%</p><p data-i18n="econ.totalreduction" style="margin: 0; font: 400 10px/1.5 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61;">ОБЩЕЕ СНИЖЕНИЕ ЗАТРАТ · РАСТЁТ С ОБЪЁМОМ</p></div>
-      <div data-reveal="" data-delay="80" style="padding: 26px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;"><span data-count="208000" data-prefix="$">$208,000</span></p><p data-i18n="econ.stat.monthly" style="margin: 0; font: 400 10px/1.5 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61;">ЭКОНОМИЯ В МЕСЯЦ ПРИ 1М ЧАТОВ</p></div>
-      <div data-reveal="" data-delay="160" style="padding: 26px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;"><span data-count="2496000" data-prefix="$">$2,496,000</span></p><p data-i18n="econ.stat.annual" style="margin: 0; font: 400 10px/1.5 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61;">ЭКОНОМИЯ В ГОД ПРИ 1М ЧАТОВ</p></div>
-      <div data-reveal="" data-delay="240" style="padding: 26px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">€15,620</p><p data-i18n="econ.stat.qaequiv" style="margin: 0; font: 400 10px/1.5 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61;">ДНЕВНОЙ ЭКВИВАЛЕНТ РУЧНОГО QA · 78 СПЕЦИАЛИСТОВ</p></div>
-    </div>
-  </section>
-
-  <section id="calculator" data-screen-label="07 Calculator" style="position: relative; z-index: 1; padding: 130px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="calc.kicker" data-reveal="" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">— ИНТЕРАКТИВНАЯ МОДЕЛЬ</p>
-    <h2 data-i18n="calc.title" data-reveal="" style="margin: 0 0 56px; max-width: 860px; font: 500 clamp(30px, 4.2vw, 60px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Ваши цифры. Двигайте ползунки.</h2>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-      <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 34px;">
+    <h3 data-i18n="calc.title" data-reveal="" style="margin: 80px 0 28px; font: 500 clamp(24px, 2.8vw, 38px)/1.1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">Ваши цифры. Двигайте ползунки.</h3>
+    <div id="calculator" data-calc-teaser="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
+      <div style="padding: 40px 34px; background: #0A0A09; display: flex; flex-direction: column; justify-content: center; gap: 40px;">
         <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.chats" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ЧАТОВ В МЕСЯЦ</span><span style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ chatsLabel }}</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;"><span data-i18n="calc.chats" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ЧАТОВ В МЕСЯЦ</span><span style="font: 500 26px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ chatsLabel }}</span></div>
           <input data-fillrange="" type="range" min="5000" max="1000000" step="5000" value="{{ chats }}" oninput="{{ onChats }}" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: linear-gradient(90deg, #E8B23A var(--f, 25%), rgba(255,255,255,.12) var(--f, 25%)); accent-color: #E8B23A;">
         </div>
         <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.autom" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">УРОВЕНЬ АВТОМАТИЗАЦИИ</span><span style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ automLabel }}</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;"><span data-i18n="calc.autom" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">УРОВЕНЬ АВТОМАТИЗАЦИИ</span><span style="font: 500 26px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ automLabel }}</span></div>
           <input data-fillrange="" type="range" min="40" max="80" step="1" value="{{ autom }}" oninput="{{ onAutom }}" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: linear-gradient(90deg, #E8B23A var(--f, 62.5%), rgba(255,255,255,.12) var(--f, 62.5%)); accent-color: #E8B23A;">
         </div>
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.tickets" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ПЛАТЁЖНЫХ ТИКЕТОВ / МЕСЯЦ</span><span style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ ticketsLabel }}</span></div>
-          <input data-fillrange="" type="range" min="0" max="300000" step="5000" value="{{ tickets }}" oninput="{{ onTickets }}" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: linear-gradient(90deg, #E8B23A var(--f, 33.3%), rgba(255,255,255,.12) var(--f, 33.3%)); accent-color: #E8B23A;">
-        </div>
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.mins" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ГОЛОСОВЫХ МИНУТ / МЕСЯЦ</span><span style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">{{ minsLabel }}</span></div>
-          <input data-fillrange="" type="range" min="0" max="150000" step="1000" value="{{ mins }}" oninput="{{ onMins }}" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: linear-gradient(90deg, #E8B23A var(--f, 15.7%), rgba(255,255,255,.12) var(--f, 15.7%)); accent-color: #E8B23A;">
-        </div>
-        <button onclick="{{ toggleQA }}" aria-pressed="{{ qaPressed }}" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; background: transparent; border: 1px solid rgba(255,255,255,.14); text-align: left; color: #E8E6E1; cursor: pointer;">
-          <span data-i18n="calc.qa" style="font: 400 11px/1.4 'JetBrains Mono', monospace; letter-spacing: .14em;">AI QA SYSTEM · ПРОВЕРЕНО 100% ЧАТОВ</span>
-          <span style="flex: 0 0 auto; display: flex; align-items: center; gap: 10px;">
-            <span style="font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: var(--acc, #E8B23A);">{{ qaLabel }}</span>
-            <span style="position: relative; display: block; width: 36px; height: 20px; border-radius: 10px; background: {{ qaTrackBg }}; transition: background .25s ease; flex: 0 0 auto;">
-              <span style="position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: {{ qaKnobBg }}; transform: {{ qaKnobX }}; transition: transform .25s ease, background .25s ease;"></span>
-            </span>
-          </span>
-        </button>
-        <div style="padding-top: 22px; border-top: 1px solid rgba(255,255,255,.09);">
-          <p data-i18n="calc.plan" style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ВАШ ТАРИФ</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span data-plan-chip="EASY" onclick="{{ selectPlan }}" style="padding: 8px 13px; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61; cursor: pointer;">EASY</span>
-            <span data-plan-chip="NORMAL" onclick="{{ selectPlan }}" style="padding: 8px 13px; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61; cursor: pointer;">NORMAL</span>
-            <span data-plan-chip="COMPANY" onclick="{{ selectPlan }}" style="padding: 8px 13px; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61; cursor: pointer;">COMPANY</span>
-            <span data-plan-chip="CORPORATION" onclick="{{ selectPlan }}" style="padding: 8px 13px; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #6E6A61; cursor: pointer;">CORPORATION</span>
-          </div>
-        </div>
       </div>
 
-      <div style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 26px;">
-        <div>
-          <p data-i18n="calc.without" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">БЕЗ AI · ТОЛЬКО ЛЮДИ</p>
-          <p style="margin: 0 0 8px; font: 500 clamp(30px, 3.4vw, 44px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #E8E6E1;">{{ costWithout }}</p>
-          <span style="display: block; height: 6px; background: rgba(255,255,255,.06);"><span style="display: block; height: 6px; width: 100%; background: rgba(255,255,255,.22);"></span></span>
-        </div>
-        <div>
-          <p data-i18n="calc.with" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">С ПЛАТФОРМОЙ QODEQ</p>
-          <p style="margin: 0 0 8px; font: 500 clamp(30px, 3.4vw, 44px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">{{ costWith }}</p>
-          <span style="display: block; height: 6px; background: rgba(255,255,255,.06);"><span data-livebar="" style="display: block; height: 6px; width: {{ withPct }}; background: var(--acc, #E8B23A); transition: width .45s cubic-bezier(.2,.7,.2,1);"></span></span>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-          <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="calc.save" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61;">ЭКОНОМИЯ В МЕСЯЦ</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: var(--acc, #E8B23A);">{{ saveMonth }}</p></div>
-          <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="calc.year" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61;">ЭКОНОМИЯ В ГОД</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: var(--acc, #E8B23A);">{{ saveYear }}</p></div>
-          <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="calc.reduction" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61;">СНИЖЕНИЕ ЗАТРАТ</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">{{ savePct }}</p></div>
-          <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="calc.roi" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #6E6A61;">ОКУПАЕМОСТЬ ВНЕДРЕНИЯ</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">{{ payback }}</p></div>
-        </div>
-      </div>
-
-      <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 26px;">
-        <div>
-          <p data-i18n="calc.break" style="margin: 0 0 14px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">РАЗБИВКА ПО ПРОДУКТАМ</p>
-          <div style="display: flex; flex-direction: column;">
-            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.08); font: 400 12px/1 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row.chat">AI CHAT OPERATOR</span><span style="color: #57544C;">{{ chatRate }}</span><span style="color: #F5F2EC; min-width: 92px; text-align: right;">{{ chatCost }}</span></div>
-            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.08); font: 400 12px/1 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row.qa">AI QA SYSTEM</span><span style="color: #57544C;">{{ qaRate }}</span><span style="color: #F5F2EC; min-width: 92px; text-align: right;">{{ qaCost }}</span></div>
-            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.08); font: 400 12px/1 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row.payment">AI PAYMENT ASSISTANT</span><span style="color: #57544C;">{{ payRate }}</span><span style="color: #F5F2EC; min-width: 92px; text-align: right;">{{ payCost }}</span></div>
-            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.08); font: 400 12px/1 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row.voice">AI VOICE BOT</span><span style="color: #57544C;">{{ voiceRate }}</span><span style="color: #F5F2EC; min-width: 92px; text-align: right;">{{ voiceCost }}</span></div>
-            <div style="display: grid; grid-template-columns: 1fr auto; gap: 18px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.08); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;"><span data-i18n="calc.setupfees">РАЗОВАЯ ПЛАТА ЗА ВНЕДРЕНИЕ</span><span style="text-align: right;">{{ setupFees }}</span></div>
-          </div>
-        </div>
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 14px; gap: 16px; flex-wrap: wrap;">
-            <p data-i18n="calc.curve" style="margin: 0; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">НАКОПЛЕННЫЕ РАСХОДЫ · 12 МЕСЯЦЕВ</p>
-            <div style="display: flex; gap: 16px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #57544C;">
-              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 1px; background: rgba(255,255,255,.35);"></span><span data-i18n="calc.lgd1">ТОЛЬКО ЛЮДИ</span></span>
-              <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 2px; background: var(--acc, #E8B23A);"></span><span data-i18n="calc.lgd2">С QODEQ</span></span>
-            </div>
-          </div>
-          <canvas data-roi="" style="display: block; width: 100%; height: 190px; border: 1px solid rgba(255,255,255,.09);"></canvas>
-          <div style="display: flex; justify-content: space-between; margin: 9px 2px 0; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .14em; color: #4A473F;"><span>M1</span><span>M3</span><span>M6</span><span>M9</span><span>M12</span></div>
-        </div>
+      <div style="padding: 40px 34px; background: #0C0C0A; display: flex; flex-direction: column; gap: 22px;">
+        <p data-i18n="calc.teaser.label" style="margin: 0; font: 400 10px/1.4 'JetBrains Mono', monospace; letter-spacing: .2em; color: var(--acc, #E8B23A);">ЭКОНОМИЯ В МЕСЯЦ · AI CHAT OPERATOR</p>
+        <p style="margin: 0; font: 500 clamp(48px, 6.4vw, 92px)/.95 'Space Grotesk', sans-serif; letter-spacing: -.04em; color: var(--acc, #E8B23A);">{{ saveMonth }}</p>
+        <p style="margin: 0; font: 400 16px/1.5 'Space Grotesk', sans-serif; color: #B5AFA2;">{{ teaserLine }}</p>
+        <div style="height: 1px; background: rgba(255,255,255,.09);"></div>
+        <p data-i18n="calc.full.note" style="margin: 0; font: 400 15px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Это только чаты. Добавьте QA, платежи и голосового бота, подставьте свою стоимость операторов — и скачайте одностраничный бизнес-кейс для финдиректора.</p>
+        <a href="{{ calcLink }}" data-btn="" style="align-self: flex-start; padding: 16px 24px; background: var(--acc, #E8B23A); border: 1px solid var(--acc, #E8B23A); color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;"><span data-i18n="calc.full.btn">БИЗНЕС-КЕЙС + PDF →</span></a>
       </div>
     </div>
   </section>
-
   <section id="pricing" data-screen-label="08 Pricing" style="position: relative; z-index: 1; padding: 130px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
     <p data-i18n="price.kicker" data-reveal="" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: var(--acc, #E8B23A);">— СВОДКА ПО ЦЕНАМ</p>
     <h2 data-i18n="price.title" data-reveal="" style="margin: 0 0 46px; font: 500 clamp(30px, 4.2vw, 60px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Каждый продукт. Один прайс-лист.</h2>
-    <div data-reveal="" style="border: 1px solid rgba(255,255,255,.09); overflow-x: auto;">
+    <div data-reveal="" style="background: #0A0A09; border: 1px solid rgba(255,255,255,.09); overflow-x: auto;">
       <div style="min-width: 860px;">
         <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; background: #0C0C0A; font: 400 10px/1.3 'JetBrains Mono', monospace; letter-spacing: .16em; color: #8A8579;">
           <span data-i18n="price.th.product" style="padding: 15px 18px;">ПРОДУКТ</span>
@@ -1344,9 +948,8 @@
       <div style="display: flex; flex-direction: column; gap: 14px;">
         <p data-i18n="foot.platform" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">ПЛАТФОРМА</p>
         <a href="#console" data-i18n="foot.console" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Консоль оператора</a>
-        <a href="#live" data-i18n="foot.livetraffic" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Живой трафик</a>
         <a href="#economics" data-i18n="foot.econ" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Экономика</a>
-        <a href="#calculator" data-i18n="foot.roicalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">ROI-калькулятор</a>
+        <a href="/ru/calculator" data-i18n="foot.roicalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">ROI-калькулятор</a>
         <a href="#pricing" data-i18n="foot.pricing" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Цены</a>
         <a href="#timeline" data-i18n="foot.rollout" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">План внедрения</a>
         <a href="/ru/solutions/ai-customer-support-igaming" data-i18n="foot.overview" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Обзор платформы</a>
@@ -1371,6 +974,9 @@
 <script>
 window.QODEQ_I18N = {
   ru: {
+    "calc.full.note": "Это только чаты. Добавьте QA, платежи и голосового бота, подставьте свою стоимость операторов — и скачайте одностраничный бизнес-кейс для финдиректора.",
+    "calc.full.btn": "БИЗНЕС-КЕЙС + PDF →",
+    "calc.teaser.label": "ЭКОНОМИЯ В МЕСЯЦ · AI CHAT OPERATOR",
     "cta.sub": "ROI за 6–12 месяцев. Оставьте контакт — пришлём персональный расчёт под ваши объёмы.",
     "nav.products": "Продукты",
     "nav.econ": "Экономика",
@@ -1876,36 +1482,21 @@ window.QODEQ_I18N = {
 </script>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E8B23A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#E8B23A&quot;,&quot;#7BC96F&quot;,&quot;#6E9EC9&quot;,&quot;#E8683A&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;gridIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;customCursor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;defaultAutomation&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:65,&quot;min&quot;:40,&quot;max&quot;:80,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Calculator&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;ru&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ru&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
 class Component extends DCLogic {
-  state = { chats: 250000, autom: 65, tickets: 100000, mins: 23500, qa: true, lang: 'en', sent: false, sending: false, sendErr: '', fName: '', fCompany: '', fEmail: '', fHoney: '' };
+  state = { chats: 250000, autom: 65, tickets: 0, mins: 0, qa: false, lang: 'en', sent: false, sending: false, sendErr: '', fName: '', fCompany: '', fEmail: '', fHoney: '' };
 
   // Куда форма контакта шлёт заявку. Относительный путь — сервер и сайт на одном домене (qodeq.net).
   // Если API вынесут на другой домен — укажите полный URL, напр. 'https://api.qodeq.net/api/lead'.
   LEAD_ENDPOINT = '/api/lead';
 
   // ---------- model ----------
-  // Strict "<" at every boundary: the tables read "5K—30K" for EASY, "30K—50K" for NORMAL,
-  // so the boundary value itself (30,000) belongs to the NEXT tier, not the current one.
-  // Matches the tier(..., true) calls in buildRows() for the same three products.
-  chatRateFor(c) { return c < 30000 ? 0.30 : c < 50000 ? 0.25 : c < 100000 ? 0.20 : 0.18; }
-  qaRateFor(c) { return c < 30000 ? 0.30 : c < 100000 ? 0.25 : c < 200000 ? 0.20 : 0.18; }
-  // Payment is the one product where the official pricing deck's own worked examples put
-  // the boundary value in the CURRENT (cheaper) tier — e.g. 50,000 tickets prices as NORMAL
-  // $0.25, not COMPANY — unlike chat/qa-chat where the boundary rolls into the next tier.
-  payRateFor(t) { return t <= 10000 ? 0.30 : t <= 50000 ? 0.25 : t <= 100000 ? 0.20 : 0.18; }
-  voiceRateFor(m) { return m <= 20000 ? 0.15 : m <= 50000 ? 0.12 : m <= 100000 ? 0.09 : 0.06; }
-  planFor(c) { return c < 30000 ? 'EASY' : c < 50000 ? 'NORMAL' : c < 100000 ? 'COMPANY' : 'CORPORATION'; }
+  // Prices, tier boundaries and the people-only baseline live in pricing.js
+  // (window.QODEQ_PRICING) — shared with /calculator, so they can't drift apart.
+  planFor(c) { return QODEQ_PRICING.planFor(c); }
 
   model() {
-    const s = this.state, c = s.chats, a = s.autom / 100, t = s.tickets, m = s.mins;
-    const cr = this.chatRateFor(c), qr = this.qaRateFor(c), pr = this.payRateFor(t), vr = this.voiceRateFor(m);
-    const chatWith = c * a * cr + c * (1 - a) * 0.50, chatWithout = c * 0.50;
-    const qaWith = s.qa ? c * qr : 0, qaWithout = s.qa ? c * 0.90 : 0;
-    const payWith = t * 0.45 * pr + t * 0.55 * 0.50, payWithout = t * 0.50;
-    const voiceWith = m * vr, voiceWithout = m * 0.40;
-    const without = chatWithout + qaWithout + payWithout + voiceWithout;
-    const withAi = chatWith + qaWith + payWith + voiceWith;
-    const setup = 1000 + (s.qa ? 1000 : 0) + (t > 0 ? 200 : 0) + (m > 0 ? 1000 : 0);
-    return { c, a, t, m, cr, qr, pr, vr, chatWith, qaWith, payWith, voiceWith, without, withAi, setup, save: without - withAi };
+    const s = this.state, c = s.chats, t = s.tickets, m = s.mins;
+    const r = QODEQ_PRICING.model({ chats: c, autom: s.autom, qa: s.qa, tickets: t, mins: m });
+    return Object.assign({ c, a: s.autom / 100, t, m }, r);
   }
 
   usd(v) { return '$' + Math.round(v).toLocaleString('en-US'); }
@@ -1936,6 +1527,10 @@ class Component extends DCLogic {
       chatCost: this.usd(mo.chatWith), qaCost: s.qa ? this.usd(mo.qaWith) : '—',
       payCost: mo.t > 0 ? this.usd(mo.payWith) : '—', voiceCost: mo.m > 0 ? '$' + Math.round(mo.voiceWith).toLocaleString('en-US') : '—',
       setupFees: this.usd(mo.setup),
+      calcLink: (s.lang === 'ru' ? '/ru/calculator' : '/calculator') + '?chats=' + s.chats + '&autom=' + s.autom,
+      teaserLine: ru
+        ? this.usd(mo.without) + ' только людьми → ' + this.usd(mo.withAi) + ' с QODEQ · на ' + pct + '% дешевле, ' + this.usd(mo.save * 12) + ' в год'
+        : this.usd(mo.without) + ' with people only → ' + this.usd(mo.withAi) + ' with QODEQ · ' + pct + '% less, ' + this.usd(mo.save * 12) + ' a year',
       onChats: e => this.setState({ chats: +e.target.value }),
       onAutom: e => this.setState({ autom: +e.target.value }),
       onTickets: e => this.setState({ tickets: +e.target.value }),
@@ -2221,30 +1816,28 @@ class Component extends DCLogic {
     const box = panel.querySelector('[data-crows]');
     if (!box) return;
     const n = (x) => Math.round(x).toLocaleString('en-US');
-    // exclusive=true: the boundary value itself belongs to the NEXT tier (chat/qa-chat/
-    // payment's "5K—30K" / "30K—50K" tables mean 30,000 is already NORMAL, not EASY).
-    // Default (inclusive) keeps voice's "Up to 20,000" wording, where the boundary value
-    // still belongs to the cheaper tier.
-    const tier = (v, t, exclusive) => t.find(([lim]) => exclusive ? v < lim : v <= lim) || t[t.length - 1];
+    // Tiers and boundary rules come from pricing.js (QODEQ_PRICING) — shared with the
+    // main model and /calculator.
+    const tier = (product, v) => { const r = QODEQ_PRICING.tier(product, v); return [null, r.plan, r.rate, r.index]; };
     const ru = this.state.lang === 'ru';
     const L = (en, r) => ru ? r : en;
     let rows = [], head = '', unit = '';
     if (slug === 'chat') {
-      const [, plan, rate] = tier(v, [[30000, 'EASY', .30], [50000, 'NORMAL', .25], [100000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]], true);
+      const [, plan, rate] = tier('chat', v);
       const ai = v * .65 * rate, op = v * .35 * .5, base = v * .5;
       rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / chat', ' / чат')], [L('CLOSED BY AI · 65%', 'ЗАКРЫТО AI · 65%'), n(v * .65)], [L('AI COST', 'СТОИМОСТЬ AI'), '$' + n(ai)], [L('OPERATOR COST · 35%', 'СТОИМОСТЬ ОПЕРАТОРОВ · 35%'), '$' + n(op)], [L('TOTAL WITH QODEQ', 'ИТОГО С QODEQ'), '$' + n(ai + op)], [L('OPERATORS ONLY · $0.50', 'ТОЛЬКО ОПЕРАТОРЫ · $0,50'), '$' + n(base)], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(base - ai - op)], [L('ANNUAL SAVING', 'ЭКОНОМИЯ В ГОД'), '$' + n((base - ai - op) * 12)]];
       head = n(v) + L(' chats / month', ' чатов в месяц');
       unit = L('Billed per closed chat. Setup fee $1,000 one-off.', 'Тарификация за закрытый чат. Разовая плата за внедрение $1 000.');
     }
     if (slug === 'qa-chat') {
-      const [, plan, rate] = tier(v, [[30000, 'EASY', .30], [100000, 'NORMAL', .25], [200000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]], true);
+      const [, plan, rate] = tier('qa', v);
       const cost = v * rate, man = v * .9;
       rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / check', ' / проверку')], [L('COVERAGE', 'ОХВАТ'), '100%'], [L('QODEQ QA COST', 'СТОИМОСТЬ QODEQ QA'), '$' + n(cost)], [L('MANUAL AT $0.90', 'ВРУЧНУЮ ПО $0,90'), '$' + n(man)], [L('SAVING', 'ЭКОНОМИЯ'), Math.round((1 - cost / man) * 100) + '%'], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(man - cost)], [L('ANNUAL SAVING', 'ЭКОНОМИЯ В ГОД'), '$' + n((man - cost) * 12)]];
       head = n(v) + L(' chats checked / month', ' проверенных чатов в месяц');
       unit = L('Manual QA covers only 10–15% of this volume at the same price point.', 'Ручной QA покрывает лишь 10–15% этого объёма по той же цене.');
     }
     if (slug === 'payment') {
-      const [, plan, rate] = tier(v, [[10000, 'EASY', .30], [50000, 'NORMAL', .25], [100000, 'COMPANY', .20], [Infinity, 'CORPORATION', .18]]);
+      const [, plan, rate] = tier('payment', v);
       const bot = v * .45 * rate, op = v * .55 * .5, base = v * .5;
       rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / ticket', ' / тикет')], [L('RESOLVED BY BOT · 45%', 'РЕШЕНО БОТОМ · 45%'), n(v * .45)], [L('BOT COST', 'СТОИМОСТЬ БОТА'), '$' + n(bot)], [L('OPERATOR COST · 55%', 'СТОИМОСТЬ ОПЕРАТОРОВ · 55%'), '$' + n(op)], [L('TOTAL WITH QODEQ', 'ИТОГО С QODEQ'), '$' + n(bot + op)], [L('OPERATORS ONLY · $0.50', 'ТОЛЬКО ОПЕРАТОРЫ · $0,50'), '$' + n(base)], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(base - bot - op)], [L('ANNUAL EFFECT', 'ЭФФЕКТ ЗА ГОД'), '$' + n((base - bot - op) * 12)]];
       head = n(v) + L(' tickets / month', ' тикетов в месяц');
@@ -2258,9 +1851,9 @@ class Component extends DCLogic {
     }
     if (slug === 'voice') {
       const bands = ru
-        ? [[20000, 'ДО 20 000', .15], [50000, '20 000 — 50 000', .12], [100000, '50 000 — 100 000', .09], [Infinity, 'ОТ 100 000', .06]]
-        : [[20000, 'UP TO 20,000', .15], [50000, '20,000 — 50,000', .12], [100000, '50,000 — 100,000', .09], [Infinity, 'FROM 100,000', .06]];
-      const [, plan, rate] = tier(v, bands);
+        ? ['ДО 20 000', '20 000 — 50 000', '50 000 — 100 000', 'ОТ 100 000']
+        : ['UP TO 20,000', '20,000 — 50,000', '50,000 — 100,000', 'FROM 100,000'];
+      const [, , rate, idx] = tier('voice', v), plan = bands[idx];
       const bot = v * rate, man = v * .40;
       rows = [[L('TARIFF BAND', 'ТАРИФНАЯ ПОЛОСА'), plan + ' · $' + rate.toFixed(2) + L(' / min', ' / мин')], [L('BOT COST', 'СТОИМОСТЬ БОТА'), '$' + n(bot)], [L('HUMAN AT $0.40 / MIN', 'ЖИВОЙ ОПЕРАТОР ПО $0,40 / МИН'), '$' + n(man)], [L('OPERATORS REPLACED', 'ЗАМЕНЕНО ОПЕРАТОРОВ'), (v / 9400).toFixed(1) + ' FTE'], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(man - bot)], [L('ANNUAL SAVING', 'ЭКОНОМИЯ В ГОД'), '$' + n((man - bot) * 12)]];
       head = n(v) + L(' minutes / month', ' минут в месяц');
@@ -3092,7 +2685,7 @@ class Component extends DCLogic {
   initScroll() {
     const bar = document.querySelector('[data-progress]');
     const rail = this.q('[data-rail-item]');
-    const secs = ['top', 'products', 'console', 'process', 'live', 'economics', 'calculator', 'pricing', 'timeline', 'contact'].map(id => document.getElementById(id));
+    const secs = ['top', 'products', 'console', 'economics', 'pricing', 'timeline', 'contact'].map(id => document.getElementById(id));
     const px = this.q('[data-parallax]');
     const pin = document.querySelector('[data-hpin]'), track = document.querySelector('[data-htrack]'), hbar = document.querySelector('[data-hbar]');
     const tl = document.querySelector('[data-tl]'), tlbar = document.querySelector('[data-tlbar]'), dots = this.q('[data-tl-dot]');

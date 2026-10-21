@@ -136,6 +136,12 @@ function buildLeadRows(body) {
       ['Окупаемость внедрения', c.payback || '—'],
       ['Setup fee (оценка)', money(c.setupFees)],
     );
+    // поля, которые шлёт только /calculator (свои затраты клиента)
+    if (c.operatorCost != null) rows.push(['Стоимость оператора / мес', money(c.operatorCost)]);
+    if (c.chatsPerOperator != null) rows.push(['Чатов на оператора / мес', num(c.chatsPerOperator)]);
+    if (c.psp != null) rows.push(['Платёжных провайдеров', num(c.psp)]);
+    if (c.paymentBotShare != null) rows.push(['Доля тикетов ботом', c.paymentBotShare + '%']);
+    if (c.shareUrl) rows.push(['Открыть расчёт', String(c.shareUrl).slice(0, 600)]);
   }
   return rows;
 }

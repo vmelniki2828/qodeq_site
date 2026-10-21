@@ -312,6 +312,9 @@ window.QODEQ_LIVECHAT = (function () {
 
 window.QODEQ_I18N = {
   ru: {
+    "calc.full.note": "Это только чаты. Добавьте QA, платежи и голосового бота, подставьте свою стоимость операторов — и скачайте одностраничный бизнес-кейс для финдиректора.",
+    "calc.full.btn": "БИЗНЕС-КЕЙС + PDF →",
+    "calc.teaser.label": "ЭКОНОМИЯ В МЕСЯЦ · AI CHAT OPERATOR",
     "nav.products": "Продукты",
     "nav.econ": "Экономика",
     "nav.calc": "Калькулятор",

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NY9Q210KNW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NY9Q210KNW');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Support Cost Calculator for iGaming | QODEQ</title>
+<meta name="description" content="Calculate what player support costs you today and with AI. Enter your chat, payment-ticket and call volumes, your operator cost and team throughput — get monthly savings, payback and a shareable breakdown." />
+<link rel="canonical" href="https://qodeq.net/calculator" />
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://qodeq.net/calculator" />
+<meta property="og:title" content="AI Support Cost Calculator for iGaming | QODEQ" />
+<meta property="og:description" content="Calculate what player support costs you today and with AI. Enter your chat, payment-ticket and call volumes, your operator cost and team throughput — get monthly savings, payback and a shareable breakdown." />
+<meta property="og:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://qodeq.net/assets/brand/og-image.png?v=2" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QODEQ AI Support Cost Calculator",
+  "url": "https://qodeq.net/calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "description": "Calculate what player support costs you today and with AI. Enter your chat, payment-ticket and call volumes, your operator cost and team throughput — get monthly savings, payback and a shareable breakdown.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "QODEQ", "url": "https://qodeq.net/" }
+}
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="/pricing.js?v=1"></script>
+<style>
+  :root {
+    --bg: #0A0A09; --bg2: #0C0C0A; --bg3: #11110F;
+    --text: #F5F2EC; --text2: #E8E6E1; --muted: #8A8579; --dim: #6E6A61; --faint: #57544C;
+    --line: rgba(255,255,255,.09); --line2: rgba(255,255,255,.14);
+    --acc: #E8B23A;
+    --c-chat: #4FD1A5; --c-qa: #E8B23A; --c-pay: #5FA5F9; --c-voice: #F4794C; --c-cost: #C9C3B5;
+    --mono: 'JetBrains Mono', ui-monospace, monospace; --sans: 'Space Grotesk', system-ui, sans-serif;
+    --hdr: 73px;
+    /* vertical rhythm scales with screen height so the page fills one screen on any laptop/monitor */
+    --gap: clamp(8px, 1.5vh, 18px);
+    --edge: clamp(16px, calc(7vh - 30px), 56px); /* breathing room above the title and below the calculator */
+    --pad: clamp(14px, 2.2vh, 28px);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
+  body::before { content: ''; position: fixed; left: 50%; top: -20vh; width: 90vw; height: 70vh; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(232,178,58,.07), rgba(232,178,58,0) 65%); pointer-events: none; z-index: 0; }
+  a { color: inherit; text-decoration: none; }
+  button, input { font: inherit; color: inherit; }
+  p { margin: 0; }
+
+  /* pressable — same calm solid-fill hover as the rest of the site */
+  .btn, .nav a, .lang a, .tab { cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease, filter .15s ease; }
+  .btn:hover, .nav a:hover, .lang a:hover { background-color: var(--btn-acc, var(--acc)) !important; border-color: var(--btn-acc, var(--acc)) !important; color: #0A0A09 !important; }
+  .btn:hover *, .nav a:hover * { color: inherit !important; }
+  .btn:active { filter: brightness(.82); }
+
+  /* header */
+  .hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
+  .hdr img { height: 40px; width: auto; display: block; }
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 var(--mono); letter-spacing: .16em; }
+  .nav a { padding: 8px 12px; border: 1px solid var(--line2); color: var(--muted); }
+  .lang { display: flex; gap: 6px; }
+  .lang a { padding: 7px 11px; border: 1px solid rgba(255,255,255,.16); color: var(--muted); font: 400 10px/1 var(--mono); letter-spacing: .16em; }
+  .lang a[aria-current] { background: rgba(232,178,58,.14); border-color: var(--acc); color: var(--acc); }
+
+  main { position: relative; z-index: 1; max-width: 1760px; margin: 0 auto; padding: 0 clamp(16px, 2.6vw, 48px); }
+  .label { font: 400 10px/1.3 var(--mono); letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+
+  /* ---------- the whole page is one screen ---------- */
+  .screen { min-height: 100vh; min-height: 100dvh; padding: calc(var(--hdr) + var(--edge)) 0 var(--edge); display: flex; flex-direction: column; }
+  .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 6px 40px; margin-bottom: calc(var(--gap) * 1.6); }
+  .kicker { margin: 0 0 6px; font: 400 11px/1 var(--mono); letter-spacing: .24em; color: var(--acc); }
+  h1 { margin: 0; font: 500 clamp(24px, 3.6vh, 40px)/1.05 var(--sans); letter-spacing: -.028em; }
+  .lead { max-width: 440px; font: 400 clamp(13px, 1.6vh, 15px)/1.5 var(--sans); color: #9A958A; }
+
+  .calc { flex: 1 0 auto; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .92fr) minmax(0, 1.05fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .col { background: var(--bg); display: flex; flex-direction: column; min-width: 0; }
+  .col.mid { background: var(--bg2); }
+  .step { display: flex; align-items: center; gap: 12px; padding: 0 var(--pad); min-height: clamp(42px, 5.4vh, 54px); border-bottom: 1px solid var(--line); }
+  .step b { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 1px solid var(--acc); color: var(--acc); font: 500 11px/1 var(--mono); }
+  .step span { font: 500 11px/1.2 var(--mono); letter-spacing: .18em; color: var(--text2); text-transform: uppercase; }
+  .col-body { flex: 1; display: flex; flex-direction: column; gap: var(--gap); padding: var(--pad); }
+
+  /* tabs inside step 1 */
+  .tabs { display: flex; margin-left: auto; align-self: stretch; }
+  .tab { position: relative; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid transparent; font: 500 10px/1 var(--mono); letter-spacing: .16em; color: var(--dim); }
+  .tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--acc); }
+  .tab:hover { color: var(--text); }
+  .tab .dot { position: absolute; top: 12px; right: 4px; width: 6px; height: 6px; border-radius: 50%; background: var(--acc); display: none; }
+  .tab.custom .dot { display: block; }
+  .pane { display: flex; flex-direction: column; gap: var(--gap); flex: 1; }
+  .pane[hidden] { display: none; }
+
+  /* fields */
+  .field { transition: opacity .2s ease; }
+  .field-hd { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+  .field-hd .lbl { min-width: 0; }
+  .field-hd .lbl .label { display: block; color: #A39E92; }
+  .hint { margin-top: 3px; font: 400 clamp(11px, 1.35vh, 13px)/1.35 var(--sans); color: var(--dim); }
+  .num-wrap { position: relative; display: flex; align-items: center; flex: 0 0 auto; }
+  .num { width: clamp(118px, 9vw, 150px); padding: clamp(7px, 1vh, 10px) 11px; background: var(--bg3); border: 1px solid var(--line2); color: var(--text); font: 500 clamp(15px, 2vh, 20px)/1 var(--sans); text-align: right; border-radius: 0; }
+  .num:focus { outline: none; border-color: var(--card-acc); background: #15140F; }
+  .num-wrap .pre, .num-wrap .suf { position: absolute; font: 400 12px/1 var(--mono); color: var(--dim); pointer-events: none; }
+  .num-wrap .pre { left: 10px; } .num-wrap .suf { right: 10px; }
+  .num-wrap.has-pre .num { padding-left: 24px; } .num-wrap.has-suf .num { padding-right: 26px; }
+  .num.sm { width: 90px; }
+  .num.xs { width: 58px; padding-left: 8px; padding-right: 10px; }
+  .psp { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  input[type=range] { display: block; width: 100%; height: 2px; margin: clamp(8px, 1.1vh, 14px) 0 4px; -webkit-appearance: none; appearance: none; background: linear-gradient(90deg, var(--card-acc) var(--f, 50%), rgba(255,255,255,.12) var(--f, 50%)); outline: none; cursor: pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--card-acc); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--card-acc); }
+  input[type=range]::-moz-range-thumb { width: 11px; height: 11px; border-radius: 50%; background: var(--card-acc); border: 3px solid var(--bg); }
+  .is-off { opacity: .32; }
+  .is-off input { pointer-events: none; }
+
+  /* product cards */
+  .prod { padding: clamp(9px, 1.2vh, 16px) clamp(12px, 1.4vw, 18px); background: var(--bg2); border: 1px solid var(--line); border-left: 2px solid var(--card-acc); display: flex; flex-direction: column; gap: clamp(6px, .9vh, 12px); transition: border-color .2s ease; }
+  .prod.off { border-left-color: var(--line2); }
+  .prod-hd { display: flex; align-items: center; gap: 12px; }
+  .pname { font: 500 clamp(14px, 1.8vh, 17px)/1.2 var(--sans); color: var(--text); }
+  .pdesc { margin-top: 2px; font: 400 clamp(11px, 1.35vh, 13px)/1.35 var(--sans); color: var(--dim); }
+  .prod.off .pname { color: var(--muted); }
+  .prod .field-hd .label { color: #A39E92; }
+  .prod .tagline { margin-left: auto; font: 400 10px/1 var(--mono); letter-spacing: .12em; color: var(--card-acc); white-space: nowrap; }
+  .prod.off .tagline { visibility: hidden; }
+
+  /* toggles */
+  .tgl { flex: 0 0 auto; display: inline-flex; padding: 0; background: none; border: 0; cursor: pointer; }
+  .tgl .track { position: relative; width: 36px; height: 20px; border-radius: 10px; background: rgba(255,255,255,.16); transition: background .25s ease; }
+  .tgl .knob { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); transition: transform .25s ease, background .25s ease; }
+  .tgl[aria-pressed="true"] .track { background: var(--card-acc); }
+  .tgl[aria-pressed="true"] .knob { transform: translateX(16px); background: var(--bg); }
+  .tgl:focus-visible { outline: 1px solid var(--card-acc); outline-offset: 3px; }
+
+  /* step 2 — result */
+  .hero-num { font: 500 clamp(40px, 7.4vh, 84px)/.95 var(--sans); letter-spacing: -.04em; color: var(--acc); }
+  .hero-sub { margin-top: 10px; font: 400 clamp(13px, 1.7vh, 16px)/1.45 var(--sans); color: #B5AFA2; }
+  .hero-sub b { color: var(--text); font-weight: 500; }
+  .cmp { display: flex; flex-direction: column; gap: clamp(10px, 1.6vh, 18px); padding: clamp(12px, 1.8vh, 20px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cmp-row .cmp-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .cmp-row .v { font: 500 clamp(20px, 3vh, 32px)/1 var(--sans); letter-spacing: -.02em; }
+  .bar { display: block; height: 6px; background: rgba(255,255,255,.06); }
+  .bar i { display: block; height: 6px; transition: width .45s cubic-bezier(.2,.7,.2,1); }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .kpi { padding: clamp(10px, 1.6vh, 18px) 12px; background: var(--bg); }
+  .kpi .v { margin-top: 8px; font: 500 clamp(18px, 2.6vh, 28px)/1 var(--sans); letter-spacing: -.02em; white-space: nowrap; }
+  .kpi .hint { margin-top: 6px; font-size: 11px; }
+  .note { font: 400 10px/1.5 var(--mono); color: var(--faint); letter-spacing: .04em; margin-top: auto; }
+
+  /* step 3 — breakdown, chart, actions */
+  .breakdown { width: 100%; border-collapse: collapse; font: 400 clamp(11px, 1.45vh, 13px)/1.3 var(--mono); }
+  .breakdown th { padding: 0 0 8px; font-weight: 400; font-size: 9px; letter-spacing: .16em; color: var(--faint); text-align: right; }
+  .breakdown th:first-child, .breakdown td:first-child { text-align: left; }
+  .breakdown td { padding: clamp(6px, 1vh, 10px) 0; border-top: 1px solid rgba(255,255,255,.08); text-align: right; color: var(--text2); white-space: nowrap; vertical-align: top; }
+  .breakdown td + td, .breakdown th + th { padding-left: 12px; }
+  .breakdown td:first-child { color: var(--text); white-space: normal; }
+  .breakdown td:first-child i { display: inline-block; width: 8px; height: 8px; margin-right: 8px; vertical-align: 1px; }
+  .breakdown td small { display: block; margin-top: 4px; font-size: .82em; letter-spacing: .02em; color: var(--dim); }
+  .breakdown td small b { font-weight: 400; color: #A39E92; }
+  .breakdown .sv { color: var(--acc); }
+  .breakdown tr.total td { color: var(--text); border-top-color: rgba(255,255,255,.22); font-weight: 500; }
+  .chart-box { flex: 1; display: flex; flex-direction: column; min-height: 120px; }
+  .chart-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .legend { display: flex; gap: 12px; font: 400 9px/1 var(--mono); letter-spacing: .12em; color: var(--faint); }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend i { display: inline-block; width: 12px; height: 2px; }
+  .chart-wrap { position: relative; flex: 1; min-height: 110px; border: 1px solid var(--line); background: var(--bg2); }
+  svg.chart { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .next { display: flex; flex-direction: column; gap: 10px; }
+  .next p { font: 400 clamp(12px, 1.5vh, 14px)/1.45 var(--sans); color: #9A958A; }
+  .actions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .btn.gold { border-color: var(--acc); color: var(--acc); }
+  .btn[aria-busy="true"] { opacity: .6; pointer-events: none; }
+  .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: clamp(12px, 1.8vh, 17px) 14px; background: transparent; border: 1px solid var(--line2); color: var(--text2); font: 500 10px/1.25 var(--mono); letter-spacing: .14em; text-align: center; }
+  .btn.primary { background: var(--acc); border-color: var(--acc); color: #0A0A09; }
+
+  /* your costs pane */
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pair .field-hd { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .derived { margin-top: 8px; font: 400 12px/1.5 var(--mono); color: var(--muted); }
+  .derived b { color: var(--text); font-weight: 500; }
+  .reset { align-self: flex-start; padding: 10px 14px; margin-top: auto; }
+
+  /* lead dialog */
+  dialog.lead-box { width: min(460px, calc(100vw - 32px)); padding: 28px; background: var(--bg2); border: 1px solid var(--line2); color: var(--text); }
+  dialog.lead-box::backdrop { background: rgba(5,5,4,.72); backdrop-filter: blur(4px); }
+  .lead-box h3 { margin: 0 0 10px; font: 500 22px/1.2 var(--sans); letter-spacing: -.015em; }
+  .lead-box p.t { margin: 0 0 18px; font: 400 14px/1.5 var(--sans); color: #9A958A; }
+  .lead-box .sum { margin: 0 0 16px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--line); font: 400 11px/1.6 var(--mono); color: var(--muted); }
+  .lead-box input[type=text] { width: 100%; margin-bottom: 8px; padding: 13px 14px; background: var(--bg3); border: 1px solid var(--line2); color: var(--text); font: 400 15px/1.2 var(--sans); border-radius: 0; }
+  .lead-box input[type=text]:focus { outline: none; border-color: var(--acc); }
+  .lead-box .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .lead-box .msg { margin: 10px 0 0; min-height: 1em; font: 400 12px/1.5 var(--mono); color: var(--muted); }
+  .lead-box .msg.ok { color: var(--c-chat); }
+  .lead-box .msg.err { color: var(--c-voice); }
+  .lead-box .x { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; padding: 0; background: transparent; border: 1px solid var(--line2); color: var(--muted); font: 400 16px/1 var(--mono); cursor: pointer; }
+
+  /* short screens: drop secondary copy first, keep every control */
+  @media (min-width: 1101px) and (max-height: 940px) {
+    .kicker { display: none; }
+  }
+  @media (min-width: 1101px) and (max-height: 860px) {
+    .field .hint, .kpi .hint { display: none; }
+    .lead { display: none; }
+  }
+  @media (min-width: 1101px) and (max-height: 760px) {
+    .pdesc { display: none; }
+    .next p { display: none; }
+  }
+  @media (max-width: 1100px) {
+    .calc { grid-template-columns: 1fr 1fr; }
+    .col.left { grid-column: 1 / -1; }
+  }
+  @media (max-width: 860px) {
+    .nav { display: none; }
+    .hdr { padding: 12px 16px; }
+    .hdr .lang { margin-left: auto; }
+    :root { --hdr: 65px; }
+  }
+  @media (max-width: 720px) {
+    .calc { grid-template-columns: 1fr; }
+    .step { padding: 0 16px; }
+    .col-body { padding: 16px; }
+    .tab { padding: 0 8px; }
+    .kpis { grid-template-columns: 1fr 1fr; }
+    .kpi:last-child { grid-column: 1 / -1; }
+    .breakdown .opt { display: none; }
+    .chart-wrap { min-height: 170px; }
+  }
+</style>
+<link rel="alternate" hreflang="en" href="https://qodeq.net/calculator" />
+<link rel="alternate" hreflang="ru" href="https://qodeq.net/ru/calculator" />
+<link rel="alternate" hreflang="x-default" href="https://qodeq.net/calculator" />
+</head>
+<body>
+
+<header class="hdr">
+  <a href="/" aria-label="QODEQ"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" /></a>
+  <nav class="nav">
+    <a href="/chat" style="border-left: 2px solid #4FD1A5; --btn-acc: #4FD1A5;"><span data-i18n="nav.chat">01 CHAT</span></a>
+    <a href="/qa-chat" style="border-left: 2px solid #E8B23A; --btn-acc: #E8B23A;"><span data-i18n="nav.qachat">02 QA CHAT</span></a>
+    <a href="/payment" style="border-left: 2px solid #5FA5F9; --btn-acc: #5FA5F9;"><span data-i18n="nav.payment">03 PAYMENT</span></a>
+    <a href="/qa-call" style="border-left: 2px solid #C084F5; --btn-acc: #C084F5;"><span data-i18n="nav.qacall">04 QA CALL</span></a>
+    <a href="/voice" style="border-left: 2px solid #F4794C; --btn-acc: #F4794C;"><span data-i18n="nav.voice">05 VOICE</span></a>
+  </nav>
+  <div class="lang">
+    <a href="/calculator" data-lang-link="en" hreflang="en">EN</a>
+    <a href="/ru/calculator" data-lang-link="ru" hreflang="ru">RU</a>
+  </div>
+</header>
+
+<main>
+  <section class="screen">
+    <div class="top">
+      <div>
+        <p class="kicker" data-i18n="hero.kicker">— ROI CALCULATOR · IGAMING SUPPORT</p>
+        <h1 data-i18n="hero.title">What player support costs you today — and with AI.</h1>
+      </div>
+      <p class="lead" data-i18n="hero.sub">Enter your monthly volumes and switch products on or off — the result updates instantly.</p>
+    </div>
+
+    <div class="calc" id="calc">
+      <!-- STEP 1 — inputs -->
+      <div class="col left">
+        <div class="step">
+          <b>1</b><span data-i18n="s1">Your support</span>
+          <div class="tabs" role="tablist">
+            <button class="tab" type="button" role="tab" aria-selected="true" data-tab="vol"><span data-i18n="t.vol">VOLUMES</span></button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="cost"><span data-i18n="t.cost">YOUR COSTS</span><span class="dot"></span></button>
+          </div>
+        </div>
+
+        <div class="col-body">
+          <div class="pane" data-pane="vol" role="tabpanel">
+            <div class="field" style="--card-acc: var(--c-chat);">
+              <div class="field-hd">
+                <div class="lbl"><label class="label" for="n-chats" data-i18n="c1.chats">Player chats per month</label></div>
+                <span class="num-wrap"><input class="num" id="n-chats" type="text" inputmode="numeric" autocomplete="off" data-k="chats" /></span>
+              </div>
+              <input type="range" data-k="chats" min="5000" max="1000000" step="5000" aria-label="Player chats per month" />
+            </div>
+
+            <div class="prod" data-prod="chat" style="--card-acc: var(--c-chat);">
+              <div class="prod-hd">
+                <button class="tgl" type="button" data-toggle="chat" aria-pressed="true" aria-label="AI Chat Operator"><span class="track"><span class="knob"></span></span></button>
+                <div><p class="pname" data-i18n="p.chat">AI Chat Operator</p><p class="pdesc" data-i18n="p.chat.d">Closes chats end-to-end: KYC, bonuses, withdrawals.</p></div>
+              </div>
+              <div class="field" data-body="chat">
+                <div class="field-hd">
+                  <label class="label" for="n-autom" data-i18n="c1.autom">Chats closed by AI</label>
+                  <span class="num-wrap has-suf"><input class="num sm" id="n-autom" type="text" inputmode="numeric" autocomplete="off" data-k="autom" /><span class="suf">%</span></span>
+                </div>
+                <input type="range" data-k="autom" min="40" max="80" step="1" aria-label="Chats closed by AI" />
+              </div>
+            </div>
+
+            <div class="prod" data-prod="qa" style="--card-acc: var(--c-qa);">
+              <div class="prod-hd">
+                <button class="tgl" type="button" data-toggle="qa" aria-pressed="true" aria-label="AI QA System"><span class="track"><span class="knob"></span></span></button>
+                <div><p class="pname" data-i18n="p.qa">AI QA System</p><p class="pdesc" data-i18n="p.qa.d">Checks 100% of those chats instead of a 2–5% sample.</p></div>
+              </div>
+            </div>
+
+            <div class="prod" data-prod="pay" style="--card-acc: var(--c-pay);">
+              <div class="prod-hd">
+                <button class="tgl" type="button" data-toggle="pay" aria-pressed="true" aria-label="AI Payment Assistant"><span class="track"><span class="knob"></span></span></button>
+                <div><p class="pname" data-i18n="p.pay">AI Payment Assistant</p><p class="pdesc" data-i18n="p.pay.d">Answers “where is my deposit?” from live PSP data.</p></div>
+                <span class="psp" data-body="pay"><label class="label" for="n-psp" data-i18n="c2.psp">PSP</label><span class="num-wrap"><input class="num xs" id="n-psp" type="text" inputmode="numeric" autocomplete="off" data-k="psp" aria-label="Payment providers to connect" title="$200 one-off setup per payment provider" /></span></span>
+              </div>
+              <div class="field" data-body="pay">
+                <div class="field-hd">
+                  <label class="label" for="n-tickets" data-i18n="c2.tickets">Payment tickets per month</label>
+                  <span class="num-wrap"><input class="num" id="n-tickets" type="text" inputmode="numeric" autocomplete="off" data-k="tickets" /></span>
+                </div>
+                <input type="range" data-k="tickets" min="2000" max="300000" step="2000" aria-label="Payment tickets per month" />
+              </div>
+            </div>
+
+            <div class="prod" data-prod="voice" style="--card-acc: var(--c-voice);">
+              <div class="prod-hd">
+                <button class="tgl" type="button" data-toggle="voice" aria-pressed="false" aria-label="AI Voice Bot"><span class="track"><span class="knob"></span></span></button>
+                <div><p class="pname" data-i18n="p.voice">AI Voice Bot</p><p class="pdesc" data-i18n="p.voice.d">Outbound and inbound calls, 24/7, in any language.</p></div>
+              </div>
+              <div class="field" data-body="voice">
+                <div class="field-hd">
+                  <label class="label" for="n-mins" data-i18n="c3.mins">Call minutes per month</label>
+                  <span class="num-wrap"><input class="num" id="n-mins" type="text" inputmode="numeric" autocomplete="off" data-k="mins" /></span>
+                </div>
+                <input type="range" data-k="mins" min="1000" max="150000" step="500" aria-label="Call minutes per month" />
+              </div>
+            </div>
+          </div>
+
+          <div class="pane" data-pane="cost" role="tabpanel" hidden>
+            <p class="hint" data-i18n="c4.sub" style="margin: 0;">By default the model uses market averages. Put in your own numbers and the comparison becomes yours.</p>
+            <div class="field" style="--card-acc: var(--c-cost);">
+              <div class="field-hd">
+                <div class="lbl"><label class="label" for="n-opcost" data-i18n="c4.opcost">Operator cost per month</label><p class="hint" data-i18n="c4.opcost.h">Fully loaded: salary, taxes, management, tools.</p></div>
+                <span class="num-wrap has-pre"><span class="pre">$</span><input class="num" id="n-opcost" type="text" inputmode="numeric" autocomplete="off" data-k="opCost" /></span>
+              </div>
+              <input type="range" data-k="opCost" min="300" max="6000" step="50" aria-label="Operator cost per month" />
+            </div>
+            <div class="field" style="--card-acc: var(--c-cost);">
+              <div class="field-hd">
+                <div class="lbl"><label class="label" for="n-opchats" data-i18n="c4.opchats">Chats one operator closes per month</label><p class="hint" data-i18n="c4.opchats.h">With shifts, breaks and downtime included.</p></div>
+                <span class="num-wrap"><input class="num" id="n-opchats" type="text" inputmode="numeric" autocomplete="off" data-k="opChats" /></span>
+              </div>
+              <input type="range" data-k="opChats" min="500" max="8000" step="100" aria-label="Chats per operator per month" />
+              <p class="derived" data-derived></p>
+            </div>
+            <div class="field" style="--card-acc: var(--c-pay);">
+              <div class="field-hd">
+                <div class="lbl"><label class="label" for="n-payshare" data-i18n="c4.payshare">Payment tickets resolved by the bot</label><p class="hint" data-i18n="c4.payshare.h">The rest go to an operator with PSP data attached.</p></div>
+                <span class="num-wrap has-suf"><input class="num sm" id="n-payshare" type="text" inputmode="numeric" autocomplete="off" data-k="payShare" /><span class="suf">%</span></span>
+              </div>
+              <input type="range" data-k="payShare" min="20" max="80" step="1" aria-label="Payment tickets resolved by the bot" />
+            </div>
+            <div class="pair">
+              <div class="field" style="--card-acc: var(--c-qa);">
+                <div class="field-hd">
+                  <label class="label" for="n-qacost" data-i18n="c4.qacost">Manual QA per checked chat</label>
+                  <span class="num-wrap has-pre"><span class="pre">$</span><input class="num" id="n-qacost" type="text" inputmode="decimal" autocomplete="off" data-k="qaCost" /></span>
+                </div>
+              </div>
+              <div class="field" style="--card-acc: var(--c-voice);">
+                <div class="field-hd">
+                  <label class="label" for="n-vcost" data-i18n="c4.vcost">Human agent per call minute</label>
+                  <span class="num-wrap has-pre"><span class="pre">$</span><input class="num" id="n-vcost" type="text" inputmode="decimal" autocomplete="off" data-k="vCost" /></span>
+                </div>
+              </div>
+            </div>
+            <button class="reset btn" type="button" data-reset><span data-i18n="c4.reset">RESET TO DEFAULTS</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 — result -->
+      <div class="col mid" aria-live="polite">
+        <div class="step"><b>2</b><span data-i18n="s2">Your result</span></div>
+        <div class="col-body">
+          <div>
+            <p class="label" style="color: var(--acc);" data-i18n="r.save">You save every month</p>
+            <p class="hero-num" data-out="save">—</p>
+            <p class="hero-sub" data-out="saveLine"></p>
+          </div>
+          <div class="cmp">
+            <div class="cmp-row">
+              <div class="cmp-hd"><p class="label" data-i18n="r.without">Support with people only</p><p class="v" style="color: var(--text2);" data-out="without">—</p></div>
+              <span class="bar"><i style="width: 100%; background: rgba(255,255,255,.24);"></i></span>
+            </div>
+            <div class="cmp-row">
+              <div class="cmp-hd"><p class="label" style="color: var(--acc);" data-i18n="r.with">Support with QODEQ</p><p class="v" data-out="withAi">—</p></div>
+              <span class="bar"><i data-out-bar style="width: 50%; background: var(--acc);"></i></span>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="kpi"><p class="label" data-i18n="r.payback">Setup pays back in</p><p class="v" data-out="payback">—</p></div>
+            <div class="kpi"><p class="label" data-i18n="r.setup">One-off setup</p><p class="v" data-out="setup">—</p></div>
+            <div class="kpi"><p class="label" data-i18n="r.fte">Work taken by AI</p><p class="v" data-out="fte">—</p><p class="hint" data-i18n="r.fte.h">full-time operators</p></div>
+          </div>
+          <p class="note" data-i18n="r.note">List prices, USD, excl. VAT. Final terms are confirmed in the commercial proposal.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3 — where it comes from + next step -->
+      <div class="col right">
+        <div class="step"><b>3</b><span data-i18n="s3">Where the saving comes from</span></div>
+        <div class="col-body">
+          <table class="breakdown">
+            <thead><tr><th data-i18n="r.th.product">PRODUCT · YOUR PLAN</th><th class="opt" data-i18n="r.th.without">PEOPLE</th><th data-i18n="r.th.with">QODEQ</th><th data-i18n="r.th.save">SAVING</th></tr></thead>
+            <tbody data-out="rows"></tbody>
+          </table>
+          <div class="chart-box">
+            <div class="chart-hd">
+              <p class="label" data-i18n="r.curve">Cumulative cost over 12 months</p>
+              <div class="legend"><span><i style="background: rgba(255,255,255,.45);"></i><span data-i18n="r.lgd1">PEOPLE ONLY</span></span><span><i style="background: var(--acc);"></i><span data-i18n="r.lgd2">WITH QODEQ</span></span></div>
+            </div>
+            <div class="chart-wrap"><svg class="chart" data-chart preserveAspectRatio="none" role="img" aria-label="Cumulative cost over 12 months"></svg></div>
+          </div>
+          <div class="next">
+            <p data-i18n="r.next">Download a one-page business case for your CFO, copy a link to this exact calculation — or send us the numbers and get a proposal within one business day.</p>
+            <div class="actions">
+              <button class="btn" type="button" data-share><span data-i18n="r.share">COPY LINK</span></button>
+              <button class="btn gold" type="button" data-pdf><span data-i18n="r.pdf">PDF FOR YOUR CFO</span></button>
+              <button class="btn primary" type="button" data-lead-open><span data-i18n="r.get">GET A PROPOSAL</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="lead-box" data-lead-dialog>
+    <form data-lead novalidate>
+      <button class="x" type="button" data-lead-close aria-label="Close">×</button>
+      <h3 data-i18n="f.h">Get a personal proposal</h3>
+      <p class="t" data-i18n="f.title">We'll check these numbers against your setup and reply within one business day. Your calculation is attached automatically.</p>
+      <p class="sum" data-lead-sum></p>
+      <input type="text" name="name" autocomplete="name" data-ph-ru="Ваше имя" placeholder="Your name" />
+      <input type="text" name="company" autocomplete="organization" data-ph-ru="Компания / бренд" placeholder="Company / brand" />
+      <input type="text" name="contact" autocomplete="email" data-ph-ru="Email, Telegram или телефон" placeholder="Email, Telegram or phone" />
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <button class="btn primary" type="submit" style="width: 100%; margin-top: 4px; padding: 15px;"><span data-i18n="f.send">SEND</span></button>
+      <p class="msg" data-lead-msg></p>
+    </form>
+  </dialog>
+
+</main>
+
+<script>
+// Local RU dictionary. The /ru/calculator page is generated from this file by
+// scratch_build_ru.js, which bakes these strings into the HTML (like every other page).
+const RU_DICT = {
+  'nav.chat': '01 ЧАТ',
+  'nav.qachat': '02 QA-ЧАТ',
+  'nav.payment': '03 ПЛАТЕЖИ',
+  'nav.qacall': '04 QA ЗВОНКОВ',
+  'nav.voice': '05 ГОЛОС',
+  'hero.kicker': '— ROI-КАЛЬКУЛЯТОР · ПОДДЕРЖКА IGAMING',
+  'hero.title': 'Сколько стоит поддержка игроков сейчас — и с AI.',
+  'hero.sub': 'Введите месячные объёмы и включите нужные продукты — результат пересчитается сразу.',
+  's1': 'Ваша поддержка',
+  's2': 'Ваш результат',
+  's3': 'Откуда экономия',
+  't.vol': 'ОБЪЁМЫ',
+  't.cost': 'ВАШИ ЗАТРАТЫ',
+  'c1.chats': 'Чатов с игроками в месяц',
+  'p.chat': 'AI Chat Operator',
+  'p.chat.d': 'Закрывает чаты от начала до конца: KYC, бонусы, выводы.',
+  'c1.autom': 'Чатов закрывает AI',
+  'p.qa': 'AI QA System',
+  'p.qa.d': 'Проверяет 100% этих чатов, а не выборку 2–5%.',
+  'p.pay': 'AI Payment Assistant',
+  'p.pay.d': 'Отвечает на «где мой депозит?» по живым данным PSP.',
+  'c2.tickets': 'Платёжных тикетов в месяц',
+  'c2.psp': 'PSP',
+  'p.voice': 'AI Voice Bot',
+  'p.voice.d': 'Исходящие и входящие звонки 24/7 на любом языке.',
+  'c3.mins': 'Минут звонков в месяц',
+  'c4.sub': 'По умолчанию модель берёт средние по рынку. Подставьте свои цифры — и сравнение станет вашим.',
+  'c4.opcost': 'Стоимость оператора в месяц',
+  'c4.opcost.h': 'Полная: зарплата, налоги, управление, софт.',
+  'c4.opchats': 'Чатов закрывает один оператор в месяц',
+  'c4.opchats.h': 'С учётом смен, перерывов и простоев.',
+  'c4.payshare': 'Платёжных тикетов решает бот',
+  'c4.payshare.h': 'Остальные уходят оператору — уже с данными от PSP.',
+  'c4.qacost': 'Ручной QA за проверку чата',
+  'c4.vcost': 'Живой оператор за минуту звонка',
+  'c4.reset': 'СБРОСИТЬ К УМОЛЧАНИЮ',
+  'r.save': 'Вы экономите каждый месяц',
+  'r.without': 'Поддержка только людьми',
+  'r.with': 'Поддержка с QODEQ',
+  'r.payback': 'Внедрение окупится за',
+  'r.setup': 'Разовое внедрение',
+  'r.fte': 'Работа, снятая AI',
+  'r.fte.h': 'операторов на полную ставку',
+  'r.note': 'Прайсовые цены, USD, без НДС. Финальные условия фиксируются в коммерческом предложении.',
+  'r.th.product': 'ПРОДУКТ · ВАШ ТАРИФ',
+  'r.th.without': 'ЛЮДИ',
+  'r.th.with': 'QODEQ',
+  'r.th.save': 'ЭКОНОМИЯ',
+  'r.curve': 'Накопленные затраты за 12 месяцев',
+  'r.lgd1': 'ТОЛЬКО ЛЮДИ',
+  'r.lgd2': 'С QODEQ',
+  'r.next': 'Скачайте одностраничный бизнес-кейс для финдиректора, скопируйте ссылку на этот расчёт — или отправьте цифры нам и получите предложение в течение рабочего дня.',
+  'r.pdf': 'PDF ДЛЯ ФИНДИРЕКТОРА',
+  'r.share': 'ССЫЛКА НА РАСЧЁТ',
+  'r.get': 'ПОЛУЧИТЬ КП',
+  'f.h': 'Персональное предложение',
+  'f.title': 'Сверим эти цифры с вашей инфраструктурой и ответим в течение рабочего дня. Расчёт прикрепится к заявке автоматически.',
+  'f.send': 'ОТПРАВИТЬ'
+};
+</script>
+
+<script>
+(function () {
+  var P = window.QODEQ_PRICING;
+  var RU = document.documentElement.lang === 'ru';
+  function L(en, ru) { return RU ? ru : en; }
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  // Defaults: a mid-size operator. opCost / opChats = $0.50 per chat = P.BASELINE.chat.
+  var DEF = {
+    chat: true, qa: true, pay: true, voice: false,
+    chats: 100000, autom: P.DEFAULTS.autom, tickets: 30000, psp: 2, mins: 20000,
+    opCost: 1500, opChats: 3000, payShare: P.DEFAULTS.payShare,
+    qaCost: P.BASELINE.qaManual, vCost: P.BASELINE.voiceMin
+  };
+  var LIMITS = {
+    chats: [1000, 5000000], autom: [40, 80], tickets: [1000, 2000000], psp: [1, 50], mins: [1000, 2000000],
+    opCost: [100, 20000], opChats: [100, 20000], payShare: [20, 80], qaCost: [0.05, 10], vCost: [0.05, 10]
+  };
+  // short URL keys — the link is what sales sends to prospects
+  var URLKEY = { chats: 'chats', autom: 'autom', tickets: 'tickets', psp: 'psp', mins: 'mins', opCost: 'opcost', opChats: 'opchats', payShare: 'payshare', qaCost: 'qacost', vCost: 'vcost' };
+  var COSTKEYS = ['opCost', 'opChats', 'payShare', 'qaCost', 'vCost'];
+  var VOICE_FTE_MIN = 9400; // call minutes one human agent handles per month
+
+  var s = {};
+  function clamp(k, v) { var l = LIMITS[k]; v = +v; if (!isFinite(v)) v = DEF[k]; return Math.min(l[1], Math.max(l[0], v)); }
+
+  // ---------- state <-> URL ----------
+  function readUrl() {
+    var q = new URLSearchParams(location.search);
+    Object.keys(DEF).forEach(function (k) { s[k] = DEF[k]; });
+    Object.keys(URLKEY).forEach(function (k) {
+      if (q.has(URLKEY[k])) s[k] = clamp(k, q.get(URLKEY[k]));
+    });
+    // a volume of 0 (e.g. coming from the homepage with a product switched off) = product off
+    if (q.has('tickets') && +q.get('tickets') === 0) { s.pay = false; s.tickets = DEF.tickets; }
+    if (q.has('mins')) { if (+q.get('mins') === 0) { s.voice = false; s.mins = DEF.mins; } else s.voice = true; }
+    ['chat', 'qa', 'pay', 'voice'].forEach(function (k) { if (q.has(k)) s[k] = q.get(k) === '1'; });
+  }
+  function stateQuery() {
+    var q = new URLSearchParams();
+    ['chats', 'autom', 'tickets', 'psp', 'mins'].forEach(function (k) { q.set(URLKEY[k], s[k]); });
+    ['chat', 'qa', 'pay', 'voice'].forEach(function (k) { q.set(k, s[k] ? '1' : '0'); });
+    COSTKEYS.forEach(function (k) { if (s[k] !== DEF[k]) q.set(URLKEY[k], s[k]); });
+    return q.toString();
+  }
+  function shareUrl() { return location.origin + location.pathname + '?' + stateQuery(); }
+  var urlTimer = null;
+  function writeUrl() {
+    clearTimeout(urlTimer);
+    urlTimer = setTimeout(function () {
+      try { history.replaceState(null, '', location.pathname + '?' + stateQuery() + location.hash); } catch (e) {}
+      syncLangLinks();
+    }, 250);
+  }
+  function syncLangLinks() {
+    $$('[data-lang-link]').forEach(function (a) {
+      var ru = a.getAttribute('data-lang-link') === 'ru';
+      a.setAttribute('href', (ru ? '/ru/calculator' : '/calculator') + (location.search || ''));
+      if (ru === RU) a.setAttribute('aria-current', 'page');
+    });
+  }
+
+  // ---------- formatting ----------
+  function n(x) { return Math.round(x).toLocaleString('en-US'); }
+  function usd(x) { return '$' + n(x); }
+  function compact(v) { return v >= 1000000 ? +(v / 1000000).toFixed(1) + 'M' : v >= 1000 ? +(v / 1000).toFixed(v < 10000 ? 1 : 0) + 'K' : String(Math.round(v)); }
+  function rate(r) { return '$' + r.toFixed(2); }
+
+  // ---------- model ----------
+  function compute() {
+    var perContact = s.opCost / s.opChats;
+    var m = P.model({
+      chatOn: s.chat,
+      chats: (s.chat || s.qa) ? s.chats : 0,
+      autom: s.autom, qa: s.qa,
+      tickets: s.pay ? s.tickets : 0, psp: s.psp,
+      mins: s.voice ? s.mins : 0,
+      chatCost: perContact, ticketCost: perContact,
+      qaManual: s.qaCost, voiceCost: s.vCost, payShare: s.payShare
+    });
+    var aiContacts = (s.chat ? s.chats * s.autom / 100 : 0) + (s.pay ? s.tickets * s.payShare / 100 : 0);
+    m.fte = aiContacts / s.opChats + (s.voice ? s.mins / VOICE_FTE_MIN : 0);
+    m.perContact = perContact;
+    m.pct = m.without > 0 ? Math.round(m.save / m.without * 100) : 0;
+    m.payback = m.save > 0 ? (m.setup / m.save < 1 ? L('< 1 month', '< 1 мес.') : Math.ceil(m.setup / m.save) + L(' months', ' мес.')) : '—';
+    return m;
+  }
+
+  // "COMPANY $0.20 · +25K → $0.18"
+  function planNote(product, volume) {
+    var t = P.tier(product, volume);
+    var out = '<b>' + t.plan + ' ' + rate(t.rate) + '</b>';
+    if (t.next) out += ' · +' + compact(t.next.from - volume) + ' → ' + rate(t.next.rate);
+    return out;
+  }
+
+  var COLORS = { chat: '#4FD1A5', qa: '#E8B23A', pay: '#5FA5F9', voice: '#F4794C' };
+  var last = null;
+
+  function render() {
+    var m = last = compute();
+    $('[data-out="save"]').textContent = usd(Math.max(0, m.save));
+    $('[data-out="saveLine"]').innerHTML = m.without > 0
+      ? L('<b>' + m.pct + '% less</b> than support with people only · <b>' + usd(m.save * 12) + '</b> a year',
+          '<b>на ' + m.pct + '% дешевле</b>, чем поддержка только людьми · <b>' + usd(m.save * 12) + '</b> в год')
+      : L('Switch on at least one product.', 'Включите хотя бы один продукт.');
+    $('[data-out="without"]').textContent = usd(m.without);
+    $('[data-out="withAi"]').textContent = usd(m.withAi);
+    $('[data-out-bar]').style.width = (m.without > 0 ? Math.max(2, Math.min(100, Math.round(m.withAi / m.without * 100))) : 0) + '%';
+    $('[data-out="payback"]').textContent = m.payback;
+    $('[data-out="setup"]').textContent = usd(m.setup);
+    $('[data-out="fte"]').textContent = (m.fte >= 10 ? String(Math.round(m.fte)) : m.fte.toFixed(1)) + L(' FTE', ' опер.');
+
+    var rows = [];
+    if (s.chat) rows.push(['chat', 'AI Chat Operator', compact(s.chats * s.autom / 100) + L(' chats by AI', ' чатов AI') + ' · ' + planNote('chat', s.chats), m.chatWithout, m.chatWith]);
+    if (s.qa) rows.push(['qa', 'AI QA System', compact(s.chats) + L(' checked', ' проверок') + ' · ' + planNote('qa', s.chats), m.qaWithout, m.qaWith]);
+    if (s.pay) rows.push(['pay', 'AI Payment Assistant', compact(s.tickets * s.payShare / 100) + L(' tickets by bot', ' тикетов ботом') + ' · ' + planNote('payment', s.tickets), m.payWithout, m.payWith]);
+    if (s.voice) rows.push(['voice', 'AI Voice Bot', compact(s.mins) + L(' min', ' мин') + ' · ' + planNote('voice', s.mins), m.voiceWithout, m.voiceWith]);
+    var html = rows.map(function (r) {
+      return '<tr><td><i style="background:' + COLORS[r[0]] + '"></i>' + r[1] + '<small>' + r[2] + '</small></td><td class="opt">' + usd(r[3]) + '</td><td>' + usd(r[4]) + '</td><td class="sv">' + usd(r[3] - r[4]) + '</td></tr>';
+    }).join('');
+    if (rows.length) html += '<tr class="total"><td>' + L('Total per month', 'Итого в месяц') + '</td><td class="opt">' + usd(m.without) + '</td><td>' + usd(m.withAi) + '</td><td class="sv">' + usd(m.save) + '</td></tr>';
+    else html = '<tr><td colspan="4">' + L('Switch on at least one product.', 'Включите хотя бы один продукт.') + '</td></tr>';
+    $('[data-out="rows"]').innerHTML = html;
+
+    $('[data-derived]').innerHTML = L('= <b>' + rate(m.perContact) + '</b> per chat or payment ticket handled by a person',
+      '= <b>' + rate(m.perContact) + '</b> за чат или платёжный тикет, обработанный человеком');
+    $('.tab[data-tab="cost"]').classList.toggle('custom', COSTKEYS.some(function (k) { return s[k] !== DEF[k]; }));
+
+    drawChart(m);
+    writeUrl();
+  }
+
+  // ---------- chart (drawn at the box's real pixel size, so text never stretches) ----------
+  function drawChart(m) {
+    var svg = $('[data-chart]'), box = svg.getBoundingClientRect();
+    var W = Math.max(240, Math.round(box.width)), H = Math.max(100, Math.round(box.height));
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var pl = 12, pr = 12, pt = 14, pb = 24;
+    var people = [], ai = [];
+    for (var k = 0; k <= 12; k++) { people.push(m.without * k); ai.push(m.setup + m.withAi * k); }
+    var max = Math.max(people[12], ai[12], 1);
+    function x(k) { return pl + (W - pl - pr) * k / 12; }
+    function y(v) { return pt + (H - pt - pb) * (1 - v / max); }
+    function pts(a) { return a.map(function (v, k) { return (k ? 'L' : 'M') + x(k).toFixed(1) + ' ' + y(v).toFixed(1); }).join(' '); }
+    var mono = 'font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.2"';
+    var g = '';
+    for (var i = 0; i <= 4; i++) { var yy = pt + (H - pt - pb) * i / 4; g += '<line x1="' + pl + '" x2="' + (W - pr) + '" y1="' + yy + '" y2="' + yy + '" stroke="rgba(255,255,255,.06)"/>'; }
+    [0, 3, 6, 9, 12].forEach(function (k) { g += '<text x="' + x(k) + '" y="' + (H - 8) + '" fill="#57544C" ' + mono + ' text-anchor="' + (k === 0 ? 'start' : k === 12 ? 'end' : 'middle') + '">' + L('M', 'М') + k + '</text>'; });
+    if (m.save > 0) {
+      var area = pts(ai) + ' ' + people.slice().reverse().map(function (v, j) { return 'L' + x(12 - j).toFixed(1) + ' ' + y(v).toFixed(1); }).join(' ') + ' Z';
+      g += '<path d="' + area + '" fill="rgba(232,178,58,.08)"/>';
+    }
+    g += '<path d="' + pts(people) + '" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>';
+    g += '<path d="' + pts(ai) + '" fill="none" stroke="#E8B23A" stroke-width="2.5"/>';
+    if (m.save > 0) {
+      var be = m.setup / m.save;
+      if (be <= 12) {
+        var bx = x(be);
+        g += '<line x1="' + bx + '" x2="' + bx + '" y1="' + pt + '" y2="' + (H - pb) + '" stroke="rgba(232,178,58,.35)" stroke-dasharray="3 4"/>';
+        g += '<circle cx="' + bx + '" cy="' + y(m.without * be) + '" r="4" fill="#E8B23A"/>';
+        g += '<text x="' + Math.min(bx + 8, W - 110) + '" y="' + (pt + 11) + '" fill="#E8B23A" ' + mono + '>' + L('BREAK-EVEN', 'ОКУПАЕМОСТЬ') + '</text>';
+      }
+      var ly = y(ai[12]) + (y(people[12]) - y(ai[12])) / 2 + 5;
+      g += '<text x="' + (W - pr - 6) + '" y="' + ly + '" fill="#F5F2EC" stroke="#0C0C0A" stroke-width="5" paint-order="stroke" font-family="Space Grotesk, sans-serif" font-size="15" text-anchor="end">+' + usd(people[12] - ai[12]) + L(' saved in 12 months', ' экономии за 12 месяцев') + '</text>';
+    }
+    svg.innerHTML = g;
+  }
+
+  // ---------- inputs ----------
+  var DECIMAL = { qaCost: 1, vCost: 1 };
+  function fmtField(k) { return DECIMAL[k] ? s[k].toFixed(2) : n(s[k]); }
+  function parseField(k, raw) {
+    raw = String(raw);
+    var v = DECIMAL[k] ? parseFloat(raw.replace(',', '.').replace(/[^\d.]/g, '')) : parseInt(raw.replace(/\D/g, ''), 10);
+    return isFinite(v) ? v : NaN;
+  }
+  function fill(r) {
+    var min = +r.min, max = +r.max, v = Math.min(max, Math.max(min, +r.value));
+    r.style.setProperty('--f', (max > min ? (v - min) / (max - min) * 100 : 0) + '%');
+  }
+  function syncInputs(except) {
+    $$('[data-k]').forEach(function (el) {
+      if (el === except) return;
+      var k = el.getAttribute('data-k');
+      if (el.type === 'range') { el.value = s[k]; fill(el); }
+      else el.value = fmtField(k);
+    });
+    ['chat', 'qa', 'pay', 'voice'].forEach(function (k) {
+      $('[data-toggle="' + k + '"]').setAttribute('aria-pressed', s[k] ? 'true' : 'false');
+      var card = $('[data-prod="' + k + '"]');
+      if (card) card.classList.toggle('off', !s[k]);
+      $$('[data-body="' + k + '"]').forEach(function (b) { b.classList.toggle('is-off', !s[k]); });
+    });
+  }
+  function bind() {
+    $$('[data-k]').forEach(function (el) {
+      var k = el.getAttribute('data-k');
+      if (el.type === 'range') {
+        el.addEventListener('input', function () { s[k] = +el.value; syncInputs(el); render(); });
+        return;
+      }
+      // typed boxes: recalc live, but only reformat ("100,000") once the visitor leaves the box
+      el.addEventListener('input', function () {
+        var v = parseField(k, el.value);
+        if (isNaN(v)) return;
+        s[k] = Math.min(LIMITS[k][1], Math.max(0, v));
+        syncInputs(el);
+        render();
+      });
+      el.addEventListener('change', function () {
+        var v = parseField(k, el.value);
+        s[k] = clamp(k, isNaN(v) ? DEF[k] : v);
+        syncInputs();
+        render();
+      });
+      el.addEventListener('focus', function () { el.select(); });
+      el.addEventListener('keydown', function (e) { if (e.key === 'Enter') el.blur(); });
+    });
+    $$('[data-toggle]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.getAttribute('data-toggle');
+        s[k] = !s[k];
+        syncInputs();
+        render();
+      });
+    });
+    $$('[data-tab]').forEach(function (t) {
+      t.addEventListener('click', function () {
+        var name = t.getAttribute('data-tab');
+        $$('[data-tab]').forEach(function (o) { o.setAttribute('aria-selected', o === t ? 'true' : 'false'); });
+        $$('[data-pane]').forEach(function (p) { p.hidden = p.getAttribute('data-pane') !== name; });
+      });
+    });
+    $('[data-reset]').addEventListener('click', function () {
+      COSTKEYS.forEach(function (k) { s[k] = DEF[k]; });
+      syncInputs(); render();
+    });
+    $('[data-share]').addEventListener('click', function () {
+      var btn = this, url = shareUrl();
+      var done = function () {
+        var sp = $('span', btn), old = sp.textContent;
+        sp.textContent = L('LINK COPIED ✓', 'СКОПИРОВАНО ✓');
+        setTimeout(function () { sp.textContent = old; }, 2200);
+      };
+      var ask = function () { window.prompt(L('Copy this link:', 'Скопируйте ссылку:'), url); };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, ask);
+        else ask();
+      } catch (e) { ask(); }
+      if (typeof gtag === 'function') gtag('event', 'calc_share');
+    });
+
+    // PDF business case — generator + fonts are fetched only when the visitor goes for it
+    var pdfBtn = $('[data-pdf]'), pdfLib = null;
+    function loadPdf() {
+      if (!pdfLib) pdfLib = new Promise(function (res, rej) {
+        var sc = document.createElement('script');
+        sc.src = '/calc-pdf.js?v=1'; sc.onload = function () { res(window.QODEQ_CALC_PDF); }; sc.onerror = rej;
+        document.head.appendChild(sc);
+      }).then(function (lib) { lib.prepare(); return lib; });
+      pdfLib.catch(function () { pdfLib = null; });
+      return pdfLib;
+    }
+    pdfBtn.addEventListener('mouseenter', loadPdf, { once: true });
+    pdfBtn.addEventListener('click', function () {
+      var sp = $('span', pdfBtn), old = sp.textContent;
+      pdfBtn.setAttribute('aria-busy', 'true'); sp.textContent = L('PREPARING…', 'ГОТОВИМ…');
+      loadPdf().then(function (lib) { return lib.build(pdfData()); }).then(function () {
+        if (typeof gtag === 'function') gtag('event', 'calc_pdf');
+      }).catch(function (e) {
+        console.error('PDF:', e);
+        window.alert(L('Could not build the PDF. Please try again or copy the link instead.', 'Не удалось собрать PDF. Попробуйте ещё раз или скопируйте ссылку.'));
+      }).then(function () { pdfBtn.removeAttribute('aria-busy'); sp.textContent = old; });
+    });
+
+    var dlg = $('[data-lead-dialog]');
+    $$('[data-lead-open]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var m = compute();
+        $('[data-lead-sum]').innerHTML = L('Attached: ', 'Прикреплено: ') + usd(m.without) + ' → ' + usd(m.withAi) + L(' / month · saving ', ' / мес · экономия ') + '<b style="color: var(--acc); font-weight: 500;">' + usd(m.save) + '</b>';
+        $('[data-lead-msg]').textContent = '';
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+        setTimeout(function () { $('input[name="name"]', dlg).focus(); }, 30);
+        if (typeof gtag === 'function') gtag('event', 'calc_lead_open');
+      });
+    });
+    $('[data-lead-close]').addEventListener('click', function () { dlg.close ? dlg.close() : dlg.removeAttribute('open'); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg && dlg.close) dlg.close(); }); // click on backdrop
+    $('[data-lead]').addEventListener('submit', submitLead);
+  }
+
+  function pdfData() {
+    var m = compute(), rows = [];
+    function plan(product, v) { var t = P.tier(product, v); return t.plan + ' · $' + t.rate.toFixed(2); }
+    if (s.chat) rows.push({ key: 'chat', name: 'AI Chat Operator', vol: compact(s.chats * s.autom / 100) + L(' by AI', ' AI'), plan: plan('chat', s.chats), without: m.chatWithout, with: m.chatWith });
+    if (s.qa) rows.push({ key: 'qa', name: 'AI QA System', vol: compact(s.chats) + L(' checked', ' провер.'), plan: plan('qa', s.chats), without: m.qaWithout, with: m.qaWith });
+    if (s.pay) rows.push({ key: 'pay', name: 'AI Payment Assistant', vol: compact(s.tickets * s.payShare / 100) + L(' by bot', ' ботом'), plan: plan('payment', s.tickets), without: m.payWithout, with: m.payWith });
+    if (s.voice) rows.push({ key: 'voice', name: 'AI Voice Bot', vol: compact(s.mins) + L(' min', ' мин'), plan: plan('voice', s.mins), without: m.voiceWithout, with: m.voiceWith });
+    return { lang: RU ? 'ru' : 'en', m: m, s: s, def: DEF, rows: rows, url: shareUrl() };
+  }
+
+  // ---------- lead ----------
+  var sending = false;
+  function submitLead(e) {
+    e.preventDefault();
+    if (sending) return;
+    var f = e.currentTarget, msg = $('[data-lead-msg]');
+    var name = f.name.value.trim(), company = f.company.value.trim(), contact = f.contact.value.trim();
+    if (f.hp.value) { msg.className = 'msg ok'; msg.textContent = L('Sent.', 'Отправлено.'); return; }
+    if (!name || !contact) { msg.className = 'msg err'; msg.textContent = L('Please add your name and a contact.', 'Укажите имя и контакт.'); return; }
+    var m = compute();
+    var url = shareUrl();
+    sending = true;
+    msg.className = 'msg'; msg.textContent = L('Sending…', 'Отправляем…');
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name, company: company, contact: contact, hp: f.hp.value,
+        lang: RU ? 'ru' : 'en', page: url, product: 'Calculator',
+        calc: {
+          chatsPerMonth: s.chat || s.qa ? s.chats : 0, automationPct: s.chat ? s.autom : null,
+          paymentTickets: s.pay ? s.tickets : 0, voiceMinutes: s.voice ? s.mins : 0, qa: s.qa,
+          plan: P.planFor(s.chats),
+          costWithout: Math.round(m.without), costWith: Math.round(m.withAi),
+          savingMonthly: Math.round(m.save), savingAnnual: Math.round(m.save * 12),
+          payback: m.payback, setupFees: m.setup,
+          psp: s.pay ? s.psp : null, operatorCost: s.opCost, chatsPerOperator: s.opChats,
+          paymentBotShare: s.pay ? s.payShare : null, shareUrl: url
+        }
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      msg.className = 'msg ok';
+      msg.textContent = L('Thanks! We’ll reply within one business day.', 'Спасибо! Ответим в течение рабочего дня.');
+      f.reset();
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'calculator', value: Math.round(m.save), currency: 'USD' });
+    }).catch(function () {
+      msg.className = 'msg err';
+      msg.textContent = L('Could not send. Please email support@qodeq.net or Telegram @qodeq.', 'Не удалось отправить. Напишите на support@qodeq.net или в Telegram @qodeq.');
+    }).then(function () { sending = false; });
+  }
+
+  // ---------- boot ----------
+  if (RU) $$('[data-ph-ru]').forEach(function (el) { el.placeholder = el.getAttribute('data-ph-ru'); });
+  readUrl();
+  syncInputs();
+  bind();
+  render();
+  syncLangLinks();
+  var rz = null;
+  window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { if (last) drawChart(last); }, 120); });
+})();
+</script>
+</body>
+</html>
