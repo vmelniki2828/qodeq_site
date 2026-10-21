@@ -18,14 +18,19 @@ require('dotenv').config();
 const dns = require('dns');
 const express = require('express');
 const nodemailer = require('nodemailer');
+const { openLeadStore, normalizeAttrib, attribRows, startRetry, pickLang } = require('./lead-store');
+const { createLeadBot } = require('./tg-bot');
+const { buildAutoreply } = require('./autoreply');
 
 const PORT = Number(process.env.PORT || 3001);
 const NOTIFY_EMAIL = (process.env.NOTIFY_EMAIL || '').trim();
 const SMTP_FROM = (process.env.SMTP_FROM || NOTIFY_EMAIL).trim();
 const MAIL_SUBJECT_PREFIX = (process.env.MAIL_SUBJECT_PREFIX || '[Сайт] Заявка').trim();
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TELEGRAM_BOT_TOKEN = (process.env.TELEGRAM_BOT_TOKEN || '').trim();
+const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID || '').trim();
 const AUTOREPLY_ON = String(process.env.AUTOREPLY || '').toLowerCase() === 'true';
+const AUTOREPLY_FROM = (process.env.AUTOREPLY_FROM || SMTP_FROM).trim();
+const CALENDAR_URL = (process.env.CALENDAR_URL || '').trim();
 
 // В Docker иногда ломается SMTP по IPv6 — при проблемах поставьте true в server/.env
 if (String(process.env.SMTP_IPV4_FIRST || '').toLowerCase() === 'true') {
@@ -94,19 +99,6 @@ const money = (n) => (Number.isFinite(+n) ? '$' + Math.round(+n).toLocaleString(
 const num = (n) => (Number.isFinite(+n) ? Math.round(+n).toLocaleString('en-US') : '—');
 const looksLikeEmail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(s || '').trim());
 
-async function notifyTelegram(text) {
-  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
-  try {
-    await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, disable_web_page_preview: true }),
-    });
-  } catch (err) {
-    console.error('Telegram:', err.message);
-  }
-}
-
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
 
 // ---------- новый эндпоинт: форма QODEQ.dc.html / Product-*.dc.html ----------
@@ -143,6 +135,7 @@ function buildLeadRows(body) {
     if (c.paymentBotShare != null) rows.push(['Доля тикетов ботом', c.paymentBotShare + '%']);
     if (c.shareUrl) rows.push(['Открыть расчёт', String(c.shareUrl).slice(0, 600)]);
   }
+  rows.push(...attribRows(body.attrib));
   return rows;
 }
 
@@ -164,6 +157,76 @@ function renderLeadHtml(body, meta) {
   </p>
 </div>`;
 }
+
+// ---------- хранение заявок: сначала в базу, потом уведомления ----------
+let store = null;
+try {
+  store = openLeadStore();
+  console.log(`Заявки сохраняются в ${store.file}`);
+} catch (err) {
+  console.error('База заявок не открылась, заявки идут только на почту:', err.message);
+}
+
+// TG-бот: карточки с кнопками, напоминания, утренняя сводка (настройки — server/.env)
+const bot = createLeadBot({
+  token: TELEGRAM_BOT_TOKEN,
+  chatId: TELEGRAM_CHAT_ID,
+  store,
+  tz: process.env.WORK_TZ,
+  workHours: process.env.WORK_HOURS,
+  workDays: process.env.WORK_DAYS,
+  escalateMin: process.env.ESCALATE_MIN,
+  digestHour: process.env.DIGEST_HOUR,
+  mention: process.env.TG_MENTION,
+  apiBase: process.env.TELEGRAM_API_BASE,   // только для тестов / своего Bot API сервера
+});
+
+/**
+ * Письмо на NOTIFY_EMAIL + Telegram. То, что по этой заявке уже ушло
+ * (row.mail_sent_at / row.tg_sent_at), повторно не отправляет.
+ * Возвращает true, если письмо отправлено (сейчас или раньше).
+ */
+async function deliverLead(id, lead, meta, row) {
+  let mailOk = Boolean(row && row.mail_sent_at);
+  let error = null;
+
+  if (!mailOk) {
+    const subject = `${MAIL_SUBJECT_PREFIX}: ${lead.name}${lead.company ? ' — ' + lead.company : ''}${lead.product ? ' · ' + lead.product : ''}`;
+    try {
+      await transporter.sendMail({
+        from: SMTP_FROM,
+        to: NOTIFY_EMAIL,
+        replyTo: looksLikeEmail(lead.contact) ? lead.contact : undefined,
+        subject,
+        text: renderLeadText(lead, meta),
+        html: renderLeadHtml(lead, meta),
+      });
+      mailOk = true;
+      if (store && id) store.markMailSent(id);
+    } catch (err) {
+      error = err;
+      console.error(`Отправка письма (/api/lead${id ? ', заявка #' + id : ''}) не удалась:`, err.message);
+    }
+  }
+
+  if (bot.enabled && !(row && row.tg_sent_at)) {
+    try {
+      const messageId = await bot.sendLeadCard(id, lead, meta);
+      if (store && id) store.markTgSent(id, messageId);
+    } catch (err) {
+      error = error || err;
+      console.error('Telegram:', err.message);
+    }
+  }
+
+  if (error && store && id) store.markFailed(id, error);
+  return mailOk;
+}
+
+if (store && transporter && NOTIFY_EMAIL) {
+  startRetry(store, deliverLead, bot.enabled);
+}
+bot.start();
 
 app.post('/api/lead', async (req, res) => {
   const ip = req.ip || req.socket.remoteAddress || 'unknown';
@@ -193,35 +256,37 @@ app.post('/api/lead', async (req, res) => {
     time: new Date().toISOString(),
   };
   const product = String(b.product || (b.calc && b.calc.product) || '').trim().slice(0, 120);
-  const payload = { name, company, contact, product, lang: b.lang, calc: b.calc || {} };
-  const subject = `${MAIL_SUBJECT_PREFIX}: ${name}${company ? ' — ' + company : ''}${product ? ' · ' + product : ''}`;
+  const payload = { name, company, contact, product, lang: pickLang(b.lang, b.page), calc: b.calc || {}, attrib: normalizeAttrib(b.attrib) };
 
-  try {
-    await transporter.sendMail({
-      from: SMTP_FROM,
-      to: NOTIFY_EMAIL,
-      replyTo: looksLikeEmail(contact) ? contact : undefined,
-      subject,
-      text: renderLeadText(payload, meta),
-      html: renderLeadHtml(payload, meta),
-    });
-
-    notifyTelegram(renderLeadText(payload, meta));
-
-    if (AUTOREPLY_ON && looksLikeEmail(contact)) {
-      transporter.sendMail({
-        from: SMTP_FROM,
-        to: contact,
-        subject: 'QODEQ — заявка получена',
-        text: `Здравствуйте, ${name}!\n\nМы получили вашу заявку и свяжемся в течение одного рабочего дня.\nК ответу приложим персональный расчёт по вашим объёмам.\n\n— Команда QODEQ\n${NOTIFY_EMAIL}`,
-      }).catch((err) => console.error('Автоответ:', err.message));
+  let id = null;
+  if (store) {
+    try {
+      id = store.insert(payload, meta);
+    } catch (err) {
+      console.error('Не удалось сохранить заявку в базу:', err.message);
     }
+  }
 
-    return res.json({ ok: true });
-  } catch (err) {
-    console.error('Отправка письма (/api/lead) не удалась:', err.message);
+  const mailOk = await deliverLead(id, payload, meta, null);
+  // заявка не сохранена и письмо не ушло — она потеряна, честно говорим об ошибке
+  if (!mailOk && !id) {
     return res.status(502).json({ ok: false, error: 'mail delivery failed' });
   }
+  if (!mailOk) console.error(`Заявка #${id} сохранена, письмо будет отправлено повторно`);
+
+  if (AUTOREPLY_ON && looksLikeEmail(contact)) {
+    const reply = buildAutoreply(payload, { calendarUrl: CALENDAR_URL, salesEmail: NOTIFY_EMAIL });
+    transporter.sendMail({
+      from: AUTOREPLY_FROM,
+      to: contact,
+      replyTo: NOTIFY_EMAIL,
+      subject: reply.subject,
+      text: reply.text,
+      html: reply.html,
+    }).catch((err) => console.error('Автоответ:', err.message));
+  }
+
+  return res.json({ ok: true });
 });
 
 // ---------- старый эндпоинт: форма прежнего React-сайта (оставлен для совместимости) ----------
