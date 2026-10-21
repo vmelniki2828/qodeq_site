@@ -84,9 +84,9 @@ module.exports = {
         ['AI Payment Assistant', 'Ticket taken into work', '$0.30 (1K–10K) · $0.25 (10K–50K) · $0.20 (50K–100K) · $0.18 (100K+)', '$200 per PSP'],
         ['AI QA System', 'Checked chat', '$0.30 (5K–30K) · $0.25 (30K–100K) · $0.20 (100K–200K) · $0.18 (200K+)', '$1,000'],
         ['AI Voice QA', 'Call', 'Individual terms (final stage of development)', '—'],
-        ['AI Voice Bot', 'Minute of conversation', '€0.15 (up to 20K) · €0.12 (20K–50K) · €0.09 (50K–100K) · €0.06 (100K+)', '€1,000'],
+        ['AI Voice Bot', 'Minute of conversation', '$0.15 (up to 20K) · $0.12 (20K–50K) · $0.09 (50K–100K) · $0.06 (100K+)', '$1,000'],
       ] },
-      { p: 'For comparison, a human operator costs about **$0.50 per chat** or per payment ticket, manual QA about **$0.90 per checked chat**, and an outbound caller about **€0.40 per minute** before HR, office and downtime overheads.' },
+      { p: 'For comparison, a human operator costs about **$0.50 per chat** or per payment ticket, manual QA about **$0.90 per checked chat**, and an outbound caller about **$0.40 per minute** before HR, office and downtime overheads.' },
 
       { h2: 'Example: savings at 250,000 chats a month', id: 'economics' },
       { p: 'At 250,000 chats a month, an operator spending $125,000 on human-only chat support would pay about $73,000 with the AI Chat Operator — a saving of $52,000 a month, or $624,000 a year.' },
@@ -135,7 +135,7 @@ module.exports = {
       { title: 'Pricing', items: [
         ['How much does AI customer support cost for a casino?', 'QODEQ’s AI Chat Operator costs from $0.30 down to $0.18 per chat it closes, depending on monthly volume, plus a $1,000 one-off setup. A human operator costs about $0.50 per chat, so every tier is cheaper from the first month.'],
         ['Is pricing per seat or per resolution?', 'Neither seats nor messages are billed. QODEQ charges per chat the AI closes, per payment ticket taken into work, per checked chat for QA, and per minute of conversation for the voice bot. Escalated chats are not double-charged.'],
-        ['Are there setup fees?', 'Yes, one-off: $1,000 for the AI Chat Operator, $1,000 for the AI QA System, $200 per connected payment provider for the AI Payment Assistant and €1,000 for the AI Voice Bot. AI Voice QA is priced individually.'],
+        ['Are there setup fees?', 'Yes, one-off: $1,000 for the AI Chat Operator, $1,000 for the AI QA System, $200 per connected payment provider for the AI Payment Assistant and $1,000 for the AI Voice Bot. AI Voice QA is priced individually.'],
         ['How much can an operator save?', 'At 250,000 chats a month, AI support costs about $73,000 instead of $125,000 with operators only — $52,000 saved per month. You can model your own volumes in the QODEQ calculator.'],
       ] },
       { title: 'What players ask — and what the AI does', items: [
@@ -237,9 +237,9 @@ module.exports = {
         ['AI Payment Assistant', 'Тикет, взятый в работу', '$0,30 (1K–10K) · $0,25 (10K–50K) · $0,20 (50K–100K) · $0,18 (100K+)', '$200 за PSP'],
         ['AI QA System', 'Проверенный чат', '$0,30 (5K–30K) · $0,25 (30K–100K) · $0,20 (100K–200K) · $0,18 (200K+)', '$1 000'],
         ['AI Voice QA', 'Звонок', 'Индивидуально (финальная стадия разработки)', '—'],
-        ['AI Voice Bot', 'Минута разговора', '€0,15 (до 20K) · €0,12 (20K–50K) · €0,09 (50K–100K) · €0,06 (100K+)', '€1 000'],
+        ['AI Voice Bot', 'Минута разговора', '$0,15 (до 20K) · $0,12 (20K–50K) · $0,09 (50K–100K) · $0,06 (100K+)', '$1 000'],
       ] },
-      { p: 'Для сравнения: оператор-человек обходится примерно в **$0,50 за чат** или платёжный тикет, ручной QA — около **$0,90 за проверенный чат**, оператор исходящих звонков — около **€0,40 за минуту** без учёта HR, офиса и простоев.' },
+      { p: 'Для сравнения: оператор-человек обходится примерно в **$0,50 за чат** или платёжный тикет, ручной QA — около **$0,90 за проверенный чат**, оператор исходящих звонков — около **$0,40 за минуту** без учёта HR, офиса и простоев.' },
 
       { h2: 'Пример: экономия при 250 000 чатов в месяц', id: 'economics' },
       { p: 'При 250 000 чатов в месяц оператор, который тратит $125 000 на поддержку только людьми, с AI Chat Operator заплатит около $73 000 — это $52 000 экономии в месяц или $624 000 в год.' },
@@ -288,7 +288,7 @@ module.exports = {
       { title: 'Цены', items: [
         ['Сколько стоит AI-поддержка для казино?', 'AI Chat Operator от QODEQ стоит от $0,30 до $0,18 за закрытый чат в зависимости от объёма в месяц плюс разовый setup $1 000. Оператор-человек обходится примерно в $0,50 за чат, так что любой тариф дешевле уже с первого месяца.'],
         ['Оплата за место или за результат?', 'Ни места, ни сообщения не тарифицируются. QODEQ берёт оплату за чат, закрытый AI, за платёжный тикет, взятый в работу, за проверенный чат в QA и за минуту разговора у голосового бота. Эскалированные чаты повторно не оплачиваются.'],
-        ['Есть ли плата за подключение?', 'Да, разовая: $1 000 для AI Chat Operator, $1 000 для AI QA System, $200 за каждого подключённого платёжного провайдера для AI Payment Assistant и €1 000 для AI Voice Bot. AI Voice QA — по индивидуальным условиям.'],
+        ['Есть ли плата за подключение?', 'Да, разовая: $1 000 для AI Chat Operator, $1 000 для AI QA System, $200 за каждого подключённого платёжного провайдера для AI Payment Assistant и $1 000 для AI Voice Bot. AI Voice QA — по индивидуальным условиям.'],
         ['Сколько может сэкономить оператор?', 'При 250 000 чатов в месяц AI-поддержка обходится примерно в $73 000 вместо $125 000 только на операторах — $52 000 экономии в месяц. Свои объёмы можно посчитать в калькуляторе QODEQ.'],
       ] },
       { title: 'О чём спрашивают игроки — и что делает AI', items: [
