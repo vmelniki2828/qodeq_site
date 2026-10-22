@@ -215,7 +215,7 @@ const CSS = `
   footer .back { font: 400 11px/1.6 var(--mono); letter-spacing: .14em; color: var(--faint); }
   .js [data-r] { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .js [data-r].in { opacity: 1; transform: none; }
-  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .toc { display: none; } .contact { grid-template-columns: 1fr; } .posts { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 980px) { .layout { grid-template-columns: minmax(0, 1fr); } .toc { display: none; } .contact { grid-template-columns: 1fr; } .posts { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 640px) { .posts { grid-template-columns: 1fr; } }
   @media (max-width: 860px) { .nav { display: none; } .hdr { padding: 12px 16px; } .hdr .lang { margin-left: auto; } .hero { padding-top: calc(65px + 40px); } }
   @media (max-width: 560px) { article > p, article li { font-size: 16px; } .box { padding: 20px; } }
