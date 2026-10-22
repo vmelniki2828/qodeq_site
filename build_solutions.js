@@ -48,11 +48,11 @@ const PAGES = [
     en: {
       nav: 'Online casinos',
       title: 'AI Customer Support for Online Casinos | QODEQ',
-      desc: 'Automate online casino player support with AI: 65% of chats resolved without an operator, 7-second replies 24/7 in any language, 70%+ of payment tickets auto-resolved. Live in 15 days.',
+      desc: 'Automate online casino player support with AI: 65% of chats resolved without an operator, 7-second replies 24/7 in any language, 45%+ of payment tickets auto-resolved. Live in 15 days.',
       kicker: '— SOLUTIONS · ONLINE CASINOS',
       h1: 'AI customer support for online casinos',
       lead: 'QODEQ answers players in chat, resolves deposit and withdrawal questions and checks the quality of every conversation — on one platform built for casino operators. Your team keeps only the cases that really need a human.',
-      stats: [['65%', 'of chats resolved without an operator'], ['7 sec', 'average response time, 24/7'], ['70%+', 'of payment tickets resolved automatically'], ['15 days', 'from integration to production']],
+      stats: [['65%', 'of chats resolved without an operator'], ['7 sec', 'average response time, 24/7'], ['45%+', 'of payment tickets resolved automatically'], ['15 days', 'from integration to production']],
       probKicker: '— WHAT PLAYERS ASK',
       probTitle: 'The questions that fill a casino support queue — handled end to end.',
       problems: [
@@ -66,7 +66,7 @@ const PAGES = [
       howTitle: 'Five AI agents on one platform — use one or all of them.',
       how: [
         ['chat', 'AI Chat Operator', 'Own generative model fine-tuned on 5M iGaming support chats. Resolves KYC, bonus, limit and payout questions end to end.'],
-        ['payment', 'AI Payment Assistant', 'Live PSP data, automatic tickets and receipt forgery checks. Touches 90% of payment tickets, resolves 70%+ with no human.'],
+        ['payment', 'AI Payment Assistant', 'Live PSP data, automatic tickets and receipt forgery checks. Touches 90% of payment tickets, resolves 45%+ with no human.'],
         ['qa-chat', 'AI QA System', 'Scores 100% of operator chats on 15 criteria instead of a 10–15% sample, with daily per-operator reports.'],
         ['voice', 'AI Voice Bot', 'Outbound calls 24/7 in several languages: registration follow-ups, dormant player win-back, payout confirmation.'],
       ],
@@ -78,7 +78,7 @@ const PAGES = [
       steps: [['DAY 1–5', 'Platform integration', 'API connection to your casino platform and helpdesk.'], ['DAY 5–10', 'Knowledge base upload', 'Rules, bonuses, KYC flows, tone of voice.'], ['DAY 10–15', 'Scenario testing', 'Shadow mode and calibration against your operators.'], ['DAY 15+', 'Production launch', 'Gradual traffic rollout with live supervision and rollback.']],
       faq: [
         ['How fast can AI support go live at our casino?', 'About 15 days: platform and helpdesk integration, knowledge-base upload, shadow-mode testing, then a gradual rollout. Backup operators stay on during the adaptation period and every step can be rolled back.'],
-        ['Will AI replace our support team?', 'It takes over the repetitive majority — about 65% of chats and 70%+ of payment tickets. Complex, VIP and disputed cases go to your operators with the full conversation and player context.'],
+        ['Will AI replace our support team?', 'It takes over the repetitive majority — about 65% of chats and 45%+ of payment tickets. Complex, VIP and disputed cases go to your operators with the full conversation and player context.'],
         ['Which languages does the AI support?', 'Any language your players write in, with the tone of voice adapted to your brand in each market.'],
         ['How is AI customer support priced?', 'Per chat the agent closes — not per message or per seat: from $0.30 down to $0.18 per chat depending on monthly volume, with no setup fee. Escalated chats are not double-charged.'],
         ['Is it just a wrapper around ChatGPT?', 'No. QODEQ runs its own generative model fine-tuned on 5 million iGaming support chats, not a wrapper over a public API.'],
@@ -90,11 +90,11 @@ const PAGES = [
     ru: {
       nav: 'Онлайн-казино',
       title: 'AI-поддержка для онлайн-казино | QODEQ',
-      desc: 'Автоматизация поддержки игроков онлайн-казино: 65% чатов без оператора, ответ за 7 секунд 24/7 на любом языке, 70%+ платёжных тикетов закрываются автоматически. Запуск за 15 дней.',
+      desc: 'Автоматизация поддержки игроков онлайн-казино: 65% чатов без оператора, ответ за 7 секунд 24/7 на любом языке, 45%+ платёжных тикетов закрываются автоматически. Запуск за 15 дней.',
       kicker: '— РЕШЕНИЯ · ОНЛАЙН-КАЗИНО',
       h1: 'AI-поддержка для онлайн-казино',
       lead: 'QODEQ отвечает игрокам в чате, закрывает вопросы по депозитам и выводам и проверяет качество каждого диалога — на одной платформе, созданной для операторов казино. Вашей команде остаются только случаи, где действительно нужен человек.',
-      stats: [['65%', 'чатов закрывается без оператора'], ['7 сек', 'среднее время ответа, 24/7'], ['70%+', 'платёжных тикетов решается автоматически'], ['15 дней', 'от интеграции до запуска']],
+      stats: [['65%', 'чатов закрывается без оператора'], ['7 сек', 'среднее время ответа, 24/7'], ['45%+', 'платёжных тикетов решается автоматически'], ['15 дней', 'от интеграции до запуска']],
       probKicker: '— О ЧЁМ СПРАШИВАЮТ ИГРОКИ',
       probTitle: 'Вопросы, которые забивают очередь саппорта казино, — решаются от начала до конца.',
       problems: [
@@ -108,7 +108,7 @@ const PAGES = [
       howTitle: 'Пять AI-агентов на одной платформе — подключайте один или все.',
       how: [
         ['chat', 'AI Chat Operator', 'Собственная генеративная модель, дообученная на 5 млн чатов поддержки iGaming. Закрывает вопросы KYC, бонусов, лимитов и выплат от начала до конца.'],
-        ['payment', 'AI Payment Assistant', 'Живые данные PSP, автоматические тикеты и проверка чеков на подделку. Участвует в 90% платёжных тикетов, 70%+ решает без человека.'],
+        ['payment', 'AI Payment Assistant', 'Живые данные PSP, автоматические тикеты и проверка чеков на подделку. Участвует в 90% платёжных тикетов, 45%+ решает без человека.'],
         ['qa-chat', 'AI QA System', 'Оценивает 100% чатов операторов по 15 критериям вместо выборки 10–15%, с ежедневными отчётами по каждому оператору.'],
         ['voice', 'AI Voice Bot', 'Исходящие звонки 24/7 на нескольких языках: дожим регистраций, возврат спящих игроков, подтверждение выплат.'],
       ],
@@ -120,7 +120,7 @@ const PAGES = [
       steps: [['ДНИ 1–5', 'Интеграция с платформой', 'API-подключение к платформе казино и хелпдеску.'], ['ДНИ 5–10', 'Загрузка базы знаний', 'Правила, бонусы, сценарии KYC, тон общения.'], ['ДНИ 10–15', 'Тестирование сценариев', 'Теневой режим и калибровка по вашим операторам.'], ['ДЕНЬ 15+', 'Запуск в продакшн', 'Постепенный перевод трафика под контролем, с возможностью отката.']],
       faq: [
         ['Как быстро можно запустить AI-поддержку в казино?', 'Около 15 дней: интеграция с платформой и хелпдеском, загрузка базы знаний, тест в теневом режиме и постепенный запуск. На период адаптации резервные операторы остаются, любой шаг можно откатить.'],
-        ['AI заменит нашу службу поддержки?', 'Он забирает основную рутину — около 65% чатов и 70%+ платёжных тикетов. Сложные, VIP- и спорные обращения уходят вашим операторам с полной историей диалога и контекстом игрока.'],
+        ['AI заменит нашу службу поддержки?', 'Он забирает основную рутину — около 65% чатов и 45%+ платёжных тикетов. Сложные, VIP- и спорные обращения уходят вашим операторам с полной историей диалога и контекстом игрока.'],
         ['На каких языках работает AI?', 'На любом языке, на котором пишут ваши игроки, с тоном общения, адаптированным под ваш бренд на каждом рынке.'],
         ['Сколько стоит AI-поддержка?', 'Оплата за чат, который закрыл агент, — не за сообщения и не за места: от $0,30 до $0,18 за чат в зависимости от объёма в месяц, без платы за подключение. Эскалированные чаты повторно не тарифицируются.'],
         ['Это просто обёртка над ChatGPT?', 'Нет. У QODEQ собственная генеративная модель, дообученная на 5 миллионах чатов поддержки iGaming, а не надстройка над публичным API.'],
@@ -153,7 +153,7 @@ const PAGES = [
       howTitle: 'One platform for the whole betting support desk.',
       how: [
         ['chat', 'AI Chat Operator', 'Own model fine-tuned on 5M iGaming support chats. Resolves account, bonus and payout questions end to end, escalates with context.'],
-        ['payment', 'AI Payment Assistant', 'Live PSP data, automatic tickets and receipt forgery checks — 70%+ of payment tickets resolved with no human.'],
+        ['payment', 'AI Payment Assistant', 'Live PSP data, automatic tickets and receipt forgery checks — 45%+ of payment tickets resolved with no human.'],
         ['qa-chat', 'AI QA System', '100% of operator chats scored on 15 criteria, so peak-day quality is visible, not guessed.'],
         ['voice', 'AI Voice Bot', 'Outbound campaigns 24/7 in several languages — win back dormant bettors and confirm payouts without a call centre.'],
       ],
@@ -195,7 +195,7 @@ const PAGES = [
       howTitle: 'Одна платформа для всей поддержки букмекера.',
       how: [
         ['chat', 'AI Chat Operator', 'Собственная модель, дообученная на 5 млн чатов поддержки iGaming. Закрывает вопросы по аккаунтам, бонусам и выплатам, эскалирует с контекстом.'],
-        ['payment', 'AI Payment Assistant', 'Живые данные PSP, автоматические тикеты и проверка чеков на подделку — 70%+ платёжных тикетов решаются без человека.'],
+        ['payment', 'AI Payment Assistant', 'Живые данные PSP, автоматические тикеты и проверка чеков на подделку — 45%+ платёжных тикетов решаются без человека.'],
         ['qa-chat', 'AI QA System', '100% чатов операторов оцениваются по 15 критериям — качество в пиковые дни видно, а не угадывается.'],
         ['voice', 'AI Voice Bot', 'Исходящие кампании 24/7 на нескольких языках — возврат спящих игроков и подтверждение выплат без колл-центра.'],
       ],

@@ -1,5 +1,5 @@
 // Статья: автоматизация платёжного саппорта (депозиты, выводы) — продукт AI Payment Assistant.
-// Цифры — с /payment и главной (70%+, 90%, 0:35 vs 8:00, тарифы за тикет, без платы за подключение — по КП v3).
+// Цифры — с /payment и главной (45%+, 90%, 0:35 vs 8:00, тарифы за тикет, без платы за подключение — по КП v3).
 module.exports = {
   slug: 'automate-casino-withdrawal-deposit-support',
   kind: 'post',
@@ -12,13 +12,13 @@ module.exports = {
   en: {
     nav: 'Payment support automation',
     title: 'Automate Casino Deposit & Withdrawal Support | QODEQ',
-    desc: 'How iGaming operators automate “where is my withdrawal?” and “deposit not credited” tickets with live PSP data: 70%+ resolved with no human, 0:35 to pick up.',
+    desc: 'How iGaming operators automate “where is my withdrawal?” and “deposit not credited” tickets with live PSP data: 45%+ resolved with no human, 0:35 to pick up.',
     kicker: '— GUIDE · PAYMENT SUPPORT',
     h1: 'How to automate deposit and withdrawal support in iGaming',
     lead: '“Where is my withdrawal?” and “my deposit didn’t arrive” are the questions players care about most and the ones operators answer slowest. This guide shows which payment tickets can be resolved automatically with live PSP data, which must stay with people, and what it costs.',
     takeaways: [
       'Most payment tickets are status questions. The answer already sits in your PSP, so an AI assistant can look it up and reply in about 10 seconds.',
-      'The [AI Payment Assistant](/payment) is involved in 90% of payment tickets and resolves **70%+ with no human at all**.',
+      'The [AI Payment Assistant](/payment) is involved in 90% of payment tickets and resolves **45%+ with no human at all**.',
       'Time to take a ticket into work drops from **8:00 to 0:35**. Deposits are matched against PSP data, including p2p transfers, and PDF receipts are checked for forgery.',
       'Chargeback threats, duplicate charges and anything risk-related still go to people, with the ticket already filled in.',
       'Pricing is per ticket taken into work, from $0.30 down to $0.18, with no setup fee, and you can be fully live in 2–3 days.',
@@ -29,7 +29,7 @@ module.exports = {
       { p: 'A generic FAQ bot cannot tell a player where their €820 is. It can only say that withdrawals “usually take up to 24 hours”, which is exactly what an anxious player does not want to hear. So the conversation goes to an operator. The operator opens the back office, then the PSP dashboard, compares references, writes an answer and often creates a ticket for the payments team. Manual handling takes 3–5 minutes of operator time per ticket and costs about **$0.50**.' },
       { p: 'Players judge a brand by how payments feel, so these tickets also carry more emotional weight than a question about game rules. A slow or vague answer here is how a routine status check becomes a complaint, a chargeback or a lost depositor.' },
       { p: 'The good news is that most of these tickets follow a small set of patterns. Once the assistant can read the same data an operator reads, the patterns can be resolved end to end.' },
-      { stats: [['70%+', 'payment tickets resolved automatically'], ['90%', 'of tickets with assistant involvement'], ['0:35', 'to take into work vs 8:00 manually'], ['1M', 'payment tickets processed']] },
+      { stats: [['45%+', 'payment tickets resolved automatically'], ['90%', 'of tickets with assistant involvement'], ['0:35', 'to take into work vs 8:00 manually'], ['1M', 'payment tickets processed']] },
 
       { h2: 'The six payment scenarios that fill the queue', id: 'scenarios' },
       { p: 'Six scenarios cover the bulk of payment support: deposits not credited, pending withdrawals, duplicate charges, receipt uploads, chargeback threats and crypto deposits sent to the wrong address. Four of them can usually be closed automatically. Two belong with people.' },
@@ -74,7 +74,7 @@ module.exports = {
         '**Suspected fraud and failed receipt checks.** These go to the relevant team with the check result.',
         '**Cases outside your rules.** You set escalation rules and fraud thresholds during calibration, and the assistant follows them.',
       ] },
-      { p: 'This split is how the assistant can be involved in 90% of payment tickets while resolving 70%+ of them alone. The remaining tickets still benefit, because nobody has to start the investigation from zero.' },
+      { p: 'This split is how the assistant can be involved in 90% of payment tickets while resolving 45%+ of them alone. The remaining tickets still benefit, because nobody has to start the investigation from zero.' },
 
       { h2: 'Rollout: full operation in 2–3 days', id: 'rollout' },
       { p: 'If you provide PSP and helpdesk API access and documentation upfront, the Payment Assistant reaches full operation in 2–3 days.' },
@@ -101,11 +101,11 @@ module.exports = {
       { table: [
         ['Line', 'Calculation', 'Monthly cost'],
         ['Operators only', '100,000 × $0.50', '$50,000'],
-        ['Resolved by the assistant (70%)', '70,000 × $0.20', '$14,000'],
-        ['Handled by operators (30%)', '30,000 × $0.50', '$15,000'],
-        ['Total with the Payment Assistant', '', '$29,000'],
+        ['Resolved by the assistant (45%)', '45,000 × $0.20', '$9,000'],
+        ['Handled by operators (55%)', '55,000 × $0.50', '$27,500'],
+        ['Total with the Payment Assistant', '', '$36,500'],
       ] },
-      { p: 'That is **$21,000 saved per month, or $252,000 per year**, at the COMPANY tier. To run the numbers for your own volumes and PSP count, use the [calculator](/calculator).' },
+      { p: 'That is **$13,500 saved per month, or $162,000 per year**, at the COMPANY tier. To run the numbers for your own volumes and PSP count, use the [calculator](/calculator).' },
 
       { h2: 'Checklist: is your payment support ready to automate?', id: 'checklist' },
       { p: 'You are ready to automate if you can give the assistant read access to transaction data and a clear set of rules for when a human must step in.' },
@@ -121,7 +121,7 @@ module.exports = {
     ],
     faq: [
       ['Can AI really answer “where is my withdrawal?” on its own?', 'Yes. The assistant reads the live transaction status directly from the PSP and answers in about 10 seconds with where the payout is and when it should arrive. If the payout is actually stuck, it opens and fills in a ticket for your payments team.'],
-      ['What share of payment tickets can be automated?', 'The AI Payment Assistant is involved in 90% of payment tickets and resolves 70%+ of them with no human at all. The rest, such as chargebacks and duplicate charges, go to people with the investigation already done.'],
+      ['What share of payment tickets can be automated?', 'The AI Payment Assistant is involved in 90% of payment tickets and resolves 45%+ of them with no human at all. The rest, such as chargebacks and duplicate charges, go to people with the investigation already done.'],
       ['How does it handle p2p deposits where the payer name does not match?', 'Every ticket is matched against PSP data the moment it arrives, including p2p transfers where the payer’s name rarely matches the player’s account. The transfer is found even without a clear payer reference, and only genuine exceptions reach a human.'],
       ['Can it detect fake payment receipts?', 'Yes. Uploaded PDF receipts go through an AI authenticity check that detects forged documents before a payout is approved. Failed checks are escalated with the result attached.'],
       ['Does it support crypto deposits?', 'Yes. Crypto cases such as a USDT deposit sent to the wrong wallet address are handled through the flow you define, and anything outside your rules is escalated.'],
@@ -137,13 +137,13 @@ module.exports = {
   ru: {
     nav: 'Автоматизация платежей',
     title: 'Автоматизация саппорта по депозитам и выводам | QODEQ',
-    desc: 'Как автоматизировать вопросы «где мой вывод?» и «депозит не зачислился» в казино по живым данным PSP: 70%+ тикетов без человека, взятие в работу за 0:35.',
+    desc: 'Как автоматизировать вопросы «где мой вывод?» и «депозит не зачислился» в казино по живым данным PSP: 45%+ тикетов без человека, взятие в работу за 0:35.',
     kicker: '— ГАЙД · ПЛАТЁЖНЫЙ САППОРТ',
     h1: 'Как автоматизировать поддержку по депозитам и выводам в iGaming',
     lead: '«Где мой вывод?» и «депозит не зачислился» — вопросы, которые игроков волнуют больше всего, а оператор отвечает на них медленнее всего. Разбираем, какие платёжные тикеты закрываются автоматически по живым данным PSP, какие должны остаться у людей и сколько это стоит.',
     takeaways: [
       'Большинство платёжных тикетов — это вопросы о статусе. Ответ уже лежит в PSP, поэтому AI-ассистент находит его и отвечает примерно за 10 секунд.',
-      '[AI Payment Assistant](/payment) участвует в 90% платёжных тикетов и **70%+ закрывает вообще без человека**.',
+      '[AI Payment Assistant](/payment) участвует в 90% платёжных тикетов и **45%+ закрывает вообще без человека**.',
       'Взятие тикета в работу сокращается **с 8:00 до 0:35**. Депозиты сверяются с данными PSP, включая p2p, а PDF-чеки проверяются на подделку.',
       'Угрозы чарджбэка, двойные списания и всё, что связано с риском, по-прежнему уходят людям, но уже с заполненным тикетом.',
       'Оплата за тикет, взятый в работу, — от $0,30 до $0,18, без платы за подключение; полноценная работа через 2–3 дня.',
@@ -154,7 +154,7 @@ module.exports = {
       { p: 'Обычный FAQ-бот не скажет игроку, где его €820. Он ответит «выводы обычно занимают до 24 часов», а встревоженный игрок хочет услышать как раз не это. Диалог уходит оператору. Тот открывает бэкофис, затем кабинет PSP, сверяет референсы, пишет ответ и часто создаёт тикет для платёжной команды. Ручная обработка занимает 3–5 минут работы оператора и стоит около **$0,50** за тикет.' },
       { p: 'Эмоционально эти тикеты тоже весят больше, чем вопрос о правилах игры: о бренде судят по тому, как проходят платежи. Медленный или расплывчатый ответ превращает обычную проверку статуса в жалобу, чарджбэк или потерянного депозитора.' },
       { p: 'Хорошая новость: большинство таких тикетов укладывается в несколько типовых сценариев. Как только ассистент видит те же данные, что и оператор, эти сценарии закрываются от начала до конца.' },
-      { stats: [['70%+', 'платёжных тикетов закрываются автоматически'], ['90%', 'тикетов с участием ассистента'], ['0:35', 'до взятия в работу вместо 8:00'], ['1 млн', 'обработанных платёжных тикетов']] },
+      { stats: [['45%+', 'платёжных тикетов закрываются автоматически'], ['90%', 'тикетов с участием ассистента'], ['0:35', 'до взятия в работу вместо 8:00'], ['1 млн', 'обработанных платёжных тикетов']] },
 
       { h2: 'Шесть платёжных сценариев, которые забивают очередь', id: 'scenarios' },
       { p: 'Основную массу платёжного саппорта дают шесть сценариев: незачисленный депозит, зависший вывод, двойное списание, загрузка чека, угроза чарджбэка и крипто-депозит на неверный адрес. Четыре из них обычно закрываются автоматически, два остаются за людьми.' },
@@ -199,7 +199,7 @@ module.exports = {
         '**Подозрение на фрод и непройденная проверка чека.** Уходят профильной команде с результатом проверки.',
         '**Случаи вне ваших правил.** Правила эскалации и пороги фрода вы задаёте при калибровке, ассистент им следует.',
       ] },
-      { p: 'Благодаря такому разделению ассистент участвует в 90% платёжных тикетов, а 70%+ закрывает сам. Остальным это тоже помогает: никому не приходится начинать разбор с нуля.' },
+      { p: 'Благодаря такому разделению ассистент участвует в 90% платёжных тикетов, а 45%+ закрывает сам. Остальным это тоже помогает: никому не приходится начинать разбор с нуля.' },
 
       { h2: 'Внедрение: полноценная работа за 2–3 дня', id: 'rollout' },
       { p: 'Если заранее дать доступы к API PSP и хелпдеска и документацию, Payment Assistant выходит на полноценную работу за 2–3 дня.' },
@@ -226,11 +226,11 @@ module.exports = {
       { table: [
         ['Статья', 'Расчёт', 'В месяц'],
         ['Только операторы', '100 000 × $0,50', '$50 000'],
-        ['Закрывает ассистент (70%)', '70 000 × $0,20', '$14 000'],
-        ['Обрабатывают операторы (30%)', '30 000 × $0,50', '$15 000'],
-        ['Итого с Payment Assistant', '', '$29 000'],
+        ['Закрывает ассистент (45%)', '45 000 × $0,20', '$9 000'],
+        ['Обрабатывают операторы (55%)', '55 000 × $0,50', '$27 500'],
+        ['Итого с Payment Assistant', '', '$36 500'],
       ] },
-      { p: 'Это **$21 000 экономии в месяц, или $252 000 в год** на тарифе COMPANY. Посчитать свои объёмы и количество PSP можно в [калькуляторе](/calculator).' },
+      { p: 'Это **$13 500 экономии в месяц, или $162 000 в год** на тарифе COMPANY. Посчитать свои объёмы и количество PSP можно в [калькуляторе](/calculator).' },
 
       { h2: 'Чек-лист: готов ли ваш платёжный саппорт к автоматизации', id: 'checklist' },
       { p: 'Вы готовы, если можете дать ассистенту доступ на чтение к данным транзакций и чётко описать, когда должен вмешаться человек.' },
@@ -246,7 +246,7 @@ module.exports = {
     ],
     faq: [
       ['Может ли AI сам ответить на вопрос «где мой вывод?»', 'Да. Ассистент берёт живой статус транзакции прямо у PSP и примерно за 10 секунд сообщает, где выплата и когда она поступит. Если выплата действительно зависла, он открывает и заполняет тикет для платёжной команды.'],
-      ['Какую долю платёжных тикетов можно автоматизировать?', 'AI Payment Assistant участвует в 90% платёжных тикетов и 70%+ закрывает вообще без человека. Остальные, например чарджбэки и двойные списания, уходят людям уже разобранными.'],
+      ['Какую долю платёжных тикетов можно автоматизировать?', 'AI Payment Assistant участвует в 90% платёжных тикетов и 45%+ закрывает вообще без человека. Остальные, например чарджбэки и двойные списания, уходят людям уже разобранными.'],
       ['Как он работает с p2p-депозитами, где не совпадает имя плательщика?', 'Каждый тикет сверяется с данными PSP в момент поступления, включая p2p-переводы, где имя плательщика редко совпадает с аккаунтом игрока. Перевод находится даже без чёткого референса, до человека доходят только реальные исключения.'],
       ['Умеет ли он выявлять поддельные чеки?', 'Да. Загруженные PDF-чеки проходят AI-проверку подлинности, которая выявляет подделки до одобрения выплаты. Если проверка не пройдена, случай эскалируется вместе с её результатом.'],
       ['Поддерживаются ли крипто-депозиты?', 'Да. Крипто-кейсы, например депозит USDT на неверный адрес кошелька, обрабатываются по заданному вами сценарию, а всё, что выходит за правила, эскалируется.'],
