@@ -152,7 +152,7 @@
     }
   ]
 }</script>
-<script src="/pricing.js?v=2"></script>
+<script src="/pricing.js?v=3"></script>
 <script src="/support.js"></script>
 <template id="__bundler_thumbnail" data-bg-color="#0A0A09">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#0A0A09"></rect><circle cx="200" cy="200" r="86" fill="none" stroke="#E8B23A" stroke-width="3"></circle><circle cx="200" cy="200" r="120" fill="none" stroke="#E8B23A" stroke-opacity=".28" stroke-width="2"></circle><circle cx="200" cy="200" r="10" fill="#E8B23A"></circle><text x="200" y="330" text-anchor="middle" font-family="monospace" font-size="30" letter-spacing="9" fill="#F2EFE9">QODEQ</text></svg>
@@ -1974,8 +1974,8 @@ class Component extends DCLogic {
     }
     if (slug === 'payment') {
       const [, plan, rate] = tier('payment', v);
-      const bot = v * .45 * rate, op = v * .55 * .5, base = v * .5;
-      rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / ticket', ' / тикет')], [L('RESOLVED BY BOT · 45%', 'РЕШЕНО БОТОМ · 45%'), n(v * .45)], [L('BOT COST', 'СТОИМОСТЬ БОТА'), '$' + n(bot)], [L('OPERATOR COST · 55%', 'СТОИМОСТЬ ОПЕРАТОРОВ · 55%'), '$' + n(op)], [L('TOTAL WITH QODEQ', 'ИТОГО С QODEQ'), '$' + n(bot + op)], [L('OPERATORS ONLY · $0.50', 'ТОЛЬКО ОПЕРАТОРЫ · $0,50'), '$' + n(base)], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(base - bot - op)], [L('ANNUAL EFFECT', 'ЭФФЕКТ ЗА ГОД'), '$' + n((base - bot - op) * 12)]];
+      const bot = v * .70 * rate, op = v * .30 * .5, base = v * .5;
+      rows = [[L('PLAN', 'ТАРИФ'), plan + ' · $' + rate.toFixed(2) + L(' / ticket', ' / тикет')], [L('RESOLVED BY BOT · 70%', 'РЕШЕНО БОТОМ · 70%'), n(v * .70)], [L('BOT COST', 'СТОИМОСТЬ БОТА'), '$' + n(bot)], [L('OPERATOR COST · 30%', 'СТОИМОСТЬ ОПЕРАТОРОВ · 30%'), '$' + n(op)], [L('TOTAL WITH QODEQ', 'ИТОГО С QODEQ'), '$' + n(bot + op)], [L('OPERATORS ONLY · $0.50', 'ТОЛЬКО ОПЕРАТОРЫ · $0,50'), '$' + n(base)], [L('MONTHLY SAVING', 'ЭКОНОМИЯ В МЕСЯЦ'), '$' + n(base - bot - op)], [L('ANNUAL EFFECT', 'ЭФФЕКТ ЗА ГОД'), '$' + n((base - bot - op) * 12)]];
       head = n(v) + L(' tickets / month', ' тикетов в месяц');
       unit = L('Billed per ticket taken into work. No setup fee.', 'Тарификация за тикет, взятый в работу. Без платы за подключение.');
     }

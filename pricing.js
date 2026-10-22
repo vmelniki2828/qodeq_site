@@ -48,7 +48,7 @@ window.QODEQ_PRICING = (function () {
 
   var DEFAULTS = {
     autom: 65,       // % of chats closed by AI
-    payShare: 45     // % of payment tickets resolved by the bot
+    payShare: 70     // % of payment tickets resolved by the bot (site claim 70%+; deck v3 says 45%+)
   };
 
   // -> { plan, rate, index, next: { plan, rate, from } | null }
