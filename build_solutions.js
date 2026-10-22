@@ -568,6 +568,7 @@ function render(page, lang) {
 
   gtag('config', 'G-NY9Q210KNW');
 </script>
+<script src="/attrib.js?v=1"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.className += ' js';</script>
@@ -822,7 +823,8 @@ ${ui.resources.map(([h, l]) => `    <a href="${h}">${esc(l)}</a>`).join('\n')}
     if (!name || !contact) { msg.className = 'msg err'; msg.textContent = T.need; return; }
     busy = true; msg.className = 'msg'; msg.textContent = T.sending;
     fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, company: company, contact: contact, hp: f.hp.value, lang: '${lang}', page: location.href, product: ${JSON.stringify(page.product)} })
+      body: JSON.stringify({ name: name, company: company, contact: contact, hp: f.hp.value, lang: '${lang}', page: location.href, product: ${JSON.stringify(page.product)},
+        attrib: window.QODEQ_ATTRIB ? QODEQ_ATTRIB.get() : null })
     }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       msg.className = 'msg ok'; msg.textContent = T.sent; f.reset();

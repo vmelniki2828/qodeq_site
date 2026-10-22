@@ -34,7 +34,7 @@ module.exports = {
       { h3: 'Data collected automatically' },
       { ul: [
         '**Technical data sent with a request:** IP address, browser and device type (user agent), the page you sent the request from, and the date and time.',
-        '**Traffic source:** UTM parameters from the link you followed, the referring website and the first page you visited — so we know which channels bring requests.',
+        '**Traffic source:** UTM parameters and ad click IDs (gclid, fbclid, yclid) from the link you followed, the referring website and the first page you visited — so we know which channels bring requests. This is kept in your browser’s local storage (key qodeq_attrib_v1) for your first and most recent visit, and sent to us only together with a request.',
         '**Analytics:** pages viewed, time on site, approximate location derived from your IP address, device and browser type, collected by Google Analytics 4 through cookies.',
         '**Security and delivery:** our CDN provider Cloudflare processes your IP address and request data to deliver the site and protect it from attacks.',
       ] },
@@ -125,7 +125,7 @@ module.exports = {
       { h3: 'Данные, которые собираются автоматически' },
       { ul: [
         '**Технические данные заявки:** IP-адрес, тип браузера и устройства (user agent), страница, с которой отправлена заявка, дата и время.',
-        '**Источник перехода:** UTM-метки ссылки, по которой вы пришли, сайт-источник и первая страница визита — чтобы понимать, какие каналы приводят заявки.',
+        '**Источник перехода:** UTM-метки и идентификаторы рекламных кликов (gclid, fbclid, yclid) из ссылки, по которой вы пришли, сайт-источник и первая страница визита — чтобы понимать, какие каналы приводят заявки. Эти данные о первом и последнем визите хранятся в локальном хранилище вашего браузера (ключ qodeq_attrib_v1) и передаются нам только вместе с заявкой.',
         '**Аналитика:** просмотренные страницы, время на сайте, примерное местоположение по IP-адресу, тип устройства и браузера — их собирает Google Analytics 4 с помощью cookie.',
         '**Безопасность и доставка:** CDN-провайдер Cloudflare обрабатывает ваш IP-адрес и данные запросов, чтобы доставлять сайт и защищать его от атак.',
       ] },
