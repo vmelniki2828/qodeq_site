@@ -72,7 +72,7 @@ module.exports = {
       ] },
 
       { h2: 'Cost: AI QA vs manual review', id: 'economics' },
-      { p: 'AI QA costs less per chat than manual review even though it covers every conversation. QODEQ bills **per checked chat**, with no per-seat QA licences and no minimum team size, plus a **$1,000** one-off setup.' },
+      { p: 'AI QA costs less per chat than manual review even though it covers every conversation. QODEQ bills **per checked chat**, with no per-seat QA licences, no minimum team size and **no setup fee**. Contract the full platform and every plan moves one step down: $0.25 / $0.20 / $0.18 / $0.15.' },
       { table: [
         ['Monthly chats checked', 'Plan', 'Price per checked chat'],
         ['5,000 – 30,000', 'EASY', '$0.30'],
@@ -124,10 +124,10 @@ module.exports = {
       ['How accurate is AI scoring of support chats?', 'QODEQ’s scoring accuracy is 97.6%. Every finding is tied to a specific line in the chat, so QA managers can verify any score, and their corrections in the manual re-check module keep training the model.'],
       ['Does AI QA replace our QA team?', 'It replaces manual sampling, not QA judgement. QA managers move to calibration, re-checks and coaching — the work that actually improves operators.'],
       ['Can we use our own QA criteria and scripts?', 'Yes. Each of the 15 criteria has a weighting coefficient adapted to your project, brand and scripts, and the scorecard is calibrated against your QA managers in a parallel run before full operation.'],
-      ['How much does AI QA cost compared with manual QA?', 'AI QA is billed per checked chat: from $0.30 down to $0.18 depending on monthly volume, plus a $1,000 one-off setup. Checking the same volume manually costs about $0.90 per chat, so the saving is 67–80% depending on volume.'],
+      ['How much does AI QA cost compared with manual QA?', 'AI QA is billed per checked chat: from $0.30 down to $0.18 depending on monthly volume, with no setup fee. Checking the same volume manually costs about $0.90 per chat, so the saving is 67–80% depending on volume.'],
       ['How long does it take to launch AI QA?', 'Full operation starts from week 4: integration in week 1, criteria setup in week 2, calibration in week 3, and daily per-operator reports from week 4.'],
       ['Is our chat data safe?', 'Chats are processed confidentially with local storage and GDPR compliance. The system uses read-only access to your chat history and does not change anything in your helpdesk.'],
-      ['Can AI QA also check phone calls?', 'Yes, through AI Voice QA, which transcribes calls with Whisper and applies the same 15-criteria model to every inbound and outbound call. It is in the final stage of development and testing, with terms depending on call volume.'],
+      ['Can AI QA also check phone calls?', 'Yes, through AI Voice QA, which transcribes calls with Whisper and applies the same 15-criteria model to every inbound and outbound call. It is in the final stage of development and testing, billed per checked call from $0.30 down to $0.18.'],
       ['What does AI QA find that manual sampling misses?', 'Rare but costly issues spread across the whole volume: wrong bonus or payout answers, missed escalations, ignored long waits and off-brand tone on specific shifts. With 100% coverage these become visible per operator and per shift instead of being caught by chance.'],
     ],
     ctaTitle: 'See what 100% QA coverage costs for your volumes.',
@@ -203,7 +203,7 @@ module.exports = {
       ] },
 
       { h2: 'Стоимость: AI QA против ручной проверки', id: 'economics' },
-      { p: 'AI QA дешевле ручной проверки в расчёте на чат, хотя покрывает все диалоги. QODEQ берёт оплату **за проверенный чат** — без лицензий на места и минимального размера команды, плюс разовый setup **$1 000**.' },
+      { p: 'AI QA дешевле ручной проверки в расчёте на чат, хотя покрывает все диалоги. QODEQ берёт оплату **за проверенный чат** — без лицензий на места, минимального размера команды и **без платы за подключение**. При подключении всей платформы каждый тариф на ступень дешевле: $0,25 / $0,20 / $0,18 / $0,15.' },
       { table: [
         ['Чатов в месяц', 'Тариф', 'Цена за проверенный чат'],
         ['5 000 – 30 000', 'EASY', '$0,30'],
@@ -255,10 +255,10 @@ module.exports = {
       ['Насколько точна AI-оценка чатов?', 'Точность оценки QODEQ — 97,6%. Каждое замечание привязано к строке чата, поэтому QA-менеджер может проверить любую оценку, а его правки в модуле ручной перепроверки продолжают обучать модель.'],
       ['AI QA заменит нашу QA-команду?', 'Он заменяет ручную выборку, а не экспертизу QA. QA-менеджеры переходят на калибровку, перепроверки и обучение — работу, которая реально улучшает операторов.'],
       ['Можно ли использовать свои критерии и скрипты?', 'Да. У каждого из 15 критериев есть весовой коэффициент под ваш проект, бренд и скрипты, а перед запуском чек-лист калибруется по вашим QA-менеджерам в параллельном режиме.'],
-      ['Сколько стоит AI QA по сравнению с ручной проверкой?', 'Оплата за проверенный чат: от $0,30 до $0,18 в зависимости от объёма плюс разовый setup $1 000. Ручная проверка того же объёма стоит около $0,90 за чат, поэтому экономия — 67–80% в зависимости от объёма.'],
+      ['Сколько стоит AI QA по сравнению с ручной проверкой?', 'Оплата за проверенный чат: от $0,30 до $0,18 в зависимости от объёма, без платы за подключение. Ручная проверка того же объёма стоит около $0,90 за чат, поэтому экономия — 67–80% в зависимости от объёма.'],
       ['Сколько времени занимает запуск AI QA?', 'Полноценная работа начинается с 4-й недели: интеграция на первой неделе, настройка критериев на второй, калибровка на третьей и ежедневные отчёты по операторам с четвёртой.'],
       ['Данные наших чатов в безопасности?', 'Чаты обрабатываются конфиденциально, с локальным хранением и соблюдением GDPR. Система использует доступ только на чтение к истории чатов и ничего не меняет в вашем хелпдеске.'],
-      ['Может ли AI QA проверять звонки?', 'Да, через AI Voice QA: звонки транскрибируются Whisper, и к каждому входящему и исходящему звонку применяется та же модель из 15 критериев. Продукт на финальной стадии разработки и тестирования, условия зависят от объёма звонков.'],
+      ['Может ли AI QA проверять звонки?', 'Да, через AI Voice QA: звонки транскрибируются Whisper, и к каждому входящему и исходящему звонку применяется та же модель из 15 критериев. Продукт на финальной стадии разработки и тестирования, оплата за проверенный звонок — от $0,30 до $0,18.'],
       ['Что AI QA находит такого, что пропускает ручная выборка?', 'Редкие, но дорогие ошибки, распределённые по всему объёму: неверные ответы по бонусам и выплатам, пропущенные эскалации, игнорирование долгого ожидания и «не тот» тон на отдельных сменах. При 100% покрытии они видны по каждому оператору и смене, а не попадаются случайно.'],
     ],
     ctaTitle: 'Посчитаем стоимость 100% контроля качества для ваших объёмов.',

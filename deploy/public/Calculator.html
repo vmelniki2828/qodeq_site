@@ -44,7 +44,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="/pricing.js?v=1"></script>
+<script src="/pricing.js?v=2"></script>
 <style>
   :root {
     --bg: #0A0A09; --bg2: #0C0C0A; --bg3: #11110F;
@@ -323,7 +323,7 @@
               <div class="prod-hd">
                 <button class="tgl" type="button" data-toggle="pay" aria-pressed="true" aria-label="AI Payment Assistant"><span class="track"><span class="knob"></span></span></button>
                 <div><p class="pname" data-i18n="p.pay">AI Payment Assistant</p><p class="pdesc" data-i18n="p.pay.d">Answers “where is my deposit?” from live PSP data.</p></div>
-                <span class="psp" data-body="pay"><label class="label" for="n-psp" data-i18n="c2.psp">PSP</label><span class="num-wrap"><input class="num xs" id="n-psp" type="text" inputmode="numeric" autocomplete="off" data-k="psp" aria-label="Payment providers to connect" title="$200 one-off setup per payment provider" /></span></span>
+                <span class="psp" data-body="pay" hidden style="display: none;"><label class="label" for="n-psp" data-i18n="c2.psp">PSP</label><span class="num-wrap"><input class="num xs" id="n-psp" type="text" inputmode="numeric" autocomplete="off" data-k="psp" aria-label="Payment providers to connect" /></span></span>
               </div>
               <div class="field" data-body="pay">
                 <div class="field-hd">
@@ -412,11 +412,11 @@
             </div>
           </div>
           <div class="kpis">
-            <div class="kpi"><p class="label" data-i18n="r.payback">Setup pays back in</p><p class="v" data-out="payback">—</p></div>
-            <div class="kpi"><p class="label" data-i18n="r.setup">One-off setup</p><p class="v" data-out="setup">—</p></div>
+            <div class="kpi"><p class="label" data-i18n="r.payback">Saving starts</p><p class="v" data-out="payback">—</p></div>
+            <div class="kpi"><p class="label" data-i18n="r.setup">Setup fee</p><p class="v" data-out="setup">—</p></div>
             <div class="kpi"><p class="label" data-i18n="r.fte">Work taken by AI</p><p class="v" data-out="fte">—</p><p class="hint" data-i18n="r.fte.h">full-time operators</p></div>
           </div>
-          <p class="note" data-i18n="r.note">List prices, USD, excl. VAT. Final terms are confirmed in the commercial proposal.</p>
+          <p class="note" data-i18n="r.note">List prices, USD, excl. VAT, no setup fee. Platform bundle (the whole platform contracted): every plan one step cheaper. Final terms are confirmed in the commercial proposal.</p>
         </div>
       </div>
 
@@ -508,11 +508,11 @@ const RU_DICT = {
   'r.save': 'Вы экономите каждый месяц',
   'r.without': 'Поддержка только людьми',
   'r.with': 'Поддержка с QODEQ',
-  'r.payback': 'Внедрение окупится за',
-  'r.setup': 'Разовое внедрение',
+  'r.payback': 'Экономия начинается',
+  'r.setup': 'Плата за подключение',
   'r.fte': 'Работа, снятая AI',
   'r.fte.h': 'операторов на полную ставку',
-  'r.note': 'Прайсовые цены, USD, без НДС. Финальные условия фиксируются в коммерческом предложении.',
+  'r.note': 'Прайсовые цены, USD, без НДС, без платы за подключение. Platform bundle (вся платформа): каждый тариф на ступень дешевле. Финальные условия фиксируются в коммерческом предложении.',
   'r.th.product': 'ПРОДУКТ · ВАШ ТАРИФ',
   'r.th.without': 'ЛЮДИ',
   'r.th.with': 'QODEQ',
@@ -615,7 +615,7 @@ const RU_DICT = {
     m.fte = aiContacts / s.opChats + (s.voice ? s.mins / VOICE_FTE_MIN : 0);
     m.perContact = perContact;
     m.pct = m.without > 0 ? Math.round(m.save / m.without * 100) : 0;
-    m.payback = m.save > 0 ? (m.setup / m.save < 1 ? L('< 1 month', '< 1 мес.') : Math.ceil(m.setup / m.save) + L(' months', ' мес.')) : '—';
+    m.payback = m.save > 0 && m.setup === 0 ? L('month 1', '1-го месяца') : m.save > 0 ? (m.setup / m.save < 1 ? L('< 1 month', '< 1 мес.') : Math.ceil(m.setup / m.save) + L(' months', ' мес.')) : '—';
     return m;
   }
 
@@ -688,7 +688,7 @@ const RU_DICT = {
     g += '<path d="' + pts(ai) + '" fill="none" stroke="#E8B23A" stroke-width="2.5"/>';
     if (m.save > 0) {
       var be = m.setup / m.save;
-      if (be <= 12) {
+      if (be > 0 && be <= 12) {
         var bx = x(be);
         g += '<line x1="' + bx + '" x2="' + bx + '" y1="' + pt + '" y2="' + (H - pb) + '" stroke="rgba(232,178,58,.35)" stroke-dasharray="3 4"/>';
         g += '<circle cx="' + bx + '" cy="' + y(m.without * be) + '" r="4" fill="#E8B23A"/>';
@@ -789,7 +789,7 @@ const RU_DICT = {
     function loadPdf() {
       if (!pdfLib) pdfLib = new Promise(function (res, rej) {
         var sc = document.createElement('script');
-        sc.src = '/calc-pdf.js?v=1'; sc.onload = function () { res(window.QODEQ_CALC_PDF); }; sc.onerror = rej;
+        sc.src = '/calc-pdf.js?v=2'; sc.onload = function () { res(window.QODEQ_CALC_PDF); }; sc.onerror = rej;
         document.head.appendChild(sc);
       }).then(function (lib) { lib.prepare(); return lib; });
       pdfLib.catch(function () { pdfLib = null; });

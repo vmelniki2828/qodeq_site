@@ -2,9 +2,13 @@
 // (homepage ROI model, homepage product showcase, /calculator). Change a price here,
 // bump ?v= on the <script> tags, and every page picks it up.
 //
+// Prices follow the commercial deck v3 (Oct 2026): every product $0.30 / $0.25 / $0.20 / $0.18,
+// no setup fee anywhere. The platform bundle (whole platform contracted) moves every plan one
+// step down — `bundle` holds those rates for display; the calculators use the standard ones.
+//
 // Tier boundaries follow the official commercial deck:
 //   exclusive: true  — the boundary value belongs to the NEXT tier ("5K—30K", "30K—50K":
-//                      30,000 is already NORMAL). Chat and QA Chat.
+//                      30,000 is already NORMAL). Chat, QA Chat, Voice QA.
 //   exclusive: false — the boundary value stays in the CURRENT tier ("up to 10,000",
 //                      "up to 20,000"). Payment and Voice — the deck's own worked examples
 //                      price 50,000 tickets at NORMAL $0.25.
@@ -13,19 +17,23 @@ window.QODEQ_PRICING = (function () {
   var PRODUCTS = {
     chat: {
       tiers: [[30000, 'EASY', 0.30], [50000, 'NORMAL', 0.25], [100000, 'COMPANY', 0.20], [Infinity, 'CORPORATION', 0.18]],
-      exclusive: true, setup: 1000, unit: 'chat'
+      exclusive: true, setup: 0, unit: 'chat'
     },
     qa: {
       tiers: [[30000, 'EASY', 0.30], [100000, 'NORMAL', 0.25], [200000, 'COMPANY', 0.20], [Infinity, 'CORPORATION', 0.18]],
-      exclusive: true, setup: 1000, unit: 'chat'
+      exclusive: true, setup: 0, unit: 'chat'
     },
     payment: {
       tiers: [[10000, 'EASY', 0.30], [50000, 'NORMAL', 0.25], [100000, 'COMPANY', 0.20], [Infinity, 'CORPORATION', 0.18]],
-      exclusive: false, setup: 200, setupPer: 'psp', unit: 'ticket'
+      exclusive: false, setup: 0, setupPer: 'psp', unit: 'ticket'
+    },
+    qacall: {
+      tiers: [[30000, 'EASY', 0.30], [100000, 'NORMAL', 0.25], [200000, 'COMPANY', 0.20], [Infinity, 'CORPORATION', 0.18]],
+      exclusive: true, setup: 0, unit: 'call'
     },
     voice: {
-      tiers: [[20000, 'EASY', 0.15], [50000, 'NORMAL', 0.12], [100000, 'COMPANY', 0.09], [Infinity, 'CORPORATION', 0.06]],
-      exclusive: false, setup: 1000, unit: 'minute'
+      tiers: [[20000, 'EASY', 0.30], [50000, 'NORMAL', 0.25], [100000, 'COMPANY', 0.20], [Infinity, 'CORPORATION', 0.18]],
+      exclusive: false, setup: 0, unit: 'minute'
     }
   };
 
@@ -35,7 +43,7 @@ window.QODEQ_PRICING = (function () {
     chat: 0.50,      // operator cost per closed chat
     qaManual: 0.90,  // manual QA cost per checked chat
     ticket: 0.50,    // operator cost per payment ticket
-    voiceMin: 0.40   // human agent cost per call minute
+    voiceMin: 0.45   // human agent cost per call minute
   };
 
   var DEFAULTS = {
@@ -98,5 +106,8 @@ window.QODEQ_PRICING = (function () {
   // Plan name shown in the homepage chips — driven by chat volume.
   function planFor(chats) { return tier('chat', chats).plan; }
 
-  return { PRODUCTS: PRODUCTS, BASELINE: BASELINE, DEFAULTS: DEFAULTS, tier: tier, rate: rate, model: model, planFor: planFor };
+  // Platform-bundle rate per plan (EASY → CORPORATION), same for every product.
+  var BUNDLE = { EASY: 0.25, NORMAL: 0.20, COMPANY: 0.18, CORPORATION: 0.15 };
+
+  return { PRODUCTS: PRODUCTS, BUNDLE: BUNDLE, BASELINE: BASELINE, DEFAULTS: DEFAULTS, tier: tier, rate: rate, model: model, planFor: planFor };
 })();

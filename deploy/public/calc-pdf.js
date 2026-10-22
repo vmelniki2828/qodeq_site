@@ -20,11 +20,11 @@ window.QODEQ_CALC_PDF = (function () {
   var T = {
     en: {
       doc: 'AI SUPPORT BUSINESS CASE', title: 'What player support costs today — and with AI',
-      lead: function (d) { return 'Monthly saving ' + d.save + ' (' + d.pct + '% less than people only). Setup pays back in ' + d.payback + '.'; },
-      k: ['MONTHLY SAVING', 'ANNUAL SAVING', 'COST REDUCTION', 'SETUP PAYS BACK IN', 'ONE-OFF SETUP', 'WORK TAKEN BY AI'],
+      lead: function (d) { return 'Monthly saving ' + d.save + ' (' + d.pct + '% less than people only). No setup fee — the saving starts from ' + d.payback + '.'; },
+      k: ['MONTHLY SAVING', 'ANNUAL SAVING', 'COST REDUCTION', 'SAVING STARTS', 'SETUP FEE', 'WORK TAKEN BY AI'],
       fte: ' full-time operators', people: 'Support with people only', withq: 'Support with QODEQ', perMonth: ' / month',
       bk: 'WHERE THE SAVING COMES FROM · MONTHLY', th: ['PRODUCT', 'VOLUME', 'PLAN · RATE', 'PEOPLE', 'QODEQ', 'SAVING'], total: 'Total per month',
-      chart: 'CUMULATIVE COST OVER 12 MONTHS', lgPeople: 'People only', lgQ: 'With QODEQ (incl. setup)', be: 'break-even', saved12: ' saved in 12 months',
+      chart: 'CUMULATIVE COST OVER 12 MONTHS', lgPeople: 'People only', lgQ: 'With QODEQ', be: 'break-even', saved12: ' saved in 12 months',
       asm: 'ASSUMPTIONS', how: 'HOW THE MODEL WORKS',
       a: {
         opCost: 'Operator cost per month (fully loaded)', opChats: 'Chats one operator closes per month', perContact: 'Cost of a chat / payment ticket handled by a person',
@@ -34,9 +34,9 @@ window.QODEQ_CALC_PDF = (function () {
       m: {
         chat: 'AI Chat Operator: chats × AI share × tier rate + remaining chats × your cost per chat. Tiers: $0.30 below 30K chats/month, $0.25 to 50K, $0.20 to 100K, $0.18 above.',
         qa: 'AI QA System: every chat checked × QA tier rate vs chats × manual QA cost. Tiers: $0.30 below 30K, $0.25 to 100K, $0.20 to 200K, $0.18 above.',
-        pay: 'AI Payment Assistant: tickets × bot share × tier rate + remaining tickets × your cost per ticket. Tiers: $0.30 up to 10K, $0.25 to 50K, $0.20 to 100K, $0.18 above. Setup $200 per PSP.',
-        voice: 'AI Voice Bot: minutes × tier rate vs minutes × human cost per minute. Tiers: $0.15 up to 20K min, $0.12 to 50K, $0.09 to 100K, $0.06 above.',
-        all: 'Billing is per unit of work, never per seat. The whole monthly volume is billed at the rate of the tier it falls into. Setup is one-off: $1,000 Chat Operator, $1,000 QA, $200 per PSP, $1,000 Voice Bot.'
+        pay: 'AI Payment Assistant: tickets × bot share × tier rate + remaining tickets × your cost per ticket. Tiers: $0.30 up to 10K, $0.25 to 50K, $0.20 to 100K, $0.18 above.',
+        voice: 'AI Voice Bot: minutes × tier rate vs minutes × human cost per minute. Tiers: $0.30 up to 20K min, $0.25 to 50K, $0.20 to 100K, $0.18 above.',
+        all: 'Billing is per unit of work, never per seat. The whole monthly volume is billed at the rate of the tier it falls into. No setup fee on any product. Platform bundle (the whole platform contracted): every plan one step down — $0.25 / $0.20 / $0.18 / $0.15.'
       },
       note: 'List prices, USD, excl. VAT. Final terms are confirmed in the commercial proposal.',
       open: 'Open and adjust this calculation online →', contacts: 'qodeq.net  ·  support@qodeq.net  ·  t.me/qodeq',
@@ -44,11 +44,11 @@ window.QODEQ_CALC_PDF = (function () {
     },
     ru: {
       doc: 'БИЗНЕС-КЕЙС: AI-ПОДДЕРЖКА', title: 'Сколько стоит поддержка игроков сейчас — и с AI',
-      lead: function (d) { return 'Экономия в месяц ' + d.save + ' (на ' + d.pct + '% дешевле, чем только людьми). Внедрение окупится за ' + d.payback.replace(/\.$/, '') + '.'; },
-      k: ['ЭКОНОМИЯ В МЕСЯЦ', 'ЭКОНОМИЯ В ГОД', 'СНИЖЕНИЕ ЗАТРАТ', 'ОКУПАЕМОСТЬ ВНЕДРЕНИЯ', 'РАЗОВОЕ ВНЕДРЕНИЕ', 'РАБОТА, СНЯТАЯ AI'],
+      lead: function (d) { return 'Экономия в месяц ' + d.save + ' (на ' + d.pct + '% дешевле, чем только людьми). Без платы за подключение — экономия с ' + d.payback.replace(/\.$/, '') + '.'; },
+      k: ['ЭКОНОМИЯ В МЕСЯЦ', 'ЭКОНОМИЯ В ГОД', 'СНИЖЕНИЕ ЗАТРАТ', 'ЭКОНОМИЯ НАЧИНАЕТСЯ', 'ПЛАТА ЗА ПОДКЛЮЧЕНИЕ', 'РАБОТА, СНЯТАЯ AI'],
       fte: ' операторов на полную ставку', people: 'Поддержка только людьми', withq: 'Поддержка с QODEQ', perMonth: ' / мес',
       bk: 'ОТКУДА ЭКОНОМИЯ · В МЕСЯЦ', th: ['ПРОДУКТ', 'ОБЪЁМ', 'ТАРИФ · СТАВКА', 'ЛЮДИ', 'QODEQ', 'ЭКОНОМИЯ'], total: 'Итого в месяц',
-      chart: 'НАКОПЛЕННЫЕ ЗАТРАТЫ ЗА 12 МЕСЯЦЕВ', lgPeople: 'Только люди', lgQ: 'С QODEQ (с внедрением)', be: 'окупаемость', saved12: ' экономии за 12 месяцев',
+      chart: 'НАКОПЛЕННЫЕ ЗАТРАТЫ ЗА 12 МЕСЯЦЕВ', lgPeople: 'Только люди', lgQ: 'С QODEQ', be: 'окупаемость', saved12: ' экономии за 12 месяцев',
       asm: 'ДОПУЩЕНИЯ', how: 'КАК УСТРОЕНА МОДЕЛЬ',
       a: {
         opCost: 'Стоимость оператора в месяц (полная)', opChats: 'Чатов закрывает один оператор в месяц', perContact: 'Стоимость чата / платёжного тикета у человека',
@@ -58,9 +58,9 @@ window.QODEQ_CALC_PDF = (function () {
       m: {
         chat: 'AI Chat Operator: чаты × доля AI × ставка тарифа + остальные чаты × ваша стоимость чата. Тарифы: $0,30 до 30K чатов в месяц, $0,25 до 50K, $0,20 до 100K, $0,18 выше.',
         qa: 'AI QA System: каждый чат × ставка QA против чатов × стоимость ручной проверки. Тарифы: $0,30 до 30K, $0,25 до 100K, $0,20 до 200K, $0,18 выше.',
-        pay: 'AI Payment Assistant: тикеты × доля бота × ставка тарифа + остальные тикеты × ваша стоимость тикета. Тарифы: $0,30 до 10K, $0,25 до 50K, $0,20 до 100K, $0,18 выше. Внедрение $200 за каждого PSP.',
-        voice: 'AI Voice Bot: минуты × ставка тарифа против минут × стоимость минуты оператора. Тарифы: $0,15 до 20K минут, $0,12 до 50K, $0,09 до 100K, $0,06 выше.',
-        all: 'Оплата — за единицу работы, а не за рабочее место. Весь месячный объём тарифицируется по ставке того тарифа, в который попадает. Внедрение разовое: $1 000 Chat Operator, $1 000 QA, $200 за PSP, $1 000 Voice Bot.'
+        pay: 'AI Payment Assistant: тикеты × доля бота × ставка тарифа + остальные тикеты × ваша стоимость тикета. Тарифы: $0,30 до 10K, $0,25 до 50K, $0,20 до 100K, $0,18 выше.',
+        voice: 'AI Voice Bot: минуты × ставка тарифа против минут × стоимость минуты оператора. Тарифы: $0,30 до 20K минут, $0,25 до 50K, $0,20 до 100K, $0,18 выше.',
+        all: 'Оплата — за единицу работы, а не за рабочее место. Весь месячный объём тарифицируется по ставке того тарифа, в который попадает. Платы за подключение нет ни на одном продукте. Platform bundle (вся платформа): каждый тариф на ступень дешевле — $0,25 / $0,20 / $0,18 / $0,15.'
       },
       note: 'Прайсовые цены, USD, без НДС. Финальные условия фиксируются в коммерческом предложении.',
       open: 'Открыть и изменить этот расчёт онлайн →', contacts: 'qodeq.net  ·  support@qodeq.net  ·  t.me/qodeq',
@@ -195,7 +195,7 @@ window.QODEQ_CALC_PDF = (function () {
       poly(ai, C.gold, 0.8);
       if (m.save > 0) {
         var be = m.setup / m.save;
-        if (be <= 12) {
+        if (be > 0 && be <= 12) {
           fill(C.gold); doc.circle(cx(be), cy(m.without * be), 1, 'F');
           font('Mono', 'normal', 6.5, C.goldInk); doc.text(t.be, cx(be) + 2.5, cy(m.without * be) + 3.2);
         }
@@ -217,7 +217,7 @@ window.QODEQ_CALC_PDF = (function () {
         [A.perContact, '$' + m.perContact.toFixed(2), s.opCost !== d.def.opCost || s.opChats !== d.def.opChats]
       ];
       if (s.chat) asm.push([A.autom, s.autom + '%', false]);
-      if (s.pay) { asm.push([A.payShare, s.payShare + '%', s.payShare !== d.def.payShare]); asm.push([A.psp, String(s.psp), false]); }
+      if (s.pay) { asm.push([A.payShare, s.payShare + '%', s.payShare !== d.def.payShare]); }
       if (s.qa) asm.push([A.qaCost, '$' + s.qaCost.toFixed(2), s.qaCost !== d.def.qaCost]);
       if (s.voice) asm.push([A.vCost, '$' + s.vCost.toFixed(2), s.vCost !== d.def.vCost]);
       var how = [];

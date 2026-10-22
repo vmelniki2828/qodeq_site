@@ -55,7 +55,7 @@
       "inLanguage": "en",
       "datePublished": "2026-10-19",
       "dateModified": "2026-10-19",
-      "wordCount": 2143,
+      "wordCount": 2154,
       "author": {
         "@id": "https://qodeq.net/#org"
       },
@@ -157,7 +157,7 @@
           "name": "How is the Payment Assistant priced?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Per ticket taken into work: $0.30 for 1,000–10,000 tickets a month, $0.25 up to 50,000, $0.20 up to 100,000 and $0.18 above that. Setup is a one-off $200 per payment provider connected."
+            "text": "Per ticket taken into work: $0.30 for 1,000–10,000 tickets a month, $0.25 up to 50,000, $0.20 up to 100,000 and $0.18 above that. There is no setup fee."
           }
         },
         {
@@ -369,7 +369,7 @@
     <li>The <a href="/payment">AI Payment Assistant</a> is involved in 90% of payment tickets and resolves <strong>70%+ with no human at all</strong>.</li>
     <li>Time to take a ticket into work drops from <strong>8:00 to 0:35</strong>. Deposits are matched against PSP data, including p2p transfers, and PDF receipts are checked for forgery.</li>
     <li>Chargeback threats, duplicate charges and anything risk-related still go to people, with the ticket already filled in.</li>
-    <li>Pricing is per ticket taken into work, from $0.30 down to $0.18. Setup is $200 per PSP, and you can be fully live in 2–3 days.</li>
+    <li>Pricing is per ticket taken into work, from $0.30 down to $0.18, with no setup fee, and you can be fully live in 2–3 days.</li>
   </ul>
 </div>
 <h2 id="why-payment-tickets">Why payment tickets deserve their own automation</h2>
@@ -439,7 +439,7 @@
 <p>Most of the timeline depends on access, not on configuration. Payment teams usually already know their settlement windows, escalation cases and fraud signals; the work is turning that knowledge into rules the assistant applies to every ticket. Once it is live, the dashboards show how many tickets were recovered and resolved automatically and which ones were escalated and why, so thresholds can be tuned on real traffic rather than guesses.</p>
 <p>The Payment Assistant can run on its own or alongside the <a href="/chat">AI Chat Operator</a>, which is where the chat-native handoff comes from. For the full picture of how the products share one knowledge base and one console, see the <a href="/solutions/ai-customer-support-igaming">platform overview</a>.</p>
 <h2 id="pricing">What it costs: pricing and a worked example</h2>
-<p>The Payment Assistant is billed per ticket taken into work, from $0.30 down to $0.18 depending on monthly volume, plus a one-off setup fee of $200 per payment provider connected.</p>
+<p>The Payment Assistant is billed per ticket taken into work, from $0.30 down to $0.18 depending on monthly volume, with no setup fee — tickets created by the AI Chat Operator are included.</p>
 <div class="tbl"><table>
   <thead><tr><th>Plan</th><th>Tickets per month</th><th>Price per ticket</th></tr></thead>
   <tbody>
@@ -449,7 +449,7 @@
     <tr><td>CORPORATION</td><td>100,000+</td><td>$0.18</td></tr>
   </tbody>
 </table></div>
-<p>The whole monthly volume is billed at the rate of the tier it falls into; the rate is not graduated. Manual handling costs about $0.50 per ticket, so every tier is cheaper than an operator from the first month.</p>
+<p>The whole monthly volume is billed at the rate of the tier it falls into; the rate is not graduated. Manual handling costs about $0.50 per ticket, so every tier is cheaper than an operator from the first month. Contract the full platform and every plan moves one step down: $0.25 / $0.20 / $0.18 / $0.15.</p>
 <h3>Worked example: 100,000 payment tickets a month</h3>
 <div class="tbl"><table>
   <thead><tr><th>Line</th><th>Calculation</th><th>Monthly cost</th></tr></thead>
@@ -464,7 +464,7 @@
 <h2 id="checklist">Checklist: is your payment support ready to automate?</h2>
 <p>You are ready to automate if you can give the assistant read access to transaction data and a clear set of rules for when a human must step in.</p>
 <ul>
-  <li>List the PSPs you use. Setup is $200 per provider, so start with the ones that generate the most tickets.</li>
+  <li>List the PSPs you use and start with the ones that generate the most tickets.</li>
   <li>Prepare API access and documentation for your PSPs and helpdesk. This is what makes a 2–3 day rollout possible.</li>
   <li>Write down settlement windows per method (cards, e-wallets, bank transfer, crypto) so the assistant can tell “normal” from “stuck”.</li>
   <li>Define escalation rules and fraud thresholds: chargebacks, duplicates, large amounts, failed receipt checks.</li>
@@ -487,7 +487,7 @@
       <details><summary>Does it support crypto deposits?</summary><p>Yes. Crypto cases such as a USDT deposit sent to the wrong wallet address are handled through the flow you define, and anything outside your rules is escalated.</p></details>
       <details><summary>Which cases always go to a human?</summary><p>Chargeback threats, duplicate charges, suspected fraud and anything outside the escalation rules and fraud thresholds you set. The assistant prepares those tickets so your team does not start from zero.</p></details>
       <details><summary>How long does integration take?</summary><p>Full operation takes 2–3 days if you provide PSP and helpdesk API access and documentation upfront. That covers helpdesk and PSP integration, calibration of escalation rules and fraud thresholds, and live dashboards.</p></details>
-      <details><summary>How is the Payment Assistant priced?</summary><p>Per ticket taken into work: $0.30 for 1,000–10,000 tickets a month, $0.25 up to 50,000, $0.20 up to 100,000 and $0.18 above that. Setup is a one-off $200 per payment provider connected.</p></details>
+      <details><summary>How is the Payment Assistant priced?</summary><p>Per ticket taken into work: $0.30 for 1,000–10,000 tickets a month, $0.25 up to 50,000, $0.20 up to 100,000 and $0.18 above that. There is no setup fee.</p></details>
       <details><summary>Does it work without the AI Chat Operator?</summary><p>Yes, it can work with your helpdesk on its own. Paired with the AI Chat Operator, the chat bot opens the ticket and the assistant picks it up in the same conversation, so the player never repeats themselves.</p></details>
     </div>
   </section>

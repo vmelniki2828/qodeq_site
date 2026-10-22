@@ -55,7 +55,7 @@
       "inLanguage": "en",
       "datePublished": "2026-10-19",
       "dateModified": "2026-10-19",
-      "wordCount": 2057,
+      "wordCount": 2112,
       "author": {
         "@id": "https://qodeq.net/#org"
       },
@@ -162,10 +162,10 @@
         },
         {
           "@type": "Question",
-          "name": "Is AI Voice QA available now and how much does it cost?",
+          "name": "How much does AI Voice QA cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It is in the final stage of development and comprehensive testing, with the economic benefit already proven in the test environment. Pricing is set individually and depends on call volume and requirements. Leave a contact and we will send a calculation."
+            "text": "It is billed per checked call: $0.30 for 5,000–30,000 calls a month, $0.25 up to 100,000, $0.20 up to 200,000 and $0.18 above that, with no setup fee. At 5,000 calls a day that is about $1,000 a day, against roughly $18,720 for full manual coverage."
           }
         },
         {
@@ -367,7 +367,7 @@
       <a href="#what-changes-for-the-qa-team">What changes for the QA team</a>
       <a href="#how-rollout-works-four-weeks-to-100-coverage">How rollout works: four weeks to 100% coverage</a>
       <a href="#security-and-data-handling">Security and data handling</a>
-      <a href="#product-status-and-pricing">Product status and pricing</a>
+      <a href="#pricing">Pricing</a>
       <a href="#faq">Frequently asked questions</a>
     </aside>
     <article>
@@ -378,7 +378,7 @@
     <li>AI call QA transcribes every inbound and outbound call with Whisper and scores it on the <strong>same 15 weighted criteria</strong> used for chat QA.</li>
     <li>Every flag carries the <strong>exact second</strong> it happened, so a coach can jump straight to the problem instead of re-listening to a whole call.</li>
     <li>A review takes <strong>5–15 seconds per call</strong>, which frees 1–2 quality specialists from sampling for calibration and coaching.</li>
-    <li>QODEQ AI Voice QA is in the <strong>final stage of development and testing</strong>; its economic benefit is proven in the test environment and terms depend on call volume.</li>
+    <li>Pricing is <strong>per checked call</strong>, from $0.30 down to $0.18 depending on monthly volume, with no setup fee: at 5,000 calls a day full coverage costs about $1,000 a day instead of $18,720.</li>
   </ul>
 </div>
 <h2 id="why-manual-call-qa-covers-only-about-2-6-of-calls">Why manual call QA covers only about 2.6% of calls</h2>
@@ -392,11 +392,11 @@
     <tr><td>Time per call</td><td>~7.5 minutes</td><td>5–15 seconds</td></tr>
     <tr><td>Total review time</td><td>16 hours</td><td>13.9 hours of machine time</td></tr>
     <tr><td>People needed for full coverage</td><td>78 specialists</td><td>equivalent of 1.7 people, no hiring</td></tr>
-    <tr><td>Daily cost of full coverage</td><td>≈ $15,620</td><td>terms depend on volume</td></tr>
+    <tr><td>Daily cost of full coverage</td><td>≈ $18,720</td><td>≈ $1,000 (COMPANY, $0.20 per call)</td></tr>
   </tbody>
 </table></div>
 <p>The last two rows are the point. Nobody hires 78 people to listen to calls, so every operator settles for a sample. And a 2.6% sample is not a quality programme — it is a lottery. Rude replies, wrong answers about withdrawals and missed compliance wording in the other 97% stay invisible until a complaint, a chargeback or a regulator surfaces them.</p>
-<p class="note">Calculation basis: 5,000 calls per day, 7.5 minutes of manual review per call, one specialist reviewing 64 calls per day at $200 per day. Full manual coverage = 78 specialists ≈ $15,620 per day.</p>
+<p class="note">Calculation basis: 5,000 calls per day, 7.5 minutes of manual review per call, one specialist reviewing 64 calls per day at $240 per day. Full manual coverage = 78 specialists ≈ $18,720 per day. AI Voice QA: 5,000 × $0.20 = $1,000 per day ($900 with the platform bundle).</p>
 <h2 id="what-ai-call-qa-does">What AI call QA does</h2>
 <p>AI call QA turns every recorded call into text, scores it against your standards and points to the exact moment each problem happened. In QODEQ AI Voice QA this happens in four steps:</p>
 <ol>
@@ -474,8 +474,18 @@
 <p>The parallel run in week 3 is the important step: AI scores and your controllers’ scores are compared on the same calls, and the weights are adjusted until they agree. After that, controllers keep re-checking a share of calls, which keeps the model aligned with your standards over time.</p>
 <h2 id="security-and-data-handling">Security and data handling</h2>
 <p>Call recordings contain personal and financial data, so they are handled with stricter rules than chat logs. QODEQ AI Voice QA processes recordings locally, keeps them encrypted and works in line with GDPR. Storage rules are agreed during telephony integration in week 1, before any recording is processed.</p>
-<h2 id="product-status-and-pricing">Product status and pricing</h2>
-<p>QODEQ AI Voice QA is in the <strong>final stage of development and comprehensive testing</strong>. Its economic benefit has already been proven in the test environment. Commercial terms are negotiated individually and depend on the volume of calls processed and your specific requirements — there is no public price list yet.</p>
+<h2 id="pricing">Pricing</h2>
+<p>QODEQ AI Voice QA is billed <strong>per checked call</strong>, with 100% of calls covered and no setup fee — integration, transcription and calibration are included. The whole monthly volume is billed at the rate of its tier.</p>
+<div class="tbl"><table>
+  <thead><tr><th>Plan</th><th>Calls per month</th><th>Price per call</th><th>Platform bundle</th></tr></thead>
+  <tbody>
+    <tr><td>EASY</td><td>5,000 – 30,000</td><td>$0.30</td><td>$0.25</td></tr>
+    <tr><td>NORMAL</td><td>30,000 – 100,000</td><td>$0.25</td><td>$0.20</td></tr>
+    <tr><td>COMPANY</td><td>100,000 – 200,000</td><td>$0.20</td><td>$0.18</td></tr>
+    <tr><td>CORPORATION</td><td>200,000+</td><td>$0.18</td><td>$0.15</td></tr>
+  </tbody>
+</table></div>
+<p>Contract the full platform and every plan moves one step down: $0.25 / $0.20 / $0.18 / $0.15.</p>
 <p>If you already run chat QA, the call product uses the same 15-criteria model, so standards carry over directly. For chats, see <a href="/blog/customer-support-qa-igaming">support QA in iGaming</a>; for the whole platform, see the <a href="/solutions/ai-customer-support-igaming">overview of QODEQ AI support for iGaming</a>.</p>
 <div class="prod" style="--page-acc: #C084F5;"><div><span>PRODUCT</span><b>AI Voice QA</b></div><a class="btn primary" href="/qa-call">LEARN MORE →</a></div>
     </article>
@@ -493,7 +503,7 @@
       <details><summary>Can we use our own call scripts and criteria?</summary><p>Yes. The 15 criteria are weighted to your call scripts during week 2 of rollout and calibrated against your quality controllers in a parallel run in week 3. Inbound, VIP and outbound calls can have different scripts.</p></details>
       <details><summary>Does AI call QA replace our quality controllers?</summary><p>It replaces manual sampling, not the people. The 1–2 specialists who spent their time listening move to calibration, coaching and trend analysis, and their re-checks keep the model aligned with your standards.</p></details>
       <details><summary>How is call data protected?</summary><p>Recordings are processed locally, kept encrypted and handled in line with GDPR. Storage rules are agreed during telephony integration before any processing starts.</p></details>
-      <details><summary>Is AI Voice QA available now and how much does it cost?</summary><p>It is in the final stage of development and comprehensive testing, with the economic benefit already proven in the test environment. Pricing is set individually and depends on call volume and requirements. Leave a contact and we will send a calculation.</p></details>
+      <details><summary>How much does AI Voice QA cost?</summary><p>It is billed per checked call: $0.30 for 5,000–30,000 calls a month, $0.25 up to 100,000, $0.20 up to 200,000 and $0.18 above that, with no setup fee. At 5,000 calls a day that is about $1,000 a day, against roughly $18,720 for full manual coverage.</p></details>
       <details><summary>How is call QA related to chat QA?</summary><p>Both use the same 15-criteria scoring model, so you get one quality standard across chats and calls. The chat product, AI QA System, is available now and scores 100% of chats with 97.6% accuracy.</p></details>
     </div>
   </section>

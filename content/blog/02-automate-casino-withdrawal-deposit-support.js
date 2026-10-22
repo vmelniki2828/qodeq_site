@@ -1,5 +1,5 @@
 // Статья: автоматизация платёжного саппорта (депозиты, выводы) — продукт AI Payment Assistant.
-// Цифры — с /payment и главной (70%+, 90%, 0:35 vs 8:00, тарифы за тикет, $200 setup за PSP).
+// Цифры — с /payment и главной (70%+, 90%, 0:35 vs 8:00, тарифы за тикет, без платы за подключение — по КП v3).
 module.exports = {
   slug: 'automate-casino-withdrawal-deposit-support',
   kind: 'post',
@@ -21,7 +21,7 @@ module.exports = {
       'The [AI Payment Assistant](/payment) is involved in 90% of payment tickets and resolves **70%+ with no human at all**.',
       'Time to take a ticket into work drops from **8:00 to 0:35**. Deposits are matched against PSP data, including p2p transfers, and PDF receipts are checked for forgery.',
       'Chargeback threats, duplicate charges and anything risk-related still go to people, with the ticket already filled in.',
-      'Pricing is per ticket taken into work, from $0.30 down to $0.18. Setup is $200 per PSP, and you can be fully live in 2–3 days.',
+      'Pricing is per ticket taken into work, from $0.30 down to $0.18, with no setup fee, and you can be fully live in 2–3 days.',
     ],
     body: [
       { h2: 'Why payment tickets deserve their own automation', id: 'why-payment-tickets' },
@@ -88,7 +88,7 @@ module.exports = {
       { p: 'The Payment Assistant can run on its own or alongside the [AI Chat Operator](/chat), which is where the chat-native handoff comes from. For the full picture of how the products share one knowledge base and one console, see the [platform overview](/solutions/ai-customer-support-igaming).' },
 
       { h2: 'What it costs: pricing and a worked example', id: 'pricing' },
-      { p: 'The Payment Assistant is billed per ticket taken into work, from $0.30 down to $0.18 depending on monthly volume, plus a one-off setup fee of $200 per payment provider connected.' },
+      { p: 'The Payment Assistant is billed per ticket taken into work, from $0.30 down to $0.18 depending on monthly volume, with no setup fee — tickets created by the AI Chat Operator are included.' },
       { table: [
         ['Plan', 'Tickets per month', 'Price per ticket'],
         ['EASY', '1,000 – 10,000', '$0.30'],
@@ -96,7 +96,7 @@ module.exports = {
         ['COMPANY', '50,000 – 100,000', '$0.20'],
         ['CORPORATION', '100,000+', '$0.18'],
       ] },
-      { p: 'The whole monthly volume is billed at the rate of the tier it falls into; the rate is not graduated. Manual handling costs about $0.50 per ticket, so every tier is cheaper than an operator from the first month.' },
+      { p: 'The whole monthly volume is billed at the rate of the tier it falls into; the rate is not graduated. Manual handling costs about $0.50 per ticket, so every tier is cheaper than an operator from the first month. Contract the full platform and every plan moves one step down: $0.25 / $0.20 / $0.18 / $0.15.' },
       { h3: 'Worked example: 100,000 payment tickets a month' },
       { table: [
         ['Line', 'Calculation', 'Monthly cost'],
@@ -110,7 +110,7 @@ module.exports = {
       { h2: 'Checklist: is your payment support ready to automate?', id: 'checklist' },
       { p: 'You are ready to automate if you can give the assistant read access to transaction data and a clear set of rules for when a human must step in.' },
       { ul: [
-        'List the PSPs you use. Setup is $200 per provider, so start with the ones that generate the most tickets.',
+        'List the PSPs you use and start with the ones that generate the most tickets.',
         'Prepare API access and documentation for your PSPs and helpdesk. This is what makes a 2–3 day rollout possible.',
         'Write down settlement windows per method (cards, e-wallets, bank transfer, crypto) so the assistant can tell “normal” from “stuck”.',
         'Define escalation rules and fraud thresholds: chargebacks, duplicates, large amounts, failed receipt checks.',
@@ -127,7 +127,7 @@ module.exports = {
       ['Does it support crypto deposits?', 'Yes. Crypto cases such as a USDT deposit sent to the wrong wallet address are handled through the flow you define, and anything outside your rules is escalated.'],
       ['Which cases always go to a human?', 'Chargeback threats, duplicate charges, suspected fraud and anything outside the escalation rules and fraud thresholds you set. The assistant prepares those tickets so your team does not start from zero.'],
       ['How long does integration take?', 'Full operation takes 2–3 days if you provide PSP and helpdesk API access and documentation upfront. That covers helpdesk and PSP integration, calibration of escalation rules and fraud thresholds, and live dashboards.'],
-      ['How is the Payment Assistant priced?', 'Per ticket taken into work: $0.30 for 1,000–10,000 tickets a month, $0.25 up to 50,000, $0.20 up to 100,000 and $0.18 above that. Setup is a one-off $200 per payment provider connected.'],
+      ['How is the Payment Assistant priced?', 'Per ticket taken into work: $0.30 for 1,000–10,000 tickets a month, $0.25 up to 50,000, $0.20 up to 100,000 and $0.18 above that. There is no setup fee.'],
       ['Does it work without the AI Chat Operator?', 'Yes, it can work with your helpdesk on its own. Paired with the AI Chat Operator, the chat bot opens the ticket and the assistant picks it up in the same conversation, so the player never repeats themselves.'],
     ],
     ctaTitle: 'See what payment automation saves at your volumes.',
@@ -146,7 +146,7 @@ module.exports = {
       '[AI Payment Assistant](/payment) участвует в 90% платёжных тикетов и **70%+ закрывает вообще без человека**.',
       'Взятие тикета в работу сокращается **с 8:00 до 0:35**. Депозиты сверяются с данными PSP, включая p2p, а PDF-чеки проверяются на подделку.',
       'Угрозы чарджбэка, двойные списания и всё, что связано с риском, по-прежнему уходят людям, но уже с заполненным тикетом.',
-      'Оплата за тикет, взятый в работу, — от $0,30 до $0,18. Setup — $200 за каждый PSP, полноценная работа через 2–3 дня.',
+      'Оплата за тикет, взятый в работу, — от $0,30 до $0,18, без платы за подключение; полноценная работа через 2–3 дня.',
     ],
     body: [
       { h2: 'Почему платёжным тикетам нужна отдельная автоматизация', id: 'why-payment-tickets' },
@@ -213,7 +213,7 @@ module.exports = {
       { p: 'Payment Assistant работает и самостоятельно, и вместе с [AI Chat Operator](/chat) — отсюда и передача тикета прямо в чате. Как продукты делят одну базу знаний и одну консоль, описано в [обзоре платформы](/solutions/ai-customer-support-igaming).' },
 
       { h2: 'Сколько это стоит: тарифы и пример расчёта', id: 'pricing' },
-      { p: 'Payment Assistant оплачивается за тикет, взятый в работу: от $0,30 до $0,18 в зависимости от объёма в месяц, плюс разовый setup $200 за каждого подключённого платёжного провайдера.' },
+      { p: 'Payment Assistant оплачивается за тикет, взятый в работу: от $0,30 до $0,18 в зависимости от объёма в месяц, без платы за подключение — тикеты, созданные AI Chat Operator, тоже входят.' },
       { table: [
         ['Тариф', 'Тикетов в месяц', 'Цена за тикет'],
         ['EASY', '1 000 – 10 000', '$0,30'],
@@ -221,7 +221,7 @@ module.exports = {
         ['COMPANY', '50 000 – 100 000', '$0,20'],
         ['CORPORATION', '100 000+', '$0,18'],
       ] },
-      { p: 'Весь месячный объём тарифицируется по ставке того диапазона, в который попадает, без ступенчатого расчёта. Ручная обработка стоит около $0,50 за тикет, так что любой тариф дешевле оператора с первого месяца.' },
+      { p: 'Весь месячный объём тарифицируется по ставке того диапазона, в который попадает, без ступенчатого расчёта. Ручная обработка стоит около $0,50 за тикет, так что любой тариф дешевле оператора с первого месяца. При подключении всей платформы каждый тариф на ступень дешевле: $0,25 / $0,20 / $0,18 / $0,15.' },
       { h3: 'Пример: 100 000 платёжных тикетов в месяц' },
       { table: [
         ['Статья', 'Расчёт', 'В месяц'],
@@ -235,7 +235,7 @@ module.exports = {
       { h2: 'Чек-лист: готов ли ваш платёжный саппорт к автоматизации', id: 'checklist' },
       { p: 'Вы готовы, если можете дать ассистенту доступ на чтение к данным транзакций и чётко описать, когда должен вмешаться человек.' },
       { ul: [
-        'Составьте список PSP. Setup — $200 за провайдера, поэтому начните с тех, по которым больше всего тикетов.',
+        'Составьте список PSP и начните с тех, по которым больше всего тикетов.',
         'Подготовьте доступы к API и документацию по PSP и хелпдеску — именно они дают запуск за 2–3 дня.',
         'Зафиксируйте сроки зачисления по методам (карты, e-wallet, банковский перевод, крипта), чтобы ассистент отличал «нормально» от «зависло».',
         'Опишите правила эскалации и пороги фрода: чарджбэки, двойные списания, крупные суммы, непройденная проверка чека.',
@@ -252,7 +252,7 @@ module.exports = {
       ['Поддерживаются ли крипто-депозиты?', 'Да. Крипто-кейсы, например депозит USDT на неверный адрес кошелька, обрабатываются по заданному вами сценарию, а всё, что выходит за правила, эскалируется.'],
       ['Какие случаи всегда уходят человеку?', 'Угрозы чарджбэка, двойные списания, подозрение на фрод и всё, что выходит за заданные вами правила эскалации и пороги фрода. Ассистент готовит такие тикеты, чтобы команда не начинала с нуля.'],
       ['Сколько занимает интеграция?', 'Полноценная работа — через 2–3 дня, если заранее дать доступы к API PSP и хелпдеска и документацию. За это время подключаются хелпдеск и PSP, калибруются правила эскалации и пороги фрода, запускаются живые дашборды.'],
-      ['Сколько стоит Payment Assistant?', 'Оплата за тикет, взятый в работу: $0,30 при 1 000–10 000 тикетов в месяц, $0,25 до 50 000, $0,20 до 100 000 и $0,18 свыше. Setup разовый — $200 за каждого подключённого платёжного провайдера.'],
+      ['Сколько стоит Payment Assistant?', 'Оплата за тикет, взятый в работу: $0,30 при 1 000–10 000 тикетов в месяц, $0,25 до 50 000, $0,20 до 100 000 и $0,18 свыше. Платы за подключение нет.'],
       ['Работает ли он без AI Chat Operator?', 'Да, он может работать самостоятельно с вашим хелпдеском. В связке с AI Chat Operator чат-бот открывает тикет, а ассистент подхватывает его в том же диалоге, и игроку не нужно ничего повторять.'],
     ],
     ctaTitle: 'Посчитаем, сколько сэкономит автоматизация платежей на ваших объёмах.',
