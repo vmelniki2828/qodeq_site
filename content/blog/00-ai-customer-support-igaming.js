@@ -13,7 +13,7 @@ module.exports = {
     lead: '**QODEQ is an AI customer support platform built for casino, betting and lottery operators.** Five AI agents answer players in chat, resolve deposit and withdrawal questions, score the quality of every conversation and make calls — 24/7, in any language, connected to your platform, helpdesk and payment providers.',
     takeaways: [
       'QODEQ runs its **own generative model fine-tuned on 5 million iGaming support chats** — not a wrapper over a public chatbot API.',
-      'The AI Chat Operator resolves **65% of chats without a human** with a 7-second average reply; the AI Payment Assistant resolves **45%+ of payment tickets** automatically.',
+      'The AI Chat Operator resolves **65% of chats without a human** with a 7-second average reply; the AI Payment Assistant resolves **70%+ of payment tickets** automatically.',
       'The AI QA System scores **100% of operator chats on 15 criteria with 97.6% accuracy**, instead of the 10–15% sample a manual QA team can check.',
       'Pricing is per resolved chat, per payment ticket, per checked chat or per minute of conversation — **from $0.18 per chat** at volume, no per-seat licences.',
       'A typical chat rollout takes **about 15 days**; the Payment Assistant can be live in 2–3 days.',
@@ -22,13 +22,13 @@ module.exports = {
       { h2: 'What is QODEQ?', id: 'what-is-qodeq' },
       { p: 'QODEQ is an AI platform that automates player support for online casinos, sportsbooks and lottery operators. It combines five AI agents — for live chat, payment tickets, chat quality control, call quality control and voice calls — that work standalone or together, sharing one knowledge base, one CRM context and one analytics layer.' },
       { p: 'Unlike general-purpose helpdesk bots, QODEQ is built around the questions that actually fill an iGaming support queue: withdrawals, deposits, KYC, bonus wagering, limits and blocked accounts. The agents pull live data from your platform and payment providers, resolve the request end to end, and hand the rest to your operators with the full context.' },
-      { stats: [['65%', 'of chats resolved without an operator'], ['7 sec', 'average response time, 24/7'], ['45%+', 'of payment tickets auto-resolved'], ['5M', 'iGaming chats in model training']] },
+      { stats: [['65%', 'of chats resolved without an operator'], ['7 sec', 'average response time, 24/7'], ['70%+', 'of payment tickets auto-resolved'], ['5M', 'iGaming chats in model training']] },
 
       { h2: 'The five AI agents', id: 'products' },
       { p: 'Each agent solves one part of the support operation. Operators usually start with the Chat Operator or the Payment Assistant and add QA and voice later.' },
       { cards: [
         ['chat', 'AI chat support for players', 'Own LLM trained on 5M iGaming chats. Resolves KYC, bonus, limit and payout questions end to end in any language. 65% of chats closed with no human.'],
-        ['payment', 'Deposit and withdrawal support', 'Live transaction status from the PSP, auto-created tickets, p2p matching and PDF receipt forgery checks. Involved in 90% of payment tickets, resolves 45%+.'],
+        ['payment', 'Deposit and withdrawal support', 'Live transaction status from the PSP, auto-created tickets, p2p matching and PDF receipt forgery checks. Involved in 90% of payment tickets, resolves 70%+.'],
         ['qa-chat', 'Quality control for 100% of chats', '15 weighted criteria, 97.6% accuracy, 5 seconds per chat, breach timestamps and daily per-operator reports.'],
         ['qa-call', 'Quality control for calls', 'Whisper transcription and the same 15 criteria on every inbound and outbound call — 100% coverage instead of about 2.6%.'],
         ['voice', 'Outbound calls without a call centre', '24/7 voice campaigns in several languages: first-deposit follow-ups, KYC reminders, dormant player win-back and payout confirmation.'],
@@ -36,7 +36,7 @@ module.exports = {
       { table: [
         ['Task', 'Agent', 'Key result'],
         ['Answering players in live chat', '[AI Chat Operator](/chat)', '65% of chats resolved, 7-second replies'],
-        ['“Where is my deposit / withdrawal?”', '[AI Payment Assistant](/payment)', '45%+ resolved automatically, 0:35 to take a ticket into work vs 8:00'],
+        ['“Where is my deposit / withdrawal?”', '[AI Payment Assistant](/payment)', '70%+ resolved automatically, 0:35 to take a ticket into work vs 8:00'],
         ['Checking operator chat quality', '[AI QA System](/qa-chat)', '100% coverage, 15 criteria, 97.6% accuracy'],
         ['Checking call quality', '[AI Voice QA](/qa-call)', '100% of calls, 5–15 seconds per review'],
         ['Outbound retention and service calls', '[AI Voice Bot](/voice)', '2,500 conversations a day vs 250 for a 2.5-operator team'],
@@ -97,7 +97,7 @@ module.exports = {
         ['Resolved by operators (35%) · 87,500 × $0.50', '$43,750'],
         ['**Total with AI Chat Operator**', '**$73,000**'],
       ] },
-      { p: 'The same logic applies to the other agents: at 100,000 payment tickets a month with 45% automation, the Payment Assistant saves about $13,500 a month; AI QA cuts the cost of quality control by 67% at 5,000 chats and up to 80% from 200,000 chats a month — while raising coverage to 100%.' },
+      { p: 'The same logic applies to the other agents: at 100,000 payment tickets a month with 70% automation, the Payment Assistant saves about $21,000 a month; AI QA cuts the cost of quality control by 67% at 5,000 chats and up to 80% from 200,000 chats a month — while raising coverage to 100%.' },
 
       { h2: 'Implementation', id: 'implementation' },
       { p: 'A chat rollout takes about 15 days from API access to production, with shadow-mode testing and a gradual, reversible traffic switch. Backup operators stay on during the adaptation period.' },
@@ -125,7 +125,7 @@ module.exports = {
     faq: [
       { title: 'About the platform', items: [
         ['What is the best AI customer support solution for online casinos?', 'The best fit is a solution trained on iGaming support traffic and connected to your platform and payment providers, so it can resolve withdrawals, KYC and bonus questions rather than deflect them. QODEQ is built specifically for casino, betting and lottery operators: its own model is fine-tuned on 5 million iGaming support chats and resolves 65% of chats without an operator.'],
-        ['Can AI handle casino customer support without human agents?', 'AI can handle the majority of routine requests — QODEQ resolves about 65% of chats and 45%+ of payment tickets with no human. Disputes, chargebacks, fraud signals, VIP exceptions and sensitive cases should still go to people, and QODEQ escalates them with the full context.'],
+        ['Can AI handle casino customer support without human agents?', 'AI can handle the majority of routine requests — QODEQ resolves about 65% of chats and 70%+ of payment tickets with no human. Disputes, chargebacks, fraud signals, VIP exceptions and sensitive cases should still go to people, and QODEQ escalates them with the full context.'],
         ['Is QODEQ just a wrapper around ChatGPT?', 'No. QODEQ runs its own generative model fine-tuned on 5 million iGaming support chats, not a wrapper over a public API. That is why it understands domain-specific requests such as wagering progress, KYC tiers and PSP payment statuses.'],
         ['Which languages does the AI support?', 'The AI Chat Operator replies in any language your players write in, adapted to your brand’s tone of voice in each market. The AI Voice Bot runs campaigns in several languages simultaneously, with 99+ languages supported.'],
         ['What does QODEQ integrate with?', 'QODEQ connects via API to your iGaming platform, your helpdesk, your CRM and your payment providers, and to your telephony for voice products. Rules, bonuses and flows are kept in a knowledge base that your team updates without developers.'],
@@ -166,7 +166,7 @@ module.exports = {
     lead: '**QODEQ — AI-платформа поддержки для операторов казино, беттинга и лотерей.** Пять AI-агентов отвечают игрокам в чате, закрывают вопросы по депозитам и выводам, проверяют качество каждого диалога и звонят — 24/7, на любом языке, с подключением к вашей платформе, хелпдеску и платёжным провайдерам.',
     takeaways: [
       'У QODEQ **собственная генеративная модель, дообученная на 5 млн чатов поддержки iGaming**, — это не обёртка над публичным API чат-бота.',
-      'AI Chat Operator закрывает **65% чатов без оператора** со средним ответом за 7 секунд; AI Payment Assistant автоматически решает **45%+ платёжных тикетов**.',
+      'AI Chat Operator закрывает **65% чатов без оператора** со средним ответом за 7 секунд; AI Payment Assistant автоматически решает **70%+ платёжных тикетов**.',
       'AI QA System оценивает **100% чатов операторов по 15 критериям с точностью 97,6%** — вместо выборки в 10–15%, которую успевает проверить ручной QA.',
       'Оплата — за закрытый чат, платёжный тикет, проверенный чат или минуту разговора, **от $0,18 за чат** на больших объёмах, без лицензий на места.',
       'Типичный запуск чата — **около 15 дней**; Payment Assistant можно запустить за 2–3 дня.',
@@ -175,13 +175,13 @@ module.exports = {
       { h2: 'Что такое QODEQ?', id: 'what-is-qodeq' },
       { p: 'QODEQ — AI-платформа, которая автоматизирует поддержку игроков онлайн-казино, букмекерских контор и лотерей. В ней пять AI-агентов — для чата, платёжных тикетов, контроля качества чатов, контроля качества звонков и голосовых звонков. Они работают по отдельности или вместе, с общей базой знаний, общим контекстом CRM и единой аналитикой.' },
       { p: 'В отличие от универсальных ботов для хелпдеска, QODEQ построен вокруг вопросов, которые реально забивают очередь саппорта в гембле: выводы, депозиты, KYC и вериф, отыгрыш бонусов, лимиты и блокировки. Агенты берут живые данные из вашей платформы и у платёжных провайдеров, решают вопрос до конца и передают остальное операторам с полным контекстом.' },
-      { stats: [['65%', 'чатов без оператора'], ['7 сек', 'среднее время ответа, 24/7'], ['45%+', 'платёжных тикетов решается автоматически'], ['5 млн', 'чатов iGaming в обучении модели']] },
+      { stats: [['65%', 'чатов без оператора'], ['7 сек', 'среднее время ответа, 24/7'], ['70%+', 'платёжных тикетов решается автоматически'], ['5 млн', 'чатов iGaming в обучении модели']] },
 
       { h2: 'Пять AI-агентов', id: 'products' },
       { p: 'Каждый агент закрывает свою часть поддержки. Обычно начинают с Chat Operator или Payment Assistant, а контроль качества и голос подключают позже.' },
       { cards: [
         ['chat', 'AI-чат для игроков', 'Собственная LLM, обученная на 5 млн чатов iGaming. Закрывает вопросы KYC, бонусов, лимитов и выплат на любом языке. 65% чатов — без человека.'],
-        ['payment', 'Поддержка по депозитам и выводам', 'Живой статус транзакции из PSP, автотикеты, сверка p2p и проверка PDF-чеков на подделку. Участвует в 90% платёжных тикетов, решает 45%+.'],
+        ['payment', 'Поддержка по депозитам и выводам', 'Живой статус транзакции из PSP, автотикеты, сверка p2p и проверка PDF-чеков на подделку. Участвует в 90% платёжных тикетов, решает 70%+.'],
         ['qa-chat', 'Контроль качества 100% чатов', '15 взвешенных критериев, точность 97,6%, 5 секунд на чат, таймкоды нарушений и ежедневные отчёты по операторам.'],
         ['qa-call', 'Контроль качества звонков', 'Транскрибация Whisper и те же 15 критериев для каждого входящего и исходящего звонка — 100% покрытия вместо примерно 2,6%.'],
         ['voice', 'Обзвон без колл-центра', 'Голосовые кампании 24/7 на нескольких языках: дожим первого депозита, напоминания о KYC, возврат спящих игроков, подтверждение выплат.'],
@@ -189,7 +189,7 @@ module.exports = {
       { table: [
         ['Задача', 'Агент', 'Ключевой результат'],
         ['Ответы игрокам в чате', '[AI Chat Operator](/chat)', '65% чатов закрыто, ответ за 7 секунд'],
-        ['«Где мой депозит / вывод?»', '[AI Payment Assistant](/payment)', '45%+ решается автоматически, 0:35 до взятия тикета в работу против 8:00'],
+        ['«Где мой депозит / вывод?»', '[AI Payment Assistant](/payment)', '70%+ решается автоматически, 0:35 до взятия тикета в работу против 8:00'],
         ['Проверка качества чатов операторов', '[AI QA System](/qa-chat)', '100% покрытия, 15 критериев, точность 97,6%'],
         ['Проверка качества звонков', '[AI Voice QA](/qa-call)', '100% звонков, 5–15 секунд на проверку'],
         ['Исходящие звонки: удержание и сервис', '[AI Voice Bot](/voice)', '2 500 разговоров в день против 250 у команды из 2,5 оператора'],
@@ -250,7 +250,7 @@ module.exports = {
         ['Закрывают операторы (35%) · 87 500 × $0,50', '$43 750'],
         ['**Итого с AI Chat Operator**', '**$73 000**'],
       ] },
-      { p: 'С другими агентами логика та же: при 100 000 платёжных тикетов в месяц и 45% автоматизации Payment Assistant экономит около $13 500 в месяц; AI QA снижает стоимость контроля качества на 67% при 5 000 чатов и до 80% от 200 000 чатов в месяц — при этом покрытие вырастает до 100%.' },
+      { p: 'С другими агентами логика та же: при 100 000 платёжных тикетов в месяц и 70% автоматизации Payment Assistant экономит около $21 000 в месяц; AI QA снижает стоимость контроля качества на 67% при 5 000 чатов и до 80% от 200 000 чатов в месяц — при этом покрытие вырастает до 100%.' },
 
       { h2: 'Внедрение', id: 'implementation' },
       { p: 'Запуск чата занимает около 15 дней от доступа к API до продакшна: тест в теневом режиме и постепенный, обратимый перевод трафика. На период адаптации резервные операторы остаются.' },
@@ -278,7 +278,7 @@ module.exports = {
     faq: [
       { title: 'О платформе', items: [
         ['Какое AI-решение для поддержки онлайн-казино лучше выбрать?', 'Лучше всего подходит решение, обученное на трафике поддержки iGaming и подключённое к вашей платформе и платёжным провайдерам: тогда оно решает вопросы по выводам, KYC и бонусам, а не отмахивается ссылкой на FAQ. QODEQ создан специально для операторов казино, ставок и лотерей: собственная модель дообучена на 5 млн чатов поддержки iGaming и закрывает 65% чатов без оператора.'],
-        ['Может ли AI вести поддержку казино без операторов?', 'AI закрывает большую часть рутины — QODEQ решает около 65% чатов и 45%+ платёжных тикетов без человека. Споры, чарджбэки, сигналы фрода, VIP-исключения и чувствительные случаи всё равно должны уходить людям, и QODEQ передаёт их с полным контекстом.'],
+        ['Может ли AI вести поддержку казино без операторов?', 'AI закрывает большую часть рутины — QODEQ решает около 65% чатов и 70%+ платёжных тикетов без человека. Споры, чарджбэки, сигналы фрода, VIP-исключения и чувствительные случаи всё равно должны уходить людям, и QODEQ передаёт их с полным контекстом.'],
         ['QODEQ — это обёртка над ChatGPT?', 'Нет. У QODEQ собственная генеративная модель, дообученная на 5 млн чатов поддержки iGaming, а не надстройка над публичным API. Поэтому она понимает специфичные запросы вроде прогресса отыгрыша, уровней KYC и статусов платежей в PSP.'],
         ['На каких языках работает AI?', 'AI Chat Operator отвечает на любом языке, на котором пишут ваши игроки, в тоне вашего бренда для каждого рынка. AI Voice Bot ведёт кампании на нескольких языках одновременно, поддерживается 99+ языков.'],
         ['С чем интегрируется QODEQ?', 'QODEQ подключается по API к вашей iGaming-платформе, хелпдеску, CRM и платёжным провайдерам, а для голосовых продуктов — к телефонии. Правила, бонусы и сценарии хранятся в базе знаний, которую ваша команда обновляет без разработчиков.'],

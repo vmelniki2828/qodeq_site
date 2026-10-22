@@ -34,7 +34,7 @@ const PAGES = [
     enUrl: 'https://qodeq.net/payment', ruUrl: 'https://qodeq.net/ru/payment',
     dictVar: 'RU_DICT', dictPath: [],
     title: 'AI-ассистент по депозитам и выплатам для iGaming | QODEQ',
-    description: '«Где мой депозит?» — ответ за 10 секунд. Живые данные PSP, автосоздание тикетов и проверка PDF-чеков на подделку — 45%+ решается автоматически.',
+    description: '«Где мой депозит?» — ответ за 10 секунд. Живые данные PSP, автосоздание тикетов и проверка PDF-чеков на подделку — 70%+ решается автоматически.',
     stateLangPatch: { from: "state = { lang: 'en' };", to: "state = { lang: 'ru' };" },
   },
   {
