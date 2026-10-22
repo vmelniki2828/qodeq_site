@@ -797,6 +797,7 @@ window.QODEQ_I18N = {
     "foot.response": "ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ",
     "foot.bottom1": "QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING",
     "foot.bottom2": "КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО",
+    "foot.privacy": "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ",
 
     "econ.totalreduction": "ОБЩЕЕ СНИЖЕНИЕ ЗАТРАТ · РАСТЁТ С ОБЪЁМОМ",
 

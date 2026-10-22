@@ -347,6 +347,7 @@ const CLEAN_URLS = {
   '/qa-call': 'Product-QA-Call.dc.html',
   '/voice': 'Product-Voice.dc.html',
   '/calculator': 'Calculator.html',
+  '/privacy': 'privacy.html',
   '/ru/': 'QODEQ.ru.dc.html',
   '/ru/chat': 'Product-Chat.ru.dc.html',
   '/ru/qa-chat': 'Product-QA-Chat.ru.dc.html',
@@ -354,6 +355,7 @@ const CLEAN_URLS = {
   '/ru/qa-call': 'Product-QA-Call.ru.dc.html',
   '/ru/voice': 'Product-Voice.ru.dc.html',
   '/ru/calculator': 'Calculator.ru.html',
+  '/ru/privacy': 'ru/privacy.html',
 };
 for (const [route, file] of Object.entries(CLEAN_URLS)) {
   app.get(route, (req, res) => {

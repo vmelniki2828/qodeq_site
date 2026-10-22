@@ -22,7 +22,7 @@ const UI = {
     sending: 'Sending…', sent: 'Thanks! We’ll reply within one business day.', need: 'Please add your name and a contact.',
     fail: 'Could not send. Please message us on Telegram @qodeq.',
     relatedKicker: '— MORE SOLUTIONS',
-    footBack: '← QODEQ · AI PLATFORM FOR IGAMING', footProducts: 'Products', footSolutions: 'Solutions', footResources: 'Resources', resources: [['/calculator', 'Cost calculator'], ['/solutions/ai-customer-support-igaming', 'Platform overview'], ['/blog', 'Blog']],
+    footBack: '← QODEQ · AI PLATFORM FOR IGAMING', footProducts: 'Products', footSolutions: 'Solutions', footResources: 'Resources', resources: [['/calculator', 'Cost calculator'], ['/solutions/ai-customer-support-igaming', 'Platform overview'], ['/blog', 'Blog'], ['/privacy', 'Privacy Policy']],
     products: [['/chat', 'AI Chat Operator'], ['/qa-chat', 'AI QA System'], ['/payment', 'AI Payment Assistant'], ['/qa-call', 'AI Voice QA'], ['/voice', 'AI Voice Bot']],
   },
   ru: {
@@ -36,7 +36,7 @@ const UI = {
     sending: 'Отправляем…', sent: 'Спасибо! Ответим в течение рабочего дня.', need: 'Укажите имя и контакт.',
     fail: 'Не удалось отправить. Напишите нам в Telegram @qodeq.',
     relatedKicker: '— ДРУГИЕ РЕШЕНИЯ',
-    footBack: '← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING', footProducts: 'Продукты', footSolutions: 'Решения', footResources: 'Ресурсы', resources: [['/ru/calculator', 'Калькулятор стоимости'], ['/ru/solutions/ai-customer-support-igaming', 'Обзор платформы'], ['/ru/blog', 'Блог']],
+    footBack: '← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING', footProducts: 'Продукты', footSolutions: 'Решения', footResources: 'Ресурсы', resources: [['/ru/calculator', 'Калькулятор стоимости'], ['/ru/solutions/ai-customer-support-igaming', 'Обзор платформы'], ['/ru/blog', 'Блог'], ['/ru/privacy', 'Политика конфиденциальности']],
     products: [['/ru/chat', 'AI Chat Operator'], ['/ru/qa-chat', 'AI QA System'], ['/ru/payment', 'AI Payment Assistant'], ['/ru/qa-call', 'AI Voice QA'], ['/ru/voice', 'AI Voice Bot']],
   },
 };

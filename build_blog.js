@@ -26,7 +26,7 @@ const UI = {
     formNote: 'We reply within one business day. Telegram: @qodeq',
     sending: 'Sending…', sent: 'Thanks! We’ll reply within one business day.', need: 'Please add your name and a contact.',
     fail: 'Could not send. Please message us on Telegram @qodeq.',
-    footBack: '← QODEQ · AI PLATFORM FOR IGAMING', footProducts: 'Products', footBlog: 'Guides',
+    footBack: '← QODEQ · AI PLATFORM FOR IGAMING', footProducts: 'Products', footBlog: 'Guides', footLegal: 'Legal', privacy: 'Privacy Policy',
     months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   },
   ru: {
@@ -44,7 +44,7 @@ const UI = {
     formNote: 'Ответим в течение рабочего дня. Telegram: @qodeq',
     sending: 'Отправляем…', sent: 'Спасибо! Ответим в течение рабочего дня.', need: 'Укажите имя и контакт.',
     fail: 'Не удалось отправить. Напишите нам в Telegram @qodeq.',
-    footBack: '← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING', footProducts: 'Продукты', footBlog: 'Гайды',
+    footBack: '← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING', footProducts: 'Продукты', footBlog: 'Гайды', footLegal: 'Правовая информация', privacy: 'Политика конфиденциальности',
     months: ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
   },
 };
@@ -54,6 +54,9 @@ const DIR = path.join(__dirname, 'content', 'blog');
 const ALL = fs.readdirSync(DIR).filter(f => f.endsWith('.js')).sort().map(f => require(path.join(DIR, f)));
 const PILLAR = ALL.find(p => p.kind === 'pillar');
 const POSTS = ALL.filter(p => p.kind !== 'pillar').sort((a, b) => (a.order || 0) - (b.order || 0));
+// Правовые страницы (/privacy) — отдельный контент, тот же шаблон
+const LEGAL = [require(path.join(__dirname, 'content', 'legal', 'privacy.js'))];
+const legalPath = (lang, page) => `${UI[lang].prefix}/${page.slug}`;
 
 // ---------- helpers ----------
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -294,6 +297,10 @@ ${POSTS.map(p => `    <a href="${pathOf(lang, p)}">${esc(p[lang].nav)}</a>`).joi
     <span>Telegram</span>
     <a href="https://t.me/qodeq">@qodeq</a>
   </div>
+  <div class="col">
+    <span>${esc(ui.footLegal)}</span>
+    <a href="${ui.prefix}/privacy">${esc(ui.privacy)}</a>
+  </div>
   <a class="back" href="${ui.home}">${esc(ui.footBack)}</a>
 </footer>`;
 }
@@ -470,6 +477,64 @@ ${scripts(lang, page.leadProduct, page.slug)}
 `;
 }
 
+// ---------- правовая страница (/privacy) ----------
+// {{mail}} в тексте → ссылка на support@, собираемая скриптом (литеральный email в HTML
+// Cloudflare переписывает, см. CLAUDE.md).
+function renderLegal(page, lang) {
+  const t = page[lang], ui = UI[lang];
+  const self = SITE + legalPath(lang, page), alt = { en: SITE + legalPath('en', page), ru: SITE + legalPath('ru', page) };
+  const toc = t.body.filter(b => b.h2);
+  const mail = '<a href="#" data-mail-user="support" data-mail-host="qodeq.net">support [at] qodeq.net</a>';
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'WebPage', '@id': self, url: self, name: t.title, description: t.desc, inLanguage: lang, dateModified: page.updated,
+        isPartOf: { '@type': 'WebSite', name: 'QODEQ', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'QODEQ', url: SITE + '/' } },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'QODEQ', item: SITE + ui.home },
+        { '@type': 'ListItem', position: 2, name: t.nav, item: self },
+      ] },
+    ],
+  };
+  return `${head({ lang, title: t.title, desc: t.desc, self, alt, ld, ogType: 'website' })}
+<body style="--page-acc: #E8B23A;">
+
+${header(lang, alt)}
+
+<main>
+  <section class="hero">
+    <nav class="crumbs" aria-label="breadcrumbs"><a href="${ui.home}">QODEQ</a> / ${esc(t.nav)}</nav>
+    <p class="kicker">${esc(t.kicker)}</p>
+    <h1>${esc(t.h1)}</h1>
+    <p class="lead">${inline(t.lead, lang)}</p>
+    <div class="meta"><span>${ui.updated} <b>${fmtDate(page.updated, lang).toUpperCase()}</b></span></div>
+  </section>
+
+  <div class="layout">
+    <aside class="toc" aria-label="${ui.toc}">
+      <p>${ui.toc}</p>
+${toc.map(b => `      <a href="#${b.id || slugify(b.h2)}">${esc(plain(b.h2))}</a>`).join('\n')}
+    </aside>
+    <article>
+${t.body.map(b => block(b, lang)).join('\n').split('{{mail}}').join(mail)}
+    </article>
+  </div>
+</main>
+
+${footer(lang)}
+
+${scripts(lang, 'Privacy', page.slug)}
+<script>
+[].forEach.call(document.querySelectorAll('[data-mail-user]'), function (a) {
+  var m = a.getAttribute('data-mail-user') + '@' + a.getAttribute('data-mail-host');
+  a.href = 'mailto:' + m; a.textContent = m;
+});
+</script>
+</body>
+</html>
+`;
+}
+
 // ---------- индекс блога ----------
 function renderIndex(lang) {
   const ui = UI[lang];
@@ -540,6 +605,7 @@ for (const lang of ['en', 'ru']) {
   const pre = UI[lang].prefix.replace(/^\//, '');
   for (const page of ALL) out(path.join(pre, page.kind === 'pillar' ? 'solutions' : 'blog', page.slug + '.html'), renderPage(page, lang));
   out(path.join(pre, 'blog', 'index.html'), renderIndex(lang));
+  for (const page of LEGAL) out(path.join(pre, page.slug + '.html'), renderLegal(page, lang));
 }
 // урлы для sitemap.xml
-if (process.argv.includes('--urls')) for (const p of [...ALL.map(p => urlOf('en', p)), SITE + '/blog', ...ALL.map(p => urlOf('ru', p)), SITE + '/ru/blog']) console.log(p);
+if (process.argv.includes('--urls')) for (const p of [...ALL.map(p => urlOf('en', p)), SITE + '/blog', ...LEGAL.map(p => SITE + legalPath('en', p)), ...ALL.map(p => urlOf('ru', p)), SITE + '/ru/blog', ...LEGAL.map(p => SITE + legalPath('ru', p))]) console.log(p);

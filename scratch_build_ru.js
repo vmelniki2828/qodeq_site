@@ -65,7 +65,7 @@ const PAGES = [
 ];
 
 // Internal routes that have a /ru/ twin — used by pages with localizeLinks.
-const RU_ROUTES = { '/': '/ru/', '/chat': '/ru/chat', '/qa-chat': '/ru/qa-chat', '/payment': '/ru/payment', '/qa-call': '/ru/qa-call', '/voice': '/ru/voice', '/calculator': '/ru/calculator', '/blog': '/ru/blog', '/solutions/ai-customer-support-igaming': '/ru/solutions/ai-customer-support-igaming', '/solutions/online-casino-customer-support': '/ru/solutions/online-casino-customer-support', '/solutions/sportsbook-customer-support': '/ru/solutions/sportsbook-customer-support', '/solutions/customer-support-quality-assurance': '/ru/solutions/customer-support-quality-assurance' };
+const RU_ROUTES = { '/': '/ru/', '/chat': '/ru/chat', '/qa-chat': '/ru/qa-chat', '/payment': '/ru/payment', '/qa-call': '/ru/qa-call', '/voice': '/ru/voice', '/calculator': '/ru/calculator', '/blog': '/ru/blog', '/privacy': '/ru/privacy', '/solutions/ai-customer-support-igaming': '/ru/solutions/ai-customer-support-igaming', '/solutions/online-casino-customer-support': '/ru/solutions/online-casino-customer-support', '/solutions/sportsbook-customer-support': '/ru/solutions/sportsbook-customer-support', '/solutions/customer-support-quality-assurance': '/ru/solutions/customer-support-quality-assurance' };
 
 function extractDict(html, varName) {
   // Handles both "const RU_DICT = {...}" and "window.QODEQ_I18N = {...}"
