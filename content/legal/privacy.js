@@ -1,7 +1,7 @@
 // Privacy Policy для /privacy и /ru/privacy. Шаблон — renderLegal() в build_blog.js.
 // Текст описывает то, что сайт реально собирает: форма заявки (/api/lead → SQLite leads.db,
 // письмо через Gmail SMTP, уведомление в Telegram-группу, автоответ), IP/UA для антиспама,
-// UTM/реферер, Google Analytics 4, Cloudflare. При изменении сбора данных — обновить здесь.
+// UTM/реферер, проверка email через ZeroBounce, Google Analytics 4, Cloudflare. При изменении сбора данных — обновить здесь.
 // ЧЕРНОВИК (22.10.2026): юрлицо и адрес оператора данных не указаны, перед финальной
 // публикацией текст должен проверить юрист.
 module.exports = {
@@ -61,7 +61,8 @@ module.exports = {
         '**Cloud hosting provider** — stores the website and the database of requests;',
         '**Cloudflare** — content delivery and protection of the site;',
         '**Google** — email delivery (Google Workspace / Gmail) and website analytics (Google Analytics);',
-        '**Telegram** — internal notifications about new requests to our sales team.',
+        '**Telegram** — internal notifications about new requests to our sales team;',
+        '**ZeroBounce** — checking that the email address you enter in the form exists (only the address itself is sent).',
       ] },
       { p: 'We may disclose data if required by law or to protect our rights, and to a successor in the event of a merger or acquisition, subject to this policy.' },
 
@@ -152,7 +153,8 @@ module.exports = {
         '**облачный хостинг-провайдер** — хранит сайт и базу заявок;',
         '**Cloudflare** — доставка контента и защита сайта;',
         '**Google** — доставка email (Google Workspace / Gmail) и веб-аналитика (Google Analytics);',
-        '**Telegram** — внутренние уведомления отделу продаж о новых заявках.',
+        '**Telegram** — внутренние уведомления отделу продаж о новых заявках;',
+        '**ZeroBounce** — проверка, что указанный в форме email существует (передаётся только сам адрес).',
       ] },
       { p: 'Мы можем раскрыть данные, если этого требует закон или это нужно для защиты наших прав, а также правопреемнику при реорганизации или продаже бизнеса — на условиях этой политики.' },
 

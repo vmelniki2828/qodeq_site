@@ -311,7 +311,8 @@
   <li><strong>Cloud hosting provider</strong> — stores the website and the database of requests;</li>
   <li><strong>Cloudflare</strong> — content delivery and protection of the site;</li>
   <li><strong>Google</strong> — email delivery (Google Workspace / Gmail) and website analytics (Google Analytics);</li>
-  <li><strong>Telegram</strong> — internal notifications about new requests to our sales team.</li>
+  <li><strong>Telegram</strong> — internal notifications about new requests to our sales team;</li>
+  <li><strong>ZeroBounce</strong> — checking that the email address you enter in the form exists (only the address itself is sent).</li>
 </ul>
 <p>We may disclose data if required by law or to protect our rights, and to a successor in the event of a merger or acquisition, subject to this policy.</p>
 <h2 id="transfers">6. International transfers</h2>
@@ -403,10 +404,13 @@
       body: JSON.stringify({ name: name, company: company, contact: contact, hp: f.hp.value, lang: 'en', page: location.href, product: "Privacy",
         attrib: window.QODEQ_ATTRIB ? QODEQ_ATTRIB.get() : null })
     }).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
+      // 400 email_invalid: сервер присылает текст для человека (адрес не существует / временный)
+      if (!r.ok) return r.json().catch(function () { return {}; }).then(function (d) {
+        var err = new Error('HTTP ' + r.status); err.userMsg = d.message; throw err;
+      });
       msg.className = 'msg ok'; msg.textContent = T.sent; f.reset();
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'blog_privacy' });
-    }).catch(function () { msg.className = 'msg err'; msg.textContent = T.fail; })
+    }).catch(function (err) { msg.className = 'msg err'; msg.textContent = (err && err.userMsg) || T.fail; })
       .then(function () { busy = false; });
   });
 })();

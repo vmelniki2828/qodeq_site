@@ -1707,13 +1707,14 @@ class Component extends DCLogic {
               }
             })
           });
-          if (!res.ok) throw new Error('HTTP ' + res.status);
+          // 400 email_invalid: сервер присылает текст для человека (адрес не существует / временный)
+          if (!res.ok) { const d = await res.json().catch(() => ({})); const err = new Error('HTTP ' + res.status); err.userMsg = d.message; throw err; }
           if (window.QODEQ_ATTRIB) QODEQ_ATTRIB.trackLead('homepage', '');
           this.setState({ sending: false, sendErr: '', sent: true });
         } catch (e) {
-          this.setState({ sending: false, sendErr: ru
+          this.setState({ sending: false, sendErr: e.userMsg || (ru
             ? 'Не удалось отправить. Напишите на support@qodeq.net или в Telegram @qodeq.'
-            : 'Could not send. Please email support@qodeq.net or Telegram @qodeq.' });
+            : 'Could not send. Please email support@qodeq.net or Telegram @qodeq.') });
         }
       },
       receipt: [

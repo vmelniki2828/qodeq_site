@@ -360,10 +360,13 @@ function scripts(lang, product, slug) {
       body: JSON.stringify({ name: name, company: company, contact: contact, hp: f.hp.value, lang: '${lang}', page: location.href, product: ${JSON.stringify(product)},
         attrib: window.QODEQ_ATTRIB ? QODEQ_ATTRIB.get() : null })
     }).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
+      // 400 email_invalid: сервер присылает текст для человека (адрес не существует / временный)
+      if (!r.ok) return r.json().catch(function () { return {}; }).then(function (d) {
+        var err = new Error('HTTP ' + r.status); err.userMsg = d.message; throw err;
+      });
       msg.className = 'msg ok'; msg.textContent = T.sent; f.reset();
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'blog_${slug.replace(/-/g, '_')}' });
-    }).catch(function () { msg.className = 'msg err'; msg.textContent = T.fail; })
+    }).catch(function (err) { msg.className = 'msg err'; msg.textContent = (err && err.userMsg) || T.fail; })
       .then(function () { busy = false; });
   });
 })();

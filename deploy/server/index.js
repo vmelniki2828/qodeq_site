@@ -21,6 +21,7 @@ const nodemailer = require('nodemailer');
 const { openLeadStore, normalizeAttrib, attribRows, startRetry, pickLang } = require('./lead-store');
 const { createLeadBot } = require('./tg-bot');
 const { buildAutoreply } = require('./autoreply');
+const { createEmailChecker } = require('./email-check');
 
 const PORT = Number(process.env.PORT || 3001);
 const NOTIFY_EMAIL = (process.env.NOTIFY_EMAIL || '').trim();
@@ -31,6 +32,13 @@ const TELEGRAM_CHAT_ID = (process.env.TELEGRAM_CHAT_ID || '').trim();
 const AUTOREPLY_ON = String(process.env.AUTOREPLY || '').toLowerCase() === 'true';
 const AUTOREPLY_FROM = (process.env.AUTOREPLY_FROM || SMTP_FROM).trim();
 const CALENDAR_URL = (process.env.CALENDAR_URL || '').trim();
+
+// Проверка email в форме: одноразовые домены + DNS всегда, существование ящика — через ZeroBounce
+const emailChecker = createEmailChecker({
+  zeroBounceKey: process.env.ZEROBOUNCE_API_KEY,
+  zeroBounceUrl: process.env.ZEROBOUNCE_URL,
+});
+console.log(`Проверка email: DNS + одноразовые домены${emailChecker.enabled ? ' + ZeroBounce' : ' (ZEROBOUNCE_API_KEY не задан)'}`);
 
 // В Docker иногда ломается SMTP по IPv6 — при проблемах поставьте true в server/.env
 if (String(process.env.SMTP_IPV4_FIRST || '').toLowerCase() === 'true') {
@@ -257,6 +265,18 @@ app.post('/api/lead', async (req, res) => {
   };
   const product = String(b.product || (b.calc && b.calc.product) || '').trim().slice(0, 120);
   const payload = { name, company, contact, product, lang: pickLang(b.lang, b.page), calc: b.calc || {}, attrib: normalizeAttrib(b.attrib) };
+
+  // несуществующий или одноразовый адрес — просим исправить, пока человек на странице
+  if (looksLikeEmail(contact)) {
+    const check = await emailChecker.check(contact);
+    if (!check.ok) {
+      console.log(`Форма: отклонён email ${contact} (${check.zb || check.reason}${check.suggestion ? ', подсказка ' + check.suggestion : ''})`);
+      return res.status(400).json({
+        ok: false, error: 'email_invalid', reason: check.reason, suggestion: check.suggestion,
+        message: emailChecker.message(check, payload.lang),
+      });
+    }
+  }
 
   let id = null;
   if (store) {

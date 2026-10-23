@@ -705,13 +705,14 @@ class Component extends DCLogic {
           body: JSON.stringify({ name, company, contact, product, page: location.href, calc: { product },
             attrib: window.QODEQ_ATTRIB ? QODEQ_ATTRIB.get() : null })
         });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
+        // 400 email_invalid: сервер присылает текст для человека (адрес не существует / временный)
+        if (!res.ok) { const d = await res.json().catch(() => ({})); const e = new Error('HTTP ' + res.status); e.userMsg = d.message; throw e; }
         if (window.QODEQ_ATTRIB) QODEQ_ATTRIB.trackLead('product_page', product);
         form.style.display = 'none';
         okEl.style.display = 'block';
       } catch (err) {
         sending = false;
-        setStatus('Не удалось отправить. Напишите на support@qodeq.net или @qodeq.', 'err');
+        setStatus(err.userMsg || ('Не удалось отправить. Напишите на support@qodeq.net или @qodeq.'), 'err');
       }
     });
   }
