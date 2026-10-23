@@ -12,6 +12,11 @@
  * Один токен — один процесс: если тот же бот запущен ещё где-то с getUpdates,
  * Telegram отвечает 409 и бот ждёт.
  *
+ * Если группу превратили в супергруппу, у неё новый chat_id. Бот берёт его из
+ * ответа Telegram (migrate_to_chat_id) или из служебного сообщения, переключается
+ * сам и запоминает новый id в базе (meta tg_chat_migrated) — TELEGRAM_CHAT_ID
+ * в .env стоит потом поправить, но заявки не теряются.
+ *
  * Файл общий для server/ и deploy/server/ (копия побайтовая).
  */
 
@@ -31,7 +36,16 @@ function parseRange(s, def) {
 }
 
 function createLeadBot(opts) {
-  const { token, chatId, store, log = console } = opts;
+  const { token, store, log = console } = opts;
+  const envChatId = opts.chatId;
+  let chatId = envChatId;
+  // переезд группы в супергруппу, запомненный раньше (только для того же TELEGRAM_CHAT_ID)
+  if (store && envChatId) {
+    try {
+      const mig = JSON.parse(store.getMeta('tg_chat_migrated') || 'null');
+      if (mig && String(mig.from) === String(envChatId) && mig.to) chatId = String(mig.to);
+    } catch (e) { /* нет записи */ }
+  }
   const apiBase = (opts.apiBase || 'https://api.telegram.org').replace(/\/$/, '');
   const tz = opts.tz || 'Europe/Kyiv';
   const [workFrom, workTo] = parseRange(opts.workHours, [10, 19]);
@@ -76,9 +90,28 @@ function createLeadBot(opts) {
     if (!data.ok) {
       const err = new Error(`${method}: ${data.description || 'HTTP ' + r.status}`);
       err.code = data.error_code || r.status;
+      err.migrateTo = data.parameters && data.parameters.migrate_to_chat_id;
       throw err;
     }
     return data.result;
+  }
+
+  function migrate(to) {
+    if (!to || String(to) === String(chatId)) return;
+    log.error(`TG: группа ${chatId} стала супергруппой, переключаюсь на ${to} — поправьте TELEGRAM_CHAT_ID в .env`);
+    chatId = String(to);
+    if (store) store.setMeta('tg_chat_migrated', JSON.stringify({ from: envChatId, to: chatId, at: new Date().toISOString() }));
+  }
+
+  /** Сообщение в чат заявок; при переезде группы переключается и повторяет один раз. */
+  async function send(body) {
+    try {
+      return await api('sendMessage', { ...body, chat_id: chatId });
+    } catch (err) {
+      if (!err.migrateTo) throw err;
+      migrate(err.migrateTo);
+      return api('sendMessage', { ...body, chat_id: chatId });
+    }
   }
 
   // ---------- карточка заявки ----------
@@ -118,8 +151,7 @@ function createLeadBot(opts) {
 
   /** Отправляет карточку новой заявки. Возвращает message_id или бросает ошибку. */
   async function sendLeadCard(id, lead, meta) {
-    const msg = await api('sendMessage', {
-      chat_id: chatId,
+    const msg = await send({
       text: card(id, lead, meta, null),
       parse_mode: 'HTML',
       disable_web_page_preview: true,
@@ -172,12 +204,13 @@ function createLeadBot(opts) {
   }
 
   async function onMessage(msg) {
+    if (msg.migrate_to_chat_id && String(msg.chat.id) === String(chatId)) return migrate(msg.migrate_to_chat_id);
     const text = String(msg.text || '').trim();
     const cmd = text.split(/[\s@]/)[0].toLowerCase();
     if (cmd === '/chatid') {
       await api('sendMessage', { chat_id: msg.chat.id, text: `chat_id этого чата: ${msg.chat.id}` });
     } else if (cmd === '/leads' && String(msg.chat.id) === String(chatId)) {
-      await api('sendMessage', { chat_id: chatId, text: openList(), parse_mode: 'HTML' });
+      await send({ text: openList(), parse_mode: 'HTML' });
     }
   }
 
@@ -191,8 +224,7 @@ function createLeadBot(opts) {
       if (now - created > 3 * 24 * 3600 * 1000) { store.markEscalated(r.id); continue; } // старые — только в сводке
       if (workingMinutes(created, now, escalateMin) < escalateMin) continue;
       store.markEscalated(r.id);
-      await api('sendMessage', {
-        chat_id: chatId,
+      await send({
         reply_to_message_id: r.tg_message_id,
         allow_sending_without_reply: true,
         text: `⏰ Заявку #${r.id} (${r.name}${r.company ? ', ' + r.company : ''}) никто не взял уже ${escalateMin} мин. Кто берёт?${mention ? ' ' + mention : ''}`,
@@ -226,7 +258,7 @@ function createLeadBot(opts) {
       lines.push('Новых заявок не было.');
     }
     lines.push('', openList());
-    await api('sendMessage', { chat_id: chatId, text: lines.join('\n'), parse_mode: 'HTML' })
+    await send({ text: lines.join('\n'), parse_mode: 'HTML' })
       .catch((err) => log.error('TG digest:', err.message));
   }
 
