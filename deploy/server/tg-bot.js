@@ -184,7 +184,6 @@ function createLeadBot(opts) {
       `${esc(info.name)}${info.company ? ' — ' + esc(info.company) : ''}`,
       `📬 ${esc(info.contact)}${info.suggestion ? ' (подсказали ' + esc(info.suggestion) + ')' : ''}`,
       `🌐 ${info.lang === 'ru' ? 'RU' : 'EN'} · ${esc(page || '—')}`,
-      'Человека попросили исправить адрес. Исправит — придёт обычная заявка.',
     ];
     return send({ text: lines.join('\n'), parse_mode: 'HTML', disable_web_page_preview: true });
   }
