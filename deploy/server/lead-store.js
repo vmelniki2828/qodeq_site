@@ -111,15 +111,15 @@ function openLeadStore(file) {
   `);
   // колонки для TG-бота (шаг 0.3); на уже созданной базе добавляются миграцией
   const have = new Set(db.prepare(`PRAGMA table_info(leads)`).all().map((c) => c.name));
-  for (const [col, type] of [['tg_message_id', 'INTEGER'], ['taken_by', 'TEXT'], ['taken_at', 'TEXT'], ['escalated_at', 'TEXT']]) {
+  for (const [col, type] of [['tg_message_id', 'INTEGER'], ['taken_by', 'TEXT'], ['taken_at', 'TEXT'], ['escalated_at', 'TEXT'], ['email_check', 'TEXT']]) {
     if (!have.has(col)) db.exec(`ALTER TABLE leads ADD COLUMN ${col} ${type}`);
   }
 
   const insertStmt = db.prepare(`
     INSERT INTO leads (created_at, name, company, contact, product, lang, page, ip, ua,
-      utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer, landing, attrib, calc)
+      utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer, landing, attrib, calc, email_check)
     VALUES (@created_at, @name, @company, @contact, @product, @lang, @page, @ip, @ua,
-      @utm_source, @utm_medium, @utm_campaign, @utm_content, @utm_term, @referrer, @landing, @attrib, @calc)
+      @utm_source, @utm_medium, @utm_campaign, @utm_content, @utm_term, @referrer, @landing, @attrib, @calc, @email_check)
   `);
 
   return {
@@ -138,6 +138,7 @@ function openLeadStore(file) {
         page: meta.page,
         ip: meta.ip,
         ua: meta.ua,
+        email_check: lead.emailCheck || null,
         utm_source: f.utm_source || null,
         utm_medium: f.utm_medium || null,
         utm_campaign: f.utm_campaign || null,
@@ -221,7 +222,7 @@ function rowToLead(r) {
   return {
     lead: {
       name: r.name, company: r.company || '', contact: r.contact, product: r.product || '',
-      lang: r.lang, calc: parse(r.calc), attrib: parse(r.attrib),
+      lang: r.lang, calc: parse(r.calc), attrib: parse(r.attrib), emailCheck: r.email_check || '',
     },
     meta: { page: r.page, ip: r.ip, ua: r.ua, time: r.created_at },
   };

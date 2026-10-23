@@ -29,6 +29,18 @@ const esc = (s) => String(s == null ? '' : s)
 const money = (n) => (Number.isFinite(+n) ? '$' + Math.round(+n).toLocaleString('en-US') : null);
 const short = (n) => (n >= 1000 ? Math.round(n / 1000) + 'K' : String(n));
 
+/** Результат проверки email (email-check.js: статус ZeroBounce или dns_ok) → строка карточки. */
+function emailCheckLabel(v) {
+  if (!v) return null;
+  if (v === 'valid') return '✅ ящик существует (ZeroBounce)';
+  if (v === 'dns_ok') return '☑️ домен принимает почту, сам ящик не проверялся';
+  if (v.startsWith('catch-all')) return '⚠️ не проверить: почта компании принимает любые адреса';
+  if (v === 'do_not_mail/role_based') return '🟡 общий адрес (info@, sales@…), ящик есть';
+  if (v.startsWith('unknown')) return '⚠️ не удалось проверить: почтовый сервер не ответил';
+  if (v === 'error') return '⚠️ не проверена: сервис проверки недоступен';
+  return `⚠️ сомнительная (ZeroBounce: ${v})`;
+}
+
 /** "10-19" → [10, 19]; "1-5" → Set{1..5} */
 function parseRange(s, def) {
   const m = String(s || '').match(/^\s*(\d+)\s*-\s*(\d+)\s*$/);
@@ -122,6 +134,8 @@ function createLeadBot(opts) {
     lines.push(`🟡 <b>Заявка${id ? ' #' + id : ''}</b>${lead.product ? ' · ' + esc(lead.product) : ''}`);
     lines.push(`<b>${esc(lead.name)}</b>${lead.company ? ' — ' + esc(lead.company) : ''}`);
     lines.push(`📬 ${esc(lead.contact)}`);
+    const mailCheck = emailCheckLabel(lead.emailCheck);
+    if (mailCheck) lines.push(`📧 Почта: ${esc(mailCheck)}`);
     let page = meta.page || '';
     try { page = new URL(page).pathname; } catch (e) { /* оставляем как есть */ }
     lines.push(`🌐 ${lead.lang === 'ru' ? 'RU' : 'EN'} · ${esc(page || '—')}`);
@@ -158,6 +172,21 @@ function createLeadBot(opts) {
       reply_markup: keyboard(id, 'new'),
     });
     return msg.message_id;
+  }
+
+  /** Короткое сообщение в группу: форма не пропустила адрес. */
+  async function sendRejected(info) {
+    let page = info.page || '';
+    try { page = new URL(page).pathname; } catch (e) { /* оставляем как есть */ }
+    const why = info.reason === 'disposable' ? 'временная почта' : 'такого ящика нет';
+    const lines = [
+      `⛔ <b>Форма не пропустила адрес</b> · ${why}`,
+      `${esc(info.name)}${info.company ? ' — ' + esc(info.company) : ''}`,
+      `📬 ${esc(info.contact)}${info.suggestion ? ' (подсказали ' + esc(info.suggestion) + ')' : ''}`,
+      `🌐 ${info.lang === 'ru' ? 'RU' : 'EN'} · ${esc(page || '—')}`,
+      'Человека попросили исправить адрес. Исправит — придёт обычная заявка.',
+    ];
+    return send({ text: lines.join('\n'), parse_mode: 'HTML', disable_web_page_preview: true });
   }
 
   // ---------- кнопки и команды ----------
@@ -303,7 +332,7 @@ function createLeadBot(opts) {
     }
   }
 
-  return { enabled, sendLeadCard, start, _test: { card, isWorking, workingMinutes, escalate, digest, onCallback } };
+  return { enabled, sendLeadCard, sendRejected, start, _test: { card, isWorking, workingMinutes, escalate, digest, onCallback } };
 }
 
 module.exports = { createLeadBot };

@@ -236,6 +236,17 @@ if (store && transporter && NOTIFY_EMAIL) {
 }
 bot.start();
 
+// Отказ по email — сообщение в TG-группу, не чаще раза в час на один адрес (человек может жать «Отправить» снова)
+const rejectedSeen = new Map();
+function notifyRejected(info) {
+  if (!bot.enabled) return;
+  const key = info.contact.toLowerCase(), now = Date.now();
+  if (now - (rejectedSeen.get(key) || 0) < 3600 * 1000) return;
+  rejectedSeen.set(key, now);
+  if (rejectedSeen.size > 1000) rejectedSeen.delete(rejectedSeen.keys().next().value);
+  bot.sendRejected(info).catch((err) => console.error('Telegram (отказ по email):', err.message));
+}
+
 app.post('/api/lead', async (req, res) => {
   const ip = req.ip || req.socket.remoteAddress || 'unknown';
   const b = req.body || {};
@@ -271,11 +282,13 @@ app.post('/api/lead', async (req, res) => {
     const check = await emailChecker.check(contact);
     if (!check.ok) {
       console.log(`Форма: отклонён email ${contact} (${check.zb || check.reason}${check.suggestion ? ', подсказка ' + check.suggestion : ''})`);
+      notifyRejected({ name, company, contact, lang: payload.lang, page: meta.page, reason: check.reason, suggestion: check.suggestion });
       return res.status(400).json({
         ok: false, error: 'email_invalid', reason: check.reason, suggestion: check.suggestion,
         message: emailChecker.message(check, payload.lang),
       });
     }
+    payload.emailCheck = check.zb || 'dns_ok';   // для строки «📧 Почта» в карточке
   }
 
   let id = null;
