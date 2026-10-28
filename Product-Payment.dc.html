@@ -104,8 +104,9 @@
   @keyframes qblink { 0%, 45% { opacity: 1; } 50%, 100% { opacity: .15; } }
   button:not(:disabled), select, summary, label[for], [data-card] { cursor: pointer; }
   @media (pointer: fine) { html.qdot, html.qdot * { cursor: none !important; } }
-  [data-cursor-dot] { position: fixed; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; background: #5FA5F9; border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0; transition: width .15s, height .15s, margin .15s, border-radius .15s, opacity .15s; }
+  [data-cursor-dot] { --dc: #5FA5F9; position: fixed; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; background: var(--dc); border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0; transition: width .18s, height .18s, margin .18s, border-radius .18s, background-color .18s, box-shadow .18s, opacity .15s; }
   [data-cursor-dot].hot { width: 22px; height: 22px; margin: -11px 0 0 -11px; opacity: .55 !important; }
+  [data-cursor-dot].light { --dc: #0A0A09; }
   [data-cursor-dot].txt { width: 2px; height: 20px; margin: -10px 0 0 -1px; border-radius: 1px; }
 
   /* Header — condenses on tablets, wraps into a centered strip on phones; never overlaps the hero below */
@@ -893,7 +894,7 @@ initDemo() {
     requestAnimationFrame(draw);
   }
 
-  // ---------- cursor: one accent dot, no lag; grows over clickables, turns into a caret over text fields ----------
+  // ---------- cursor: one accent dot, no lag; grows over clickables, turns into a caret over text and text fields, goes dark over light surfaces ----------
   initCursorDot() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
     const dot = document.querySelector('[data-cursor-dot]');
@@ -901,14 +902,46 @@ initDemo() {
     document.documentElement.classList.add('qdot');
     const HOT = 'a, button, select, summary, label, input[type=range], input[type=checkbox], input[type=radio], [data-card], [style*="cursor: pointer"], [style*="cursor:pointer"]';
     const TXT = 'textarea, input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit])';
+    // over light surfaces (accent buttons, light cards) an accent cursor disappears, so there it turns dark
+    // checked on every move, not cached: hover transitions change backgrounds under the pointer
+    // height of the letters right under the pointer, or 0 when the pointer is not over text
+    const textSizeAt = (x, y) => {
+      let node = null;
+      if (document.caretPositionFromPoint) { const p = document.caretPositionFromPoint(x, y); node = p && p.offsetNode; }
+      else if (document.caretRangeFromPoint) { const r = document.caretRangeFromPoint(x, y); node = r && r.startContainer; }
+      if (!node || node.nodeType !== 3 || !node.nodeValue.trim()) return 0;
+      const range = document.createRange(); range.selectNodeContents(node);
+      for (const b of range.getClientRects()) {
+        if (x >= b.left && x <= b.right && y >= b.top && y <= b.bottom)
+          return Math.round(Math.max(14, Math.min(parseFloat(getComputedStyle(node.parentElement).fontSize) * 1.05, 120)));
+      }
+      return 0;
+    };
+    let recheck = 0;
+    const isLight = el => {
+      for (; el && el !== document.documentElement; el = el.parentElement) {
+        const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
+        if (!m || (m.length > 3 && +m[3] < .5)) continue;
+        return (m[0] * .299 + m[1] * .587 + m[2] * .114) / 255 > .45;
+      }
+      return false;
+    };
     document.addEventListener('mousemove', e => {
       const t = e.target.closest ? e.target : null, txt = !!(t && t.closest(TXT));
       dot.style.opacity = '1';
       dot.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
-      dot.classList.toggle('txt', txt);
-      dot.classList.toggle('hot', !txt && !!(t && t.closest(HOT)));
+      const hot = !txt && !!(t && t.closest(HOT));
+      // over plain text the dot becomes a caret as tall as the letters under it
+      const size = txt || hot ? 0 : textSizeAt(e.clientX, e.clientY);
+      dot.classList.toggle('txt', txt || size > 0);
+      dot.classList.toggle('hot', hot);
+      dot.style.height = size ? size + 'px' : '';
+      dot.style.marginTop = size ? -size / 2 + 'px' : '';
+      dot.classList.toggle('light', !!t && isLight(t));
+      // once more after the element's own hover transition has settled
+      clearTimeout(recheck); recheck = setTimeout(() => dot.classList.toggle('light', !!t && isLight(t)), 220);
     });
-    document.documentElement.addEventListener('mouseleave', () => { dot.style.opacity = '0'; dot.classList.remove('hot', 'txt'); });
+    document.documentElement.addEventListener('mouseleave', () => { dot.style.opacity = '0'; dot.classList.remove('hot', 'txt'); dot.style.height = dot.style.marginTop = ''; });
   }
 
   initScroll() {
