@@ -221,7 +221,7 @@
   a { color: #E8B23A; text-decoration: none; }
   a:hover { color: #F7D486; }
   /* email/telegram in the contact box are styled to look like a stat (white, no underline) —
-     add an obvious hover cue since the custom cursor's grow-effect alone is too subtle */
+     add an obvious hover cue since the plain pointer alone is too subtle */
   [data-cta-bigmail] { transition: color .2s; }
   [data-cta-bigmail]:hover { color: var(--acc, #E8B23A) !important; text-decoration: underline; }
   input, button { font-family: inherit; }
@@ -234,7 +234,11 @@
   @keyframes qpulse { 0% { transform: scale(1); opacity: .55; } 70% { transform: scale(2.6); opacity: 0; } 100% { opacity: 0; } }
   @keyframes qcaret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
   @keyframes qtypedot { 0%, 60%, 100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-3px); opacity: 1; } }
-  @media (pointer: fine) { body, input, textarea, select, button, a, [data-card] { cursor: none !important; } }
+  button:not(:disabled), select, summary, label[for], [data-card] { cursor: pointer; }
+  @media (pointer: fine) { html.qdot, html.qdot * { cursor: none !important; } }
+  [data-cursor-dot] { position: fixed; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; background: var(--acc, #E8B23A); border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0; transition: width .15s, height .15s, margin .15s, border-radius .15s, opacity .15s; }
+  [data-cursor-dot].hot { width: 22px; height: 22px; margin: -11px 0 0 -11px; opacity: .55 !important; }
+  [data-cursor-dot].txt { width: 2px; height: 20px; margin: -10px 0 0 -1px; border-radius: 1px; }
 
   /* ================= Global responsive ================= */
 
@@ -327,8 +331,7 @@
     <div data-blob="2" style="position: absolute; left: -22%; top: 34%; width: 54vw; height: 54vw; border-radius: 50%; background: radial-gradient(circle, rgba(72,132,214,.085), rgba(72,132,214,0) 62%); filter: blur(30px); will-change: transform;"></div>
   </div>
   <div style="position: fixed; inset: 0; z-index: 60; pointer-events: none; box-shadow: inset 0 0 260px 60px rgba(6,6,5,.85);"></div>
-  <div data-cursor-ring="" style="position: fixed; top: 0; left: 0; width: 30px; height: 30px; margin: -15px 0 0 -15px; border: 1px solid var(--acc, #E8B23A); border-radius: 50%; z-index: 9998; pointer-events: none; opacity: 0; transition: width .18s, height .18s, margin .18s, opacity .2s;"></div>
-  <div data-cursor-dot="" style="position: fixed; top: 0; left: 0; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; background: var(--acc, #E8B23A); border-radius: 50%; z-index: 9999; pointer-events: none; opacity: 0;"></div>
+  <div data-cursor-dot=""></div>
 
   <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 18px 32px; background: rgba(10,10,9,.72); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
     <a href="#top" style="display: flex; align-items: center;"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" style="height: 40px; width: auto; display: block;"></a>
@@ -1602,7 +1605,7 @@ window.QODEQ_I18N = {
   }
 };
 </script>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E8B23A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#E8B23A&quot;,&quot;#7BC96F&quot;,&quot;#6E9EC9&quot;,&quot;#E8683A&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;gridIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;customCursor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;defaultAutomation&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:65,&quot;min&quot;:40,&quot;max&quot;:80,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Calculator&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;ru&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ru&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E8B23A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#E8B23A&quot;,&quot;#7BC96F&quot;,&quot;#6E9EC9&quot;,&quot;#E8683A&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;gridIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;defaultAutomation&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:65,&quot;min&quot;:40,&quot;max&quot;:80,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Calculator&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;ru&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ru&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
 class Component extends DCLogic {
   state = { chats: 250000, autom: 65, tickets: 0, mins: 0, qa: false, lang: 'en', sent: false, sending: false, sendErr: '', fName: '', fCompany: '', fEmail: '', fHoney: '' };
 
@@ -1722,7 +1725,7 @@ class Component extends DCLogic {
     if (this.props.defaultAutomation) this.setState({ autom: this.props.defaultAutomation });
     this.root = this.el || document;
     this.q = (sel) => Array.from(document.querySelectorAll(sel));
-    this.initReveal(); this.initGrid(); this.initCore(); this.initGlow(); this.initCursor(); this.initScroll(); this.initMorph(); this.initLog(); this.initLinks(); this.initShowcase(); this.initMock(); this.initSliderFills(); this.initEventCountdown();
+    this.initReveal(); this.initGrid(); this.initCore(); this.initGlow(); this.initCursor(); this.initCursorDot(); this.initScroll(); this.initMorph(); this.initLog(); this.initLinks(); this.initShowcase(); this.initMock(); this.initSliderFills(); this.initEventCountdown();
     this.applyPlan();
     this.syncRenderVals();
     this._roiRz = () => this.drawRoi();
@@ -2795,29 +2798,33 @@ class Component extends DCLogic {
     requestAnimationFrame(draw);
   }
 
-  // ---------- cursor ----------
+  // ---------- card hover ----------
   initCursor() {
-    if (this.props.customCursor === false || !window.matchMedia('(pointer: fine)').matches) return;
-    const dot = document.querySelector('[data-cursor-dot]'), ring = document.querySelector('[data-cursor-ring]');
-    if (!dot || !ring) return;
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY; dot.style.opacity = '1'; ring.style.opacity = '1';
-      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-      const t = e.target;
-      const hot = t.closest && t.closest('a, button, input, [data-card]');
-      ring.style.width = hot ? '54px' : '30px'; ring.style.height = hot ? '54px' : '30px';
-      ring.style.margin = hot ? '-27px 0 0 -27px' : '-15px 0 0 -15px';
-      ring.style.background = hot ? 'rgba(232,178,58,.10)' : 'transparent';
-    });
-    const loop = () => { if (this.dead) return; rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16; ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)'; requestAnimationFrame(loop); };
-    requestAnimationFrame(loop);
+    if (!window.matchMedia('(pointer: fine)').matches) return;
     this.q('[data-card]').forEach(c => {
       const a = c.querySelector('[data-arrow]');
       const arrowBg = a ? a.style.backgroundColor : '';
       c.addEventListener('mouseenter', () => { c.style.background = '#111110'; c.style.transform = 'translateY(-4px)'; if (a) { a.style.transform = 'translateX(4px)'; if (arrowBg) a.style.filter = 'brightness(1.35)'; else a.style.background = 'rgba(255,255,255,.07)'; } });
       c.addEventListener('mouseleave', () => { c.style.background = '#0A0A09'; c.style.transform = 'none'; if (a) { a.style.transform = 'none'; if (arrowBg) a.style.filter = 'none'; else a.style.background = 'transparent'; } });
     });
+  }
+
+  // ---------- cursor: one accent dot, no lag; grows over clickables, turns into a caret over text fields ----------
+  initCursorDot() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    const dot = document.querySelector('[data-cursor-dot]');
+    if (!dot) return;
+    document.documentElement.classList.add('qdot');
+    const HOT = 'a, button, select, summary, label, input[type=range], input[type=checkbox], input[type=radio], [data-card], [style*="cursor: pointer"], [style*="cursor:pointer"]';
+    const TXT = 'textarea, input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit])';
+    document.addEventListener('mousemove', e => {
+      const t = e.target.closest ? e.target : null, txt = !!(t && t.closest(TXT));
+      dot.style.opacity = '1';
+      dot.style.transform = 'translate(' + e.clientX + 'px,' + e.clientY + 'px)';
+      dot.classList.toggle('txt', txt);
+      dot.classList.toggle('hot', !txt && !!(t && t.closest(HOT)));
+    });
+    document.documentElement.addEventListener('mouseleave', () => { dot.style.opacity = '0'; dot.classList.remove('hot', 'txt'); });
   }
 
   // ---------- scroll driven: progress, rail, parallax, pinned horizontal, timeline ----------
