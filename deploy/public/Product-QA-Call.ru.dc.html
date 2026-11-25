@@ -50,7 +50,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<script src="/i18n.js?v=41"></script>
+<script src="/i18n.js?v=42"></script>
 <style>
   @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; padding-left: 20px !important; padding-right: 20px !important; } }
@@ -87,7 +87,7 @@
     [data-fb-grid] { grid-template-columns: 1fr !important; }
     [data-fb-col] { padding: 26px 20px !important; }
     [data-fb-bigmail] { font-size: 18px !important; word-break: break-word; }
-    [data-fb-send] { letter-spacing: .08em !important; }
+    [data-fb-send] { letter-spacing: .02em !important; }
   }
   @keyframes qblink { 0%, 45% { opacity: 1; } 50%, 100% { opacity: .15; } }
   button:not(:disabled), select, summary, label[for], [data-card] { cursor: pointer; }
@@ -107,7 +107,7 @@
     header { padding: 10px 16px !important; gap: 8px !important; flex-wrap: nowrap !important; }
     header > nav { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; margin-left: 0 !important; gap: 6px !important; flex: 1 1 auto !important; min-width: 0 !important; scrollbar-width: none !important; mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); }
     header > nav::-webkit-scrollbar { display: none !important; }
-    header > nav > a { padding: 6px 9px !important; font-size: 9.5px !important; letter-spacing: .12em !important; flex: 0 0 auto !important; }
+    header > nav > a { padding: 6px 9px !important; font-size: 11px !important; letter-spacing: .02em !important; flex: 0 0 auto !important; }
     header > nav > span { flex: 0 0 auto !important; }
   }
   @media (max-width: 380px) {
@@ -144,27 +144,24 @@
 <div style="position: relative; background: #0A0A09; color: #E8E6E1; font-family: 'Space Grotesk', system-ui, sans-serif; min-height: 100vh; overflow-x: clip;">
   <canvas data-grid="" style="position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
   <div data-glow="" style="position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;">
-    <div data-blob="1" style="position: absolute; left: 58%; top: -14%; width: 62vw; height: 62vw; border-radius: 50%; background: radial-gradient(circle, rgba(192,132,245,.11), rgba(192,132,245,0) 62%); filter: blur(28px); will-change: transform;"></div>
-    <div data-blob="2" style="position: absolute; left: -22%; top: 34%; width: 54vw; height: 54vw; border-radius: 50%; background: radial-gradient(circle, rgba(72,132,214,.075), rgba(72,132,214,0) 62%); filter: blur(30px); will-change: transform;"></div>
   </div>
-  <div style="position: fixed; inset: 0; z-index: 60; pointer-events: none; box-shadow: inset 0 0 260px 60px rgba(6,6,5,.85);"></div>
   <div data-rail="" style="position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 80; display: flex; flex-direction: column; gap: 13px; align-items: flex-end;"></div>
   <div data-cursor-dot=""></div>
   <div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: #C084F5;"></div></div>
 
   <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
     <a href="/ru/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" style="height: 40px; width: auto; display: block;"></a>
-    <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em;">
+    <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;">
       <a href="/ru/chat" data-tab="chat" data-i18n="nav.chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;">01 ЧАТ</a>
-      <a href="/ru/qa-chat" data-tab="qa-chat" data-i18n="nav.qachat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;">02 QA ЧАТ</a>
-      <a href="/ru/payment" data-tab="payment" data-i18n="nav.payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579; --btn-acc: #5FA5F9;">03 ОПЛАТА</a>
-      <a href="/ru/qa-call" data-tab="qa-call" data-i18n="nav.qacall" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;">04 QA ЗВОНКИ</a>
-      <a href="/ru/voice" data-tab="voice" data-i18n="nav.voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;">05 ГОЛОС</a>
-      <a href="/ru/blog" data-btn="" data-i18n="nav.blog" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); color: #8A8579; --btn-acc: #F5F2EC;">БЛОГ</a>
-      <a href="/ru/calculator" data-i18n="nav.calcbtn" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(192,132,245,.5); color: #C084F5;">КАЛЬКУЛЯТОР →</a>
+      <a href="/ru/qa-chat" data-tab="qa-chat" data-i18n="nav.qachat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;">02 QA чат</a>
+      <a href="/ru/payment" data-tab="payment" data-i18n="nav.payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579; --btn-acc: #5FA5F9;">03 Оплата</a>
+      <a href="/ru/qa-call" data-tab="qa-call" data-i18n="nav.qacall" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;">04 QA звонки</a>
+      <a href="/ru/voice" data-tab="voice" data-i18n="nav.voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;">05 Голос</a>
+      <a href="/ru/blog" data-btn="" data-i18n="nav.blog" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); color: #8A8579; --btn-acc: #F5F2EC;">Блог</a>
+      <a href="/ru/calculator" data-i18n="nav.calcbtn" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(192,132,245,.5); color: #C084F5;">Калькулятор →</a>
       <span style="display: flex; gap: 4px; align-items: center; margin-left: 4px; padding-left: 10px; border-left: 1px solid rgba(255,255,255,.14);">
-        <button data-lang="en" data-lang-btn="" type="button" style="padding: 7px 10px; background: rgba(192,132,245,.14); border: 1px solid #C084F5; color: #C084F5; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">EN</button>
-        <button data-lang="ru" data-lang-btn="" type="button" style="padding: 7px 10px; background: transparent; border: 1px solid rgba(255,255,255,.16); color: #8A8579; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">RU</button>
+        <button data-lang="en" data-lang-btn="" type="button" style="padding: 7px 10px; background: rgba(192,132,245,.14); border: 1px solid #C084F5; color: #C084F5; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; cursor: pointer;">EN</button>
+        <button data-lang="ru" data-lang-btn="" type="button" style="padding: 7px 10px; background: transparent; border: 1px solid rgba(255,255,255,.16); color: #8A8579; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; cursor: pointer;">RU</button>
       </span>
     </nav>
   </header>
@@ -173,44 +170,44 @@
   <div data-prod="qa-call">
     <section style="position: relative; z-index: 1; padding: 150px 48px 90px; max-width: 1500px; margin: 0 auto;">
       <div data-parallax="-0.07" style="position: absolute; right: 4vw; top: 14vh; font: 700 clamp(150px, 26vw, 400px)/0.8 'Space Grotesk', sans-serif; color: rgba(255,255,255,.022); letter-spacing: -.05em; pointer-events: none; user-select: none;">04</div>
-      <p data-i18n="hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .28em; color: #C084F5;">— ПРОДУКТ 04 · AI VOICE QA</p>
-      <h1 style="margin: 0 0 26px; max-width: 1000px; font: 500 clamp(38px, 6.4vw, 104px)/0.98 'Space Grotesk', sans-serif; letter-spacing: -.034em; color: #F5F2EC;"><span data-i18n="hero.kw" style="display: block; margin: 0 0 18px; font: 500 clamp(17px, 1.6vw, 22px)/1.3 'Space Grotesk', sans-serif; letter-spacing: -.005em; color: #B5AFA2;">AI-контроль качества звонков для колл-центров</span><span data-i18n="hero.h1">Покрытие 2,6% становится 100%.</span></h1>
+      <p data-i18n="hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Продукт 04 · AI Voice QA</p>
+      <h1 style="margin: 0 0 26px; max-width: 1000px; font: 500 clamp(38px, 6.4vw, 104px)/0.98 'Space Grotesk', sans-serif; letter-spacing: -.034em; color: #F5F2EC;"><span data-i18n="hero.kw" style="display: block; margin: 0 0 18px; font: 500 clamp(17px, 1.6vw, 22px)/1.3 'Space Grotesk', sans-serif; letter-spacing: -.005em; color: #B5AFA2;">AI-контроль качества звонков для колл-центров</span><span data-i18n="hero.h1">Покрытие 2,6% становится 100%</span></h1>
       <p data-i18n="hero.sub" style="margin: 0; max-width: 620px; font: 400 17px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Больше не нужен контролёр качества, чтобы знать, как ваши операторы общаются с клиентами. Транскрибация Whisper, 15 критериев, входящие и исходящие звонки — без исключений.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; margin-top: 66px; background: rgba(255,255,255,.09); border-top: 1px solid rgba(255,255,255,.09);">
-        <div data-reveal="" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat1.label" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">ПОКРЫТИЕ ЗВОНКОВ</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="100" data-suffix="%">100%</span></p></div>
-        <div data-reveal="" data-delay="80" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat2.label" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">ВРЕМЯ НА ПРОВЕРКУ</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">5–15 <span data-i18n="hero.stat2.unit" style="font-size: 15px; color: #8A8579;">сек</span></p></div>
-        <div data-reveal="" data-delay="160" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat3.label" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">ОСВОБОЖДЕНО СПЕЦИАЛИСТОВ</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">1–2</p></div>
-        <div data-reveal="" data-delay="240" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat4.label" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">ЭКВИВАЛЕНТ РУЧНОЙ РАБОТЫ В ДЕНЬ</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">$18,720</p></div>
+        <div data-reveal="" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat1.label" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Покрытие звонков</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="100" data-suffix="%">100%</span></p></div>
+        <div data-reveal="" data-delay="80" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat2.label" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Время на проверку</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">5–15 <span data-i18n="hero.stat2.unit" style="font-size: 15px; color: #8A8579;">сек</span></p></div>
+        <div data-reveal="" data-delay="160" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat3.label" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Освобождено специалистов</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">1–2</p></div>
+        <div data-reveal="" data-delay="240" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat4.label" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Эквивалент ручной работы в день</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">$18,720</p></div>
       </div>
     </section>
 
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="demo.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">— ПРОВЕРКА ЗВОНКА · ПРОКРУТКА ПО ВОЛНЕ</p>
-      <h2 data-i18n="demo.h2" style="margin: 0 0 18px; max-width: 900px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Каждый звонок оценивается именно там, где всё произошло.</h2>
+      <p data-i18n="demo.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Проверка звонка · Прокрутка по волне</p>
+      <h2 data-i18n="demo.h2" style="margin: 0 0 18px; max-width: 900px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Каждый звонок оценивается именно там, где всё произошло</h2>
       <p data-i18n="demo.sub" style="margin: 0 0 44px; max-width: 620px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Транскрибация Whisper и рубрика из 15 критериев — каждое замечание привязано к своей временной метке.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
         <div style="background: #0C0C0A; padding: 24px 26px;">
-          <span data-i18n="demo.callmeta" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61; display: block; margin-bottom: 18px;">ЗВОНОК #7,904 · 04:38 · НАЖМИТЕ, ЧТОБЫ ПРОКРУТИТЬ</span>
+          <span data-i18n="demo.callmeta" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61; display: block; margin-bottom: 18px;">Звонок #7,904 · 04:38 · Нажмите, чтобы прокрутить</span>
           <div data-wave2="" style="display: flex; align-items: center; gap: 3px; height: 72px; margin-bottom: 20px; cursor: pointer;"></div>
           <div data-segs="" style="display: flex; flex-direction: column; gap: 9px;"></div>
         </div>
         <div style="background: #0A0A09; padding: 24px 26px; display: flex; flex-direction: column; gap: 18px;">
-          <div><p data-i18n="demo.findlabel" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">ЗАМЕЧАНИЕ В ТОЧКЕ КУРСОРА</p><p data-cfind="" data-i18n="demo.cfind.default" style="margin: 0; font: 400 16px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1; min-height: 72px;">Нажмите в любом месте волны.</p></div>
+          <div><p data-i18n="demo.findlabel" style="margin: 0 0 8px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Замечание в точке курсора</p><p data-cfind="" data-i18n="demo.cfind.default" style="margin: 0; font: 400 16px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1; min-height: 72px;">Нажмите в любом месте волны.</p></div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09); margin-top: auto;">
-            <div style="padding: 18px 16px; background: #0A0A09;"><p data-i18n="demo.scorelabel" style="margin: 0 0 8px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">ОЦЕНКА ЗВОНКА</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; color: #C084F5;">71/100</p></div>
-            <div style="padding: 18px 16px; background: #0A0A09;"><p data-i18n="demo.reviewlabel" style="margin: 0 0 8px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">ВРЕМЯ ПРОВЕРКИ</p><p data-i18n="demo.reviewtime" style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">9 сек</p></div>
+            <div style="padding: 18px 16px; background: #0A0A09;"><p data-i18n="demo.scorelabel" style="margin: 0 0 8px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Оценка звонка</p><p style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; color: #C084F5;">71/100</p></div>
+            <div style="padding: 18px 16px; background: #0A0A09;"><p data-i18n="demo.reviewlabel" style="margin: 0 0 8px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Время проверки</p><p data-i18n="demo.reviewtime" style="margin: 0; font: 500 30px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">9 сек</p></div>
           </div>
         </div>
       </div>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="calc2.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">— ДЕТАЛЬНЫЙ РАСЧЁТ · 5000 ЗВОНКОВ В ДЕНЬ</p>
-      <h2 data-i18n="calc2.h2" style="margin: 0 0 48px; max-width: 820px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Для полного ручного покрытия потребовалось бы 78 человек.</h2>
+      <p data-i18n="calc2.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Детальный расчёт · 5000 звонков в день</p>
+      <h2 data-i18n="calc2.h2" style="margin: 0 0 48px; max-width: 820px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Для полного ручного покрытия потребовалось бы 78 человек</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
         <div data-reveal="" style="padding: 30px 28px; background: #0A0A09;">
-          <p data-i18n="calc2.manual.label" style="margin: 0 0 18px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #8A8579;">РУЧНАЯ ПРОВЕРКА · 1–2 СПЕЦИАЛИСТА</p>
+          <p data-i18n="calc2.manual.label" style="margin: 0 0 18px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Ручная проверка · 1–2 специалиста</p>
           <p style="margin: 0 0 26px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #E8E6E1;">~128 <span data-i18n="calc2.manual.value.unit" style="font-size: 15px; color: #8A8579;">звонков из 5000</span></p>
           <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'Space Grotesk', sans-serif; color: #9A958A;"><span data-i18n="calc2.manual.row1.label">Время на проверку</span><span data-i18n="calc2.manual.row1.value" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6E6A61;">7,5 мин / звонок</span></div>
           <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'Space Grotesk', sans-serif; color: #9A958A;"><span data-i18n="calc2.manual.row2.label">Общее время</span><span data-i18n="calc2.manual.row2.value" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6E6A61;">16 часов</span></div>
@@ -218,7 +215,7 @@
           <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'Space Grotesk', sans-serif; color: #9A958A;"><span data-i18n="calc2.manual.row4.label">Для полного покрытия потребуется</span><span data-i18n="calc2.manual.row4.value" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6E6A61;">78 человек · $18,720 / день</span></div>
         </div>
         <div data-reveal="" data-delay="90" style="padding: 30px 28px; background: #0C0C0A;">
-          <p data-i18n="calc2.auto.label" style="margin: 0 0 18px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">АВТОМАТИЧЕСКАЯ ПРОВЕРКА · AI VOICE QA</p>
+          <p data-i18n="calc2.auto.label" style="margin: 0 0 18px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Автоматическая проверка · AI Voice QA</p>
           <p style="margin: 0 0 26px; font: 500 40px/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">5,000 <span data-i18n="calc2.auto.value.unit" style="font-size: 15px; color: #8A8579;">звонков · покрытие 100%</span></p>
           <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'Space Grotesk', sans-serif; color: #E8E6E1;"><span data-i18n="calc2.auto.row1.label">Время на проверку</span><span data-i18n="calc2.auto.row1.value" style="color: #C084F5;">10 сек / звонок</span></div>
           <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'Space Grotesk', sans-serif; color: #E8E6E1;"><span data-i18n="calc2.auto.row2.label">Общее время</span><span data-i18n="calc2.auto.row2.value" style="color: #C084F5;">13,9 ч времени ИИ</span></div>
@@ -227,22 +224,22 @@
         </div>
       </div>
       <div style="margin-top: 46px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-        <div style="padding: 24px 22px; background: #0A0A09;"><p data-i18n="status.dev.label" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">ОХВАТ</p><p data-i18n="status.dev.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Каждый входящий и исходящий звонок проверяется за 5–15 секунд — вместо ~2,6% выборочной ручной проверки.</p></div>
-        <div style="padding: 24px 22px; background: #0A0A09;"><p data-i18n="status.terms.label" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">ЦЕНЫ</p><p data-i18n="status.terms.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">За проверенный звонок по объёму в месяц: $0.30 (5K–30K) · $0.25 (30K–100K) · $0.20 (100K–200K) · $0.18 (200K+). Platform bundle: $0.25 / $0.20 / $0.18 / $0.15. Без платы за подключение — интеграция, транскрибация и калибровка включены.</p></div>
-        <div style="padding: 24px 22px; background: #0A0A09;"><p data-i18n="status.sec.label" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">БЕЗОПАСНОСТЬ</p><p data-i18n="status.sec.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Локальная обработка, записи шифруются, соответствие GDPR.</p></div>
+        <div style="padding: 24px 22px; background: #0A0A09;"><p data-i18n="status.dev.label" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Охват</p><p data-i18n="status.dev.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Каждый входящий и исходящий звонок проверяется за 5–15 секунд — вместо ~2,6% выборочной ручной проверки.</p></div>
+        <div style="padding: 24px 22px; background: #0A0A09;"><p data-i18n="status.terms.label" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Цены</p><p data-i18n="status.terms.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">За проверенный звонок по объёму в месяц: $0.30 (5K–30K) · $0.25 (30K–100K) · $0.20 (100K–200K) · $0.18 (200K+). Platform bundle: $0.25 / $0.20 / $0.18 / $0.15. Без платы за подключение — интеграция, транскрибация и калибровка включены.</p></div>
+        <div style="padding: 24px 22px; background: #0A0A09;"><p data-i18n="status.sec.label" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Безопасность</p><p data-i18n="status.sec.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Локальная обработка, записи шифруются, соответствие GDPR.</p></div>
       </div>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="tl.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">— СРОКИ ВНЕДРЕНИЯ</p>
-      <h2 data-i18n="tl.h2" style="margin: 0 0 56px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">100% звонков оцениваются с 4-й недели.</h2>
+      <p data-i18n="tl.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Сроки внедрения</p>
+      <h2 data-i18n="tl.h2" style="margin: 0 0 56px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">100% звонков оцениваются с 4-й недели</h2>
       <div data-tl="" style="position: relative;">
         <div style="position: absolute; left: 0; right: 0; top: 5px; height: 1px; background: rgba(255,255,255,.1);"><div data-tlbar="" style="height: 1px; width: 0%; background: #C084F5;"></div></div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;">
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.1.tag" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">НЕДЕЛЯ 1</p><h3 data-i18n="tl.1.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с телефонией</h3><p data-i18n="tl.1.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Доступ к записям звонков и правила их хранения.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.2.tag" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">НЕДЕЛЯ 2</p><h3 data-i18n="tl.2.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Калибровка критериев</h3><p data-i18n="tl.2.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">15 критериев взвешены под ваши скрипты.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.3.tag" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">НЕДЕЛЯ 3</p><h3 data-i18n="tl.3.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Пилотное тестирование</h3><p data-i18n="tl.3.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Параллельный прогон против ваших контролёров.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.4.tag" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">НЕДЕЛЯ 4+</p><h3 data-i18n="tl.4.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Полноценная работа</h3><p data-i18n="tl.4.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">100% звонков оцениваются автоматически.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.1.tag" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Неделя 1</p><h3 data-i18n="tl.1.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Интеграция с телефонией</h3><p data-i18n="tl.1.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Доступ к записям звонков и правила их хранения.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.2.tag" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Неделя 2</p><h3 data-i18n="tl.2.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Калибровка критериев</h3><p data-i18n="tl.2.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">15 критериев взвешены под ваши скрипты.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.3.tag" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Неделя 3</p><h3 data-i18n="tl.3.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Пилотное тестирование</h3><p data-i18n="tl.3.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Параллельный прогон против ваших контролёров.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.4.tag" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Неделя 4+</p><h3 data-i18n="tl.4.title" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Полноценная работа</h3><p data-i18n="tl.4.text" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">100% звонков оцениваются автоматически.</p></div>
         </div>
       </div>
     </section>
@@ -251,28 +248,28 @@
   <!-- 05 VOICE -->
   
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">— ВАШИ ЦИФРЫ · QA ЗВОНКОВ</p>
-    <h2 data-i18n="calc.h2" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Смоделируйте покрытие звонков.</h2>
+    <p data-i18n="calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Ваши цифры · QA звонков</p>
+    <h2 data-i18n="calc.h2" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Смоделируйте покрытие звонков</h2>
     <div data-calc="" data-mode="coverage" data-min="200" data-max="20000" data-step="100" data-def="5000" data-cur="$" data-human="3.75" data-share="1" data-setup="0" data-tiers="30000:0.3,100000:0.25,200000:0.2,9000000000:0.18" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 30px;">
         <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.perday" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ЗВОНКОВ В ДЕНЬ</span><span data-cv="" style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.perday" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Звонков в день</span><span data-cv="" style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</span></div>
           <input data-cin="" aria-label="Calls per month" type="range" min="200" max="20000" step="100" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(255,255,255,.12); accent-color: #C084F5;">
         </div>
         <div style="display: flex; flex-direction: column;">
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row1.label">СПЕЦИАЛИСТОВ НУЖНО ВРУЧНУЮ</span><span data-ctier="" style="color: #E8E6E1;">—</span></div>
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row2.label">СТОИМОСТЬ РУЧНОГО QA</span><span data-cbase="" style="color: #E8E6E1;">—</span></div>
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row3.label">ЦЕНА QODEQ</span><span data-cai="" style="color: #E8E6E1;">—</span></div>
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row4.label">ПОКРЫТИЕ</span><span data-cpay="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row1.label">Специалистов нужно вручную</span><span data-ctier="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row2.label">Стоимость ручного QA</span><span data-cbase="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row3.label">Цена QODEQ</span><span data-cai="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.row4.label">Покрытие</span><span data-cpay="" style="color: #E8E6E1;">—</span></div>
         </div>
-        <p data-i18n="calc.model" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #57544C;">МОДЕЛЬ: 1 СПЕЦИАЛИСТ ПРОВЕРЯЕТ 64 ЗВОНКА В ДЕНЬ ЗА $240 · AI VOICE QA $0.30 → $0.18 ЗА ПРОВЕРЕННЫЙ ЗВОНОК ПО ОБЪЁМУ В МЕСЯЦ · БЕЗ ПЛАТЫ ЗА ПОДКЛЮЧЕНИЕ</p>
+        <p data-i18n="calc.model" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Модель: 1 специалист проверяет 64 звонка в день за $240 · AI Voice QA $0.30 → $0.18 за проверенный звонок по объёму в месяц · Без платы за подключение</p>
       </div>
       <div style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; justify-content: center; gap: 26px;">
-        <div><p data-i18n="calc.save.month.label" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ЭКОНОМИЯ В МЕСЯЦ</p><p data-csave="" style="margin: 0; font: 500 clamp(40px, 5.4vw, 68px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #C084F5;">—</p></div>
-        <div><p data-i18n="calc.save.year.label" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ЭКОНОМИЯ В ГОД</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
+        <div><p data-i18n="calc.save.month.label" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Экономия в месяц</p><p data-csave="" style="margin: 0; font: 500 clamp(40px, 5.4vw, 68px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #C084F5;">—</p></div>
+        <div><p data-i18n="calc.save.year.label" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Экономия в год</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
         <div style="height: 10px; background: rgba(255,255,255,.05);"><div data-cbar="" style="height: 10px; width: 0%; background: #C084F5; transition: width .35s cubic-bezier(.2,.7,.2,1);"></div></div>
-        <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">—</p>
-        <a href="/ru/calculator" data-i18n="calc.allfive" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">СМОДЕЛИРОВАТЬ ВСЕ ПЯТЬ АГЕНТОВ ВМЕСТЕ →</a>
+        <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">—</p>
+        <a href="/ru/calculator" data-i18n="calc.allfive" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #E8E6E1;">Смоделировать все пять агентов вместе →</a>
       </div>
     </div>
   </section>
@@ -280,55 +277,55 @@
   <section style="position: relative; z-index: 1; padding: 100px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
     <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 30px;">
       <div>
-        <p data-i18n="cta.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">— СЛЕДУЮЩИЙ ШАГ</p>
-        <h2 data-i18n="cta.h2" style="margin: 0 0 14px; font: 500 clamp(28px, 4vw, 58px)/1.03 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">Обсудим на ваших цифрах.</h2>
+        <p data-i18n="cta.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Следующий шаг</p>
+        <h2 data-i18n="cta.h2" style="margin: 0 0 14px; font: 500 clamp(28px, 4vw, 58px)/1.03 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">Обсудим на ваших цифрах</h2>
         <p data-i18n="cta.sub" style="margin: 0; max-width: 520px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A;">Пришлите объёмы, которые вы смоделировали выше, — и мы вернёмся с фиксированной ценой, планом интеграции и сроками внедрения в течение двух рабочих дней.</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="cta.quote" data-btn="" style="padding: 17px 24px; background: #C084F5; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">ЗАПРОСИТЬ РАСЧЁТ</a>
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;"></a>
-        <a href="https://t.me/qodeq" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">@QODEQ</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="cta.quote" data-btn="" style="padding: 17px 24px; background: #C084F5; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;">Запросить расчёт</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;"></a>
+        <a href="https://t.me/qodeq" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;">@QODEQ</a>
       </div>
     </div>
   </section>
 
 <section style="position: relative; z-index: 1; padding: 100px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="platform.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #8A8579;">— ОСТАЛЬНАЯ ЧАСТЬ ПЛАТФОРМЫ</p>
-    <h2 data-i18n="platform.h2" style="margin: 0 0 40px; max-width: 820px; font: 500 clamp(26px, 3.2vw, 44px)/1.06 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">У каждого агента общая база знаний, общий контекст CRM, единый слой аналитики.</h2>
+    <p data-i18n="platform.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">&gt; Остальная часть платформы</p>
+    <h2 data-i18n="platform.h2" style="margin: 0 0 40px; max-width: 820px; font: 500 clamp(26px, 3.2vw, 44px)/1.06 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">У каждого агента общая база знаний, общий контекст CRM, единый слой аналитики</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
         <a href="/ru/chat" data-xcard="" data-acc="#4FD1A5" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #4FD1A5; transition: background .3s, transform .3s;">
-          <span data-i18n="platform.card1.tag" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #E8B23A;">01 / ЧАТ-ОПЕРАТОР</span>
+          <span data-i18n="platform.card1.tag" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #E8B23A;">01 / Чат-оператор</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Chat Operator<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
         <a href="/ru/qa-chat" data-xcard="" data-acc="#E8B23A" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #E8B23A; transition: background .3s, transform .3s;">
-          <span data-i18n="platform.card2.tag" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">02 / СИСТЕМА QA</span>
+          <span data-i18n="platform.card2.tag" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">02 / Система QA</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI QA System<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
         <a href="/ru/payment" data-xcard="" data-acc="#5FA5F9" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #5FA5F9; transition: background .3s, transform .3s;">
-          <span data-i18n="platform.card3.tag" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">03 / ПЛАТЁЖНЫЙ АССИСТЕНТ</span>
+          <span data-i18n="platform.card3.tag" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #5FA5F9;">03 / Платёжный ассистент</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Payment Assistant<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
         <a href="/ru/voice" data-xcard="" data-acc="#F4794C" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #F4794C; transition: background .3s, transform .3s;">
-          <span data-i18n="platform.card4.tag" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">05 / ГОЛОСОВОЙ БОТ</span>
+          <span data-i18n="platform.card4.tag" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #F4794C;">05 / Голосовой бот</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Voice Bot<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
     </div>
   </section>
 
   <section id="contact" data-feedback="" data-slug="qa-call" data-acc="#C084F5" data-product="AI Voice QA" style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); overflow: clip;">
-    <p data-i18n="fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #C084F5;">— ЗАПРОСИТЬ РАСЧЁТ</p>
-    <h2 data-i18n="fb.h2" style="margin: 0 0 20px; max-width: 860px; font: 500 clamp(28px, 4vw, 56px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Узнайте цифры AI Voice QA на ваших объёмах.</h2>
+    <p data-i18n="fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">&gt; Запросить расчёт</p>
+    <h2 data-i18n="fb.h2" style="margin: 0 0 20px; max-width: 860px; font: 500 clamp(28px, 4vw, 56px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">Узнайте цифры AI Voice QA на ваших объёмах</h2>
     <p data-i18n="fb.sub" style="margin: 0 0 48px; max-width: 560px; font: 400 16px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Оставьте контакт — пришлём персональный расчёт и план внедрения в течение одного рабочего дня.</p>
     <div data-fb-grid="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div data-fb-col="" style="padding: 32px 30px; background: #0A0A09;">
         <form novalidate="" style="display: flex; flex-direction: column; gap: 20px;">
           <input name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;">
-          <label style="display: block;"><span data-i18n="fb.field.name" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ИМЯ</span><input name="name" autocomplete="name" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;"></label>
-          <label style="display: block;"><span data-i18n="fb.field.company" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">КОМПАНИЯ</span><input name="company" autocomplete="organization" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;"></label>
-          <label style="display: block;"><span data-i18n="fb.field.contact" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">EMAIL ИЛИ TELEGRAM</span><input name="contact" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;"></label>
-          <p data-i18n="fb.interest" style="margin: 4px 0 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">ИНТЕРЕСУЕТ: AI VOICE QA</p>
-          <p data-fb-status="" style="margin: 0; min-height: 15px; font: 400 11px/1.5 'JetBrains Mono', monospace; letter-spacing: .06em; color: #8A8579;"></p>
-          <button type="submit" data-fb-send="" data-i18n="fb.send" style="margin-top: 6px; padding: 17px 22px; background: #C084F5; border: none; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em; text-align: center; cursor: pointer;">ОТПРАВИТЬ ЗАПРОС</button>
+          <label style="display: block;"><span data-i18n="fb.field.name" style="display: block; margin-bottom: 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Имя</span><input name="name" autocomplete="name" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;"></label>
+          <label style="display: block;"><span data-i18n="fb.field.company" style="display: block; margin-bottom: 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Компания</span><input name="company" autocomplete="organization" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;"></label>
+          <label style="display: block;"><span data-i18n="fb.field.contact" style="display: block; margin-bottom: 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Email или Telegram</span><input name="contact" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;"></label>
+          <p data-i18n="fb.interest" style="margin: 4px 0 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Интересует: AI Voice QA</p>
+          <p data-fb-status="" style="margin: 0; min-height: 15px; font: 400 11px/1.5 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;"></p>
+          <button type="submit" data-fb-send="" data-i18n="fb.send" style="margin-top: 6px; padding: 17px 22px; background: #C084F5; border: none; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; text-align: center; cursor: pointer;">Отправить запрос</button>
         </form>
         <div data-fb-ok="" style="display: none; padding: 26px 0;">
           <p data-i18n="fb.ok.title" style="margin: 0 0 14px; font: 500 28px/1.1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #C084F5;">Заявка принята.</p>
@@ -336,15 +333,15 @@
         </div>
       </div>
       <div data-fb-col="" style="padding: 32px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 24px;">
-        <div><p data-i18n="fb.email.label" style="margin: 0 0 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">EMAIL</p><a href="#" data-fb-bigmail="" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC; word-break: break-word;"></a></div>
-        <div><p data-i18n="fb.tg.label" style="margin: 0 0 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">TELEGRAM</p><a href="https://t.me/qodeq" data-fb-bigmail="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC;">@qodeq</a></div>
+        <div><p data-i18n="fb.email.label" style="margin: 0 0 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Email</p><a href="#" data-fb-bigmail="" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC; word-break: break-word;"></a></div>
+        <div><p data-i18n="fb.tg.label" style="margin: 0 0 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Telegram</p><a href="https://t.me/qodeq" data-fb-bigmail="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC;">@qodeq</a></div>
         <div data-fb-next="" style="margin-top: 10px;">
-          <p data-i18n="fb.next.kicker" style="margin: 0 0 6px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ЧТО БУДЕТ ПОСЛЕ ЗАЯВКИ</p>
-          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5; padding-top: 3px;">01</span><span data-i18n="fb.next1.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Изучаем заявку</span><span></span><span data-i18n="fb.next1.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Специалист ответит на почту или в Telegram.</span></div>
-          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5; padding-top: 3px;">02</span><span data-i18n="fb.next2.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Расчёт на ваших объёмах</span><span></span><span data-i18n="fb.next2.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Цена, экономия и план внедрения AI Voice QA.</span></div>
-          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5; padding-top: 3px;">03</span><span data-i18n="fb.next3.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Интеграция и тест</span><span></span><span data-i18n="fb.next3.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Подключение к вашей платформе и проверка на реальном трафике до запуска.</span></div>
+          <p data-i18n="fb.next.kicker" style="margin: 0 0 6px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Что будет после заявки</p>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5; padding-top: 3px;">01</span><span data-i18n="fb.next1.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Изучаем заявку</span><span></span><span data-i18n="fb.next1.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Специалист ответит на почту или в Telegram.</span></div>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5; padding-top: 3px;">02</span><span data-i18n="fb.next2.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Расчёт на ваших объёмах</span><span></span><span data-i18n="fb.next2.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Цена, экономия и план внедрения AI Voice QA.</span></div>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5; padding-top: 3px;">03</span><span data-i18n="fb.next3.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Интеграция и тест</span><span></span><span data-i18n="fb.next3.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Подключение к вашей платформе и проверка на реальном трафике до запуска.</span></div>
         </div>
-        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);"><p data-i18n="fb.response" style="margin: 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ</p></div>
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);"><p data-i18n="fb.response" style="margin: 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Ответ в течение 1 рабочего дня</p></div>
       </div>
     </div>
   </section>
@@ -355,12 +352,12 @@
         <a href="/ru/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-main.png?v=2" alt="QODEQ" style="height: 24px; width: auto; display: block;"></a>
         <p data-i18n="foot.tagline" style="margin: 0; max-width: 340px; font: 400 14px/1.65 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Пять AI-агентов на одной платформе для поддержки iGaming: чат, QA, платежи, голос. Одна база знаний, одна консоль, один счёт.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 11px 15px; border: 1px solid #C084F5; font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #C084F5;">НАПИСАТЬ НАМ</a>
-          <a href="https://t.me/qodeq" data-btn="" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;">TELEGRAM</a>
+          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 11px 15px; border: 1px solid #C084F5; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">Написать нам</a>
+          <a href="https://t.me/qodeq" data-btn="" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Telegram</a>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
-        <p data-i18n="foot.agents" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">АГЕНТЫ</p>
+        <p data-i18n="foot.agents" style="margin: 0 0 4px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Агенты</p>
         <a href="/ru/chat" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Chat Operator</a>
         <a href="/ru/qa-chat" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI QA System</a>
         <a href="/ru/payment" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Payment Assistant</a>
@@ -368,7 +365,7 @@
         <a href="/ru/voice" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Voice Bot</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
-        <p data-i18n="foot.platform" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">ПЛАТФОРМА</p>
+        <p data-i18n="foot.platform" style="margin: 0 0 4px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Платформа</p>
         <a href="/ru/#console" data-i18n="foot.console" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Консоль оператора</a>
         <a href="/ru/#economics" data-i18n="foot.econ" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Экономика</a>
         <a href="/ru/calculator" data-i18n="foot.roicalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">ROI-калькулятор</a>
@@ -381,17 +378,17 @@
         <a href="/ru/blog" data-i18n="foot.blog" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Блог</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
-        <p data-i18n="foot.contact" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">КОНТАКТЫ</p>
+        <p data-i18n="foot.contact" style="margin: 0 0 4px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Контакты</p>
         <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;"></a>
         <a href="https://t.me/qodeq" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">@qodeq</a>
         <a href="#contact" data-i18n="foot.reqcalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Запросить расчёт</a>
-        <p data-i18n="foot.response" style="margin: 8px 0 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ</p>
+        <p data-i18n="foot.response" style="margin: 8px 0 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Ответ в течение 1 рабочего дня</p>
       </div>
     </div>
-    <div style="max-width: 1500px; margin: 0 auto; padding: 20px 48px 26px; border-top: 1px solid rgba(255,255,255,.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">
-      <span data-i18n="foot.bottom1">QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING</span>
-      <a href="/ru/privacy" data-i18n="foot.privacy" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
-      <span data-i18n="foot.bottom2">КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО</span>
+    <div style="max-width: 1500px; margin: 0 auto; padding: 20px 48px 26px; border-top: 1px solid rgba(255,255,255,.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">
+      <span data-i18n="foot.bottom1">QODEQ · AI-платформа для iGaming</span>
+      <a href="/ru/privacy" data-i18n="foot.privacy" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Политика конфиденциальности</a>
+      <span data-i18n="foot.bottom2">© 2026 QODEQ</span>
     </div>
   </footer>
 </div>
@@ -403,7 +400,7 @@ const RU_DICT = {
   'foot.sol.casino': 'AI-поддержка для онлайн-казино',
   'foot.sol.sportsbook': 'AI-поддержка для букмекеров',
   'foot.sol.qa': 'QA поддержки для iGaming',
-  'fb.next.kicker': 'ЧТО БУДЕТ ПОСЛЕ ЗАЯВКИ',
+  'fb.next.kicker': 'Что будет после заявки',
   'fb.next1.t': 'Изучаем заявку',
   'fb.next1.d': 'Специалист ответит на почту или в Telegram.',
   'fb.next2.t': 'Расчёт на ваших объёмах',
@@ -411,9 +408,9 @@ const RU_DICT = {
   'fb.next3.t': 'Интеграция и тест',
   'fb.next3.d': 'Подключение к вашей платформе и проверка на реальном трафике до запуска.',
   'foot.tagline': 'Пять AI-агентов на одной платформе для поддержки iGaming: чат, QA, платежи, голос. Одна база знаний, одна консоль, один счёт.',
-  'foot.emailus': 'НАПИСАТЬ НАМ',
-  'foot.agents': 'АГЕНТЫ',
-  'foot.platform': 'ПЛАТФОРМА',
+  'foot.emailus': 'Написать нам',
+  'foot.agents': 'Агенты',
+  'foot.platform': 'Платформа',
   'foot.console': 'Консоль оператора',
   'foot.econ': 'Экономика',
   'foot.roicalc': 'ROI-калькулятор',
@@ -421,42 +418,42 @@ const RU_DICT = {
   'foot.rollout': 'План внедрения',
   'foot.overview': 'Обзор платформы',
   'foot.blog': 'Блог',
-  'foot.contact': 'КОНТАКТЫ',
+  'foot.contact': 'Контакты',
   'foot.reqcalc': 'Запросить расчёт',
-  'foot.response': 'ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ',
-  'foot.bottom1': 'QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING',
-  'foot.bottom2': 'КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО',
-  'foot.privacy': 'ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ',
-  'nav.blog': 'БЛОГ',
+  'foot.response': 'Ответ в течение 1 рабочего дня',
+  'foot.bottom1': 'QODEQ · AI-платформа для iGaming',
+  'foot.bottom2': '© 2026 QODEQ',
+  'foot.privacy': 'Политика конфиденциальности',
+  'nav.blog': 'Блог',
   'nav.chat': '01 ЧАТ',
-  'nav.qachat': '02 QA ЧАТ',
-  'nav.payment': '03 ОПЛАТА',
-  'nav.qacall': '04 QA ЗВОНКИ',
-  'nav.voice': '05 ГОЛОС',
-  'nav.calcbtn': 'КАЛЬКУЛЯТОР →',
+  'nav.qachat': '02 QA чат',
+  'nav.payment': '03 Оплата',
+  'nav.qacall': '04 QA звонки',
+  'nav.voice': '05 Голос',
+  'nav.calcbtn': 'Калькулятор →',
 
-  'hero.kicker': '— ПРОДУКТ 04 · AI VOICE QA',
-  'hero.h1': 'Покрытие 2,6% становится 100%.',
+  'hero.kicker': '> Продукт 04 · AI Voice QA',
+  'hero.h1': 'Покрытие 2,6% становится 100%',
   'hero.sub': 'Больше не нужен контролёр качества, чтобы знать, как ваши операторы общаются с клиентами. Транскрибация Whisper, 15 критериев, входящие и исходящие звонки — без исключений.',
-  'hero.stat1.label': 'ПОКРЫТИЕ ЗВОНКОВ',
-  'hero.stat2.label': 'ВРЕМЯ НА ПРОВЕРКУ',
+  'hero.stat1.label': 'Покрытие звонков',
+  'hero.stat2.label': 'Время на проверку',
   'hero.stat2.unit': 'сек',
-  'hero.stat3.label': 'ОСВОБОЖДЕНО СПЕЦИАЛИСТОВ',
-  'hero.stat4.label': 'ЭКВИВАЛЕНТ РУЧНОЙ РАБОТЫ В ДЕНЬ',
+  'hero.stat3.label': 'Освобождено специалистов',
+  'hero.stat4.label': 'Эквивалент ручной работы в день',
 
-  'demo.kicker': '— ПРОВЕРКА ЗВОНКА · ПРОКРУТКА ПО ВОЛНЕ',
-  'demo.h2': 'Каждый звонок оценивается именно там, где всё произошло.',
+  'demo.kicker': '> Проверка звонка · Прокрутка по волне',
+  'demo.h2': 'Каждый звонок оценивается именно там, где всё произошло',
   'demo.sub': 'Транскрибация Whisper и рубрика из 15 критериев — каждое замечание привязано к своей временной метке.',
-  'demo.callmeta': 'ЗВОНОК #7,904 · 04:38 · НАЖМИТЕ, ЧТОБЫ ПРОКРУТИТЬ',
-  'demo.findlabel': 'ЗАМЕЧАНИЕ В ТОЧКЕ КУРСОРА',
+  'demo.callmeta': 'Звонок #7,904 · 04:38 · Нажмите, чтобы прокрутить',
+  'demo.findlabel': 'Замечание в точке курсора',
   'demo.cfind.default': 'Нажмите в любом месте волны.',
-  'demo.scorelabel': 'ОЦЕНКА ЗВОНКА',
-  'demo.reviewlabel': 'ВРЕМЯ ПРОВЕРКИ',
+  'demo.scorelabel': 'Оценка звонка',
+  'demo.reviewlabel': 'Время проверки',
   'demo.reviewtime': '9 сек',
 
-  'calc2.kicker': '— ДЕТАЛЬНЫЙ РАСЧЁТ · 5000 ЗВОНКОВ В ДЕНЬ',
-  'calc2.h2': 'Для полного ручного покрытия потребовалось бы 78 человек.',
-  'calc2.manual.label': 'РУЧНАЯ ПРОВЕРКА · 1–2 СПЕЦИАЛИСТА',
+  'calc2.kicker': '> Детальный расчёт · 5000 звонков в день',
+  'calc2.h2': 'Для полного ручного покрытия потребовалось бы 78 человек',
+  'calc2.manual.label': 'Ручная проверка · 1–2 специалиста',
   'calc2.manual.value.unit': 'звонков из 5000',
   'calc2.manual.row1.label': 'Время на проверку',
   'calc2.manual.row1.value': '7,5 мин / звонок',
@@ -466,7 +463,7 @@ const RU_DICT = {
   'calc2.manual.row3.value': '~2,6%',
   'calc2.manual.row4.label': 'Для полного покрытия потребуется',
   'calc2.manual.row4.value': '78 человек · $18,720 / день',
-  'calc2.auto.label': 'АВТОМАТИЧЕСКАЯ ПРОВЕРКА · AI VOICE QA',
+  'calc2.auto.label': 'Автоматическая проверка · AI Voice QA',
   'calc2.auto.value.unit': 'звонков · покрытие 100%',
   'calc2.auto.row1.label': 'Время на проверку',
   'calc2.auto.row1.value': '10 сек / звонок',
@@ -477,68 +474,68 @@ const RU_DICT = {
   'calc2.auto.row4.label': 'Специалисты освобождены для стратегических задач',
   'calc2.auto.row4.value': '1–2 человека',
 
-  'status.dev.label': 'ОХВАТ',
+  'status.dev.label': 'Охват',
   'status.dev.text': 'Каждый входящий и исходящий звонок проверяется за 5–15 секунд — вместо ~2,6% выборочной ручной проверки.',
-  'status.terms.label': 'ЦЕНЫ',
+  'status.terms.label': 'Цены',
   'status.terms.text': 'За проверенный звонок по объёму в месяц: $0.30 (5K–30K) · $0.25 (30K–100K) · $0.20 (100K–200K) · $0.18 (200K+). Platform bundle: $0.25 / $0.20 / $0.18 / $0.15. Без платы за подключение — интеграция, транскрибация и калибровка включены.',
-  'status.sec.label': 'БЕЗОПАСНОСТЬ',
+  'status.sec.label': 'Безопасность',
   'status.sec.text': 'Локальная обработка, записи шифруются, соответствие GDPR.',
 
-  'tl.kicker': '— СРОКИ ВНЕДРЕНИЯ',
-  'tl.h2': '100% звонков оцениваются с 4-й недели.',
-  'tl.1.tag': 'НЕДЕЛЯ 1',
+  'tl.kicker': '> Сроки внедрения',
+  'tl.h2': '100% звонков оцениваются с 4-й недели',
+  'tl.1.tag': 'Неделя 1',
   'tl.1.title': 'Интеграция с телефонией',
   'tl.1.text': 'Доступ к записям звонков и правила их хранения.',
-  'tl.2.tag': 'НЕДЕЛЯ 2',
+  'tl.2.tag': 'Неделя 2',
   'tl.2.title': 'Калибровка критериев',
   'tl.2.text': '15 критериев взвешены под ваши скрипты.',
-  'tl.3.tag': 'НЕДЕЛЯ 3',
+  'tl.3.tag': 'Неделя 3',
   'tl.3.title': 'Пилотное тестирование',
   'tl.3.text': 'Параллельный прогон против ваших контролёров.',
-  'tl.4.tag': 'НЕДЕЛЯ 4+',
+  'tl.4.tag': 'Неделя 4+',
   'tl.4.title': 'Полноценная работа',
   'tl.4.text': '100% звонков оцениваются автоматически.',
 
-  'calc.kicker': '— ВАШИ ЦИФРЫ · QA ЗВОНКОВ',
-  'calc.h2': 'Смоделируйте покрытие звонков.',
-  'calc.perday': 'ЗВОНКОВ В ДЕНЬ',
-  'calc.row1.label': 'СПЕЦИАЛИСТОВ НУЖНО ВРУЧНУЮ',
-  'calc.row2.label': 'СТОИМОСТЬ РУЧНОГО QA',
-  'calc.row3.label': 'ЦЕНА QODEQ',
-  'calc.row4.label': 'ПОКРЫТИЕ',
-  'calc.model': 'МОДЕЛЬ: 1 СПЕЦИАЛИСТ ПРОВЕРЯЕТ 64 ЗВОНКА В ДЕНЬ ЗА $240 · AI VOICE QA $0.30 → $0.18 ЗА ПРОВЕРЕННЫЙ ЗВОНОК ПО ОБЪЁМУ В МЕСЯЦ · БЕЗ ПЛАТЫ ЗА ПОДКЛЮЧЕНИЕ',
-  'calc.save.month.label': 'ЭКОНОМИЯ В МЕСЯЦ',
-  'calc.save.year.label': 'ЭКОНОМИЯ В ГОД',
-  'calc.allfive': 'СМОДЕЛИРОВАТЬ ВСЕ ПЯТЬ АГЕНТОВ ВМЕСТЕ →',
+  'calc.kicker': '> Ваши цифры · QA звонков',
+  'calc.h2': 'Смоделируйте покрытие звонков',
+  'calc.perday': 'Звонков в день',
+  'calc.row1.label': 'Специалистов нужно вручную',
+  'calc.row2.label': 'Стоимость ручного QA',
+  'calc.row3.label': 'Цена QODEQ',
+  'calc.row4.label': 'Покрытие',
+  'calc.model': 'Модель: 1 специалист проверяет 64 звонка в день за $240 · AI Voice QA $0.30 → $0.18 за проверенный звонок по объёму в месяц · Без платы за подключение',
+  'calc.save.month.label': 'Экономия в месяц',
+  'calc.save.year.label': 'Экономия в год',
+  'calc.allfive': 'Смоделировать все пять агентов вместе →',
 
-  'cta.kicker': '— СЛЕДУЮЩИЙ ШАГ',
-  'cta.h2': 'Обсудим на ваших цифрах.',
+  'cta.kicker': '> Следующий шаг',
+  'cta.h2': 'Обсудим на ваших цифрах',
   'cta.sub': 'Пришлите объёмы, которые вы смоделировали выше, — и мы вернёмся с фиксированной ценой, планом интеграции и сроками внедрения в течение двух рабочих дней.',
-  'cta.quote': 'ЗАПРОСИТЬ РАСЧЁТ',
+  'cta.quote': 'Запросить расчёт',
 
-  'platform.kicker': '— ОСТАЛЬНАЯ ЧАСТЬ ПЛАТФОРМЫ',
-  'platform.h2': 'У каждого агента общая база знаний, общий контекст CRM, единый слой аналитики.',
-  'platform.card1.tag': '01 / ЧАТ-ОПЕРАТОР',
-  'platform.card2.tag': '02 / СИСТЕМА QA',
-  'platform.card3.tag': '03 / ПЛАТЁЖНЫЙ АССИСТЕНТ',
-  'platform.card4.tag': '05 / ГОЛОСОВОЙ БОТ',
+  'platform.kicker': '> Остальная часть платформы',
+  'platform.h2': 'У каждого агента общая база знаний, общий контекст CRM, единый слой аналитики',
+  'platform.card1.tag': '01 / Чат-оператор',
+  'platform.card2.tag': '02 / Система QA',
+  'platform.card3.tag': '03 / Платёжный ассистент',
+  'platform.card4.tag': '05 / Голосовой бот',
 
-  'fb.kicker': '— ЗАПРОСИТЬ РАСЧЁТ',
-  'fb.h2': 'Узнайте цифры AI Voice QA на ваших объёмах.',
+  'fb.kicker': '> Запросить расчёт',
+  'fb.h2': 'Узнайте цифры AI Voice QA на ваших объёмах',
   'fb.sub': 'Оставьте контакт — пришлём персональный расчёт и план внедрения в течение одного рабочего дня.',
-  'fb.field.name': 'ИМЯ',
-  'fb.field.company': 'КОМПАНИЯ',
-  'fb.field.contact': 'EMAIL ИЛИ TELEGRAM',
-  'fb.interest': 'ИНТЕРЕСУЕТ: AI VOICE QA',
-  'fb.send': 'ОТПРАВИТЬ ЗАПРОС',
+  'fb.field.name': 'Имя',
+  'fb.field.company': 'Компания',
+  'fb.field.contact': 'Email или Telegram',
+  'fb.interest': 'Интересует: AI Voice QA',
+  'fb.send': 'Отправить запрос',
   'fb.ok.title': 'Заявка принята.',
   'fb.ok.text': 'Мы свяжемся с вами в течение одного рабочего дня.',
-  'fb.email.label': 'EMAIL',
-  'fb.tg.label': 'TELEGRAM',
-  'fb.response': 'ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ',
+  'fb.email.label': 'Email',
+  'fb.tg.label': 'Telegram',
+  'fb.response': 'Ответ в течение 1 рабочего дня',
 
-  'footer.back': '← QODEQ · ИИ-ПЛАТФОРМА ДЛЯ IGAMING',
-  'footer.conf': 'КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО'
+  'footer.back': '← QODEQ · ИИ-платформа для iGaming',
+  'footer.conf': '© 2026 QODEQ'
 };
 
 class Component extends DCLogic {
@@ -700,15 +697,15 @@ ACC() { return '#C084F5'; }
     this.railItems = [];
     secs.forEach((s, i) => {
       if (!s.id) s.id = 'sec-' + (i + 1);
-      let label = 'INTRO';
+      let label = 'Intro';
       const p = s.querySelector('p');
       if (p && p.textContent.trim().startsWith('—')) label = p.textContent.replace(/^—\s*/, '').split('·')[0].trim();
-      const SHORT = { 'PRODUCT': 'OVERVIEW', 'CAPABILITIES': 'CAPABILITIES', 'DETAILED FUNCTIONALITY': 'FUNCTIONS', 'DETAILED CALCULATION': 'THE MATH', 'PRICING': 'PRICING', 'WORKED EXAMPLE': 'EXAMPLE', 'MONTHLY LABOUR ANALYSIS': 'LABOUR', 'IMPLEMENTATION TIMELINE': 'ROLLOUT', 'YOUR NUMBERS': 'CALCULATOR', 'NEXT STEP': 'CONTACT', 'THE REST OF THE PLATFORM': 'PLATFORM' };
+      const SHORT = { 'Product': 'Overview', 'Capabilities': 'Capabilities', 'Detailed functionality': 'Functions', 'Detailed calculation': 'The math', 'Pricing': 'Pricing', 'Worked example': 'Example', 'Monthly labour analysis': 'Labour', 'Implementation timeline': 'Rollout', 'Your numbers': 'Calculator', 'Next step': 'Contact', 'The rest of the platform': 'Platform' };
       const key = Object.keys(SHORT).find(k => label.startsWith(k));
       label = key ? SHORT[key] : label.split(' ').slice(0, 1).join(' ');
       const a = document.createElement('a');
       a.href = '#' + s.id;
-      a.style.cssText = "display:flex;align-items:center;gap:10px;font:400 9px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:#57544C;transition:color .3s;";
+      a.style.cssText = "display:flex;align-items:center;gap:10px;font:400 9px/1 'JetBrains Mono',monospace;letter-spacing:.02em;color:#57544C;transition:color .3s;";
       a.innerHTML = '<span>' + String(i + 1).padStart(2, '0') + ' ' + label + '</span><span style="width:20px;height:1px;background:currentColor"></span>';
       rail.appendChild(a);
       this.railItems.push([a, s]);
@@ -776,7 +773,7 @@ ACC() { return '#C084F5'; }
         g('[data-csave]').textContent = money(save);
         g('[data-cyear]').textContent = money(save * 12);
         g('[data-cbar]').style.width = Math.min(100, (v / max) * 100) + '%';
-        g('[data-cshare]').textContent = base > 0 ? Math.round((save / base) * 100) + (ru ? '% ДЕШЕВЛЕ РУЧНОЙ ПРОВЕРКИ ВСЕХ ЗВОНКОВ' : '% CHEAPER THAN CHECKING EVERY CALL MANUALLY') : '';
+        g('[data-cshare]').textContent = base > 0 ? Math.round((save / base) * 100) + (ru ? '% дешевле ручной проверки всех звонков' : '% cheaper than checking every call manually') : '';
         input.style.background = 'linear-gradient(90deg, ' + this.ACC() + ' ' + ((v - +box.getAttribute('data-min')) / (max - +box.getAttribute('data-min')) * 100) + '%, rgba(255,255,255,.12) 0)';
         return;
       }
@@ -796,7 +793,7 @@ ACC() { return '#C084F5'; }
       g('[data-csave]').textContent = money(save);
       g('[data-cyear]').textContent = money(save * 12);
       g('[data-cbar]').style.width = Math.min(100, (save / (max * scale * human)) * 100 * 2.2) + '%';
-      g('[data-cshare]').textContent = base > 0 ? Math.round((save / base) * 100) + (ru ? '% ДЕШЕВЛЕ БАЗОВОЙ СТОИМОСТИ' : '% CHEAPER THAN THE BASELINE') : '';
+      g('[data-cshare]').textContent = base > 0 ? Math.round((save / base) * 100) + (ru ? '% дешевле базовой стоимости' : '% cheaper than the baseline') : '';
       input.style.background = 'linear-gradient(90deg, ' + this.ACC() + ' ' + ((v - +box.getAttribute('data-min')) / (max - +box.getAttribute('data-min')) * 100) + '%, rgba(255,255,255,.12) 0)';
     };
     input.value = box.getAttribute('data-def');
@@ -809,8 +806,8 @@ initDemo() {
     const wave = document.querySelector('[data-wave2]'), segs = document.querySelector('[data-segs]'), find = document.querySelector('[data-cfind]');
     if (!wave || !segs) return;
     const ACC = this.ACC();
-    const PASS_LABEL = { en: 'PASS', ru: 'ОК' };
-    const FLAG_LABEL = { en: 'FLAG', ru: 'НАРУШЕНИЕ' };
+    const PASS_LABEL = { en: 'Pass', ru: 'ОК' };
+    const FLAG_LABEL = { en: 'Flag', ru: 'Нарушение' };
     this._demoS = {
       en: [
         { t: '00:00–00:34', n: 'Opening & identification', ok: true, note: 'Greeting, brand name and verification completed inside 34 seconds — on standard.' },
@@ -996,7 +993,7 @@ initDemo() {
       const [k, v] = script[i++];
       const row = document.createElement('div');
       row.style.cssText = 'display:grid;grid-template-columns:80px 1fr;gap:10px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;';
-      row.innerHTML = '<span style="color:' + colors[k] + ';letter-spacing:.08em">' + k + '</span><span style="color:#B8B4AA">' + v + '</span>';
+      row.innerHTML = '<span style="color:' + colors[k] + ';letter-spacing:.02em">' + k + '</span><span style="color:#B8B4AA">' + v + '</span>';
       box.appendChild(row);
       requestAnimationFrame(() => { row.style.opacity = '1'; row.style.transform = 'none'; });
       box.scrollTop = box.scrollHeight;

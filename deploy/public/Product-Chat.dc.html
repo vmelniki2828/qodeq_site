@@ -62,7 +62,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<script src="./i18n.js?v=41"></script>
+<script src="./i18n.js?v=42"></script>
 <style>
   @media (max-width: 860px) { [data-fgrid] { grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 560px) { [data-fgrid] { grid-template-columns: 1fr !important; padding-left: 20px !important; padding-right: 20px !important; } }
@@ -99,7 +99,7 @@
     [data-fb-grid] { grid-template-columns: 1fr !important; }
     [data-fb-col] { padding: 26px 20px !important; }
     [data-fb-bigmail] { font-size: 18px !important; word-break: break-word; }
-    [data-fb-send] { letter-spacing: .08em !important; }
+    [data-fb-send] { letter-spacing: .02em !important; }
   }
   @keyframes qblink { 0%, 45% { opacity: 1; } 50%, 100% { opacity: .15; } }
   @keyframes qtypedot { 0%, 60%, 100% { transform: translateY(0); opacity: .4; } 30% { transform: translateY(-3px); opacity: 1; } }
@@ -120,7 +120,7 @@
     header { padding: 10px 16px !important; gap: 8px !important; flex-wrap: nowrap !important; }
     header > nav { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; margin-left: 0 !important; gap: 6px !important; flex: 1 1 auto !important; min-width: 0 !important; scrollbar-width: none !important; mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent); }
     header > nav::-webkit-scrollbar { display: none !important; }
-    header > nav > a { padding: 6px 9px !important; font-size: 9.5px !important; letter-spacing: .12em !important; flex: 0 0 auto !important; }
+    header > nav > a { padding: 6px 9px !important; font-size: 11px !important; letter-spacing: .02em !important; flex: 0 0 auto !important; }
   }
   @media (max-width: 380px) {
     header { padding: 9px 12px !important; }
@@ -157,28 +157,25 @@
 <div style="position: relative; background: #0A0A09; color: #E8E6E1; font-family: 'Space Grotesk', system-ui, sans-serif; min-height: 100vh; overflow-x: clip;">
   <canvas data-grid="" style="position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
   <div data-glow="" style="position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;">
-    <div data-blob="1" style="position: absolute; left: 58%; top: -14%; width: 62vw; height: 62vw; border-radius: 50%; background: radial-gradient(circle, rgba(79,209,165,.11), rgba(79,209,165,0) 62%); filter: blur(28px); will-change: transform;"></div>
-    <div data-blob="2" style="position: absolute; left: -22%; top: 34%; width: 54vw; height: 54vw; border-radius: 50%; background: radial-gradient(circle, rgba(72,132,214,.075), rgba(72,132,214,0) 62%); filter: blur(30px); will-change: transform;"></div>
   </div>
-  <div style="position: fixed; inset: 0; z-index: 60; pointer-events: none; box-shadow: inset 0 0 260px 60px rgba(6,6,5,.85);"></div>
   <div data-rail="" style="position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 80; display: flex; flex-direction: column; gap: 13px; align-items: flex-end;"></div>
   <div data-cursor-dot=""></div>
   <div style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 95; background: rgba(255,255,255,.05);"><div data-progress="" style="height: 100%; width: 0%; background: #4FD1A5;"></div></div>
 
   <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 16px 32px; background: rgba(10,10,9,.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07);">
     <a href="/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-compact.png?v=2" alt="QODEQ" style="height: 40px; width: auto; display: block;" /></a>
-    <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em;">
-      <a href="/chat" data-tab="chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;"><span data-i18n="nav.chat">01 CHAT</span></a>
-      <a href="/qa-chat" data-tab="qa-chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;"><span data-i18n="nav.qachat">02 QA CHAT</span></a>
-      <a href="/payment" data-tab="payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579; --btn-acc: #5FA5F9;"><span data-i18n="nav.payment">03 PAYMENT</span></a>
-      <a href="/qa-call" data-tab="qa-call" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;"><span data-i18n="nav.qacall">04 QA CALL</span></a>
-      <a href="/voice" data-tab="voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;"><span data-i18n="nav.voice">05 VOICE</span></a>
-      <a href="/blog" data-btn="" data-i18n="nav.blog" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); color: #8A8579; --btn-acc: #F5F2EC;">BLOG</a>
-      <a href="/calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(79,209,165,.5); color: #4FD1A5;"><span data-i18n="nav.calc">CALCULATOR →</span></a>
+    <nav style="display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;">
+      <a href="/chat" data-tab="chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #4FD1A5; color: #8A8579; --btn-acc: #4FD1A5;"><span data-i18n="nav.chat">01 Chat</span></a>
+      <a href="/qa-chat" data-tab="qa-chat" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #E8B23A; color: #8A8579; --btn-acc: #E8B23A;"><span data-i18n="nav.qachat">02 QA chat</span></a>
+      <a href="/payment" data-tab="payment" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #5FA5F9; color: #8A8579; --btn-acc: #5FA5F9;"><span data-i18n="nav.payment">03 Payment</span></a>
+      <a href="/qa-call" data-tab="qa-call" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #C084F5; color: #8A8579; --btn-acc: #C084F5;"><span data-i18n="nav.qacall">04 QA call</span></a>
+      <a href="/voice" data-tab="voice" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); border-left: 2px solid #F4794C; color: #8A8579; --btn-acc: #F4794C;"><span data-i18n="nav.voice">05 Voice</span></a>
+      <a href="/blog" data-btn="" data-i18n="nav.blog" style="padding: 8px 12px; border: 1px solid rgba(255,255,255,.14); color: #8A8579; --btn-acc: #F5F2EC;">Blog</a>
+      <a href="/calculator" data-btn="" style="padding: 8px 12px; border: 1px solid rgba(79,209,165,.5); color: #4FD1A5;"><span data-i18n="nav.calc">Calculator →</span></a>
     </nav>
     <div data-langbox="" style="display: flex; gap: 6px; align-items: center; flex-shrink: 0;">
-      <button data-lang="en" style="padding: 7px 11px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; color: #4FD1A5; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">EN</button>
-      <button data-lang="ru" style="padding: 7px 11px; background: transparent; border: 1px solid rgba(255,255,255,.16); color: #8A8579; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .16em; cursor: pointer;">RU</button>
+      <button data-lang="en" style="padding: 7px 11px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; color: #4FD1A5; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; cursor: pointer;">EN</button>
+      <button data-lang="ru" style="padding: 7px 11px; background: transparent; border: 1px solid rgba(255,255,255,.16); color: #8A8579; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; cursor: pointer;">RU</button>
     </div>
   </header>
 
@@ -186,47 +183,47 @@
   <div data-prod="chat">
     <section style="position: relative; z-index: 1; padding: 150px 48px 90px; max-width: 1500px; margin: 0 auto;">
       <div data-parallax="-0.07" style="position: absolute; right: 4vw; top: 14vh; font: 700 clamp(150px, 26vw, 400px)/0.8 'Space Grotesk', sans-serif; color: rgba(255,255,255,.022); letter-spacing: -.05em; pointer-events: none; user-select: none;">01</div>
-      <p data-i18n="hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .28em; color: #4FD1A5;">— PRODUCT 01 · AI CHAT OPERATOR</p>
-      <h1 style="margin: 0 0 26px; max-width: 1000px; font: 500 clamp(38px, 6.4vw, 104px)/0.98 'Space Grotesk', sans-serif; letter-spacing: -.034em; color: #F5F2EC;"><span data-i18n="hero.kw" style="display: block; margin: 0 0 18px; font: 500 clamp(17px, 1.6vw, 22px)/1.3 'Space Grotesk', sans-serif; letter-spacing: -.005em; color: #B5AFA2;">AI chat support for online casinos</span><span data-i18n="hero.title">Own generative model. Not a wrapper over a public API.</span></h1>
+      <p data-i18n="hero.kicker" style="margin: 0 0 26px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Product 01 · AI Chat Operator</p>
+      <h1 style="margin: 0 0 26px; max-width: 1000px; font: 500 clamp(38px, 6.4vw, 104px)/0.98 'Space Grotesk', sans-serif; letter-spacing: -.034em; color: #F5F2EC;"><span data-i18n="hero.kw" style="display: block; margin: 0 0 18px; font: 500 clamp(17px, 1.6vw, 22px)/1.3 'Space Grotesk', sans-serif; letter-spacing: -.005em; color: #B5AFA2;">AI chat support for online casinos</span><span data-i18n="hero.title">Own generative model. Not a wrapper over a public API</span></h1>
       <p data-i18n="hero.sub" style="margin: 0; max-width: 620px; font: 400 17px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Trained on iGaming support traffic and plugged straight into your platform — chat resolution end-to-end, in any language, in your brand's tone of voice.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; margin-top: 66px; background: rgba(255,255,255,.09); border-top: 1px solid rgba(255,255,255,.09);">
-        <div data-reveal="" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat1" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">RESOLVED ENQUIRIES</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="65" data-suffix="%">65%</span></p></div>
-        <div data-reveal="" data-delay="80" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat2" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">CHATS ALL TIME</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="5" data-suffix="M" data-unit="million">5M</span></p></div>
-        <div data-reveal="" data-delay="160" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat3" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">RESPONSE TIME</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="7" data-suffix=" sec" data-unit="sec">7 sec</span></p></div>
-        <div data-reveal="" data-delay="240" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat4" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">AVAILABILITY</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">24/7</p></div>
+        <div data-reveal="" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat1" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Resolved enquiries</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="65" data-suffix="%">65%</span></p></div>
+        <div data-reveal="" data-delay="80" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat2" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Chats all time</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="5" data-suffix="M" data-unit="million">5M</span></p></div>
+        <div data-reveal="" data-delay="160" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat3" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Response time</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="7" data-suffix=" sec" data-unit="sec">7 sec</span></p></div>
+        <div data-reveal="" data-delay="240" style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="hero.stat4" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Availability</p><p style="margin: 0; font: 500 38px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">24/7</p></div>
       </div>
     </section>
 
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="demo.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— LIVE AGENT · SCRIPTED REPLAY</p>
-      <h2 data-i18n="demo.title" style="margin: 0 0 18px; max-width: 900px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Ask it something a player would ask.</h2>
+      <p data-i18n="demo.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Live agent · Scripted replay</p>
+      <h2 data-i18n="demo.title" style="margin: 0 0 18px; max-width: 900px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Ask it something a player would ask</h2>
       <p data-i18n="demo.sub" style="margin: 0 0 44px; max-width: 620px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">A replay of real resolution paths — context lookup, knowledge base, ticket, tag. Nothing is routed to a human.</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
         <div style="background: #0C0C0A; display: flex; flex-direction: column;">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,.1); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;">
-            <span data-i18n="demo.brand">QODEQ · CHAT</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 13px 16px; border-bottom: 1px solid rgba(255,255,255,.1); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">
+            <span data-i18n="demo.brand">QODEQ · Chat</span>
             <div style="display: flex; align-items: center; gap: 10px;">
               <div style="display: flex; gap: 6px;">
-                <button data-cmode="demo" type="button" data-i18n="demo.modedemo" style="padding: 6px 9px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579; cursor: pointer; transition: background .25s, border-color .25s, color .25s;">AI DEMO</button>
-                <button data-cmode="live" type="button" data-i18n="demo.modelive" style="padding: 6px 9px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #4FD1A5; cursor: pointer; transition: background .25s, border-color .25s, color .25s;">LIVE CHAT</button>
-                <button data-dreset="" type="button" data-i18n="demo.reset" style="padding: 6px 9px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .1em; color: #8A8579; cursor: pointer; transition: border-color .3s, color .3s;">RESET</button>
+                <button data-cmode="demo" type="button" data-i18n="demo.modedemo" style="padding: 6px 9px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579; cursor: pointer; transition: background .25s, border-color .25s, color .25s;">AI demo</button>
+                <button data-cmode="live" type="button" data-i18n="demo.modelive" style="padding: 6px 9px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5; cursor: pointer; transition: background .25s, border-color .25s, color .25s;">Live chat</button>
+                <button data-dreset="" type="button" data-i18n="demo.reset" style="padding: 6px 9px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579; cursor: pointer; transition: border-color .3s, color .3s;">Reset</button>
               </div>
-              <span style="color: #7BC96F;"><span style="animation: qblink 1.4s infinite;">●</span> <span data-i18n="demo.online">ONLINE</span></span>
+              <span style="color: #7BC96F;"><span style="animation: qblink 1.4s infinite;">●</span> <span data-i18n="demo.online">Online</span></span>
             </div>
           </div>
           <div data-emailbanner="" style="display: none; flex-direction: column; gap: 8px; padding: 12px 16px; background: rgba(79,209,165,.08); border-bottom: 1px solid rgba(79,209,165,.3);">
             <span data-ebtext="" style="font: 400 11px/1.5 'JetBrains Mono', monospace; color: #D9D6CF;">Give the team a way to reach you. Get notified by email.</span>
             <div style="display: flex; gap: 8px;">
               <input data-ebinput="" aria-label="Your email" type="email" placeholder="you@email.com" style="flex: 1; padding: 9px 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); font: 400 12px/1.4 'JetBrains Mono', monospace; color: #F5F2EC; outline: none;" />
-              <button data-ebsend="" type="button" style="padding: 0 14px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; color: #4FD1A5; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .1em; cursor: pointer; transition: background .25s;">SEND</button>
+              <button data-ebsend="" type="button" style="padding: 0 14px; background: rgba(79,209,165,.14); border: 1px solid #4FD1A5; color: #4FD1A5; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; cursor: pointer; transition: background .25s;">Send</button>
             </div>
           </div>
           <div data-dlog="" style="height: 320px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; font: 400 12px/1.55 'JetBrains Mono', monospace;"></div>
           <div data-dqwrap="" style="display: none; flex-wrap: wrap; gap: 6px; padding: 14px 16px; border-top: 1px solid rgba(255,255,255,.1);">
-            <button data-dq="0" style="padding: 9px 12px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .12em; color: #8A8579; cursor: pointer;"><span data-i18n="demo.q1">WHERE IS MY WITHDRAWAL?</span></button>
-            <button data-dq="1" style="padding: 9px 12px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .12em; color: #8A8579; cursor: pointer;"><span data-i18n="demo.q2">WHY IS MY BONUS NOT WAGERED?</span></button>
-            <button data-dq="2" style="padding: 9px 12px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .12em; color: #8A8579; cursor: pointer;"><span data-i18n="demo.q3">MY ACCOUNT IS BLOCKED</span></button>
+            <button data-dq="0" style="padding: 9px 12px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579; cursor: pointer;"><span data-i18n="demo.q1">Where is my withdrawal?</span></button>
+            <button data-dq="1" style="padding: 9px 12px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579; cursor: pointer;"><span data-i18n="demo.q2">Why is my bonus not wagered?</span></button>
+            <button data-dq="2" style="padding: 9px 12px; background: transparent; border: 1px solid rgba(255,255,255,.14); font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579; cursor: pointer;"><span data-i18n="demo.q3">My account is blocked</span></button>
           </div>
           <div data-livewrap="" style="display: flex; gap: 8px; padding: 14px 16px; border-top: 1px solid rgba(255,255,255,.1);">
             <input data-liveinput="" aria-label="Message to the agent" type="text" data-i18n-ph="demo.liveph" placeholder="Type a message…" style="flex: 1; padding: 10px 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); font: 400 12px/1.5 'JetBrains Mono', monospace; color: #F5F2EC; outline: none;" />
@@ -234,57 +231,57 @@
           </div>
         </div>
         <div data-dside="" style="background: #0A0A09; padding: 22px 24px; display: none; flex-direction: column; gap: 18px;">
-          <span data-i18n="demo.underhood" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #6E6A61;">WHAT HAPPENED UNDER THE HOOD</span>
+          <span data-i18n="demo.underhood" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">What happened under the hood</span>
           <div data-dpipe="" style="display: flex; flex-direction: column; gap: 9px; min-height: 250px; font: 400 11.5px/1.5 'JetBrains Mono', monospace;"></div>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: auto; background: rgba(255,255,255,.09); border-top: 1px solid rgba(255,255,255,.09);">
-            <div style="padding: 14px 12px 2px; background: #0A0A09;"><p data-i18n="demo.m1label" style="margin: 0 0 7px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">RESOLVED IN</p><p data-dm1="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</p></div>
-            <div style="padding: 14px 12px 2px; background: #0A0A09;"><p data-i18n="demo.m2label" style="margin: 0 0 7px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">OPERATOR TIME SAVED</p><p data-dm2="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</p></div>
-            <div style="padding: 14px 12px 2px; background: #0A0A09;"><p data-i18n="demo.m3label" style="margin: 0 0 7px; font: 400 9px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">OUTCOME</p><p data-dm3="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #4FD1A5;">—</p></div>
+            <div style="padding: 14px 12px 2px; background: #0A0A09;"><p data-i18n="demo.m1label" style="margin: 0 0 7px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Resolved in</p><p data-dm1="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</p></div>
+            <div style="padding: 14px 12px 2px; background: #0A0A09;"><p data-i18n="demo.m2label" style="margin: 0 0 7px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Operator time saved</p><p data-dm2="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</p></div>
+            <div style="padding: 14px 12px 2px; background: #0A0A09;"><p data-i18n="demo.m3label" style="margin: 0 0 7px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Outcome</p><p data-dm3="" style="margin: 0; font: 500 19px/1 'Space Grotesk', sans-serif; color: #4FD1A5;">—</p></div>
           </div>
         </div>
       </div>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="cap.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— CAPABILITIES</p>
-      <h2 data-i18n="cap.title" style="margin: 0 0 48px; max-width: 800px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">What the agent does on every single conversation.</h2>
+      <p data-i18n="cap.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Capabilities</p>
+      <h2 data-i18n="cap.title" style="margin: 0 0 48px; max-width: 800px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">What the agent does on every single conversation</h2>
       <div data-cap-grid="" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-        <div data-reveal="" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">01</p><h3 data-i18n="cap.1.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Fast knowledge-base access</h3><p data-i18n="cap.1.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Rules, bonuses and flows updated without developer involvement.</p></div>
-        <div data-reveal="" data-delay="60" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">02</p><h3 data-i18n="cap.2.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Complex scenarios</h3><p data-i18n="cap.2.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">KYC, bonuses, limits, blocks — resolved, not routed.</p></div>
-        <div data-reveal="" data-delay="120" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">03</p><h3 data-i18n="cap.3.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Seamless API integration</h3><p data-i18n="cap.3.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Connects to the iGaming platform and helpdesk directly.</p></div>
-        <div data-reveal="" data-delay="180" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">04</p><h3 data-i18n="cap.4.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Any language, your tone</h3><p data-i18n="cap.4.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Adapted to your casino brand voice per market.</p></div>
-        <div data-reveal="" data-delay="240" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">05</p><h3 data-i18n="cap.5.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Scalability without quality loss</h3><p data-i18n="cap.5.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Thousands of simultaneous requests, no queue.</p></div>
-        <div data-reveal="" data-delay="300" style="padding: 24px 22px; background: #0C0C0A; border-left: 2px solid #4FD1A5;"><p data-i18n="cap.roadmap.kicker" style="margin: 0 0 34px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">ROADMAP</p><h3 data-i18n="cap.roadmap.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Omnichannel · predictive analytics</h3><p data-i18n="cap.roadmap.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">One history across chat, voice and social; churn prediction with automatic retention offers.</p></div>
+        <div data-reveal="" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">01</p><h3 data-i18n="cap.1.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Fast knowledge-base access</h3><p data-i18n="cap.1.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Rules, bonuses and flows updated without developer involvement.</p></div>
+        <div data-reveal="" data-delay="60" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">02</p><h3 data-i18n="cap.2.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Complex scenarios</h3><p data-i18n="cap.2.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">KYC, bonuses, limits, blocks — resolved, not routed.</p></div>
+        <div data-reveal="" data-delay="120" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">03</p><h3 data-i18n="cap.3.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Seamless API integration</h3><p data-i18n="cap.3.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Connects to the iGaming platform and helpdesk directly.</p></div>
+        <div data-reveal="" data-delay="180" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">04</p><h3 data-i18n="cap.4.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Any language, your tone</h3><p data-i18n="cap.4.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Adapted to your casino brand voice per market.</p></div>
+        <div data-reveal="" data-delay="240" style="padding: 24px 22px; background: #0A0A09;"><p style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">05</p><h3 data-i18n="cap.5.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Scalability without quality loss</h3><p data-i18n="cap.5.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Thousands of simultaneous requests, no queue.</p></div>
+        <div data-reveal="" data-delay="300" style="padding: 24px 22px; background: #0C0C0A; border-left: 2px solid #4FD1A5;"><p data-i18n="cap.roadmap.kicker" style="margin: 0 0 34px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">Roadmap</p><h3 data-i18n="cap.roadmap.title" style="margin: 0 0 8px; font: 500 19px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Omnichannel · predictive analytics</h3><p data-i18n="cap.roadmap.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">One history across chat, voice and social; churn prediction with automatic retention offers.</p></div>
       </div>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="price.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— PRICING · PER CLOSED CHAT</p>
-      <h2 data-i18n="price.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">You pay per chat the agent closes.</h2>
+      <p data-i18n="price.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Pricing · Per closed chat</p>
+      <h2 data-i18n="price.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">You pay per chat the agent closes</h2>
       <div data-reveal="" style="background: #0A0A09; border: 1px solid rgba(255,255,255,.09); overflow-x: auto;"><div style="min-width: 620px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: #0C0C0A; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .16em; color: #8A8579;"><span data-i18n="price.h.plan" style="padding: 17px 18px;">PLAN</span><span data-i18n="price.h.chats" style="padding: 17px 18px;">CHATS PER MONTH</span><span data-i18n="price.h.price" style="padding: 17px 18px; text-align: right;">PRICE PER 1 CLOSED CHAT · BUNDLE</span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">EASY</span><span style="padding: 19px 18px; color: #8A8579;">5K — 30K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.30<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.25</span></span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">NORMAL</span><span style="padding: 19px 18px; color: #8A8579;">30K — 50K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.25<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.20</span></span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">COMPANY</span><span style="padding: 19px 18px; color: #8A8579;">50K — 100K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.20<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.18</span></span></div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">CORPORATION</span><span style="padding: 19px 18px; color: #8A8579;">100K+</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.18<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.15</span></span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; background: #0C0C0A; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;"><span data-i18n="price.h.plan" style="padding: 17px 18px;">Plan</span><span data-i18n="price.h.chats" style="padding: 17px 18px;">Chats per month</span><span data-i18n="price.h.price" style="padding: 17px 18px; text-align: right;">Price per 1 closed chat · Bundle</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">Easy</span><span style="padding: 19px 18px; color: #8A8579;">5K — 30K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.30<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.25</span></span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">Normal</span><span style="padding: 19px 18px; color: #8A8579;">30K — 50K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.25<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.20</span></span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">Company</span><span style="padding: 19px 18px; color: #8A8579;">50K — 100K</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.20<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.18</span></span></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,.08); font: 400 15px/1 'JetBrains Mono', monospace; color: #E8E6E1;"><span style="padding: 19px 18px;">Corporation</span><span style="padding: 19px 18px; color: #8A8579;">100K+</span><span style="padding: 19px 18px; text-align: right; color: #4FD1A5; font-weight: 500; font-size: 20px;">$0.18<span style="color: #6E6A61; font-size: 13px; font-weight: 400;"> · $0.15</span></span></div>
       </div></div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; margin-top: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-        <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="price.setup.kicker" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">NO SETUP FEE · PLATFORM BUNDLE</p><p data-i18n="price.setup.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">$0 on every plan — integration, knowledge-base upload and tone-of-voice tuning included. Contract the full platform and every plan moves one step down: $0.25 / $0.20 / $0.18 / $0.15.</p></div>
-        <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="price.billing.kicker" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">BILLING LOGIC</p><p data-i18n="price.billing.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Per closed chat — not per message, not per user. Escalated chats are not double-charged.</p></div>
-        <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="price.bench.kicker" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">BENCHMARK</p><p data-i18n="price.bench.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">A human operator costs $0.50 per chat on average — every plan sits below that from month one.</p></div>
+        <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="price.setup.kicker" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">No setup fee · Platform bundle</p><p data-i18n="price.setup.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">$0 on every plan — integration, knowledge-base upload and tone-of-voice tuning included. Contract the full platform and every plan moves one step down: $0.25 / $0.20 / $0.18 / $0.15.</p></div>
+        <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="price.billing.kicker" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">Billing logic</p><p data-i18n="price.billing.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">Per closed chat — not per message, not per user. Escalated chats are not double-charged.</p></div>
+        <div style="padding: 22px 20px; background: #0A0A09;"><p data-i18n="price.bench.kicker" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">Benchmark</p><p data-i18n="price.bench.desc" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #9A958A;">A human operator costs $0.50 per chat on average — every plan sits below that from month one.</p></div>
       </div>
-      <p data-i18n="price.typical" style="margin: 46px 0 20px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">— TYPICAL MONTHLY COST · BILLED ON CHATS CLOSED BY AI AT 65% AUTOMATION</p>
+      <p data-i18n="price.typical" style="margin: 46px 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">> Typical monthly cost · Billed on chats closed by AI at 65% automation</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
-        <div data-reveal="" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="3900" data-prefix="$">$3,900</span></p><p data-i18n="price.cost1" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">20,000 CHATS · EASY · 13,000 BY AI</p></div>
-        <div data-reveal="" data-delay="70" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="6500" data-prefix="$">$6,500</span></p><p data-i18n="price.cost2" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">40,000 CHATS · NORMAL · 26,000 BY AI</p></div>
-        <div data-reveal="" data-delay="140" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="10400" data-prefix="$">$10,400</span></p><p data-i18n="price.cost3" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">80,000 CHATS · COMPANY · 52,000 BY AI</p></div>
-        <div data-reveal="" data-delay="210" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="29250" data-prefix="$">$29,250</span></p><p data-i18n="price.cost4" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">250,000 CHATS · CORPORATION · 162,500 BY AI</p></div>
+        <div data-reveal="" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="3900" data-prefix="$">$3,900</span></p><p data-i18n="price.cost1" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">20,000 chats · Easy · 13,000 by AI</p></div>
+        <div data-reveal="" data-delay="70" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="6500" data-prefix="$">$6,500</span></p><p data-i18n="price.cost2" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">40,000 chats · Normal · 26,000 by AI</p></div>
+        <div data-reveal="" data-delay="140" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="10400" data-prefix="$">$10,400</span></p><p data-i18n="price.cost3" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">80,000 chats · Company · 52,000 by AI</p></div>
+        <div data-reveal="" data-delay="210" style="padding: 24px 20px; background: #0A0A09;"><p style="margin: 0 0 10px; font: 500 34px/1 'Space Grotesk', sans-serif; color: #F5F2EC;"><span data-count="29250" data-prefix="$">$29,250</span></p><p data-i18n="price.cost4" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">250,000 chats · Corporation · 162,500 by AI</p></div>
       </div>
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="worked.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— WORKED EXAMPLE · CORPORATION · 250,000 CHATS / MONTH</p>
-      <h2 data-i18n="worked.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">$624,000 saved per year.</h2>
+      <p data-i18n="worked.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Worked example · Corporation · 250,000 chats / month</p>
+      <h2 data-i18n="worked.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">$624,000 saved per year</h2>
       <div data-reveal="" style="background: #0A0A09; border: 1px solid rgba(255,255,255,.09);">
         <div style="display: flex; justify-content: space-between; padding: 16px 20px; font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="worked.row1">Cost with operators only · 250,000 × $0.50</span><span style="color: #E8E6E1;">$125,000</span></div>
         <div style="display: flex; justify-content: space-between; padding: 16px 20px; border-top: 1px solid rgba(255,255,255,.08); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="worked.row2">Handled by AI (65%) · 162,500 × $0.18</span><span style="color: #E8E6E1;">$29,250</span></div>
@@ -296,46 +293,46 @@
     </section>
 
     <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-      <p data-i18n="tl.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— IMPLEMENTATION TIMELINE</p>
-      <h2 data-i18n="tl.title" style="margin: 0 0 56px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">From integration to production in 15 days.</h2>
+      <p data-i18n="tl.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Implementation timeline</p>
+      <h2 data-i18n="tl.title" style="margin: 0 0 56px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">From integration to production in 15 days</h2>
       <div data-tl="" style="position: relative;">
         <div style="position: absolute; left: 0; right: 0; top: 5px; height: 1px; background: rgba(255,255,255,.1);"><div data-tlbar="" style="height: 1px; width: 0%; background: #4FD1A5;"></div></div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;">
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d1" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">DAY 1–5</p><h3 data-i18n="tl.t1" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Platform integration</h3><p data-i18n="tl.p1" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">API connection to your iGaming platform and helpdesk.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d2" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">DAY 5–10</p><h3 data-i18n="tl.t2" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Knowledge base upload</h3><p data-i18n="tl.p2" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Rules, bonuses, KYC flows, tone of voice.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d3" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">DAY 10–15</p><h3 data-i18n="tl.t3" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Scenario testing</h3><p data-i18n="tl.p3" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Shadow mode, calibration against operators.</p></div>
-          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d4" style="margin: 0 0 12px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">DAY 15+</p><h3 data-i18n="tl.t4" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Production launch</h3><p data-i18n="tl.p4" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Gradual traffic rollout with live supervision.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d1" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">DAY 1–5</p><h3 data-i18n="tl.t1" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Platform integration</h3><p data-i18n="tl.p1" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">API connection to your iGaming platform and helpdesk.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d2" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">DAY 5–10</p><h3 data-i18n="tl.t2" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Knowledge base upload</h3><p data-i18n="tl.p2" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Rules, bonuses, KYC flows, tone of voice.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d3" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">DAY 10–15</p><h3 data-i18n="tl.t3" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Scenario testing</h3><p data-i18n="tl.p3" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Shadow mode, calibration against operators.</p></div>
+          <div style="padding-top: 32px;"><span data-tl-dot="" style="position: absolute; margin-top: -38px; width: 11px; height: 11px; border-radius: 50%; background: #0A0A09; border: 1px solid rgba(255,255,255,.25);"></span><p data-i18n="tl.d4" style="margin: 0 0 12px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">DAY 15+</p><h3 data-i18n="tl.t4" style="margin: 0 0 8px; font: 500 20px/1.2 'Space Grotesk', sans-serif; color: #F5F2EC;">Production launch</h3><p data-i18n="tl.p4" style="margin: 0; font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Gradual traffic rollout with live supervision.</p></div>
         </div>
       </div>
-      <div style="margin-top: 46px; padding: 22px 24px; border-left: 2px solid #4FD1A5; background: #0C0C0A;"><p data-i18n="tl.risk.kicker" style="margin: 0 0 8px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">RISK MINIMISATION</p><p data-i18n="tl.risk.desc" style="margin: 0; font: 400 16px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1;">Gradual rollout with rollback capability, backup operators kept on during the adaptation period.</p></div>
+      <div style="margin-top: 46px; padding: 22px 24px; border-left: 2px solid #4FD1A5; background: #0C0C0A;"><p data-i18n="tl.risk.kicker" style="margin: 0 0 8px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">Risk minimisation</p><p data-i18n="tl.risk.desc" style="margin: 0; font: 400 16px/1.5 'Space Grotesk', sans-serif; color: #E8E6E1;">Gradual rollout with rollback capability, backup operators kept on during the adaptation period.</p></div>
     </section>
   </div>
 
   <!-- 02 QA CHAT -->
   
 <section style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— YOUR NUMBERS · CHAT</p>
-    <h2 data-i18n="calc.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Model your chat volume.</h2>
+    <p data-i18n="calc.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Your numbers · Chat</p>
+    <h2 data-i18n="calc.title" style="margin: 0 0 40px; font: 500 clamp(28px, 3.8vw, 54px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Model your chat volume</h2>
     <div data-calc="" data-min="5000" data-max="1000000" data-step="5000" data-def="100000" data-cur="$" data-human="0.5" data-share="0.65" data-setup="0" data-tiers="30000:0.3,50000:0.25,100000:0.2,9000000000:0.18" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div style="padding: 34px 30px; background: #0A0A09; display: flex; flex-direction: column; gap: 30px;">
         <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.lbl.chats" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">CHATS PER MONTH</span><span data-cv="" style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;"><span data-i18n="calc.lbl.chats" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Chats per month</span><span data-cv="" style="font: 500 22px/1 'Space Grotesk', sans-serif; color: #F5F2EC;">—</span></div>
           <input data-cin="" aria-label="Chats per month" type="range" min="5000" max="1000000" step="5000" style="width: 100%; height: 2px; -webkit-appearance: none; appearance: none; background: rgba(255,255,255,.12); accent-color: #4FD1A5;" />
         </div>
         <div style="display: flex; flex-direction: column;">
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.plan">PLAN · UNIT PRICE</span><span data-ctier="" style="color: #E8E6E1;">—</span></div>
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.baseline">BASELINE WITHOUT QODEQ</span><span data-cbase="" style="color: #E8E6E1;">—</span></div>
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.withqodeq">COST WITH QODEQ</span><span data-cai="" style="color: #E8E6E1;">—</span></div>
-          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.payback">SETUP</span><span data-cpay="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.plan">Plan · Unit price</span><span data-ctier="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.baseline">Baseline without QODEQ</span><span data-cbase="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.withqodeq">Cost with QODEQ</span><span data-cai="" style="color: #E8E6E1;">—</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.07); font: 400 13px/1.4 'JetBrains Mono', monospace; color: #9A958A;"><span data-i18n="calc.lbl.payback">Setup</span><span data-cpay="" style="color: #E8E6E1;">—</span></div>
         </div>
-        <p data-i18n="calc.lbl.model" style="margin: 0; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #57544C;">MODEL: 65% OF CHATS CLOSED BY THE AGENT · OPERATOR BASELINE $0.50 PER CHAT</p>
+        <p data-i18n="calc.lbl.model" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Model: 65% of chats closed by the agent · Operator baseline $0.50 per chat</p>
       </div>
       <div style="padding: 34px 30px; background: #0C0C0A; display: flex; flex-direction: column; justify-content: center; gap: 26px;">
-        <div><p data-i18n="calc.lbl.monthly" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">MONTHLY SAVING</p><p data-csave="" style="margin: 0; font: 500 clamp(40px, 5.4vw, 68px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #4FD1A5;">—</p></div>
-        <div><p data-i18n="calc.lbl.annual" style="margin: 0 0 10px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">ANNUAL SAVING</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
+        <div><p data-i18n="calc.lbl.monthly" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Monthly saving</p><p data-csave="" style="margin: 0; font: 500 clamp(40px, 5.4vw, 68px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #4FD1A5;">—</p></div>
+        <div><p data-i18n="calc.lbl.annual" style="margin: 0 0 10px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Annual saving</p><p data-cyear="" style="margin: 0; font: 500 clamp(28px, 3.4vw, 42px)/1 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">—</p></div>
         <div style="height: 10px; background: rgba(255,255,255,.05);"><div data-cbar="" style="height: 10px; width: 0%; background: #4FD1A5; transition: width .35s cubic-bezier(.2,.7,.2,1);"></div></div>
-        <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .14em; color: #6E6A61;">—</p>
-        <a href="/calculator" data-i18n="calc.cta" data-btn="" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #E8E6E1;">MODEL ALL FIVE AGENTS TOGETHER →</a>
+        <p data-cshare="" style="margin: 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">—</p>
+        <a href="/calculator" data-i18n="calc.cta" data-btn="" style="align-self: flex-start; padding: 14px 20px; border: 1px solid rgba(255,255,255,.2); font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #E8E6E1;">Model all five agents together →</a>
       </div>
     </div>
   </section>
@@ -343,55 +340,55 @@
   <section style="position: relative; z-index: 1; padding: 100px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
     <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 30px;">
       <div>
-        <p data-i18n="next.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— NEXT STEP</p>
-        <h2 data-i18n="next.title" style="margin: 0 0 14px; font: 500 clamp(28px, 4vw, 58px)/1.03 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">Talk to us with your numbers.</h2>
+        <p data-i18n="next.kicker" style="margin: 0 0 16px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Next step</p>
+        <h2 data-i18n="next.title" style="margin: 0 0 14px; font: 500 clamp(28px, 4vw, 58px)/1.03 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #F5F2EC;">Talk to us with your numbers</h2>
         <p data-i18n="next.sub" style="margin: 0; max-width: 520px; font: 400 15px/1.6 'Space Grotesk', sans-serif; color: #9A958A;">Send the volumes you modelled above and we return a fixed quote, an integration plan and a setup timeline within two working days.</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="next.cta1" data-btn="" style="padding: 17px 24px; background: #4FD1A5; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">REQUEST A QUOTE</a>
-        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;"></a>
-        <a href="https://t.me/qodeq" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em;">@QODEQ</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-subject="QODEQ quote request" data-i18n="next.cta1" data-btn="" style="padding: 17px 24px; background: #4FD1A5; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;">Request a quote</a>
+        <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;"></a>
+        <a href="https://t.me/qodeq" data-btn="" style="padding: 17px 24px; border: 1px solid rgba(255,255,255,.2); color: #E8E6E1; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em;">@QODEQ</a>
       </div>
     </div>
   </section>
 
 <section style="position: relative; z-index: 1; padding: 100px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09);">
-    <p data-i18n="cross.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #8A8579;">— THE REST OF THE PLATFORM</p>
-    <h2 data-i18n="cross.title" style="margin: 0 0 40px; max-width: 820px; font: 500 clamp(26px, 3.2vw, 44px)/1.06 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Every agent shares one knowledge base, one CRM context, one analytics layer.</h2>
+    <p data-i18n="cross.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">> The rest of the platform</p>
+    <h2 data-i18n="cross.title" style="margin: 0 0 40px; max-width: 820px; font: 500 clamp(26px, 3.2vw, 44px)/1.06 'Space Grotesk', sans-serif; letter-spacing: -.026em; color: #F5F2EC;">Every agent shares one knowledge base, one CRM context, one analytics layer</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
         <a href="/qa-chat" data-xcard="" data-acc="#E8B23A" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #E8B23A; transition: background .3s, transform .3s;">
-          <span data-i18n="cross.1.kicker" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5;">02 / QA SYSTEM</span>
+          <span data-i18n="cross.1.kicker" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">02 / QA system</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI QA System<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
         <a href="/payment" data-xcard="" data-acc="#5FA5F9" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #5FA5F9; transition: background .3s, transform .3s;">
-          <span data-i18n="cross.2.kicker" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #5FA5F9;">03 / PAYMENT ASSISTANT</span>
+          <span data-i18n="cross.2.kicker" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #5FA5F9;">03 / Payment assistant</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Payment Assistant<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
         <a href="/qa-call" data-xcard="" data-acc="#C084F5" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #C084F5; transition: background .3s, transform .3s;">
-          <span data-i18n="cross.3.kicker" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #C084F5;">04 / VOICE QA</span>
+          <span data-i18n="cross.3.kicker" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #C084F5;">04 / Voice QA</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Voice QA<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
         <a href="/voice" data-xcard="" data-acc="#F4794C" style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: 26px 22px; background: #0A0A09; border-top: 2px solid #F4794C; transition: background .3s, transform .3s;">
-          <span data-i18n="cross.4.kicker" style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #F4794C;">05 / VOICE BOT</span>
+          <span data-i18n="cross.4.kicker" style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #F4794C;">05 / Voice bot</span>
           <span style="font: 500 21px/1.2 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #F5F2EC;">AI Voice Bot<span data-xarrow="" style="display: inline-block; margin-left: 8px; color: #57544C; transition: transform .3s, color .3s;">→</span></span>
         </a>
     </div>
   </section>
 
   <section id="contact" data-feedback="" data-slug="chat" data-acc="#4FD1A5" data-product="AI Chat Operator" style="position: relative; z-index: 1; padding: 110px 48px; max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.09); overflow: clip;">
-    <p data-i18n="fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .24em; color: #4FD1A5;">— REQUEST A CALCULATION</p>
-    <h2 data-i18n="fb.title" style="margin: 0 0 20px; max-width: 860px; font: 500 clamp(28px, 4vw, 56px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">See the numbers for AI Chat Operator on your volumes.</h2>
+    <p data-i18n="fb.kicker" style="margin: 0 0 20px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">> Request a calculation</p>
+    <h2 data-i18n="fb.title" style="margin: 0 0 20px; max-width: 860px; font: 500 clamp(28px, 4vw, 56px)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.028em; color: #F5F2EC;">See the numbers for AI Chat Operator on your volumes</h2>
     <p data-i18n="fb.sub" style="margin: 0 0 48px; max-width: 560px; font: 400 16px/1.6 'Space Grotesk', sans-serif; color: #9A958A; text-wrap: pretty;">Leave a contact — we send a personalised calculation and a rollout plan within one business day.</p>
     <div data-fb-grid="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.09);">
       <div data-fb-col="" style="padding: 32px 30px; background: #0A0A09;">
         <form novalidate="" style="display: flex; flex-direction: column; gap: 20px;">
           <input name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;" />
-          <label style="display: block;"><span data-i18n="fb.name" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">NAME</span><input name="name" autocomplete="name" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
-          <label style="display: block;"><span data-i18n="fb.company" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">COMPANY</span><input name="company" autocomplete="organization" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
-          <label style="display: block;"><span data-i18n="fb.contact" style="display: block; margin-bottom: 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">EMAIL OR TELEGRAM</span><input name="contact" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
-          <p data-i18n="fb.interest" style="margin: 4px 0 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">INTERESTED IN: AI CHAT OPERATOR</p>
-          <p data-fb-status="" style="margin: 0; min-height: 15px; font: 400 11px/1.5 'JetBrains Mono', monospace; letter-spacing: .06em; color: #8A8579;"></p>
-          <button type="submit" data-fb-send="" style="margin-top: 6px; padding: 17px 22px; background: #4FD1A5; border: none; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .18em; text-align: center; cursor: pointer;"><span data-i18n="fb.send">SEND REQUEST</span></button>
+          <label style="display: block;"><span data-i18n="fb.name" style="display: block; margin-bottom: 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Name</span><input name="name" autocomplete="name" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
+          <label style="display: block;"><span data-i18n="fb.company" style="display: block; margin-bottom: 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Company</span><input name="company" autocomplete="organization" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
+          <label style="display: block;"><span data-i18n="fb.contact" style="display: block; margin-bottom: 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Email or Telegram</span><input name="contact" style="width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,.16); color: #F5F2EC; font: 400 16px/1 'Space Grotesk', sans-serif; transition: border-color .25s;" /></label>
+          <p data-i18n="fb.interest" style="margin: 4px 0 0; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Interested in: AI Chat Operator</p>
+          <p data-fb-status="" style="margin: 0; min-height: 15px; font: 400 11px/1.5 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;"></p>
+          <button type="submit" data-fb-send="" style="margin-top: 6px; padding: 17px 22px; background: #4FD1A5; border: none; color: #0A0A09; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; text-align: center; cursor: pointer;"><span data-i18n="fb.send">Send request</span></button>
         </form>
         <div data-fb-ok="" style="display: none; padding: 26px 0;">
           <p data-i18n="fb.ok.title" style="margin: 0 0 14px; font: 500 28px/1.1 'Space Grotesk', sans-serif; letter-spacing: -.02em; color: #4FD1A5;">Request logged.</p>
@@ -399,15 +396,15 @@
         </div>
       </div>
       <div data-fb-col="" style="padding: 32px 30px; background: #0C0C0A; display: flex; flex-direction: column; gap: 24px;">
-        <div><p data-i18n="fb.emaillabel" style="margin: 0 0 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">EMAIL</p><a href="#" data-fb-bigmail="" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC; word-break: break-word;"></a></div>
-        <div><p data-i18n="fb.telegramlabel" style="margin: 0 0 9px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">TELEGRAM</p><a href="https://t.me/qodeq" data-fb-bigmail="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC;">@qodeq</a></div>
+        <div><p data-i18n="fb.emaillabel" style="margin: 0 0 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Email</p><a href="#" data-fb-bigmail="" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC; word-break: break-word;"></a></div>
+        <div><p data-i18n="fb.telegramlabel" style="margin: 0 0 9px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Telegram</p><a href="https://t.me/qodeq" data-fb-bigmail="" style="font: 500 20px/1.3 'Space Grotesk', sans-serif; color: #F5F2EC;">@qodeq</a></div>
         <div data-fb-next="" style="margin-top: 10px;">
-          <p data-i18n="fb.next.kicker" style="margin: 0 0 6px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #8A8579;">WHAT HAPPENS NEXT</p>
-          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5; padding-top: 3px;">01</span><span data-i18n="fb.next1.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">We review your request</span><span></span><span data-i18n="fb.next1.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">A specialist replies by email or Telegram.</span></div>
-          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5; padding-top: 3px;">02</span><span data-i18n="fb.next2.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Calculation on your volumes</span><span></span><span data-i18n="fb.next2.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Price, savings and a rollout plan for AI Chat Operator.</span></div>
-          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .2em; color: #4FD1A5; padding-top: 3px;">03</span><span data-i18n="fb.next3.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Integration and testing</span><span></span><span data-i18n="fb.next3.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Connection to your platform, then a test on real traffic before launch.</span></div>
+          <p data-i18n="fb.next.kicker" style="margin: 0 0 6px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">What happens next</p>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5; padding-top: 3px;">01</span><span data-i18n="fb.next1.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">We review your request</span><span></span><span data-i18n="fb.next1.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">A specialist replies by email or Telegram.</span></div>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5; padding-top: 3px;">02</span><span data-i18n="fb.next2.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Calculation on your volumes</span><span></span><span data-i18n="fb.next2.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Price, savings and a rollout plan for AI Chat Operator.</span></div>
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 4px 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.07);"><span style="font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5; padding-top: 3px;">03</span><span data-i18n="fb.next3.t" style="font: 500 16px/1.35 'Space Grotesk', sans-serif; color: #E8E6E1;">Integration and testing</span><span></span><span data-i18n="fb.next3.d" style="font: 400 14px/1.55 'Space Grotesk', sans-serif; color: #8A8579;">Connection to your platform, then a test on real traffic before launch.</span></div>
         </div>
-        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);"><p data-i18n="fb.responsetime" style="margin: 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">RESPONSE WITHIN 1 BUSINESS DAY</p></div>
+        <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1);"><p data-i18n="fb.responsetime" style="margin: 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Response within 1 business day</p></div>
       </div>
     </div>
   </section>
@@ -418,12 +415,12 @@
         <a href="/" style="display: flex; align-items: center;"><img src="/assets/brand/logo-main.png?v=2" alt="QODEQ" style="height: 24px; width: auto; display: block;" /></a>
         <p data-i18n="foot.tagline" style="margin: 0; max-width: 340px; font: 400 14px/1.65 'Space Grotesk', sans-serif; color: #8A8579; text-wrap: pretty;">Five AI agents on one platform for iGaming support: chat, QA, payments, voice. One knowledge base, one console, one bill.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 11px 15px; border: 1px solid #4FD1A5; font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #4FD1A5;">EMAIL US</a>
-          <a href="https://t.me/qodeq" data-btn="" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 10px/1 'JetBrains Mono', monospace; letter-spacing: .18em; color: #8A8579;">TELEGRAM</a>
+          <a href="#" data-i18n="foot.emailus" data-mail-user="support" data-mail-host="qodeq.net" data-btn="" style="padding: 11px 15px; border: 1px solid #4FD1A5; font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #4FD1A5;">Email us</a>
+          <a href="https://t.me/qodeq" data-btn="" style="padding: 11px 15px; border: 1px solid rgba(255,255,255,.16); font: 500 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #8A8579;">Telegram</a>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
-        <p data-i18n="foot.agents" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">AGENTS</p>
+        <p data-i18n="foot.agents" style="margin: 0 0 4px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Agents</p>
         <a href="/chat" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Chat Operator</a>
         <a href="/qa-chat" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI QA System</a>
         <a href="/payment" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Payment Assistant</a>
@@ -431,7 +428,7 @@
         <a href="/voice" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">AI Voice Bot</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
-        <p data-i18n="foot.platform" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">PLATFORM</p>
+        <p data-i18n="foot.platform" style="margin: 0 0 4px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Platform</p>
         <a href="/#console" data-i18n="foot.console" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Operator console</a>
         <a href="/#economics" data-i18n="foot.econ" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Economics</a>
         <a href="/calculator" data-i18n="foot.roicalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">ROI calculator</a>
@@ -444,17 +441,17 @@
         <a href="/blog" data-i18n="foot.blog" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Blog</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px;">
-        <p data-i18n="foot.contact" style="margin: 0 0 4px; font: 400 10px/1 'JetBrains Mono', monospace; letter-spacing: .22em; color: #6E6A61;">CONTACT</p>
+        <p data-i18n="foot.contact" style="margin: 0 0 4px; font: 400 11px/1 'JetBrains Mono', monospace; letter-spacing: .02em; color: #6E6A61;">Contact</p>
         <a href="#" data-mail-user="support" data-mail-host="qodeq.net" data-mail-fill="" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;"></a>
         <a href="https://t.me/qodeq" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">@qodeq</a>
         <a href="#contact" data-i18n="foot.reqcalc" style="font: 400 14px/1.2 'Space Grotesk', sans-serif; color: #9A958A;">Request a calculation</a>
-        <p data-i18n="foot.response" style="margin: 8px 0 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .1em; color: #57544C;">RESPONSE WITHIN 1 BUSINESS DAY</p>
+        <p data-i18n="foot.response" style="margin: 8px 0 0; font: 400 11px/1.7 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">Response within 1 business day</p>
       </div>
     </div>
-    <div style="max-width: 1500px; margin: 0 auto; padding: 20px 48px 26px; border-top: 1px solid rgba(255,255,255,.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font: 400 10px/1.6 'JetBrains Mono', monospace; letter-spacing: .18em; color: #57544C;">
-      <span data-i18n="foot.bottom1">QODEQ · AI PLATFORM FOR IGAMING</span>
-      <a href="/privacy" data-i18n="foot.privacy" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">PRIVACY POLICY</a>
-      <span data-i18n="foot.bottom2">COMMERCIAL PROPOSAL · 2026 · CONFIDENTIAL</span>
+    <div style="max-width: 1500px; margin: 0 auto; padding: 20px 48px 26px; border-top: 1px solid rgba(255,255,255,.07); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; font: 400 11px/1.6 'JetBrains Mono', monospace; letter-spacing: .02em; color: #57544C;">
+      <span data-i18n="foot.bottom1">QODEQ · AI platform for iGaming</span>
+      <a href="/privacy" data-i18n="foot.privacy" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a>
+      <span data-i18n="foot.bottom2">© 2026 QODEQ</span>
     </div>
   </footer>
 </div>
@@ -468,7 +465,7 @@ const RU_DICT = {
   'foot.sol.casino': 'AI-поддержка для онлайн-казино',
   'foot.sol.sportsbook': 'AI-поддержка для букмекеров',
   'foot.sol.qa': 'QA поддержки для iGaming',
-  'fb.next.kicker': 'ЧТО БУДЕТ ПОСЛЕ ЗАЯВКИ',
+  'fb.next.kicker': 'Что будет после заявки',
   'fb.next1.t': 'Изучаем заявку',
   'fb.next1.d': 'Специалист ответит на почту или в Telegram.',
   'fb.next2.t': 'Расчёт на ваших объёмах',
@@ -476,9 +473,9 @@ const RU_DICT = {
   'fb.next3.t': 'Интеграция и тест',
   'fb.next3.d': 'Подключение к вашей платформе и проверка на реальном трафике до запуска.',
   'foot.tagline': 'Пять AI-агентов на одной платформе для поддержки iGaming: чат, QA, платежи, голос. Одна база знаний, одна консоль, один счёт.',
-  'foot.emailus': 'НАПИСАТЬ НАМ',
-  'foot.agents': 'АГЕНТЫ',
-  'foot.platform': 'ПЛАТФОРМА',
+  'foot.emailus': 'Написать нам',
+  'foot.agents': 'Агенты',
+  'foot.platform': 'Платформа',
   'foot.console': 'Консоль оператора',
   'foot.econ': 'Экономика',
   'foot.roicalc': 'ROI-калькулятор',
@@ -486,44 +483,44 @@ const RU_DICT = {
   'foot.rollout': 'План внедрения',
   'foot.overview': 'Обзор платформы',
   'foot.blog': 'Блог',
-  'foot.contact': 'КОНТАКТЫ',
+  'foot.contact': 'Контакты',
   'foot.reqcalc': 'Запросить расчёт',
-  'foot.response': 'ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ',
-  'foot.bottom1': 'QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING',
-  'foot.bottom2': 'КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО',
-  'foot.privacy': 'ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ',
-  'nav.blog': 'БЛОГ',
+  'foot.response': 'Ответ в течение 1 рабочего дня',
+  'foot.bottom1': 'QODEQ · AI-платформа для iGaming',
+  'foot.bottom2': '© 2026 QODEQ',
+  'foot.privacy': 'Политика конфиденциальности',
+  'nav.blog': 'Блог',
   'nav.chat': '01 ЧАТ',
-  'nav.qachat': '02 QA-ЧАТ',
-  'nav.payment': '03 ПЛАТЕЖИ',
-  'nav.qacall': '04 QA-ЗВОНКИ',
-  'nav.voice': '05 ГОЛОС',
-  'nav.calc': 'КАЛЬКУЛЯТОР →',
-  'hero.kicker': '— ПРОДУКТ 01 · AI CHAT OPERATOR',
-  'hero.title': 'Собственная генеративная модель. Не обёртка над публичным API.',
+  'nav.qachat': '02 QA-чат',
+  'nav.payment': '03 Платежи',
+  'nav.qacall': '04 QA-звонки',
+  'nav.voice': '05 Голос',
+  'nav.calc': 'Калькулятор →',
+  'hero.kicker': '> Продукт 01 · AI Chat Operator',
+  'hero.title': 'Собственная генеративная модель. Не обёртка над публичным API',
   'hero.sub': 'Обучена на трафике поддержки iGaming и подключается напрямую к вашей платформе — полное решение чатов от начала до конца, на любом языке, в тоне голоса вашего бренда.',
-  'hero.stat1': 'ЗАКРЫТО ОБРАЩЕНИЙ',
-  'hero.stat2': 'ЧАТОВ ЗА ВСЁ ВРЕМЯ',
-  'hero.stat3': 'ВРЕМЯ ОТВЕТА',
-  'hero.stat4': 'ДОСТУПНОСТЬ',
-  'demo.kicker': '— ЖИВОЙ АГЕНТ · СЦЕНАРНЫЙ ПОВТОР',
-  'demo.title': 'Задайте вопрос, который задал бы игрок.',
+  'hero.stat1': 'Закрыто обращений',
+  'hero.stat2': 'Чатов за всё время',
+  'hero.stat3': 'Время ответа',
+  'hero.stat4': 'Доступность',
+  'demo.kicker': '> Живой агент · Сценарный повтор',
+  'demo.title': 'Задайте вопрос, который задал бы игрок',
   'demo.sub': 'Повтор реальных путей решения — поиск контекста, база знаний, тикет, тег. Ничего не передаётся человеку.',
-  'demo.brand': 'QODEQ · ЧАТ',
-  'demo.online': 'В СЕТИ',
-  'demo.q1': 'ГДЕ МОЙ ВЫВОД СРЕДСТВ?',
-  'demo.q2': 'ПОЧЕМУ БОНУС НЕ ОТЫГРАН?',
-  'demo.q3': 'МОЙ АККАУНТ ЗАБЛОКИРОВАН',
-  'demo.modedemo': 'ИИ-ДЕМО',
-  'demo.modelive': 'ЖИВОЙ ЧАТ',
+  'demo.brand': 'QODEQ · Чат',
+  'demo.online': 'В сети',
+  'demo.q1': 'Где мой вывод средств?',
+  'demo.q2': 'Почему бонус не отыгран?',
+  'demo.q3': 'Мой аккаунт заблокирован',
+  'demo.modedemo': 'ИИ-демо',
+  'demo.modelive': 'Живой чат',
   'demo.liveph': 'Напишите сообщение…',
-  'demo.reset': 'СБРОС',
-  'demo.underhood': 'ЧТО ПРОИСХОДИТ ПОД КАПОТОМ',
-  'demo.m1label': 'РЕШЕНО ЗА',
-  'demo.m2label': 'СЭКОНОМЛЕНО ВРЕМЕНИ ОПЕРАТОРА',
-  'demo.m3label': 'ИСХОД',
-  'cap.kicker': '— ВОЗМОЖНОСТИ',
-  'cap.title': 'Что агент делает в каждом диалоге.',
+  'demo.reset': 'Сброс',
+  'demo.underhood': 'Что происходит под капотом',
+  'demo.m1label': 'Решено за',
+  'demo.m2label': 'Сэкономлено времени оператора',
+  'demo.m3label': 'Исход',
+  'cap.kicker': '> Возможности',
+  'cap.title': 'Что агент делает в каждом диалоге',
   'cap.1.title': 'Быстрый доступ к базе знаний',
   'cap.1.desc': 'Правила, бонусы и сценарии обновляются без участия разработчиков.',
   'cap.2.title': 'Сложные сценарии',
@@ -534,85 +531,85 @@ const RU_DICT = {
   'cap.4.desc': 'Адаптируется под голос вашего бренда в каждом регионе.',
   'cap.5.title': 'Масштабируется без потери качества',
   'cap.5.desc': 'Тысячи одновременных обращений — без очереди.',
-  'cap.roadmap.kicker': 'В ПЛАНАХ',
+  'cap.roadmap.kicker': 'В планах',
   'cap.roadmap.title': 'Омниканальность · предиктивная аналитика',
   'cap.roadmap.desc': 'Единая история по чату, голосу и соцсетям; прогноз оттока с автоматическими предложениями удержания.',
-  'price.kicker': '— ЦЕНЫ · ЗА ЗАКРЫТЫЙ ЧАТ',
-  'price.title': 'Вы платите за каждый чат, закрытый агентом.',
-  'price.h.plan': 'ТАРИФ',
-  'price.h.chats': 'ЧАТОВ В МЕСЯЦ',
-  'price.h.price': 'ЦЕНА ЗА 1 ЗАКРЫТЫЙ ЧАТ · BUNDLE',
-  'price.setup.kicker': 'БЕЗ ПЛАТЫ ЗА ПОДКЛЮЧЕНИЕ · PLATFORM BUNDLE',
+  'price.kicker': '> Цены · За закрытый чат',
+  'price.title': 'Вы платите за каждый чат, закрытый агентом',
+  'price.h.plan': 'Тариф',
+  'price.h.chats': 'Чатов в месяц',
+  'price.h.price': 'Цена за 1 закрытый чат · Bundle',
+  'price.setup.kicker': 'Без платы за подключение · Platform bundle',
   'price.setup.desc': '$0 на любом тарифе — интеграция, загрузка базы знаний и настройка тона голоса включены. При подключении всей платформы каждый тариф на ступень дешевле: $0.25 / $0.20 / $0.18 / $0.15.',
-  'price.billing.kicker': 'ЛОГИКА ОПЛАТЫ',
+  'price.billing.kicker': 'Логика оплаты',
   'price.billing.desc': 'За закрытый чат — не за сообщение и не за пользователя. Эскалированные чаты не оплачиваются дважды.',
-  'price.bench.kicker': 'ОРИЕНТИР',
+  'price.bench.kicker': 'Ориентир',
   'price.bench.desc': 'Живой оператор в среднем обходится в $0.50 за чат — любой тариф дешевле этого уже с первого месяца.',
-  'price.typical': '— ТИПИЧНЫЕ ЕЖЕМЕСЯЧНЫЕ РАСХОДЫ · ПО ЧАТАМ, ЗАКРЫТЫМ ИИ ПРИ АВТОМАТИЗАЦИИ 65%',
-  'price.cost1': '20,000 ЧАТОВ · EASY · 13,000 ЗАКРЫТО ИИ',
-  'price.cost2': '40,000 ЧАТОВ · NORMAL · 26,000 ЗАКРЫТО ИИ',
-  'price.cost3': '80,000 ЧАТОВ · COMPANY · 52,000 ЗАКРЫТО ИИ',
-  'price.cost4': '250,000 ЧАТОВ · CORPORATION · 162,500 ЗАКРЫТО ИИ',
-  'worked.kicker': '— ПРИМЕР РАСЧЁТА · CORPORATION · 250,000 ЧАТОВ / МЕСЯЦ',
-  'worked.title': '$624,000 экономии в год.',
+  'price.typical': '> Типичные ежемесячные расходы · По чатам, закрытым ИИ при автоматизации 65%',
+  'price.cost1': '20,000 чатов · Easy · 13,000 закрыто ИИ',
+  'price.cost2': '40,000 чатов · Normal · 26,000 закрыто ИИ',
+  'price.cost3': '80,000 чатов · Company · 52,000 закрыто ИИ',
+  'price.cost4': '250,000 чатов · Corporation · 162,500 закрыто ИИ',
+  'worked.kicker': '> Пример расчёта · Corporation · 250,000 чатов / месяц',
+  'worked.title': '$624,000 экономии в год',
   'worked.row1': 'Расходы только на операторов · 250,000 × $0.50',
   'worked.row2': 'Обработано ИИ (65%) · 162,500 × $0.18',
   'worked.row3': 'Обработано операторами (35%) · 87,500 × $0.50',
   'worked.row4': 'Итоговые расходы с AI Chat Operator',
   'worked.row5': 'Экономия в месяц',
   'worked.row6': 'Экономия в год',
-  'tl.kicker': '— ГРАФИК ВНЕДРЕНИЯ',
-  'tl.title': 'От интеграции до продакшена за 15 дней.',
-  'tl.d1': 'ДЕНЬ 1–5',
+  'tl.kicker': '> График внедрения',
+  'tl.title': 'От интеграции до продакшена за 15 дней',
+  'tl.d1': 'День 1–5',
   'tl.t1': 'Интеграция с платформой',
   'tl.p1': 'Подключение по API к вашей iGaming-платформе и хелпдеску.',
-  'tl.d2': 'ДЕНЬ 5–10',
+  'tl.d2': 'День 5–10',
   'tl.t2': 'Загрузка базы знаний',
   'tl.p2': 'Правила, бонусы, KYC-сценарии, тон голоса.',
-  'tl.d3': 'ДЕНЬ 10–15',
+  'tl.d3': 'День 10–15',
   'tl.t3': 'Тестирование сценариев',
   'tl.p3': 'Теневой режим, калибровка по сравнению с операторами.',
-  'tl.d4': 'ДЕНЬ 15+',
+  'tl.d4': 'День 15+',
   'tl.t4': 'Запуск в продакшен',
   'tl.p4': 'Постепенный вывод трафика под живым контролем.',
-  'tl.risk.kicker': 'СНИЖЕНИЕ РИСКОВ',
+  'tl.risk.kicker': 'Снижение рисков',
   'tl.risk.desc': 'Постепенное внедрение с возможностью отката, резервные операторы остаются на линии на период адаптации.',
-  'calc.kicker': '— ВАШИ ЦИФРЫ · ЧАТ',
-  'calc.title': 'Смоделируйте объём чатов.',
-  'calc.lbl.chats': 'ЧАТОВ В МЕСЯЦ',
-  'calc.lbl.plan': 'ТАРИФ · ЦЕНА ЗА ЕДИНИЦУ',
-  'calc.lbl.baseline': 'БЕЗ QODEQ',
+  'calc.kicker': '> Ваши цифры · Чат',
+  'calc.title': 'Смоделируйте объём чатов',
+  'calc.lbl.chats': 'Чатов в месяц',
+  'calc.lbl.plan': 'Тариф · Цена за единицу',
+  'calc.lbl.baseline': 'Без QODEQ',
   'calc.lbl.withqodeq': 'С QODEQ',
-  'calc.lbl.payback': 'ПОДКЛЮЧЕНИЕ',
-  'calc.lbl.model': 'МОДЕЛЬ: 65% ЧАТОВ ЗАКРЫВАЕТ АГЕНТ · БАЗОВАЯ СТАВКА ОПЕРАТОРА $0.50 ЗА ЧАТ',
-  'calc.lbl.monthly': 'ЭКОНОМИЯ В МЕСЯЦ',
-  'calc.lbl.annual': 'ЭКОНОМИЯ В ГОД',
-  'calc.cta': 'СМОДЕЛИРОВАТЬ ВСЕ ПЯТЬ АГЕНТОВ →',
-  'next.kicker': '— СЛЕДУЮЩИЙ ШАГ',
-  'next.title': 'Расскажите нам свои цифры.',
+  'calc.lbl.payback': 'Подключение',
+  'calc.lbl.model': 'Модель: 65% чатов закрывает агент · Базовая ставка оператора $0.50 за чат',
+  'calc.lbl.monthly': 'Экономия в месяц',
+  'calc.lbl.annual': 'Экономия в год',
+  'calc.cta': 'Смоделировать все пять агентов →',
+  'next.kicker': '> Следующий шаг',
+  'next.title': 'Расскажите нам свои цифры',
   'next.sub': 'Пришлите смоделированные выше объёмы — и мы вернём фиксированную смету, план интеграции и сроки внедрения в течение двух рабочих дней.',
-  'next.cta1': 'ЗАПРОСИТЬ СМЕТУ',
-  'cross.kicker': '— ОСТАЛЬНАЯ ЧАСТЬ ПЛАТФОРМЫ',
-  'cross.title': 'Все агенты используют общую базу знаний, единый контекст CRM и единый слой аналитики.',
-  'cross.1.kicker': '02 / QA-СИСТЕМА',
-  'cross.2.kicker': '03 / ПОМОЩНИК ПО ПЛАТЕЖАМ',
-  'cross.3.kicker': '04 / ГОЛОСОВОЙ QA',
-  'cross.4.kicker': '05 / ГОЛОСОВОЙ БОТ',
-  'fb.kicker': '— ЗАПРОСИТЬ РАСЧЁТ',
-  'fb.title': 'Узнайте цифры AI Chat Operator на ваших объёмах.',
+  'next.cta1': 'Запросить смету',
+  'cross.kicker': '> Остальная часть платформы',
+  'cross.title': 'Все агенты используют общую базу знаний, единый контекст CRM и единый слой аналитики',
+  'cross.1.kicker': '02 / QA-система',
+  'cross.2.kicker': '03 / Помощник по платежам',
+  'cross.3.kicker': '04 / Голосовой QA',
+  'cross.4.kicker': '05 / Голосовой бот',
+  'fb.kicker': '> Запросить расчёт',
+  'fb.title': 'Узнайте цифры AI Chat Operator на ваших объёмах',
   'fb.sub': 'Оставьте контакт — мы пришлём персональный расчёт и план внедрения в течение одного рабочего дня.',
-  'fb.name': 'ИМЯ',
-  'fb.company': 'КОМПАНИЯ',
-  'fb.contact': 'EMAIL ИЛИ TELEGRAM',
-  'fb.interest': 'ИНТЕРЕСУЕТ: AI CHAT OPERATOR',
-  'fb.send': 'ОТПРАВИТЬ ЗАЯВКУ',
+  'fb.name': 'Имя',
+  'fb.company': 'Компания',
+  'fb.contact': 'Email или Telegram',
+  'fb.interest': 'Интересует: AI Chat Operator',
+  'fb.send': 'Отправить заявку',
   'fb.ok.title': 'Заявка зафиксирована.',
   'fb.ok.sub': 'Мы свяжемся с вами в течение одного рабочего дня.',
-  'fb.emaillabel': 'EMAIL',
-  'fb.telegramlabel': 'TELEGRAM',
-  'fb.responsetime': 'ОТВЕТ В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ',
-  'footer.back': '← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING',
-  'footer.tag': 'КОММЕРЧЕСКОЕ ПРЕДЛОЖЕНИЕ · 2026 · КОНФИДЕНЦИАЛЬНО'
+  'fb.emaillabel': 'Email',
+  'fb.telegramlabel': 'Telegram',
+  'fb.responsetime': 'Ответ в течение 1 рабочего дня',
+  'footer.back': '← QODEQ · AI-платформа для iGaming',
+  'footer.tag': '© 2026 QODEQ'
 };
 
 class Component extends DCLogic {
@@ -792,15 +789,15 @@ ACC() { return '#4FD1A5'; }
     this.railItems = [];
     secs.forEach((s, i) => {
       if (!s.id) s.id = 'sec-' + (i + 1);
-      let label = 'INTRO';
+      let label = 'Intro';
       const p = s.querySelector('p');
       if (p && p.textContent.trim().startsWith('—')) label = p.textContent.replace(/^—\s*/, '').split('·')[0].trim();
-      const SHORT = { 'PRODUCT': 'OVERVIEW', 'CAPABILITIES': 'CAPABILITIES', 'DETAILED FUNCTIONALITY': 'FUNCTIONS', 'DETAILED CALCULATION': 'THE MATH', 'PRICING': 'PRICING', 'WORKED EXAMPLE': 'EXAMPLE', 'MONTHLY LABOUR ANALYSIS': 'LABOUR', 'IMPLEMENTATION TIMELINE': 'ROLLOUT', 'YOUR NUMBERS': 'CALCULATOR', 'NEXT STEP': 'CONTACT', 'THE REST OF THE PLATFORM': 'PLATFORM' };
+      const SHORT = { 'Product': 'Overview', 'Capabilities': 'Capabilities', 'Detailed functionality': 'Functions', 'Detailed calculation': 'The math', 'Pricing': 'Pricing', 'Worked example': 'Example', 'Monthly labour analysis': 'Labour', 'Implementation timeline': 'Rollout', 'Your numbers': 'Calculator', 'Next step': 'Contact', 'The rest of the platform': 'Platform' };
       const key = Object.keys(SHORT).find(k => label.startsWith(k));
       label = key ? SHORT[key] : label.split(' ').slice(0, 1).join(' ');
       const a = document.createElement('a');
       a.href = '#' + s.id;
-      a.style.cssText = "display:flex;align-items:center;gap:10px;font:400 9px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:#57544C;transition:color .3s;";
+      a.style.cssText = "display:flex;align-items:center;gap:10px;font:400 9px/1 'JetBrains Mono',monospace;letter-spacing:.02em;color:#57544C;transition:color .3s;";
       a.innerHTML = '<span>' + String(i + 1).padStart(2, '0') + ' ' + label + '</span><span style="width:20px;height:1px;background:currentColor"></span>';
       rail.appendChild(a);
       this.railItems.push([a, s]);
@@ -973,7 +970,7 @@ initDemo() {
         this._steps.push(setTimeout(() => {
           const row = document.createElement('div');
           row.style.cssText = 'display:grid;grid-template-columns:62px 1fr;gap:10px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;';
-          row.innerHTML = '<span style="color:' + (colors[k] || '#8A8579') + ';letter-spacing:.08em">' + k + '</span><span style="color:#B8B4AA">' + v + '</span>';
+          row.innerHTML = '<span style="color:' + (colors[k] || '#8A8579') + ';letter-spacing:.02em">' + k + '</span><span style="color:#B8B4AA">' + v + '</span>';
           pipe.appendChild(row);
           requestAnimationFrame(() => { row.style.opacity = '1'; row.style.transform = 'none'; });
         }, 600 + j * 700));
@@ -1202,7 +1199,7 @@ initDemo() {
       const [k, v] = script[i++];
       const row = document.createElement('div');
       row.style.cssText = 'display:grid;grid-template-columns:80px 1fr;gap:10px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;';
-      row.innerHTML = '<span style="color:' + colors[k] + ';letter-spacing:.08em">' + k + '</span><span style="color:#B8B4AA">' + v + '</span>';
+      row.innerHTML = '<span style="color:' + colors[k] + ';letter-spacing:.02em">' + k + '</span><span style="color:#B8B4AA">' + v + '</span>';
       box.appendChild(row);
       requestAnimationFrame(() => { row.style.opacity = '1'; row.style.transform = 'none'; });
       box.scrollTop = box.scrollHeight;
