@@ -165,8 +165,8 @@ app.post('/api/lead', async (req, res) => {
   const ip = req.ip || req.socket.remoteAddress || 'unknown';
   const b = req.body || {};
 
-  // honeypot: скрытое поле, которое заполняют только боты
-  if (b.hp) return res.json({ ok: true });
+  // honeypot: скрытое поле. Заполняют боты, но иногда и автозаполнение браузера,
+  // поэтому заявку не выбрасываем.
 
   const name = String(b.name || '').trim().slice(0, 200);
   const company = String(b.company || '').trim().slice(0, 200);

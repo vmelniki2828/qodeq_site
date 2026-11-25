@@ -111,15 +111,15 @@ function openLeadStore(file) {
   `);
   // колонки для TG-бота (шаг 0.3); на уже созданной базе добавляются миграцией
   const have = new Set(db.prepare(`PRAGMA table_info(leads)`).all().map((c) => c.name));
-  for (const [col, type] of [['tg_message_id', 'INTEGER'], ['taken_by', 'TEXT'], ['taken_at', 'TEXT'], ['escalated_at', 'TEXT'], ['email_check', 'TEXT']]) {
+  for (const [col, type] of [['tg_message_id', 'INTEGER'], ['taken_by', 'TEXT'], ['taken_at', 'TEXT'], ['escalated_at', 'TEXT'], ['email_check', 'TEXT'], ['suspect', 'INTEGER']]) {
     if (!have.has(col)) db.exec(`ALTER TABLE leads ADD COLUMN ${col} ${type}`);
   }
 
   const insertStmt = db.prepare(`
     INSERT INTO leads (created_at, name, company, contact, product, lang, page, ip, ua,
-      utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer, landing, attrib, calc, email_check)
+      utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer, landing, attrib, calc, email_check, suspect)
     VALUES (@created_at, @name, @company, @contact, @product, @lang, @page, @ip, @ua,
-      @utm_source, @utm_medium, @utm_campaign, @utm_content, @utm_term, @referrer, @landing, @attrib, @calc, @email_check)
+      @utm_source, @utm_medium, @utm_campaign, @utm_content, @utm_term, @referrer, @landing, @attrib, @calc, @email_check, @suspect)
   `);
 
   return {
@@ -139,6 +139,7 @@ function openLeadStore(file) {
         ip: meta.ip,
         ua: meta.ua,
         email_check: lead.emailCheck || null,
+        suspect: lead.suspect ? 1 : 0,
         utm_source: f.utm_source || null,
         utm_medium: f.utm_medium || null,
         utm_campaign: f.utm_campaign || null,
@@ -222,7 +223,7 @@ function rowToLead(r) {
   return {
     lead: {
       name: r.name, company: r.company || '', contact: r.contact, product: r.product || '',
-      lang: r.lang, calc: parse(r.calc), attrib: parse(r.attrib), emailCheck: r.email_check || '',
+      lang: r.lang, calc: parse(r.calc), attrib: parse(r.attrib), emailCheck: r.email_check || '', suspect: Boolean(r.suspect),
     },
     meta: { page: r.page, ip: r.ip, ua: r.ua, time: r.created_at },
   };

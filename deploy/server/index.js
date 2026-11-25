@@ -199,7 +199,7 @@ async function deliverLead(id, lead, meta, row) {
   let error = null;
 
   if (!mailOk) {
-    const subject = `${MAIL_SUBJECT_PREFIX}: ${lead.name}${lead.company ? ' — ' + lead.company : ''}${lead.product ? ' · ' + lead.product : ''}`;
+    const subject = `${lead.suspect ? '[возможно бот] ' : ''}${MAIL_SUBJECT_PREFIX}: ${lead.name}${lead.company ? ' — ' + lead.company : ''}${lead.product ? ' · ' + lead.product : ''}`;
     try {
       await transporter.sendMail({
         from: SMTP_FROM,
@@ -251,7 +251,11 @@ app.post('/api/lead', async (req, res) => {
   const ip = req.ip || req.socket.remoteAddress || 'unknown';
   const b = req.body || {};
 
-  if (b.hp) return res.json({ ok: true }); // honeypot: тихо "успех" для ботов
+  // honeypot: скрытое поле. Его заполняют боты, но иногда и автозаполнение браузера
+  // или менеджер паролей у живого человека. Поэтому заявку не выбрасываем, а сохраняем
+  // с пометкой «возможно бот» — в TG она придёт с ⚠️, решает человек.
+  const suspect = Boolean(b.hp);
+  if (suspect) console.log('Форма: заполнено скрытое поле (возможно бот) — заявка сохраняется с пометкой');
 
   const name = String(b.name || '').trim().slice(0, 200);
   const company = String(b.company || '').trim().slice(0, 200);
@@ -275,7 +279,7 @@ app.post('/api/lead', async (req, res) => {
     time: new Date().toISOString(),
   };
   const product = String(b.product || (b.calc && b.calc.product) || '').trim().slice(0, 120);
-  const payload = { name, company, contact, product, lang: pickLang(b.lang, b.page), calc: b.calc || {}, attrib: normalizeAttrib(b.attrib) };
+  const payload = { name, company, contact, product, lang: pickLang(b.lang, b.page), calc: b.calc || {}, attrib: normalizeAttrib(b.attrib), suspect };
 
   // несуществующий или одноразовый адрес — просим исправить, пока человек на странице
   if (looksLikeEmail(contact)) {
@@ -307,7 +311,7 @@ app.post('/api/lead', async (req, res) => {
   }
   if (!mailOk) console.error(`Заявка #${id} сохранена, письмо будет отправлено повторно`);
 
-  if (AUTOREPLY_ON && looksLikeEmail(contact)) {
+  if (AUTOREPLY_ON && !suspect && looksLikeEmail(contact)) {
     const reply = buildAutoreply(payload, { calendarUrl: CALENDAR_URL, salesEmail: NOTIFY_EMAIL });
     transporter.sendMail({
       from: AUTOREPLY_FROM,

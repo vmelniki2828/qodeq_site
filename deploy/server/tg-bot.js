@@ -133,6 +133,7 @@ function createLeadBot(opts) {
     const lines = [];
     lines.push(`🟡 <b>Заявка${id ? ' #' + id : ''}</b>${lead.product ? ' · ' + esc(lead.product) : ''}`);
     lines.push(`<b>${esc(lead.name)}</b>${lead.company ? ' — ' + esc(lead.company) : ''}`);
+    if (lead.suspect) lines.push('⚠️ <i>Возможно бот: заполнено скрытое поле антиспама (бывает и от автозаполнения браузера). Проверьте вручную.</i>');
     lines.push(`📬 ${esc(lead.contact)}`);
     const mailCheck = emailCheckLabel(lead.emailCheck);
     if (mailCheck) lines.push(`📧 Почта: ${esc(mailCheck)}`);

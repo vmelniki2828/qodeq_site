@@ -554,7 +554,6 @@
     e.preventDefault();
     if (busy) return;
     var name = f.name.value.trim(), company = f.company.value.trim(), contact = f.contact.value.trim();
-    if (f.hp.value) { msg.className = 'msg ok'; msg.textContent = T.sent; return; }
     if (!name || !contact) { msg.className = 'msg err'; msg.textContent = T.need; return; }
     busy = true; msg.className = 'msg'; msg.textContent = T.sending;
     fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },

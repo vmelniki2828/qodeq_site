@@ -844,7 +844,6 @@ const RU_DICT = {
     if (sending) return;
     var f = e.currentTarget, msg = $('[data-lead-msg]');
     var name = f.name.value.trim(), company = f.company.value.trim(), contact = f.contact.value.trim();
-    if (f.hp.value) { msg.className = 'msg ok'; msg.textContent = L('Sent.', 'Отправлено.'); return; }
     if (!name || !contact) { msg.className = 'msg err'; msg.textContent = L('Please add your name and a contact.', 'Укажите имя и контакт.'); return; }
     var m = compute();
     var url = shareUrl();
@@ -879,7 +878,7 @@ const RU_DICT = {
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'calculator', value: Math.round(m.save), currency: 'USD' });
     }).catch(function (err) {
       msg.className = 'msg err';
-      msg.textContent = (err && err.userMsg) || L('Could not send. Please email support@qodeq.net or Telegram @qodeq.', 'Не удалось отправить. Напишите на support@qodeq.net или в Telegram @qodeq.');
+      msg.textContent = (err && err.userMsg) || L('Could not send. Please email sales@qodeq.net or Telegram @qodeq.', 'Не удалось отправить. Напишите на sales@qodeq.net или в Telegram @qodeq.');
     }).then(function () { sending = false; });
   }
 
