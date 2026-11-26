@@ -39,7 +39,7 @@ window.QODEQ_CALC_PDF = (function () {
         all: 'Billing is per unit of work, never per seat. The whole monthly volume is billed at the rate of the tier it falls into. No setup fee on any product. Platform bundle (the whole platform contracted): every plan one step down — $0.25 / $0.20 / $0.18 / $0.15.'
       },
       note: 'List prices, USD, excl. VAT. Final terms are confirmed in the commercial proposal.',
-      open: 'Open and adjust this calculation online →', contacts: 'qodeq.net  ·  support@qodeq.net  ·  t.me/qodeq',
+      open: 'Open and adjust this calculation online →', contacts: 'qodeq.net  ·  support@qodeq.net  ·  t.me/Qodeq_Manager',
       file: 'QODEQ-business-case'
     },
     ru: {
@@ -63,7 +63,7 @@ window.QODEQ_CALC_PDF = (function () {
         all: 'Оплата — за единицу работы, а не за рабочее место. Весь месячный объём тарифицируется по ставке того тарифа, в который попадает. Платы за подключение нет ни на одном продукте. Platform bundle (вся платформа): каждый тариф на ступень дешевле — $0,25 / $0,20 / $0,18 / $0,15.'
       },
       note: 'Прайсовые цены, USD, без НДС. Финальные условия фиксируются в коммерческом предложении.',
-      open: 'Открыть и изменить этот расчёт онлайн →', contacts: 'qodeq.net  ·  support@qodeq.net  ·  t.me/qodeq',
+      open: 'Открыть и изменить этот расчёт онлайн →', contacts: 'qodeq.net  ·  support@qodeq.net  ·  t.me/Qodeq_Manager',
       file: 'QODEQ-biznes-keis'
     }
   };

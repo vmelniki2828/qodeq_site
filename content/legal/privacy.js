@@ -17,7 +17,7 @@ module.exports = {
     body: [
       { h2: '1. Who we are', id: 'who' },
       { p: 'The website qodeq.net is operated by QODEQ (“QODEQ”, “we”, “us”). QODEQ provides an AI support platform for iGaming operators. For this website we are the controller of your personal data.' },
-      { p: 'For any privacy question or request, write to {{mail}} or message us on Telegram at [@qodeq](https://t.me/qodeq).' },
+      { p: 'For any privacy question or request, write to {{mail}} or message us on Telegram at [@Qodeq_Manager](https://t.me/Qodeq_Manager).' },
       { p: 'This policy covers the website only. Data that our clients process through the QODEQ platform (for example, conversations with their players) is processed on the client’s behalf under a separate data processing agreement.' },
 
       { h2: '2. What data we collect', id: 'data' },
@@ -109,7 +109,7 @@ module.exports = {
     body: [
       { h2: '1. Кто мы', id: 'who' },
       { p: 'Сайтом qodeq.net управляет QODEQ («QODEQ», «мы»). QODEQ — AI-платформа поддержки для iGaming-операторов. В отношении данных, собираемых на этом сайте, мы выступаем оператором (контролёром) персональных данных.' },
-      { p: 'По любым вопросам о персональных данных пишите на {{mail}} или в Telegram [@qodeq](https://t.me/qodeq).' },
+      { p: 'По любым вопросам о персональных данных пишите на {{mail}} или в Telegram [@Qodeq_Manager](https://t.me/Qodeq_Manager).' },
       { p: 'Политика касается только сайта. Данные, которые наши клиенты обрабатывают на платформе QODEQ (например, переписку со своими игроками), обрабатываются по поручению клиента на основании отдельного соглашения об обработке данных.' },
 
       { h2: '2. Какие данные мы собираем', id: 'data' },

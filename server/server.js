@@ -207,7 +207,7 @@ app.post('/api/lead', async (req, res) => {
         from: FROM,
         to: contact,
         subject: 'QODEQ — заявка получена',
-        text: `Здравствуйте, ${name}!\n\nМы получили вашу заявку и свяжемся в течение одного рабочего дня.\nК ответу приложим персональный расчёт по вашим объёмам.\n\n— Команда QODEQ\nsupport@qodeq.net · https://t.me/qodeq`,
+        text: `Здравствуйте, ${name}!\n\nМы получили вашу заявку и свяжемся в течение одного рабочего дня.\nК ответу приложим персональный расчёт по вашим объёмам.\n\n— Команда QODEQ\nsupport@qodeq.net · https://t.me/Qodeq_Manager`,
       }).catch((err) => console.error('Автоответ:', err.message));
     }
 

@@ -18,7 +18,7 @@ const UI = {
     howKicker: '— HOW QODEQ HANDLES IT', econKicker: '— ECONOMICS', stepsKicker: '— IMPLEMENTATION', faqKicker: '— FAQ', faqTitle: 'Frequently asked questions',
     more: 'Learn more →',
     formKicker: '— REQUEST A CALCULATION', formName: 'Name', formCompany: 'Company', formContact: 'Email or Telegram', formSend: 'SEND REQUEST',
-    formNote: 'We reply within one business day. Telegram: @qodeq',
+    formNote: 'We reply within one business day. Telegram: @Qodeq_Manager',
     sending: 'Sending…', sent: 'Thanks! We’ll reply within one business day.', need: 'Please add your name and a contact.',
     fail: 'Could not send. Please message us on Telegram @qodeq.',
     relatedKicker: '— MORE SOLUTIONS',
@@ -32,7 +32,7 @@ const UI = {
     howKicker: '— КАК ЭТО РЕШАЕТ QODEQ', econKicker: '— ЭКОНОМИКА', stepsKicker: '— ВНЕДРЕНИЕ', faqKicker: '— FAQ', faqTitle: 'Частые вопросы',
     more: 'Подробнее →',
     formKicker: '— ЗАПРОСИТЬ РАСЧЁТ', formName: 'Имя', formCompany: 'Компания', formContact: 'Email или Telegram', formSend: 'ОТПРАВИТЬ ЗАЯВКУ',
-    formNote: 'Ответим в течение рабочего дня. Telegram: @qodeq',
+    formNote: 'Ответим в течение рабочего дня. Telegram: @Qodeq_Manager',
     sending: 'Отправляем…', sent: 'Спасибо! Ответим в течение рабочего дня.', need: 'Укажите имя и контакт.',
     fail: 'Не удалось отправить. Напишите нам в Telegram @qodeq.',
     relatedKicker: '— ДРУГИЕ РЕШЕНИЯ',
@@ -722,7 +722,7 @@ ${ui.resources.map(([h, l]) => `    <a href="${h}">${esc(l)}</a>`).join('\n')}
   </div>
   <div class="col">
     <span>Telegram</span>
-    <a href="https://t.me/qodeq">@qodeq</a>
+    <a href="https://t.me/Qodeq_Manager">@Qodeq_Manager</a>
   </div>
   <a class="back" href="${ui.home}">${esc(ui.footBack)}</a>
 </footer>

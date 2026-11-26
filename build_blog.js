@@ -23,7 +23,7 @@ const UI = {
     readMore: 'Read →', guides: 'ALL GUIDES', more: 'Learn more →', relatedKicker: '— MORE GUIDES', overview: 'Platform overview',
     ctaPrimary: 'GET A CALCULATION →',
     formKicker: '— REQUEST A CALCULATION', formName: 'Name', formCompany: 'Company', formContact: 'Email or Telegram', formSend: 'SEND REQUEST',
-    formNote: 'We reply within one business day. Telegram: @qodeq',
+    formNote: 'We reply within one business day. Telegram: @Qodeq_Manager',
     sending: 'Sending…', sent: 'Thanks! We’ll reply within one business day.', need: 'Please add your name and a contact.',
     fail: 'Could not send. Please message us on Telegram @qodeq.',
     footBack: '← QODEQ · AI PLATFORM FOR IGAMING', footProducts: 'Products', footBlog: 'Guides', footLegal: 'Legal', privacy: 'Privacy Policy',
@@ -41,7 +41,7 @@ const UI = {
     readMore: 'Читать →', guides: 'ВСЕ ГАЙДЫ', more: 'Подробнее →', relatedKicker: '— ДРУГИЕ ГАЙДЫ', overview: 'Обзор платформы',
     ctaPrimary: 'ПОЛУЧИТЬ РАСЧЁТ →',
     formKicker: '— ЗАПРОСИТЬ РАСЧЁТ', formName: 'Имя', formCompany: 'Компания', formContact: 'Email или Telegram', formSend: 'ОТПРАВИТЬ ЗАЯВКУ',
-    formNote: 'Ответим в течение рабочего дня. Telegram: @qodeq',
+    formNote: 'Ответим в течение рабочего дня. Telegram: @Qodeq_Manager',
     sending: 'Отправляем…', sent: 'Спасибо! Ответим в течение рабочего дня.', need: 'Укажите имя и контакт.',
     fail: 'Не удалось отправить. Напишите нам в Telegram @qodeq.',
     footBack: '← QODEQ · AI-ПЛАТФОРМА ДЛЯ IGAMING', footProducts: 'Продукты', footBlog: 'Гайды', footLegal: 'Правовая информация', privacy: 'Политика конфиденциальности',
@@ -296,7 +296,7 @@ ${POSTS.map(p => `    <a href="${pathOf(lang, p)}">${esc(p[lang].nav)}</a>`).joi
   </div>
   <div class="col">
     <span>Telegram</span>
-    <a href="https://t.me/qodeq">@qodeq</a>
+    <a href="https://t.me/Qodeq_Manager">@Qodeq_Manager</a>
   </div>
   <div class="col">
     <span>${esc(ui.footLegal)}</span>
@@ -408,7 +408,7 @@ function renderPage(page, lang) {
   const ld = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Organization', '@id': SITE + '/#org', name: 'QODEQ', url: SITE + '/', logo: SITE + '/assets/brand/logo-main.png', sameAs: ['https://t.me/qodeq'] },
+      { '@type': 'Organization', '@id': SITE + '/#org', name: 'QODEQ', url: SITE + '/', logo: SITE + '/assets/brand/logo-main.png', sameAs: ['https://t.me/Qodeq_Manager'] },
       isPillar
         ? { '@type': 'WebPage', '@id': self, url: self, name: t.title, description: t.desc, inLanguage: lang, dateModified: page.updated,
             isPartOf: { '@type': 'WebSite', name: 'QODEQ', url: SITE + '/' }, publisher: { '@id': SITE + '/#org' },

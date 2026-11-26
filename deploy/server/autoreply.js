@@ -137,7 +137,7 @@ function buildAutoreply(lead, opts = {}) {
     t.replyHint, '',
     t.agentsKicker,
     ...AGENTS.map((a) => `  ${a.name} — ${ru ? a.ru : a.en}\n  ${agentUrl(a)}`), '',
-    '— QODEQ', `${SITE} · https://t.me/qodeq`,
+    '— QODEQ', `${SITE} · https://t.me/Qodeq_Manager`,
   ].filter((x) => x != null).join('\n');
 
   // ---------- HTML ----------
@@ -254,7 +254,7 @@ function buildAutoreply(lead, opts = {}) {
       <div style="margin-top:8px;font:500 12px/1.6 ${MONO};">
         <a href="${SITE}" style="color:${C.gold};text-decoration:none;">qodeq.net</a>
         <span style="color:${C.line};">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
-        <a href="https://t.me/qodeq" style="color:${C.gold};text-decoration:none;">t.me/qodeq</a>
+        <a href="https://t.me/Qodeq_Manager" style="color:${C.gold};text-decoration:none;">t.me/Qodeq_Manager</a>
       </div>
     </td></tr>
   </table>
