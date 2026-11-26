@@ -879,7 +879,7 @@ const RU_DICT = {
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'calculator', value: Math.round(m.save), currency: 'USD' });
     }).catch(function (err) {
       msg.className = 'msg err';
-      msg.textContent = (err && err.userMsg) || L('Could not send. Please email sales@qodeq.net or Telegram @qodeq.', 'Не удалось отправить. Напишите на sales@qodeq.net или в Telegram @qodeq.');
+      msg.textContent = (err && err.userMsg) || L('Could not send. Please email sales@qodeq.net or Telegram @Qodeq_Manager.', 'Не удалось отправить. Напишите на sales@qodeq.net или в Telegram @Qodeq_Manager.');
     }).then(function () { sending = false; });
   }
 
